@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory 
+    	android:title="@string/preference_category_picture_size">
+		<ListPreference 
+			android:key="@string/preference_landscape_columns_key" 
+			android:title="@string/preference_landscape_columns_title"
+		 	android:summary="@string/preference_landscape_columns_summary" 
+		 	android:entries="@array/columns_labels"
+		 	android:entryValues="@array/columns_values" 
+		 	android:dialogTitle="@string/preference_landscape_columns_title"
+		 	android:persistent="true" android:defaultValue="0" />	
+		<ListPreference 
+			android:key="@string/preference_portrait_columns_key" 
+			android:title="@string/preference_portrait_columns_title"
+		 	android:summary="@string/preference_portrait_columns_summary" 
+		 	android:entries="@array/columns_labels"
+		 	android:entryValues="@array/columns_values" 
+		 	android:dialogTitle="@string/preference_portrait_columns_title"
+		 	android:persistent="true" android:defaultValue="0" />	 		
+		<ListPreference 
+			android:key="@string/preference_fontsize_key" 
+			android:title="@string/preference_fontsize_title"
+		 	android:summary="@string/preference_fontsize_summary" 
+		 	android:entries="@array/title_font_size_labels"
+		 	android:entryValues="@array/title_font_size_values" 
+		 	android:dialogTitle="@string/preference_fontsize_title"
+		 	android:persistent="true" android:defaultValue="17f" />			 	 	        
+    </PreferenceCategory>
+    <PreferenceCategory 
+    	android:title="@string/preference_category_audio">
+		<CheckBoxPreference 
+			android:key="@string/preference_category_audio_key" 
+			android:title="@string/preference_category_audio_title"
+		 	android:summary="@string/preference_category_audio_summary" 
+		 	android:persistent="true" android:defaultValue="true" />
+		<CheckBoxPreference 
+			android:key="@string/preference_word_audio_key" 
+			android:title="@string/preference_word_audio_title"
+		 	android:summary="@string/preference_word_audio_summary" 
+		 	android:persistent="true" android:defaultValue="true" />	
+		<CheckBoxPreference 
+			android:key="@string/preference_word_progress_key" 
+			android:title="@string/preference_word_progress_title"
+		 	android:summary="@string/preference_word_progress_summary" 
+		 	android:persistent="true" android:defaultValue="true" />		 										 		 	        
+    </PreferenceCategory>       
+    <PreferenceCategory 
+    	android:title="@string/preference_category_sentence_building">
+		<CheckBoxPreference 
+			android:key="@string/preference_sentence_building_key" 
+			android:title="@string/preference_sentence_building_title"
+		 	android:summary="@string/preference_sentence_building_summary" 
+		 	android:persistent="true" android:defaultValue="true" />
+		<ListPreference 
+			android:key="@string/preference_sentence_bar_size_key" 
+			android:title="@string/preference_sentence_bar_size_title"
+		 	android:summary="@string/preference_sentence_bar_size_summary" 
+		 	android:entries="@array/sentence_board_size_labels"
+		 	android:entryValues="@array/sentence_board_size_values" 
+		 	android:dialogTitle="@string/preference_sentence_bar_size_title"
+		 	android:persistent="true" android:defaultValue="@string/preference_sentence_bar_size_default" />
+		<ListPreference 
+			android:key="@string/preference_sentence_bar_word_limit_key" 
+			android:title="@string/preference_sentence_bar_word_limit_title"
+		 	android:summary="@string/preference_sentence_bar_word_limit_summary" 
+		 	android:entries="@array/sentence_board_word_limit_labels"
+		 	android:entryValues="@array/sentence_board_word_limit_values" 
+		 	android:dialogTitle="@string/preference_sentence_bar_word_limit_title"
+		 	android:persistent="true" android:defaultValue="@string/preference_sentence_bar_word_limit_default" />										 		 	        
+    </PreferenceCategory>     
+    <PreferenceCategory 
+    	android:title="@string/preference_category_other">
+		<CheckBoxPreference 
+			android:key="@string/preference_screen_keep_on_key" 
+			android:title="@string/preference_screen_keep_on_title"
+		 	android:summary="@string/preference_screen_keep_on_summary" 
+		 	android:persistent="true" android:defaultValue="false" />			
+		<CheckBoxPreference 
+			android:key="@string/preference_access_code_key" 
+			android:title="@string/preference_access_code_title"
+		 	android:summary="@string/preference_access_code_summary" 
+		 	android:persistent="true" android:defaultValue="true" />		
+		<CheckBoxPreference 
+			android:key="@string/preference_backbutton_disable_key" 
+			android:title="@string/preference_backbutton_disable_title"
+		 	android:summary="@string/preference_backbutton_disable_summary" 
+		 	android:persistent="true" android:defaultValue="false" />		 				
+		<ListPreference 
+			android:key="@string/preference_scroll_speed_key" 
+			android:title="@string/preference_scroll_speed_title"
+		 	android:summary="@string/preference_scroll_speed_summary" 
+		 	android:entries="@array/scroll_speed_labels"
+		 	android:entryValues="@array/scroll_speed_values" 
+		 	android:dialogTitle="@string/preference_scroll_speed_title"
+		 	android:persistent="true" android:defaultValue="@string/preference_scroll_speed_default" />				 	
+			 		 	        
+    </PreferenceCategory>       
+    
+</PreferenceScreen>

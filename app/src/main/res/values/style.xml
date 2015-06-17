@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="picture_text">
+		<item name="android:textSize">17sp</item>
+		<item name="android:textColor">@color/jabtalkWhite</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_centerHorizontal">true</item>
+		<item name="android:layout_alignParentTop">true</item>	
+		<item name="android:layout_marginTop">2dp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:gravity">center</item>
+	</style>
+	
+	<style name="picture">
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_centerHorizontal">true</item>
+		<item name="android:padding">5dp</item>
+		<item name="android:layout_below">@id/title</item>	
+	</style>	
+	
+	<style name="jabtalk_button">	    
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:background">@drawable/button_clickable</item>
+		<item name="android:textColor">@color/jabtalkBlack</item>
+	</style>		
+	
+</resources>

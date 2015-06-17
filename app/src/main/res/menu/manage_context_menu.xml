@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/context_menu_item_convert"
+          android:title="@string/menu_convert" />     
+    <item android:id="@+id/context_menu_item_edit"
+          android:title="@string/menu_edit" />             
+    <item android:id="@+id/context_menu_item_delete"
+          android:title="@string/menu_delete" />
+    <item android:id="@+id/context_menu_item_hide"
+          android:title="@string/menu_hide" />    
+    <item android:id="@+id/context_menu_item_move"
+     android:title="@string/dialog_title_item_move">
+	    <menu>     
+		    <item android:id="@+id/context_menu_item_move_up"
+		          android:title="@string/dialog_item_move_up"/>  
+		    <item android:id="@+id/context_menu_item_move_down"
+		          android:title="@string/dialog_item_move_down" />                                                                          
+		    <item android:id="@+id/context_menu_item_move_beginning"
+		          android:title="@string/dialog_item_move_beginning" />
+		    <item android:id="@+id/context_menu_item_move_end"
+		          android:title="@string/dialog_item_move_end"/>
+		</menu>                         
+	</item>
+    <item android:id="@+id/context_menu_item_copy"
+          android:title="@string/menu_copy" />
+    <item android:id="@+id/context_menu_item_cut"
+          android:title="@string/menu_cut" />
+    <item android:id="@+id/context_menu_item_paste"
+          android:title="@string/menu_paste" /> 
+</menu>

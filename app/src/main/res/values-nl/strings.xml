@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Browser</string>
+    <string name="preference_activity">Voorkeuren</string>    
+    <string name="button_finish">Voltooien</string>
+    <string name="button_cancel">Annuleer</string>
+    <string name="button_delete">Verwijder</string>
+    <string name="button_yes">Ja</string>
+    <string name="button_no">Neen</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Sluit</string>
+    <string name="button_speak">Spreek</string>
+    <string name="button_clear">Wissen</string>            
+	<string name="dialog_title_new_features">Nieuwe JABtalk Functies</string>
+    <string name="dialog_title_delete_confirmation">Verwijdering bevestiging</string>
+    <string name="dialog_message_delete_category">Bent u zeker dat u deze categorie wilt verwijderen en tevens ook alle erbijhorende subcategorieën en woorden</string>
+    <string name="dialog_message_delete_word">Bent u zeker dat u dit woord wilt verwijderen?</string>
+    <string name="dialog_message_restoring">Gegevens herstellen&#8230;</string>
+    <string name="dialog_message_backup">Back-up van gegevens&#8230;</string>
+    <string name="dialog_message_saving">Wijzigingen opslaan&#8230;</string>
+    <string name="dialog_title_error">Fout</string>
+    <string name="empty_category"><b>Welkom bij JABtalk!</b>\n\n<b><u>Tik hier</u></b> om uw eigen woorden en categorieën toe te voegen.</string>
+    <string name="empty_word">Er zijn geen woorden geconfigureerd voor deze categorie. Om een woord toe te voegen, <b><u>Tik hier</u></b>.</string>
+    <string name="websiteNeedHelp">Heeft u help nodig?\nBezoek onze website op <b>www.jabstone.com/videos</b> voor handleidingen.</string>
+    <string name="copy_error_source_not_found">Het item dat u wilt kopiëren kon niet worden gevonden.</string>
+    <string name="cut_error_invalid_target">Sorry, u kan een item niet verplaatsen naar zichzelf.</string>
+    <string name="cut_error_invalid_target_for_source">Sorry, u kan een woord niet verplaatsen naar de categorie lijst</string>
+    <string name="sentence_board_tip">Sleep woord naar omlaag om het te verwijderen</string>    
+	<string name="dialog_title_item_move">Verplaats&#8230;</string>
+    <string name="dialog_item_move_up">Omhoog verplaatsen</string>
+    <string name="dialog_item_move_down">Omlaag verplaatsen</string>
+    <string name="dialog_item_move_beginning">Naar het begin verplaatsen</string>
+    <string name="dialog_item_move_end">Naar het einde verplaatsen</string>    
+<!--  END: COMMON STRINGS -->    
+    
+    
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Start Opname</string>
+    <string name="button_stop_recording">Stop Opname</string>	    
+    <string name="manage_activity_title">Beheer Items</string>
+    <string name="manage_activity_hidden_item">Verbergen</string>
+    <string name="manage_activity_category_actions">Categorie Acties</string>    
+    <string name="ideogram_activity_title_insert_category">Nieuwe categorie toevoegen</string>
+    <string name="ideogram_activity_title_update_category">Categorie bewerken</string>
+    <string name="ideogram_activity_title_insert_word">Nieuw woord toevoegen</string>
+    <string name="ideogram_activity_title_update_word">Woord bewerken</string>
+    <string name="ideogram_activity_category_label_hint">Bepaal categorielabel</string>    
+    <string name="ideogram_activity_word_label_hint">Bepaal label van het woord</string>
+    <string name="ideogram_activity_phrase_hint">Bepaal de zin die wordt getoond</string>
+    <string name="ideogram_activity_check_hidden">Dit item niet tonen</string>       
+    <string name="ideogram_activity_word_label">Woord label</string>
+    <string name="ideogram_activity_button_preview">Klik op afbeelding voor voorbeeld</string>       
+    <string name="dialog_title_image_source">Selecteer beeldbron</string>
+    <string name="dialog_item_imagesource_camera">Camera</string>
+    <string name="dialog_item_import">Importeren van apparaat</string>
+    <string name="dialog_item_import_web">Downloaden van Internet</string>
+    <string name="dialog_item_imagesource_text">Tekst knop</string>
+    <string name="dialog_title_audio_source">Selecteer audio bron</string>
+    <string name="dialog_item_audiosource_recorder">Audiorecorder</string>
+    <string name="dialog_item_audiosource_synthesizer">Spraaksynthesizer</string>
+    <string name="dialog_title_picture_gallery">Selecteer Afbeelding</string>
+    <string name="dialog_title_save_results">Resultaten opslaan</string>
+    <string name="dialog_message_invalid_label">Vul een woord of categorielabel in</string>
+    <string name="dialog_message_invalid_picture">Selecteer een afbeelding</string>    
+	<string name="dialog_title_invalid_field">Ongeldige input</string>
+	<string name="dialog_message_invald_image_format">Het geselecteerde beeldformaat is niet compatibel met JABtalk. Selecteer een ander bestand.</string>
+	<string name="dialog_message_invald_audio_format">Het geselecteerde audio-formaat is niet compatibel met JABtalk. Selecteer een ander bestand.</string>
+	<string name="dialog_title_missing_speech_data">Ontbrekende taalbestanden</string>	
+	<string name="dialog_message_missing_speech_data">Het lijkt erop dat uw apparaat niet over de vereiste Tekst-naar-Spraak taalbestanden beschikt (niet geïnstalleerd). Wilt u deze nu installeren?</string>			
+    <string name="dialog_item_add_category">Nieuwe categorie toevoegen</string>        
+    <string name="dialog_item_add_word">Woord toevoegen</string>
+    <string name="dialog_title_restore_dataset">Gegevens herstellen</string>
+    <string name="dialog_message_restore_confirmation">Het herstellen van een dataset zal uw huidige foto\'s en audio-bestanden vervangen. Weet u zeker dat u wilt doorgaan?</string>
+    <string name="dialog_title_backup_dataset">Back-up gegevens</string>
+    <string name="dialog_message_backup_confirmation">Een back-up van uw gegevens zal uw bestaande backup vervangen. Weet u zeker dat u wilt doorgaan?</string>
+    <string name="dialog_title_backup_results">Back-up Resultaten</string>
+    <string name="dialog_title_restore_results">Herstellen Resultaten</string>
+    <string name="dialog_message_backup_success">Uw dataset is opgeslagen naar het bestand\r\n%1s/jabtalk.bak</string>
+    <string name="dialog_title_manage_challenge">Toegang Beheer scherm</string>       
+    <string name="dialog_message_manage_unlock_question">Vul %1$s in om het Beheer scherm te openen</string>
+    <string name="dialog_message_manage_challenge_incorrect">Onjuist. Probeer het opnieuw.</string>     
+    <string name="dialog_message_restore_file_not_exist">JABtalk vond geen back-upbestand om uw gegevens te herstellen. Zorg ervoor dat uw back-up bestand opgeslagen is in\r\n%1$s/jabtalk.bak.</string>
+    <string name="dialog_message_leave_screen">Weet u zeker dat u het Beheer scherm wilt afsluiten?</string>
+    <string name="dialog_title_exit_warning">Exit Bevestiging</string>
+    <string name="dialog_message_browser_unsupported_image_type">Het geselecteerde beeldformaat is niet compatibel met JABtalk. Selecteer een ander beeld.</string>
+    <string name="dialog_item_no_audio">Geen Audio</string>          
+<!-- END: MANAGEMENT SCREENS -->    
+    
+        
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	<string name="progress_loading">Aan het laden&#8230;</string>
+	<string name="progress_downloading_image">Afbeelding aan het downloaden&#8230;</string>	
+	<string name="download_hint">Houd uw vinger op de afbeelding om de optie Afbeelding Downloaden te tonen</string> 
+	<string name="google_image_search_url">http://www.google.com/search?hl=nl&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; nl-nl; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string>	
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	
+	
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Geschiedenis</string>    
+    <string name="menu_log">Log</string>
+    <string name="menu_clear_history">Geschiedenis wissen</string>
+    <string name="menu_clear_log">Log wissen</string>   
+    <string name="menu_manage">Beheer</string>
+    <string name="menu_backup">Back-up</string>
+    <string name="menu_restore">Herstellen</string>
+    <string name="menu_delete">Wissen</string>
+    <string name="menu_hide">Verberg</string>
+    <string name="menu_unhide">Zichtbaar maken</string>
+    <string name="menu_edit">Editeren</string>
+    <string name="menu_copy">Kopiëren</string>
+    <string name="menu_cut">Knippen</string>
+    <string name="menu_paste">Plakken</string>
+    <string name="menu_convert">Omzetten naar subcategorie</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_preferences">Voorkeuren</string>	
+    <string name="menu_download_image">Afbeelding Downloaden</string>    
+    <string name="menu_add_ideogram">Toevoegen</string>
+    <string name="menu_edit_ideogram">Uitgeven</string>      
+<!--  END: MENU STRINGS -->
+    
+    
+<!--  BEGIN: PREFERENCES -->    
+	<string name="preference_category_picture_size">Foto Voorkeuren</string>
+	<string name="preference_category_sentence_building">Voorkeuren opmaak zin</string>
+	<string name="preference_category_audio">Audio Voorkeuren</string>
+	<string name="preference_category_other">Andere Voorkeuren</string>
+    <string name="preference_landscape_columns_title">Beeldgrootte - Landschap modus</string>
+    <string name="preference_portrait_columns_title">Beeldgrootte - Portret modus</string>
+    <string name="preference_landscape_columns_key">landschap_kolommen</string>
+    <string name="preference_portrait_columns_key">portret_kolommen</string>
+    <string name="preference_landscape_columns_summary">Aantal foto\'s weer te geven in een rij wanneer het apparaat in landschap-modus (horizontaal gedraaid) is ingesteld. Lagere waarden produceren een grotere foto. Grotere waarden produceren een kleinere foto.</string>
+    <string name="preference_portrait_columns_summary">Aantal foto\'s weer te geven in een rij wanneer het apparaat in portret-modus (verticaal gedraaid) is ingesteld. Lagere waarden produceren een grotere foto. Grotere waarden produceren een kleinere foto.</string>   
+   	<string name="preference_speech_resource_key">spraak_toepassing</string>
+   	<string name="preference_new_features_key">nieuwe_functies</string>
+    <string name="preference_sentence_building_title">Zinsbouw mogelijk maken</string>
+    <string name="preference_sentence_building_key">zinsbouw</string>
+    <string name="preference_sentence_building_summary">Zinsbouw mogelijk maken op het hoofdscherm</string>
+	<string name="preference_scroll_speed_title">Scroll Snelhheid</string>
+    <string name="preference_scroll_speed_key">scroll_snelheid</string>
+    <string name="preference_scroll_speed_summary">Regelt de foto scrollsnelheid wanneer men het scherm aanraakt. Hoe groter de waarde, des te sneller de scrollsnelheid.</string>
+    <string name="preference_scroll_speed_default">.5</string>
+	<string name="preference_sentence_bar_size_title">Grootte van de zin balk</string>
+    <string name="preference_sentence_bar_size_key">zin_balk</string>
+    <string name="preference_sentence_bar_size_summary">Pas de grootte van de afbeeldingen aan in de zin balk. De waarden zijn relatief ten aanzien van de beeldafmetingen op het woord rooster.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Beperking aantal woorden in zin</string>
+    <string name="preference_sentence_bar_word_limit_key">zin_woord_limiet</string>
+    <string name="preference_sentence_bar_word_limit_summary">Controleert het aantal woorden die tegelijkertijd kunnen verschijnen op een zin balk.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Categorie Selectie Geluid</string>
+    <string name="preference_category_audio_key">categorie_audio</string>
+    <string name="preference_category_audio_summary">Speel audio wanneer categorie is geselecteerd</string>
+    <string name="preference_word_audio_title">Woord Selectie Geluid</string>
+    <string name="preference_word_audio_key">woord_audio</string>
+    <string name="preference_word_audio_summary">Speel audio wanneer woord is geselecteerd</string>     
+    <string name="preference_access_code_title">Toegangscode verplicht</string>
+    <string name="preference_access_code_key">Toegangs_code</string>
+    <string name="preference_access_code_summary">Deze optie verplicht u een 4 digit nummer in te brengen wanneer u het beheerscherm wilt openen.</string>
+    <string name="preference_backbutton_disable_title">Uitschakelen Terug Knop</string>
+    <string name="preference_backbutton_disable_key">terug_knop</string>
+    <string name="preference_backbutton_disable_summary">Het selecteren van deze optie voorkomt dat JABtalk afgesloten wordt wanneer de Terug knop is geselecteerd in het hoofdscherm.</string>
+    <string name="preference_fontsize_title">Afbeelding Label Lettergrootte</string>
+    <string name="preference_fontsize_key">titel_lettergrootte</string>
+    <string name="preference_fontsize_summary">Pas de label lettergrootte aan voor woorden en categorieën.</string>
+    <string name="preference_screen_keep_on_key">scherm_aan</string>    
+    <string name="preference_screen_keep_on_title">Houd het scherm zichtbaar</string>
+    <string name="preference_screen_keep_on_summary">Voorkomt dat het scherm wordt uitgeschakeld. Deze optie inschakelen kan een negatieve invloed hebben op de levensduur van de batterij.</string>
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Inschakelen Weergave Phrase</string>
+    <string name="preference_word_progress_summary">Dialoog toont woord zin vooruitgang venster als audio wordt afgespeeld.</string>                
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Klein</item>
+        <item>Medium</item>
+        <item>Groot</item>
+    </string-array>
+    
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>     
+    
+    <string-array name="title_font_size_labels">
+        <item>kleinst</item>
+        <item>kleiner</item>
+        <item>klein</item>
+        <item>normaal</item>
+        <item>groter</item>
+        <item>groter</item>
+        <item>grootst</item>
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>17f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>       
+    
+    <string-array name="scroll_speed_labels">
+        <item>langzaamste</item>
+        <item>langzamer</item>
+        <item>normaal</item>
+        <item>sneller</item>
+        <item>snelste</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>       
+    
+<!--  BEGIN: ARRAY VALUES -->
+    
+</resources>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Browser</string>
+    <string name="preference_activity">Einstellungen</string>    
+    <string name="button_finish">Fertig</string>
+    <string name="button_cancel">Abbrechen</string>
+    <string name="button_delete">Löschen</string>
+    <string name="button_yes">Ja</string>
+    <string name="button_no">Nein</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Schliessen</string>
+    <string name="button_speak">Sprechen</string>
+    <string name="button_clear">Entfernen</string>            
+	<string name="dialog_title_new_features">Neue JABtalk Funktionen</string>
+    <string name="dialog_title_delete_confirmation">Löschen bestätigen</string>
+    <string name="dialog_message_delete_category">Sind Sie sicher, das Sie diese Kategorie mit allen integrierten Unterkategorien und Wörtern löschen möchten?</string>
+    <string name="dialog_message_delete_word">Sind Sie sicher, das Sie dieses Wort löschen möchten?</string>
+    <string name="dialog_message_restoring">Datenrücksicherung&#8230;</string>
+    <string name="dialog_message_backup">Datensicherung&#8230;</string>
+    <string name="dialog_message_saving">Änderungen speichern&#8230;</string>
+    <string name="dialog_title_error">Fehler</string>
+    <string name="empty_category"><b>Willkommen bei JABtalk!</b>\n\n<b><u>Tippen Sie hier,</u></b> um eigene Wörter und Kategorien einzufügen.</string>
+    <string name="empty_word">Es sind keine Wörter in dieser Kategorie vorhanden! <b><u>Tippen Sie hier,</u></b> Um neue Wörter hinzuzufügen.</string>
+    <string name="websiteNeedHelp">Benötigen Sie Hilfe? Besuchen Sie unsere Videobeschreibungen auf <b>www.jabstone.com/videos</b>. Diese Webseite ist zwar komplett in Englisch, erklärt aber alle Punkte sehr gut und verständlich durch diese Videos.</string>
+    <string name="copy_error_source_not_found">Den Eintrag, den Sie kopieren wollten, konnte nicht gefunden werden.</string>
+    <string name="cut_error_invalid_target">Oops&#8230;, Sie können keinen Eintrag in sich selber verschieben.</string>
+    <string name="cut_error_invalid_target_for_source">Oops&#8230;, Sie können kein Wort in eine Kategorie-Liste verschieben.</string>
+    <string name="sentence_board_tip">Zum Entfernen, Wort nach unten ziehen.</string>    
+	<string name="dialog_title_item_move">Verschieben&#8230;</string>
+    <string name="dialog_item_move_up">nach oben verschieben</string>
+    <string name="dialog_item_move_down">nach unten verschieben</string>
+    <string name="dialog_item_move_beginning">Zum Anfang verschieben</string>
+    <string name="dialog_item_move_end">Zum Ende verschieben</string>    
+<!--  END: COMMON STRINGS -->    
+    
+    
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Aufnahme starten</string>
+    <string name="button_stop_recording">Aufnahme stoppen</string>	    
+    <string name="manage_activity_title">Einträge verwalten</string>
+    <string name="manage_activity_hidden_item">Ansicht verbergen</string>
+    <string name="manage_activity_category_actions">Kategorie Aktionen</string>    
+    <string name="ideogram_activity_title_insert_category">Neue Kategorie hinzufügen</string>
+    <string name="ideogram_activity_title_update_category">Kategorie bearbeiten</string>
+    <string name="ideogram_activity_title_insert_word">Neues Wort hinzufügen</string>
+    <string name="ideogram_activity_title_update_word">Wort bearbeiten</string>   
+    <string name="ideogram_activity_category_label_hint">Kategoriebezeichnung eingeben</string>    
+    <string name="ideogram_activity_word_label_hint">Wortbezeichnung eingeben</string>
+    <string name="ideogram_activity_phrase_hint">Bildschirmanzeige eingeben</string>
+    <string name="ideogram_activity_check_hidden">Diesen Eintrag aus Ansicht verbergen</string>    
+    <string name="ideogram_activity_word_label">Wortbezeichnung</string>
+    <string name="ideogram_activity_button_preview">Für Vorschau - Bild klicken</string>       
+    <string name="dialog_title_image_source">Bildquelle wählen</string>
+    <string name="dialog_item_imagesource_camera">Kamera</string>
+    <string name="dialog_item_import">Importieren vom Gerät</string>
+    <string name="dialog_item_import_web">Download vom Internet</string>
+    <string name="dialog_item_imagesource_text">Text Schaltfläche</string>
+    <string name="dialog_title_audio_source">Audioquelle wählen</string>
+    <string name="dialog_item_audiosource_recorder">Audio-Aufnahme</string>
+    <string name="dialog_item_audiosource_synthesizer">Sprach Synthesizer TTS</string>
+    <string name="dialog_title_picture_gallery">Bild wählen</string>
+    <string name="dialog_title_save_results">Speicherergebnis</string>
+    <string name="dialog_message_invalid_label">Geben Sie bitte ein Wort oder eine Kategorie ein</string>
+    <string name="dialog_message_invalid_picture">Wählen Sie bitte ein Bild</string>    
+	<string name="dialog_title_invalid_field">Falsches Feld</string>
+	<string name="dialog_message_invald_image_format">Das gewählte Bild-Format wird nicht von JABtalk unterstützt. Wählen Sie bitte eine andere Datei.</string>
+	<string name="dialog_message_invald_audio_format">Das gewählte Audio-Format wird nicht von JABtalk unterstützt. Wählen Sie bitte eine andere Datei.</string>
+	<string name="dialog_title_missing_speech_data">Sprach-Dateien fehlen</string>	
+	<string name="dialog_message_missing_speech_data">Es scheint, das auf Ihrem Gerät die notwendigen \'Text-In-Sprache\' - Sprachdateien (TTS) nicht installiert sind. Wollen Sie diese jetzt installieren?</string>			
+    <string name="dialog_item_add_category">Neue Kategorie hinzufügen</string>        
+    <string name="dialog_item_add_word">Wort hinzufügen</string>
+    <string name="dialog_title_restore_dataset">Datenrücksicherung</string>
+    <string name="dialog_message_restore_confirmation">Die Datenrücksicherung ersetzt alle Daten, Bilder und Audio-Dateien. Möchten Sie wirklich fortfahren? </string>
+    <string name="dialog_title_backup_dataset">Datensicherung</string>
+    <string name="dialog_message_backup_confirmation">Die Datensicherung überschreibt die bestehende Sicherungsdatei.Möchten Sie wirklich fortfahren?</string>
+    <string name="dialog_title_backup_results">Datensicherungsergebnis</string>
+    <string name="dialog_title_restore_results">Datenrücksicherungsergebnis</string>
+    <string name="dialog_message_backup_success">Die Sicherung wurde in der Datei %1$s/jabtalk.bak abgelegt.</string>
+    <string name="dialog_title_manage_challenge">Zugang Verwaltungsansicht</string>       
+    <string name="dialog_message_manage_unlock_question">Bitte geben Sie diese Nummer %1$s als Zugangskontrolle ein.</string>
+    <string name="dialog_message_manage_challenge_incorrect">Falsche Eingabe. Bitte probieren Sie es nochmal.</string>     
+    <string name="dialog_message_restore_file_not_exist">JABtalk konnte keine Datensicherungsdatei auf Ihrer SDCard finden. Bitte stellen Sie sicher das sich die Datei (jabtalk.bak) im Stammverzeichnis der Speicherkarte befindet (%1$s)</string>
+    <string name="dialog_message_leave_screen">Sind Sie sicher, das Sie die Verwaltungsansicht verlassen möchten?</string>
+    <string name="dialog_title_exit_warning">Bestätigung</string>
+    <string name="dialog_message_browser_unsupported_image_type">Das gewählte Bild-Format wird nicht von JABtalk unterstützt. Bitte wählen Sie ein anderes Bild.</string>
+    <string name="dialog_item_no_audio">Nein Audio</string> 
+<!-- END: MANAGEMENT SCREENS -->    
+    
+        
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	<string name="progress_loading">Laden&#8230;</string>
+	<string name="progress_downloading_image">Bild download. Bitte warten&#8230;</string>	
+	<string name="download_hint">Berühren und halten Sie Bild Download Image Option anzuzeigen</string>
+	<string name="google_image_search_url">http://www.google.com/search?hl=de&amp;site=imghp&amp;tbm=isch&amp;source=hp&amp;q=</string>
+	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; de-de; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string> 
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	
+	
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Verlauf</string>    
+    <string name="menu_log">Log</string>
+    <string name="menu_clear_history">Verlauf leeren</string>
+    <string name="menu_clear_log">Log leeren</string>
+    <string name="menu_manage">Verwalten</string>
+    <string name="menu_backup">Datensicherung</string>
+    <string name="menu_restore">Datenrücksicherung</string>
+    <string name="menu_delete">Löschen</string>
+    <string name="menu_hide">Unsichtbar</string>
+    <string name="menu_unhide">Sichtbar</string>
+    <string name="menu_edit">Ändern</string>
+    <string name="menu_copy">Kopieren</string>
+    <string name="menu_cut">Ausschneiden</string>
+    <string name="menu_paste">Einfügen</string>
+    <string name="menu_convert">Konvertieren in Unterkategorie</string>
+    <string name="menu_help">Hilfe</string>
+    <string name="menu_preferences">Einstellungen</string>	
+    <string name="menu_download_image">Bild Download</string>  
+    <string name="menu_add_ideogram">Hinzufügen</string>
+    <string name="menu_edit_ideogram">Bearbeiten</string>          
+<!--  END: MENU STRINGS -->
+    
+    
+<!--  BEGIN: PREFERENCES -->    
+	<string name="preference_category_picture_size">Bild Einstellungen</string>
+	<string name="preference_category_sentence_building">Satz-Bildung Einstellungen </string>
+	<string name="preference_category_audio">Audio Einstellungen </string>
+	<string name="preference_category_other">Sonstige Einstellungen </string>
+    <string name="preference_landscape_columns_title">Bildgröße im Querformat</string>
+    <string name="preference_portrait_columns_title">Bildgröße im Hochformat</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">portrait_colunms</string>
+    <string name="preference_landscape_columns_summary">Anzahl der gezeigten Bilder in einer Reihe, wenn Ihr Gerät im Querformat (horizontal) gehalten wird. Hohe Werte ergeben eine kleine Darstellung der Bilder, kleinere Werte ergeben eine große Darstellung der Bilder.</string>
+    <string name="preference_portrait_columns_summary"> Anzahl der gezeigten Bilder in einer Reihe, wenn Ihr Gerät im Hochformat (vertikal) gehalten wird. Hohe Werte ergeben eine kleine Darstellung der Bilder, kleinere Werte ergeben eine große Darstellung der Bilder.</string>   
+   	<string name="preference_speech_resource_key">speech_resource</string>
+   	<string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Satz-Bildung auswählen</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Satz-Bildung auf Hauptansicht einschalten</string>
+	<string name="preference_scroll_speed_title">Scroll Geschwindigkeit</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">Scroll-Geschwindigkeit der Bilder, wenn man über den Bildschirm wischt. Je größer der Wert, desto schneller die Geschwindigkeit</string>
+    <string name="preference_scroll_speed_default">.5</string>
+	<string name="preference_sentence_bar_size_title">Größe der Satz-Bildung Anzeige</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Bildgröße ber der Satz-Bildungsanzeige. Die Werte stehen in Relation zu den \'normalen\' Bildern.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Wörter pro Satz</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">Mit diese Angabe legen Sie fest, wie viele Wörter auf einmal in der Satz-Bildungsanzeige abgelegt werden können.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Kategorie Sound Wiedergabe</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">Audio abspielen, wenn eine Kategorie gewählt wird</string>
+    <string name="preference_word_audio_title">Wort Sound Wiedergabe</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">Audio abspielen, wenn ein Wort gewählt wird</string>     
+    <string name="preference_access_code_title">Eingabe des Zugangscode</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_summary">Mit dieser Einstellung ist es notwendig einen vierstelligen Code einzugeben, wenn Sie in die Verwaltungsansicht möchten.</string>
+    <string name="preference_backbutton_disable_title">\'Zurück\'-Schaltfläche ausschalten</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_backbutton_disable_summary">Wenn Sie diese Option wählen, können Sie JABtalk nicht mit der \'Zurück\'-Schaltfläche beenden.</string>
+    <string name="preference_fontsize_title">Schriftgröße Bildbezeichnung</string>
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_fontsize_summary">Schrftgröße für Wörter und Kategorien.</string>
+    <string name="preference_screen_keep_on_key">screen_on</string>    
+    <string name="preference_screen_keep_on_title">Bildschirm nicht abschalten</string>
+    <string name="preference_screen_keep_on_summary">Diese Einstellung verhindert das Abschalten des Bildschirmes. Die Nutzung dieser Funktion kann sich negativ auf die Batterielaufleistung auswirken!</string>    
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Aktivieren Anzeige Phrase</string>
+    <string name="preference_word_progress_summary">Zeigt Wort-Satz Fortschritt Dialogfenster, wenn der Ton gespielt.</string>            
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
+    </string-array>
+    
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>     
+    
+    <string-array name="title_font_size_labels">
+        <item>sehr klein</item>
+        <item>kleiner</item>
+        <item>klein</item>
+        <item>normal</item>
+        <item>groß</item>
+        <item>größer</item>
+        <item>sehr groß</item>
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>17f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>       
+    
+    <string-array name="scroll_speed_labels">
+        <item>langsamsten</item>
+        <item>langsamer</item>
+        <item>normal</item>
+        <item>beschleunigt</item>
+        <item>am schnellsten</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>       
+
+<!--  BEGIN: ARRAY VALUES -->
+    
+</resources>

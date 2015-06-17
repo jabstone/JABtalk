@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollFeatures"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo_engraved"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/newFeatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/jabtalkCategoryButton"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/newFeatures" 
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/closeButton"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_close"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/jabtalkSentenceBackground" >
+
+    <RelativeLayout
+        android:id="@+id/sentenceContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/sentence_container_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="5dp" >
+
+        <LinearLayout
+            android:id="@+id/sentence_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/jabtalkSentenceBackground"
+            android:orientation="horizontal" />
+
+        <com.jabstone.jabtalk.basic.widgets.AutoResizeTextView
+            android:id="@+id/sentenceBoardTip"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/sentence_buttons"
+            android:gravity="center"
+            android:text="@string/sentence_board_tip"
+            android:textColor="@color/jabtalkSentenceTip"
+            android:textSize="26sp"
+            android:visibility="visible" />
+
+        <HorizontalScrollView
+            android:id="@+id/sentence_scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="@dimen/sentence_board_right_padding"
+            android:layout_toLeftOf="@id/sentence_buttons"
+            android:fillViewport="true"
+            android:scrollbars="horizontal"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:id="@+id/sentenceBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/jabtalkSentenceBackground"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ideogramContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sentenceContainer"
+        android:layout_marginTop="5dp" >
+
+        <LinearLayout
+            android:id="@+id/navigationLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/sentence_action_background"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/navigationBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sentence_action_background"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/buttonBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/nav_back" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/navigationHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/sentence_action_background"
+                android:clickable="true" >
+
+                <ImageView
+                    android:id="@+id/buttonHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/nav_home" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <com.jabstone.jabtalk.basic.widgets.JTLinearLayout
+            android:id="@+id/ideogramLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@id/navigationLayout" >
+
+            <GridView
+                android:id="@+id/ideogramGrid"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/jabtalkCategoryBackground"
+                android:paddingTop="10dp"
+                android:stretchMode="none" />
+                            
+			<ScrollView 
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:fillViewport="true">            
+	            <LinearLayout
+	                android:id="@+id/emptyWord"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="center"
+	                android:gravity="center"
+	                android:background="@drawable/logo_engraved"
+	                android:orientation="vertical"
+	            	android:padding="0dip" 
+	            	android:visibility="gone">
+	                
+		                <TextView
+		                    android:id="@+id/emptyWordText"
+		                    android:layout_width="fill_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center"
+		                    android:padding="15dp"
+		                    android:text="@string/empty_word"
+		                    android:textColor="@color/jabtalkBlack"
+		                    android:textSize="24sp" />
+		                <TextView
+		                    android:id="@+id/websiteText"
+		                    android:layout_width="fill_parent"
+		                    android:layout_height="wrap_content"
+		                    android:gravity="center"
+		                    android:padding="15dp"
+		                    android:text="@string/websiteNeedHelp"
+		                    android:textColor="@color/jabtalkBlack"
+		                    android:textSize="20sp" />  
+	             </LinearLayout>  
+	         </ScrollView> 	             
+        </com.jabstone.jabtalk.basic.widgets.JTLinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

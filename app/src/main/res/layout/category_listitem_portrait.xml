@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/ideogram_listitem_layout"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:clickable="true"
+	android:background="@drawable/background_no_rounded_clickable">
+  
+	<RelativeLayout
+	  android:id="@+id/ideogram_thumb_layout"
+	  android:layout_width="@dimen/picture_frame_thumb_width"
+	  android:layout_height="@dimen/picture_frame_thumb_height"
+	  android:layout_alignParentLeft="true"
+	  android:layout_marginLeft="10dp"
+	  android:layout_centerVertical="true"	  
+	  android:background="@drawable/category_background">
+	
+	  <ImageView
+		android:id="@+id/ideogram_thumb"
+		android:layout_centerInParent="true"
+  		android:scaleType="fitXY"
+  		android:layout_width="@dimen/image_thumb_portrait_width"
+  		android:layout_height="@dimen/image_thumb_portrait_height" />  	
+  		
+	<com.jabstone.jabtalk.basic.widgets.AutoResizeTextView
+	    android:id="@+id/ideogram_text_label"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textStyle="bold"
+	    android:textColor="@color/jabtalkWhite"
+	    android:gravity="center"
+	    android:visibility="invisible"
+	    android:layout_centerInParent="true" />	 	  	
+	</RelativeLayout>  
+
+  	
+  	<TextView
+  		android:id="@+id/ideogram_label"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_toRightOf="@id/ideogram_thumb_layout"
+  		android:layout_alignTop="@id/ideogram_thumb_layout"
+  		android:layout_marginLeft="10dp"
+  		android:layout_marginRight="40dp"
+  		android:singleLine="false"
+  		android:textColor="@color/jabtalkBlack"
+  		android:textSize="16sp" />
+  		
+  	<TextView
+  		android:id="@+id/ideogram_phrase"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_below="@id/ideogram_label"
+  		android:layout_alignLeft="@id/ideogram_label"
+  		android:singleLine="false"
+  		android:textSize="12sp"
+  		android:textColor="@color/jabtalkGray" />     		
+  		
+	<ImageView
+		android:id="@+id/expander"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_marginRight="10dp"
+		android:layout_centerVertical="true"
+		android:src="@drawable/expander" />		
+  		
+</RelativeLayout>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Brskalnik</string>
+    <string name="preference_activity">Nastavitve</string>    
+    <string name="button_finish">Dokončaj</string>
+    <string name="button_cancel">Prekliči</string>
+    <string name="button_delete">Izbriši</string>
+    <string name="button_yes">Da</string>
+    <string name="button_no">Ne</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Zapri</string>
+    <string name="button_speak">Povej</string>
+    <string name="button_clear">Počisti</string>            
+	<string name="dialog_title_new_features">Nove funkcije JABTalk</string>
+    <string name="dialog_title_delete_confirmation">Potrditev brisanja</string>
+    <string name="dialog_message_delete_category">Ali želite izbrisati to skupino in vse z njo povezane podskupine in besede?</string>
+    <string name="dialog_message_delete_word">Ali želite izbrisati to besedo?</string>
+    <string name="dialog_message_restoring">Obnavljanje podatkov&#8230;</string>
+    <string name="dialog_message_backup">Varnostno kopiranje podatkov&#8230;</string>
+    <string name="dialog_message_saving">Shranjevanje sprememb&#8230;</string>
+    <string name="dialog_title_error">Napaka</string>
+    <string name="empty_category"><b>Dobrodošli v programu JABtalk!</b>\n\n<b><u>Dotaknite se tukaj</u></b> za dodajanje besed in skupin besed.</string>
+    <string name="empty_word">V tej skupini ni besed.\n<b><u>Dotaknite se tukaj</u></b> za dostop do urejevalnega ekrana in dodajanje besed.</string>
+    <string name="websiteNeedHelp">Oglejte si vodnike (v angleščini) na www.jabstone.com/videos</string>
+    <string name="copy_error_source_not_found">Predmeta, ki ste ga želeli kopirati, ni bilo mogoče najti.</string>
+    <string name="cut_error_invalid_target">Predmeta žal ne morete kopirati smaega vase.</string>
+    <string name="cut_error_invalid_target_for_source">Besede ne morete premakniti na seznam skupin.</string>
+    <string name="sentence_board_tip">Potegnite besedo navzdol, da jo boste odstranili.</string>    
+	<string name="dialog_title_item_move">Premakni&#8230;</string>
+    <string name="dialog_item_move_up">Premakni gor</string>
+    <string name="dialog_item_move_down">Premakni dol</string>
+    <string name="dialog_item_move_beginning">Premakni na začetek</string>
+    <string name="dialog_item_move_end">Premakni na konec</string>    
+<!--  END: COMMON STRINGS -->    
+    
+    
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Začni snemanje</string>
+    <string name="button_stop_recording">Ustavi snemanje</string>	    
+    <string name="manage_activity_title">Upravljaj</string>
+    <string name="manage_activity_hidden_item">Skrij prikaz</string>
+    <string name="manage_activity_category_actions">Dejanja skupine</string>    
+    <string name="ideogram_activity_title_insert_category">Dodaj novo skupino</string>
+    <string name="ideogram_activity_title_update_category">Uredi skupino</string>
+    <string name="ideogram_activity_title_insert_word">Dodaj novo besedo</string>
+    <string name="ideogram_activity_title_update_word">Uredi besedo</string>
+    <string name="ideogram_activity_category_label_hint">Vnesi oznako skupine</string>    
+    <string name="ideogram_activity_word_label_hint">Vnesi oznako besede</string>
+    <string name="ideogram_activity_phrase_hint">Vnesi prikazno frazo</string>
+    <string name="ideogram_activity_check_hidden">Ta predmet skrij za prikaz</string>       
+    <string name="ideogram_activity_word_label">Besedna oznaka</string>
+    <string name="ideogram_activity_button_preview">Za predogled klikni sliko</string>       
+    <string name="dialog_title_image_source">Izberi vir slike</string>
+    <string name="dialog_item_imagesource_camera">Fotoaparat</string>
+    <string name="dialog_item_import">Uvozi iz naprave</string>
+    <string name="dialog_item_import_web">Naloži s spleta</string>
+    <string name="dialog_item_imagesource_text">Besedilo</string>
+    <string name="dialog_title_audio_source">Izberi vir zvoka</string>
+    <string name="dialog_item_audiosource_recorder">Zvočni snemalnik</string>
+    <string name="dialog_item_audiosource_synthesizer">Sintetizator govora</string>
+    <string name="dialog_title_picture_gallery">Izberi sliko</string>
+    <string name="dialog_title_save_results">Shrani rezultate</string>
+    <string name="dialog_message_invalid_label">Vnesite besedo ali oznako skupine</string>
+    <string name="dialog_message_invalid_picture">Izberite sliko</string>    
+	<string name="dialog_title_invalid_field">Neveljavno polje</string>
+	<string name="dialog_message_invald_image_format">Izbran format slike ni združljiv z JABTalk-om. Prosimo, izberite drugo datoteko.</string>
+	<string name="dialog_message_invald_audio_format">Izbran format zvočne datoteke ni združljiv z JABTalk-om. Prosimo, izberite drugo datoteko.</string>
+	<string name="dialog_title_missing_speech_data">Missing Language Files</string>	
+	<string name="dialog_message_missing_speech_data">Vaša naprava nima nmeščene podpore za pretvorbo besedila v govor. Ali jo želite namestiti?</string>
+    <string name="dialog_item_add_category">Dodaj skupino</string>        
+    <string name="dialog_item_add_word">Dodaj besedo</string>
+    <string name="dialog_title_restore_dataset">Obnovi podatke</string>
+    <string name="dialog_message_restore_confirmation">Pri obnovi podatkov se obstoječi podatki prepišejo. Želite nadaljevati?</string>
+    <string name="dialog_title_backup_dataset">Varnostno kopiranje</string>
+    <string name="dialog_message_backup_confirmation">Varnostna kopija podatkov bo nadomestila obstoječo varnostno kopijo. Ali želite nadaljevati?</string>
+    <string name="dialog_title_backup_results">Varnostno kopiraj rezultate</string>
+    <string name="dialog_title_restore_results">Obnovi rezultate</string>
+    <string name="dialog_message_backup_success">Your dataset has been successfully saved to the file\r\n%1$s/jabtalk.bak</string>
+    <string name="dialog_title_manage_challenge">Access Manage Screen</string>       
+    <string name="dialog_message_manage_unlock_question">Please enter %1$s to access the manage screen</string>
+    <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>     
+    <string name="dialog_message_restore_file_not_exist">JABtalk could not find a backup file to restore. Please make sure your backup file is located at\r\n%1$s/jabtalk.bak.</string>
+    <string name="dialog_message_leave_screen">Are you sure you want to exit the manage screen?</string>
+    <string name="dialog_title_exit_warning">Potrditev izhoda</string>        
+    <string name="dialog_message_browser_unsupported_image_type">Izbran format slike ni združljiv z JABTalk-om. Prosimo, izberite drugo datoteko.</string>
+    <string name="dialog_item_no_audio">Brez zvoka.</string>        
+<!-- END: MANAGEMENT SCREENS -->    
+    
+        
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	<string name="progress_loading">Nalaganje&#8230;</string>
+	<string name="progress_downloading_image">Prenos slike&#8230;</string>	
+	<string name="download_hint">Dotaknite in zadržite za odpiranje možnosti prenosa slike.</string> 
+	<string name="google_image_search_url">http://www.google.com/search?hl=si&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; sl-si; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string>
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	
+	
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Zgodovina</string>    
+    <string name="menu_log">Zapisnik</string>
+    <string name="menu_clear_history">Počisti zgodovino</string>
+    <string name="menu_clear_log">Počisti zapisnik</string>
+    <string name="menu_manage">Upravljaj</string>
+    <string name="menu_backup">Varnostno kopiraj</string>
+    <string name="menu_restore">Obnovi</string>
+    <string name="menu_delete">Izbriši</string>
+    <string name="menu_hide">Skrij</string>
+    <string name="menu_unhide">Razkrij</string>
+    <string name="menu_edit">Uredi</string>
+    <string name="menu_copy">Kopiraj</string>
+    <string name="menu_cut">Izreži</string>
+    <string name="menu_paste">Prilepi</string>
+    <string name="menu_convert">Spremeni v podskupino</string>
+    <string name="menu_help">Podpora</string>
+    <string name="menu_preferences">Možnosti</string>	
+    <string name="menu_download_image">Prenesi sliko</string>
+    <string name="menu_add_ideogram">Dodaj predmet</string>
+    <string name="menu_edit_ideogram">Uredi predmet</string>        
+<!--  END: MENU STRINGS -->
+    
+    
+<!--  BEGIN: PREFERENCES -->    
+	<string name="preference_category_picture_size">Možnosti slik</string>
+	<string name="preference_category_sentence_building">Možnosti sestavljanja stavkov</string>
+	<string name="preference_category_audio">Možnosti zvoka</string>
+	<string name="preference_category_other">Druge možnosti</string>
+    <string name="preference_landscape_columns_title">Velikost slike - ležeči način</string>
+    <string name="preference_portrait_columns_title">Velikost slike - pokončni način</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">portrait_colunms</string>
+    <string name="preference_landscape_columns_summary">Število prikazanih slik v vrstici, kadar je naprava v ležečem položaju. Manjše vrednosti pomenijo večje slike. Večje vrednosti pomenijo manjše slike.</string>
+    <string name="preference_portrait_columns_summary">Število prikazanih slik v vrstici, kadar je naprava v pokončnem položaju. Manjše vrednosti pomenijo večje slike. Večje vrednosti pomenijo manjše slike.</string>   
+   	<string name="preference_speech_resource_key">speech_resource</string>
+   	<string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Omogoči sestavljanje stavkov</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Omogoči sestavljanje stavkov na glavnem zaslonu.</string>
+	<string name="preference_scroll_speed_title">Hitrost premikanja slike</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">Nadzoruje hitrost premikanja slike pri potegu s prstom.</string>
+    <string name="preference_scroll_speed_default">.1</string>
+	<string name="preference_sentence_bar_size_title">Velikost vrstice za stavek</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Nastavi velikost slik v vrstici za stavek. Vrednosti so relativne glede na velikosti slik v mreži besed.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Omejitev besed v stavku</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">Kontrolira največje število besed v enem stavku.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Zvok izbire skupine</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">Predvajaj zvok ob izbiri skupine.</string>
+    <string name="preference_word_audio_title">Zvok izbire besede</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">Predvajaj zvok ob izbiri besede.</string>     
+    <string name="preference_access_code_title">Zahtevaj geslo za dostop</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_summary">Vklop te možnosti zahteva vnos 4-mestnega gesla za dostop do upravljanja.</string>
+    <string name="preference_backbutton_disable_title">Onemogoči gumb za nazaj</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_backbutton_disable_summary">Izbira te možnosti onemooči izhod iz JABTalk-a z uporabo gumba za nazaj.</string>
+    <string name="preference_fontsize_title">Velikost pisave oznake slike</string>
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_fontsize_summary">Nastavi velikost pisave oznake besed in skupin.</string>
+	<string name="preference_screen_keep_on_key">screen_on</string>    
+    <string name="preference_screen_keep_on_title">Obdrži zaslon prižgan</string>
+    <string name="preference_screen_keep_on_summary">Prepreči samodejni izklop zaslona. Vklop te možnosti lahko negativno vpliva na življenjsko dobo baterije.</string>    
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Omogoči prikaz fraze</string>
+    <string name="preference_word_progress_summary">Prikaže frazo besede med predvajanjem zvoka.</string>                
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Majhna</item>
+        <item>Srednja</item>
+        <item>Velika</item>
+    </string-array>
+    
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>     
+    
+    <string-array name="title_font_size_labels">
+        <item>najmanjša</item>
+        <item>manjša</item>
+        <item>majhna</item>
+        <item>normalna</item>
+        <item>velika</item>
+        <item>večja</item>
+        <item>največja</item>
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>18f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>  
+    
+    <string-array name="scroll_speed_labels">
+        <item>najpočasneje</item>
+        <item>počasneje</item>
+        <item>normalna</item>
+        <item>hitreje</item>
+        <item>najhitreje</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>     
+    
+<!--  BEGIN: ARRAY VALUES -->
+    
+</resources>

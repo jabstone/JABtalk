@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="jabtalkWhite">#FFFFFF</color>
+	<color name="jabtalkBlack">#000000</color>
+	<color name="jabtalkGray">#666666</color>
+	<color name="jabtalkRed">#ff0000</color>
+	<color name="jabtalkButtonGray">#cfcfcf</color>	
+	
+	<color name="jabtalkWordButton">#20720f</color>
+	<color name="jabtalkWordButtonBorder">#111111</color>
+	<color name="jabtalkItemSelected">#EB88BA</color>
+	
+	<color name="jabtalkCategoryBackground">#d28c35</color>
+	<color name="jabtalkCategoryButton">#21105e</color>
+	<color name="jabtalkCategoryButtonBorder">#111111</color>	
+	
+	<color name="jabtalkSentenceBackground">#D28B35</color>
+	<color name="jabtalkSentenceTip">#d2a66f</color>
+	<color name="jabtalkSentenceActionButton">#d2a66f</color>
+	<color name="jabtalkSentenceActionButtonBorder">#d49e5b</color>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="image_standard_landscape_width">200</integer>
+    <integer name="image_standard_landscape_height">150</integer>
+    <integer name="image_standard_portrait_width">113</integer>
+    <integer name="image_standard_portrait_height">150</integer>       
+</resources>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" >
+
+  <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/jabtalkWhite"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp" >
+
+        <EditText
+            android:id="@+id/edit_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="50sp"
+            android:hint="@string/ideogram_activity_word_label_hint"
+            android:singleLine="true"
+            android:textColor="@color/jabtalkBlack" />
+
+        <ImageButton
+            android:id="@+id/edit_image"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/edit_label"
+            android:layout_alignTop="@id/edit_label"
+            android:layout_alignParentRight="true"
+            android:background="@color/jabtalkButtonGray"
+            android:src="@drawable/ic_action_camera" />
+
+        <EditText
+            android:id="@+id/edit_phrase"
+            android:layout_width="fill_parent"            
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_label"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50sp"
+            android:hint="@string/ideogram_activity_phrase_hint"
+            android:maxLength="512"
+            android:singleLine="true"
+            android:textColor="@color/jabtalkBlack" />
+        
+        <ImageButton
+            android:id="@+id/edit_audio"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/edit_phrase"
+            android:layout_alignTop="@id/edit_phrase"
+            android:layout_alignParentRight="true"
+            android:background="@color/jabtalkButtonGray"
+            android:src="@drawable/ic_action_mic" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/edit_preview_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_audio"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ideogram_preview" >
+
+            <TextView
+                android:id="@+id/click_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/ideogram_activity_button_preview"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:id="@+id/edit_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/click_preview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/word_background"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/picture_text"
+                    android:text="@string/ideogram_activity_word_label" />
+
+                <ImageView
+                    android:id="@+id/edit_preview_picture"
+                    style="@style/picture"
+                    android:src="@drawable/no_picture" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/save_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_preview_container"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/edit_ideogram_cancel"
+                style="@style/jabtalk_button"
+                android:layout_marginRight="7dp"
+                android:minWidth="90dp"
+                android:text="@string/button_cancel" />
+
+            <Button
+                android:id="@+id/edit_ideogram_delete"
+                style="@style/jabtalk_button"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:minWidth="90dp"
+                android:text="@string/button_delete" />
+
+            <Button
+                android:id="@+id/edit_ideogram_save"
+                style="@style/jabtalk_button"
+                android:layout_marginLeft="7dp"
+                android:minWidth="90dp"
+                android:text="@string/button_finish" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/check_hidden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/save_buttons"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12sp"
+            android:text="@string/ideogram_activity_check_hidden"
+            android:textColor="@color/jabtalkBlack"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</ScrollView>

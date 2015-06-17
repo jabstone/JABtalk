@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+<!--  BEGIN: COMMON STRINGS -->
+	<string name="app_name">JABtalk </string>
+    <string name="browser_activity">Navigateur</string>
+    <string name="preference_activity">Paramétrage</string>
+    <string name="button_finish">Valider</string>
+    <string name="button_cancel">Annuler</string>
+    <string name="button_delete">Effacer</string>
+    <string name="button_yes">Oui</string>
+    <string name="button_no">Non</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Fermer</string> 
+    <string name="button_speak">Lire</string>
+    <string name="button_clear">Effacer</string>         
+    <string name="dialog_title_new_features">Nouveautés JABtalk </string>
+    <string name="dialog_title_delete_confirmation">Effacer?</string>
+    <string name="dialog_message_delete_category">Etes-vous sûr de vouloir effacer définitivement cette Catégorie ainsi que tous ses éléments?</string>
+    <string name="dialog_message_delete_word">Etes-vous sûr de vouloir effacer ce Pictogramme?</string>
+    <string name="dialog_message_restoring">Récupération des données&#8230;</string>
+    <string name="dialog_message_backup">Sauvegarde des données&#8230;</string>
+    <string name="dialog_message_saving">Sauvegarde des modifications&#8230;</string>
+    <string name="dialog_title_error">Erreur</string>
+    <string name="empty_category"><b>Bienvenue chez JABtalk!</b>\n\n<b><u>Tap ici</u></b> pour ajouter vos Pictogrammes et Catégories.</string>
+    <string name="empty_word">"Catégorie vide!\nPour ajouter un Pictogramme, <b><u><font color="white" fgcolor="#FFFFFFFF">Tap ici</font></u></b>.</string>
+    <string name="websiteNeedHelp">Besoin d\'Aide?\nVisitez notre site web "<b>www.jabstone.com/videos</b> pour voir les tutoriaux.</string>        
+    <string name="copy_error_source_not_found">L\'objet que vous tentez de copier ne peut pas être trouvé.</string>
+    <string name="cut_error_invalid_target">Vous ne pouvez pas déplacer un objet sur lui-même!.</string>
+    <string name="cut_error_invalid_target_for_source">Vous ne pouvez pas déplacer un Pictogramme vers une Catégorie.</string>
+    <string name="sentence_board_tip">Glisser le Pictogramme vers le bas pour l\'effacer de la Bande Phrase.</string>
+    <string name="dialog_item_move_up">Déplacer vers le haut</string>
+    <string name="dialog_title_item_move">Déplacement&#8230;</string>
+    <string name="dialog_item_move_down">Déplacer vers le bas</string>
+    <string name="dialog_item_move_beginning">Déplacer au début</string>
+    <string name="dialog_item_move_end">Déplacer à la fin</string>                    
+<!--  END: COMMON STRINGS -->
+    
+             
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Démarrer l\'Enregistrement</string>
+    <string name="button_stop_recording">Terminer l\'Enregistrement</string>
+    <string name="manage_activity_title">Gestion des Pictogrammes</string>
+    <string name="manage_activity_hidden_item">Gestion de l\'affichage des Pictogrammes</string>
+    <string name="manage_activity_category_actions">Gérer la Catégorie</string>    
+    <string name="ideogram_activity_title_insert_category">Ajout d\'une nouvelle Catégorie</string>
+    <string name="ideogram_activity_title_update_category">Modification de la Catégorie</string>
+    <string name="ideogram_activity_title_insert_word">Ajout d\'un Pictogramme</string>
+    <string name="ideogram_activity_title_update_word">Modification du Pictogramme</string>
+    <string name="ideogram_activity_category_label_hint">Taper le Nom de la Catégorie</string>
+    <string name="ideogram_activity_word_label_hint">Taper le Nom du Pictogramme</string>
+    <string name="ideogram_activity_phrase_hint">Taper la Phrase du Pictogramme</string>
+    <string name="ideogram_activity_check_hidden">Masquer ce pictogramme</string> 
+    <string name="ideogram_activity_word_label">Nom du Pictogramme</string>
+    <string name="ideogram_activity_button_preview">Cliquer sur l\'image pour avoir un aperçu</string>
+    <string name="dialog_title_image_source">Choix de la source</string>
+    <string name="dialog_item_imagesource_camera">Appareil Photo</string>
+    <string name="dialog_item_import">Mémoire de cet appareil</string>
+    <string name="dialog_item_import_web">Internet</string>
+    <string name="dialog_item_imagesource_text">Bouton \'Texte\'</string>
+    <string name="dialog_title_audio_source">Choix de la source</string>
+    <string name="dialog_item_audiosource_recorder">Magnétophone</string>
+    <string name="dialog_item_audiosource_synthesizer">Synthèse Vocale</string>
+    <string name="dialog_title_picture_gallery">Sélection des Images</string>
+    <string name="dialog_title_save_results">Sauvegarder les Résultats</string>
+    <string name="dialog_message_invalid_label">Le Nom du Pictogramme ou de la Catégorie n\'est pas défini!</string>
+    <string name="dialog_message_invalid_picture">L\'image du Pictogramme n\'est pas définie!</string>
+    <string name="dialog_title_invalid_field">Champ non renseigné!</string>
+    <string name="dialog_message_invald_image_format">Le format de l\'image n\'est pas compatible avec JABtalk. Merci choisir un autre fichier!</string>
+    <string name="dialog_message_invald_audio_format">Le format &quot;audio&quot; n\'est pas compatible avec JABtalk. Merci choisir un autre fichier!</string>
+    <string name="dialog_title_missing_speech_data">Fichier &quot;Langue&quot; non trouvé!</string>
+    <string name="dialog_message_missing_speech_data">Il semble que l\'appareil ne dispose pas de la synthèse vocale dans la langue de l\'appareil. Voulez-vous l\'installer maintenant? </string>
+    <string name="dialog_item_add_category">Ajouter une Catégorie</string>
+    <string name="dialog_item_add_word">Ajouter un Pictogramme</string>
+    <string name="dialog_title_restore_dataset">Restauration des Données</string>
+    <string name="dialog_message_restore_confirmation">La restauration des données va effacer définitivement les Catégories et Pictogrammes actuels.\nVoulez-vous continuer?</string>
+    <string name="dialog_title_backup_dataset">Sauvegarde des Données</string>
+    <string name="dialog_message_backup_confirmation">La Sauvegarde de vos données va effacer la sauvegarde précédente.\n Voulez-vous continuer?</string>
+    <string name="dialog_title_backup_results">Résultat de la Sauvegarde</string>
+    <string name="dialog_title_restore_results">Résultat de la Restauration</string>
+    <string name="dialog_message_backup_success">Sauvegarde réussie!\nVos Données sont maintenant sauvegardées à %1$s/jabtalk.bak</string>
+    <string name="dialog_title_manage_challenge">Accès au paramétrage</string>
+    <string name="dialog_message_manage_unlock_question">Taper %1$s pour accéder à l\'écran de paramétrage</string>
+    <string name="dialog_message_manage_challenge_incorrect">Saisie Incorrecte. Recommencer!</string>
+    <string name="dialog_message_restore_file_not_exist">JABtalk ne trouve pas le fichier de sauvegarde sur la carte SD!\nMerci vérifier que le fichier  \'jabtalk.bak\' est bien présent à la racine de la carte SD (%1$s).</string>
+    <string name="dialog_message_leave_screen">Voulez-vous quitter l\'écran de paramétrage?</string>
+    <string name="dialog_title_exit_warning">Quitter?</string>
+    <string name="dialog_message_browser_unsupported_image_type">Le format de l\'image n\'est pas compatible avec JABtalk. S\'il vous plaît sélectionner une image différente.</string>
+    <string name="dialog_item_no_audio">Aucun Acoustique</string>      
+<!-- END: MANAGEMENT SCREENS -->    
+    
+    
+ <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->   
+    <string name="progress_loading">Chargement&#8230;</string>
+    <string name="progress_downloading_image">Chargement image&#8230;</string>    
+    <string name="download_hint">Pour lancer le téléchargement, appuyez 2 secondes sur l\'image, puis sur le bouton \'Télécharger\'</string>
+    <string name="google_image_search_url">http://www.google.com/search?hl=fr&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+    <string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; fr-fr; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string> 
+<!-- END: DOWNLOAD IMAGE SCREEN -->
+
+
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Historique</string>
+    <string name="menu_log">Log</string>
+    <string name="menu_clear_history">Effacement de l\'Historique</string>
+    <string name="menu_clear_log">Effacer l\'Historique</string>
+    <string name="menu_manage">Paramétrage</string>
+    <string name="menu_backup">Sauvegarder</string>
+    <string name="menu_restore">Restaurer</string>
+    <string name="menu_delete">Effacer</string>
+    <string name="menu_hide">Masquer</string>
+    <string name="menu_unhide">Afficher</string>    
+    <string name="menu_edit">Modifier</string>
+    <string name="menu_copy">Copier</string>
+    <string name="menu_cut">Couper</string>
+    <string name="menu_paste">Coller</string>
+    <string name="menu_convert">Transformer en Sous-Catégorie</string>
+    <string name="menu_help">Aide</string>
+    <string name="menu_preferences">Paramètres</string>
+    <string name="menu_download_image">Télécharger Image</string>
+    <string name="menu_add_ideogram">Ajouter</string>
+    <string name="menu_edit_ideogram">Modifier</string>      
+<!--  END: MENU STRINGS -->
+
+
+<!--  BEGIN: PREFERENCES -->     
+    <string name="preference_category_picture_size">PICTOGRAMMES</string>
+    <string name="preference_category_sentence_building">BANDE PHRASE</string>
+    <string name="preference_category_audio">SON</string>
+    <string name="preference_category_other">AUTRES PARAMETRES</string>
+    <string name="preference_landscape_columns_title">Taille - Mode Paysage</string>
+    <string name="preference_portrait_columns_title">Taille - Mode Portrait</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">landscape_columns</string>
+    <string name="preference_landscape_columns_summary">Nombre de Pictogrammes affichés par ligne quand l\'appareil est en mode paysage. Petite valeur = grand Pictogramme.</string>
+    <string name="preference_portrait_columns_summary">Nombre de Pictogrammes affichés par ligne quand l\'appareil est en mode portrait. Petite valeur = grand Pictogramme.</string>
+    <string name="preference_speech_resource_key">speech_resource</string>
+    <string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Bande Phrase</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Affiche la Bande Phrase.</string>
+    <string name="preference_scroll_speed_title">Vitesse de Défilement</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">définit la valeur de vitesse de défilement des images quand vous touchez l\'écran tactile. Grande valeur= grande vitesse</string>
+    <string name="preference_scroll_speed_default">.5</string>
+    <string name="preference_sentence_bar_size_title">Taille des Pictogrammes</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Définit la taille des Pictogrammes.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Taille de la Phrase</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">Définit le nombre maximal de Pictogrammes de la Phrase.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Lecture de la Catégorie</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">La phrase de la Catégorie est lue lors de la sélection</string>
+    <string name="preference_word_audio_title">Lecture du Pictogramme</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">La phrase du Pictogramme est lue lors de la sélection</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_title">Code d\'Accès</string>    
+    <string name="preference_access_code_summary">Oblige à saisir un code de 4 chiffres pour accéder à l\'écran de gestion des pictogrammes.</string>
+    <string name="preference_backbutton_disable_title">Désactiver Bouton Retour</string>
+    <string name="preference_backbutton_disable_summary">L\'activation de cette option empêche de quitter l\'application JABtalk quand le bouton Retour est appuyé au niveau de l\'écran principal.</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_fontsize_title">Taille des Noms</string>
+    <string name="preference_fontsize_summary">Définit la taille de l\'affichage du nom des pictogrammes et des catégories.</string>  
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_screen_keep_on_key">screen_on</string>    
+    <string name="preference_screen_keep_on_title">Veille Interdite</string>
+    <string name="preference_screen_keep_on_summary">Cette option désactive la mise en veille automatique de l\'écran. L\'automie de l\'appareil s\'en trouve réduite.</string>
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Activer affichage Phrase</string>
+    <string name="preference_word_progress_summary">Affiche phrase mot progrès fenêtre de dialogue lorsque le son est joué.</string>    
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY STRING VALUES -->    
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Petit</item>
+        <item>Moyen</item>
+        <item>Grand</item>
+    </string-array>           
+
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>    
+    
+    <string-array name="title_font_size_labels">
+		<item>la plus petite</item> 
+        <item>plus petite</item> 
+        <item>petite</item>
+        <item>moyenne</item> 
+        <item>grande</item>  
+        <item>plus grande</item> 
+        <item>la plus grande</item> 
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>17f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>  
+    
+    <string-array name="scroll_speed_labels">
+        <item>le plus lent</item>
+        <item>plus lent</item>
+        <item>normal</item>
+        <item>plus rapide</item>
+        <item>le plus rapide</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>       
+    
+<!--  END: ARRAY STRING VALUES -->
+    
+</resources>
