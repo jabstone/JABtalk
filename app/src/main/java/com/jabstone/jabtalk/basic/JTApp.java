@@ -371,12 +371,12 @@ public class JTApp extends Application implements OnCompletionListener,
             return Integer.parseInt ( settings
                     .getString (
                             me.getResources ().getString (
-                                    R.string.preference_landscape_columns_key ), "0" ) );
+                                    R.string.preference_landscape_columns_key ), "4" ) );
         } else {
             return Integer
                     .parseInt ( settings.getString (
                             me.getResources ()
-                                    .getString ( R.string.preference_portrait_columns_key ), "0" ) );
+                                    .getString ( R.string.preference_portrait_columns_key ), "2" ) );
         }
     }
 

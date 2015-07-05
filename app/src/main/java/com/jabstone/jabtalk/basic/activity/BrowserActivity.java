@@ -105,6 +105,14 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
                                         getString ( R.string.dialog_message_browser_unsupported_image_type ) );
                         showDialog ( DIALOG_GENERIC );
                     }
+                } else {
+                    getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                            getString ( R.string.app_name ) );
+                    getIntent ()
+                            .putExtra (
+                                    JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
+                                    getString ( R.string.dialog_message_browser_unsupported_image_type ) );
+                    showDialog ( DIALOG_GENERIC );
                 }
                 return true;
             }
