@@ -32,6 +32,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -55,7 +56,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
     private String googleImageSrc = null;
     private Pattern m_imagePattern = Pattern.compile (
             "http.*?(\\.gif|\\.png|\\.jpeg|\\.jpg|th\\?id=)", Pattern.CASE_INSENSITIVE );
-    private Pattern m_googleImagePattern = Pattern.compile ( "imgrc=.*?(http.*?);",
+    private Pattern m_googleImagePattern = Pattern.compile ( "http.*imgrc=",
             Pattern.CASE_INSENSITIVE );
 
     private final int DIALOG_GENERIC = 1;
@@ -63,8 +64,6 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
-        // handles creation of the browser control to show our static web pages
-        // for the smart phone applications.
         super.onCreate ( savedInstanceState );
 
         m_dialog = new ProgressDialog ( this );
@@ -76,8 +75,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
         setContentView ( R.layout.browser );
         webView = ( WebView ) findViewById ( R.id.webview );
         downloadTip = ( TextView ) findViewById ( R.id.downloadHelp );
-        webView.getSettings ().setUserAgentString ( getString ( R.string.browser_agent ) );
-        //
+
         webView.getSettings ().setJavaScriptEnabled ( true );
         webView.getSettings ().setBuiltInZoomControls ( true );
         myWebView = new WebClient ();
@@ -89,8 +87,8 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
             public boolean onLongClick ( View v ) {
                 getIntent ().removeExtra ( INTENT_EXTRA_URL );
                 WebView.HitTestResult res = webView.getHitTestResult ();
-                if ( res != null && ( res.getExtra () != null || googleImageSrc != null ) ) {
-                    String extra = googleImageSrc != null ? googleImageSrc : res.getExtra ();
+                if ( res != null && res.getExtra () != null ) {
+                    String extra = res.getExtra ();
                     Matcher m = m_imagePattern.matcher ( extra );
                     if ( m.find () ) {
                         String url = m.group ( 0 );
@@ -108,9 +106,10 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
                         showDialog ( DIALOG_GENERIC );
                     }
                 }
-                return false;
+                return true;
             }
         } );
+
     }
 
     @Override
@@ -258,9 +257,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
 
     @Override
     public boolean onKeyDown ( int keyCode, KeyEvent event ) {
-        // Here we intercept the back key and tell the view to go back to
-        // previous web page if any (i.e. act as a true browser until it reaches
-        // the original page.
+
         boolean ret;
         if ( ( keyCode == KeyEvent.KEYCODE_BACK ) && webView.canGoBack () ) {
             // deal with the web option
@@ -307,18 +304,11 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
         @Override
         public void onPageFinished ( WebView view, String url ) {
             // hide the page dialog when the page is finished loading
-
-            if ( url.contains ( "google.com" ) ) {
-                try {
-                    String decodedUrl = URLDecoder.decode ( url, "UTF-8" );
-                    decodedUrl = URLDecoder.decode ( decodedUrl, "UTF-8" );
-                    Matcher m = m_googleImagePattern.matcher ( decodedUrl );
-                    if ( m.find () ) {
-                        String img = m.group ( 1 );
-                        googleImageSrc = img;
-                    }
-                } catch ( UnsupportedEncodingException e ) {
-                }
+            Matcher imgMatcher = m_imagePattern.matcher(url);
+            if ( (url.contains ( "google.com" ) && url.contains("imgrc=")) || imgMatcher.find()) {
+                downloadTip.setVisibility ( View.VISIBLE );
+            } else {
+                downloadTip.setVisibility ( View.INVISIBLE );
             }
 
             m_dialog.dismiss ();
@@ -326,12 +316,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
                 clearHistory = false;
                 webView.clearHistory ();
             }
-            Matcher m = m_imagePattern.matcher ( url );
-            if ( m.find () || url.contains ( "#biv" ) ) {
-                downloadTip.setVisibility ( View.VISIBLE );
-            } else {
-                downloadTip.setVisibility ( View.INVISIBLE );
-            }
+
         }
 
         @Override
