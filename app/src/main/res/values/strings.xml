@@ -84,8 +84,8 @@
     <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>     
     <string name="dialog_message_restore_file_not_exist">JABtalk could not find a backup file to restore. Please make sure your backup file is located at\r\n%1$s/jabtalk.bak.</string>
     <string name="dialog_message_leave_screen">Are you sure you want to exit the manage screen?</string>
-    <string name="dialog_title_exit_warning">Exit Confirmation</string>        
-    <string name="dialog_message_browser_unsupported_image_type">The selected image could not be loaded. Please try again in a few seconds or select a different image.</string>
+    <string name="dialog_title_exit_warning">Exit Confirmation</string>
+    <string name="dialog_message_browser_unsupported_image_type">The selected image could not be loaded. Please try again in a few seconds or try downloading the thumbnail image from the search results page instead.</string>
     <string name="dialog_item_no_audio">No Audio</string>        
 <!-- END: MANAGEMENT SCREENS -->    
     
