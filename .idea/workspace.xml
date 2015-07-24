@@ -9,20 +9,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ced17cb3-3d1c-4583-985f-b452c7459074" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+    <list default="true" id="ced17cb3-3d1c-4583-985f-b452c7459074" name="Default" comment="Fixed Download Image from Internet...again!">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jabstone/jabtalk/basic/activity/BrowserActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jabstone/jabtalk/basic/activity/BrowserActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JABtalk.iml" afterPath="$PROJECT_DIR$/JABtalk.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/browser.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/browser.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JABtalk.iws" />
@@ -78,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jabstone/jabtalk/basic/activity/BrowserActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.33333334">
-              <caret line="375" column="164" selection-start-line="375" selection-start-column="164" selection-end-line="375" selection-end-column="164" />
+              <caret line="162" column="16" selection-start-line="162" selection-start-column="16" selection-end-line="162" selection-end-column="16" />
               <folding>
                 <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
                 <element signature="method#showWeb#0;class#BrowserActivity#0" expanded="false" />
@@ -1462,6 +1450,13 @@
       <option name="number" value="Default" />
       <updated>1437683725174</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed Download Image from Internet...again!">
+      <created>1437696433513</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1437696433513</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1501,7 +1496,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Fixed Download Image from Internet...again!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Download Image from Internet...again!" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1574,7 +1570,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jabstone/jabtalk/basic/activity/BrowserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
-          <caret line="375" column="164" selection-start-line="375" selection-start-column="164" selection-end-line="375" selection-end-column="164" />
+          <caret line="162" column="16" selection-start-line="162" selection-start-column="16" selection-end-line="162" selection-end-column="16" />
           <folding>
             <element signature="method#onKeyDown#0;class#BrowserActivity#0" expanded="false" />
             <element signature="method#showWeb#0;class#BrowserActivity#0" expanded="false" />

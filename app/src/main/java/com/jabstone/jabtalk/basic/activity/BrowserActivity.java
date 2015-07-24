@@ -160,7 +160,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
         switch (id) {
             case DIALOG_GENERIC:
             default:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder = new AlertDialog.Builder(this);
                 builder.setTitle(getIntent().getStringExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE));
                 builder.setMessage(getIntent().getStringExtra(
                         JTApp.INTENT_EXTRA_DIALOG_MESSAGE));
