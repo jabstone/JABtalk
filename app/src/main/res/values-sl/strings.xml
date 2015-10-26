@@ -78,7 +78,7 @@
     <string name="dialog_message_backup_confirmation">Varnostna kopija podatkov bo nadomestila obstoječo varnostno kopijo. Ali želite nadaljevati?</string>
     <string name="dialog_title_backup_results">Varnostno kopiraj rezultate</string>
     <string name="dialog_title_restore_results">Obnovi rezultate</string>
-    <string name="dialog_message_backup_success">Your dataset has been successfully saved to the file\r\n%1$s/jabtalk.bak</string>
+    <string name="dialog_message_backup_success">Vaš nabor podatkov je bila uspešno shranjena na:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Access Manage Screen</string>       
     <string name="dialog_message_manage_unlock_question">Please enter %1$s to access the manage screen</string>
     <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>     

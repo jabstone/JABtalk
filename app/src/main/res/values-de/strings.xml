@@ -78,7 +78,7 @@
     <string name="dialog_message_backup_confirmation">Die Datensicherung überschreibt die bestehende Sicherungsdatei.Möchten Sie wirklich fortfahren?</string>
     <string name="dialog_title_backup_results">Datensicherungsergebnis</string>
     <string name="dialog_title_restore_results">Datenrücksicherungsergebnis</string>
-    <string name="dialog_message_backup_success">Die Sicherung wurde in der Datei %1$s/jabtalk.bak abgelegt.</string>
+    <string name="dialog_message_backup_success">Die Sicherung wurde in abgelegt:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Zugang Verwaltungsansicht</string>       
     <string name="dialog_message_manage_unlock_question">Bitte geben Sie diese Nummer %1$s als Zugangskontrolle ein.</string>
     <string name="dialog_message_manage_challenge_incorrect">Falsche Eingabe. Bitte probieren Sie es nochmal.</string>     

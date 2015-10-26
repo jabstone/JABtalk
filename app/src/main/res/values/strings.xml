@@ -74,11 +74,9 @@
     <string name="dialog_item_add_word">Add Word</string>
     <string name="dialog_title_restore_dataset">Restore Data</string>
     <string name="dialog_message_restore_confirmation">Restoring a dataset will replace your current pictures and audio files. Are you sure you want to continue?</string>
-    <string name="dialog_title_backup_dataset">Backup Data</string>
-    <string name="dialog_message_backup_confirmation">Backing up your dataset will replace your existing backup. Are you sure you want to continue?</string>
     <string name="dialog_title_backup_results">Backup Results</string>
     <string name="dialog_title_restore_results">Restore Results</string>
-    <string name="dialog_message_backup_success">Your dataset has been successfully saved to the file\r\n%1s/jabtalk.bak</string>
+    <string name="dialog_message_backup_success">Your dataset has been successfully saved to:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Access Manage Screen</string>       
     <string name="dialog_message_manage_unlock_question">Please enter %1$s to access the manage screen</string>
     <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>     
@@ -86,7 +84,10 @@
     <string name="dialog_message_leave_screen">Are you sure you want to exit the manage screen?</string>
     <string name="dialog_title_exit_warning">Exit Confirmation</string>
     <string name="dialog_message_browser_unsupported_image_type">The selected image could not be loaded. Please try again in a few seconds or try downloading the thumbnail image from the search results page instead.</string>
-    <string name="dialog_item_no_audio">No Audio</string>        
+    <string name="dialog_item_no_audio">No Audio</string>
+
+    <string name="dialog_title_backup_save_as">Backup Data</string>
+    <string name="dialog_message_backup_save_as">Enter a name for the backup file. Existing files with the same name will be overwritten.</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

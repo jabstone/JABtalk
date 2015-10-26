@@ -78,7 +78,7 @@
     <string name="dialog_message_backup_confirmation">Een back-up van uw gegevens zal uw bestaande backup vervangen. Weet u zeker dat u wilt doorgaan?</string>
     <string name="dialog_title_backup_results">Back-up Resultaten</string>
     <string name="dialog_title_restore_results">Herstellen Resultaten</string>
-    <string name="dialog_message_backup_success">Uw dataset is opgeslagen naar het bestand\r\n%1s/jabtalk.bak</string>
+    <string name="dialog_message_backup_success">Uw dataset is opgeslagen naar het:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Toegang Beheer scherm</string>       
     <string name="dialog_message_manage_unlock_question">Vul %1$s in om het Beheer scherm te openen</string>
     <string name="dialog_message_manage_challenge_incorrect">Onjuist. Probeer het opnieuw.</string>     

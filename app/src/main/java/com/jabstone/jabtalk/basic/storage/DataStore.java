@@ -39,7 +39,6 @@ public class DataStore {
 
     private static String TAG = DataStore.class.getSimpleName ();
     private final String FILE_JSON = "jabtalk.json";
-    private final String FILE_BACKUP = "jabtalk.bak";
 
     private final String VERSION = "versionId";
     private final String CATEGORYLIST = "categoryList";
@@ -396,20 +395,10 @@ public class DataStore {
         }
     }
 
-    public boolean backupExists () {
-        boolean result = false;
-        try {
-            File backupFile = new File ( getExternalStorageDirectory (), FILE_BACKUP );
-            return backupFile.exists ();
-        } catch ( Exception e ) {
-        }
-        return result;
-    }
-
-    public void backupDataStore () throws JabException {
+    public void backupDataStore (String fileName) throws JabException {
         ZipOutputStream zos = null;
         try {
-            File zipFileName = new File ( getExternalStorageDirectory (), FILE_BACKUP );
+            File zipFileName = new File ( getExternalStorageDirectory (), fileName );
             File dataDir = getDataDirectory ();
             zos = new ZipOutputStream ( new FileOutputStream ( zipFileName, false ) );
             zos.setLevel ( Deflater.DEFAULT_COMPRESSION );
@@ -431,7 +420,7 @@ public class DataStore {
         }
     }
 
-    public void restoreDataStore () throws JabException {
+    public void restoreDataStore (String fileName) throws JabException {
 
         byte[] buffer = new byte[1024];
         InputStream in = null;
@@ -439,10 +428,10 @@ public class DataStore {
 
         try {
             deleteAllFiles ();
-            File zipFileName = new File ( getExternalStorageDirectory (), FILE_BACKUP );
+            File zipFileName = new File ( getExternalStorageDirectory (), fileName );
             if ( !zipFileName.exists () ) {
                 throw new JabException (
-                        "Could not find the backup file \"jabtalk.bak\" on the SDCard" );
+                        "Could not find the backup file \"" + fileName + "\" on the SDCard" );
             }
             ZipFile zipFile = new ZipFile ( zipFileName );
 
