@@ -64,6 +64,7 @@
     <string name="dialog_title_picture_gallery">Select Picture</string>
     <string name="dialog_title_save_results">Save Results</string>
     <string name="dialog_message_invalid_label">Please enter a word or category label</string>
+    <string name="dialog_message_invalid_phrase">Please enter a word or category phrase</string>
     <string name="dialog_message_invalid_picture">Please select an image</string>    
 	<string name="dialog_title_invalid_field">Invalid Field</string>
 	<string name="dialog_message_invald_image_format">The selected image format is not compatible with JABtalk. Please select a different file.</string>

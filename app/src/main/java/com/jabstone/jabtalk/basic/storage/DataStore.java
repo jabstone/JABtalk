@@ -39,6 +39,7 @@ public class DataStore {
 
     private static String TAG = DataStore.class.getSimpleName ();
     private final String FILE_JSON = "jabtalk.json";
+    private final String FILE_BACKUP = "jabtalk.bak";
 
     private final String VERSION = "versionId";
     private final String CATEGORYLIST = "categoryList";
@@ -395,6 +396,105 @@ public class DataStore {
         }
     }
 
+    public boolean backupExists () {
+        boolean result = false;
+        try {
+            File backupFile = new File ( getExternalStorageDirectory (), FILE_BACKUP );
+            return backupFile.exists ();
+        } catch ( Exception e ) {
+        }
+        return result;
+    }
+
+    public void backupDataStore () throws JabException {
+        ZipOutputStream zos = null;
+        try {
+            File zipFileName = new File ( getExternalStorageDirectory (), FILE_BACKUP );
+            File dataDir = getDataDirectory ();
+            zos = new ZipOutputStream ( new FileOutputStream ( zipFileName, false ) );
+            zos.setLevel ( Deflater.DEFAULT_COMPRESSION );
+            zipDirectory ( dataDir, zos );
+            zos.flush ();
+            zos.close ();
+        } catch ( Exception e ) {
+            JTApp.logMessage ( TAG, JTApp.LOG_SEVERITY_ERROR,
+                    "Failed to backup DataStore.  Error Details: " + getStackTrace ( e ) );
+            throw new JabException (
+                    "There was a problem backing up your data. Click the menu and select Log to view error details." );
+        } finally {
+            try {
+                if ( zos != null ) {
+                    zos.close ();
+                }
+            } catch ( Exception ignore ) {
+            }
+        }
+    }
+
+    public void restoreDataStore () throws JabException {
+
+        byte[] buffer = new byte[1024];
+        InputStream in = null;
+        FileOutputStream out = null;
+
+        try {
+            deleteAllFiles ();
+            File zipFileName = new File ( getExternalStorageDirectory (), FILE_BACKUP );
+            if ( !zipFileName.exists () ) {
+                throw new JabException (
+                        "Could not find the backup file \"jabtalk.bak\" on the SDCard" );
+            }
+            ZipFile zipFile = new ZipFile ( zipFileName );
+
+            Enumeration<? extends ZipEntry> entries;
+            File dataDir = getDataDirectory ();
+            entries = zipFile.entries ();
+
+            while ( entries.hasMoreElements () ) {
+                ZipEntry entry = ( ZipEntry ) entries.nextElement ();
+
+                if ( entry.isDirectory () ) {
+                    File newDir = new File ( dataDir, entry.getName () );
+                    if ( !newDir.exists () ) {
+                        newDir.mkdirs ();
+                    }
+                    continue;
+                }
+
+                int len;
+                in = zipFile.getInputStream ( entry );
+                File target = new File ( dataDir, entry.getName () );
+                out = new FileOutputStream ( target );
+                while ( ( len = in.read ( buffer ) ) >= 0 )
+                    out.write ( buffer, 0, len );
+
+                in.close ();
+                out.flush ();
+                out.close ();
+            }
+
+            zipFile.close ();
+            loadData ();
+
+        } catch ( Exception ioe ) {
+            JTApp.logMessage ( TAG, JTApp.LOG_SEVERITY_ERROR,
+                    "Failed to restore backup.  Error Details: " + getStackTrace ( ioe ) );
+            throw new JabException (
+                    "Failed to restore backup file. Click the menu and select Log to view error details." );
+        } finally {
+            try {
+                if ( in != null ) {
+                    in.close ();
+                }
+                if ( out != null ) {
+                    out.close ();
+                }
+            } catch ( Exception ignore ) {
+            }
+        }
+    }
+
+    /*
     public void backupDataStore (String fileName) throws JabException {
         ZipOutputStream zos = null;
         try {
@@ -482,7 +582,7 @@ public class DataStore {
             }
         }
     }
-
+*/
     private void deleteAllFiles () throws Exception {
         try {
             clearCache ();

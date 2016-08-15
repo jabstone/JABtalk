@@ -79,7 +79,7 @@ public class JTApp extends Application implements OnCompletionListener,
     public final static String DATASTORE_VERSION = "2";
 
     private String TAG = JTApp.class.getSimpleName ();
-    private static Object lock = new Object ();
+    private static final Object lock = new Object ();
     private static JTApp me = null;
     private static List<ICategorySelectionListener> categoryListeners = new ArrayList<ICategorySelectionListener> ();
     private static List<IDataStoreListener> datastoreListeners = new ArrayList<IDataStoreListener> ();

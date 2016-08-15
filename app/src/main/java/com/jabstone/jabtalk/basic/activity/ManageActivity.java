@@ -60,10 +60,11 @@ public class ManageActivity extends Activity implements OnClickListener {
 
     private final int DIALOG_DELETE_IDEOGRAM_CONFIRMATION = 4001;
     private final int DIALOG_RESTORE_CONFIRMATION = 4002;
-    private final int DIALOG_BACKUP_SAVE_AS = 4003;
+    private final int DIALOG_BACKUP_CONFIRMATION = 4003;
     private final int DIALOG_GENERIC = 4004;
     private final int DIALOG_EXIT_MANAGE_SCREEN = 4005;
     private final int DIALOG_ACTION_ADD = 4006;
+    private final int DIALOG_BACKUP_SAVE_AS = 4007;
 
     private final String STATE_IDEOGRAM = "ideogram";
 
@@ -321,12 +322,12 @@ public class ManageActivity extends Activity implements OnClickListener {
             edit.setVisible ( true );
         }
 
-        MenuItem backup = ( MenuItem ) menu.findItem ( R.id.menu_item_backup );
+/*        MenuItem backup = ( MenuItem ) menu.findItem ( R.id.menu_item_backup );
         backup.setVisible ( true );
         if ( m_ideogram.isRoot() && m_ideogram.getChildren(true).size() == 0 ) {
             backup.setVisible ( false );
         }
-
+*/
         return true;
     }
 
@@ -363,7 +364,12 @@ public class ManageActivity extends Activity implements OnClickListener {
                 startActivity ( intent );
                 break;
             case R.id.menu_item_backup:
-                showDialog(DIALOG_BACKUP_SAVE_AS);
+                //showDialog(DIALOG_BACKUP_SAVE_AS);
+                if ( JTApp.getDataStore ().backupExists () ) {
+                    showDialog ( DIALOG_BACKUP_CONFIRMATION );
+                } else {
+                    backupData ();
+                }
                 break;
             case R.id.menu_item_paste:
                 try {
@@ -377,7 +383,7 @@ public class ManageActivity extends Activity implements OnClickListener {
                     showDialog ( DIALOG_GENERIC );
                 }
                 break;
-/*            case R.id.menu_item_restore:
+            case R.id.menu_item_restore:
                 if ( !JTApp.getDataStore ().backupExists () ) {
                     getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_TITLE,
                             getString ( R.string.dialog_title_error ) );
@@ -389,7 +395,7 @@ public class ManageActivity extends Activity implements OnClickListener {
                 } else {
                     showDialog ( DIALOG_RESTORE_CONFIRMATION );
                 }
-                break;*/
+                break;
             case R.id.menu_item_help:
                 Intent i = new Intent ( Intent.ACTION_VIEW );
                 i.setData ( Uri.parse ( JTApp.URL_SUPPORT ) );
@@ -516,7 +522,7 @@ public class ManageActivity extends Activity implements OnClickListener {
                         } );
                 alert = builder.create ();
                 break;
-            case DIALOG_BACKUP_SAVE_AS:
+/*            case DIALOG_BACKUP_SAVE_AS:
                  builder = new AlertDialog.Builder ( this );
                 LayoutInflater inflater = ( LayoutInflater ) getSystemService ( LAYOUT_INFLATER_SERVICE );
                 final View layout = inflater.inflate ( R.layout.backup_save,
@@ -560,6 +566,28 @@ public class ManageActivity extends Activity implements OnClickListener {
                         backupData(fileName.getText().toString().trim() + ".bak");
                     }
                 });
+                alert = builder.create ();
+                break;
+*/
+            case DIALOG_BACKUP_CONFIRMATION:
+                builder = new AlertDialog.Builder ( this );
+                builder.setTitle ( getString ( R.string.dialog_title_backup_dataset ) );
+                builder.setMessage ( R.string.dialog_message_backup_confirmation );
+
+                builder.setPositiveButton ( R.string.button_yes,
+                        new DialogInterface.OnClickListener () {
+
+                            public void onClick ( DialogInterface dialog, int which ) {
+                                backupData ();
+                            }
+                        } );
+                builder.setNegativeButton ( R.string.button_no,
+                        new DialogInterface.OnClickListener () {
+
+                            public void onClick ( DialogInterface dialog, int which ) {
+                                dismissDialog ( DIALOG_BACKUP_CONFIRMATION );
+                            }
+                        } );
                 alert = builder.create ();
                 break;
             case DIALOG_EXIT_MANAGE_SCREEN:
@@ -677,10 +705,20 @@ public class ManageActivity extends Activity implements OnClickListener {
         startActivityForResult ( intent, ACTIVITY_EXPAND_CATEGORY );
     }
 
-    private void backupData (String fileName) {
+/*    private void backupData (String fileName) {
         if ( backupTask == null || backupTask.getStatus () == Status.FINISHED ) {
             backupTask = new BackupTask ();
             backupTask.execute (fileName);
+        } else {
+            JTApp.logMessage ( TAG, JTApp.LOG_SEVERITY_ERROR, "BackupTask in invalid state" );
+        }
+    }
+*/
+
+    private void backupData () {
+        if ( backupTask == null || backupTask.getStatus () == Status.FINISHED ) {
+            backupTask = new BackupTask ();
+            backupTask.execute ();
         } else {
             JTApp.logMessage ( TAG, JTApp.LOG_SEVERITY_ERROR, "BackupTask in invalid state" );
         }
@@ -747,7 +785,124 @@ public class ManageActivity extends Activity implements OnClickListener {
         setRequestedOrientation ( ActivityInfo.SCREEN_ORIENTATION_SENSOR );
     }
 
-    private class RestoreTask extends AsyncTask<String, Void, Void> {
+    private class RestoreTask extends AsyncTask<Void, Void, Void> {
+
+        private boolean errorFlag = false;
+        PowerManager pm = ( PowerManager ) getSystemService ( Context.POWER_SERVICE );
+        PowerManager.WakeLock m_wakeLock;
+
+        @Override
+        protected void onPreExecute () {
+            super.onPreExecute ();
+            lockScreenOrientation ();
+            progressDialog.setMessage ( getString ( R.string.dialog_message_restoring ) );
+            progressDialog.show ();
+            m_wakeLock = pm.newWakeLock ( PowerManager.PARTIAL_WAKE_LOCK, "Restore" );
+        }
+
+        @Override
+        protected Void doInBackground ( Void... params ) {
+            try {
+                JTApp.getDataStore ().restoreDataStore ();
+            } catch ( Exception e ) {
+                errorFlag = true;
+                getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                        getString ( R.string.dialog_title_restore_results ) );
+                getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_MESSAGE, e.getMessage () );
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute ( Void param ) {
+            super.onPostExecute ( param );
+            unlockScreenOrientation ();
+            JTApp.getClipBoard ().clear ();
+            progressDialog.dismiss ();
+
+            if ( m_wakeLock.isHeld () ) {
+                m_wakeLock.release ();
+            }
+            JTApp.fireDataStoreUpdated ();
+
+            if ( errorFlag ) {
+                showDialog ( DIALOG_GENERIC );
+            }
+
+            getIntent ().putExtra ( JTApp.INTENT_EXTRA_CLEAR_MANAGE_STACK, true );
+            setResult ( RESULT_OK, getIntent () );
+            finish ();
+        }
+    }
+
+    private class BackupTask extends AsyncTask<Void, Void, Void> {
+
+        private boolean errorFlag = false;
+        PowerManager pm = ( PowerManager ) getSystemService ( Context.POWER_SERVICE );
+        PowerManager.WakeLock m_wakeLock;
+
+        @Override
+        protected void onPreExecute () {
+            super.onPreExecute ();
+            lockScreenOrientation ();
+            if ( madeChanges ) {
+                progressDialog.setMessage ( getString ( R.string.dialog_message_saving ) );
+            } else {
+                progressDialog.setMessage ( getString ( R.string.dialog_message_backup ) );
+            }
+            progressDialog.show ();
+            m_wakeLock = pm.newWakeLock ( PowerManager.PARTIAL_WAKE_LOCK, "Backup" );
+        }
+
+        @Override
+        protected Void doInBackground ( Void... params ) {
+            try {
+                if ( madeChanges ) {
+                    runOnUiThread ( new Runnable () {
+
+                        public void run () {
+                            progressDialog
+                                    .setMessage ( getString ( R.string.dialog_message_saving ) );
+                        }
+                    } );
+                    JTApp.getDataStore ().saveDataStore ();
+                }
+                runOnUiThread ( new Runnable () {
+
+                    public void run () {
+                        progressDialog.setMessage ( getString ( R.string.dialog_message_backup ) );
+                    }
+                } );
+                JTApp.getDataStore ().backupDataStore ();
+            } catch ( Exception e ) {
+                errorFlag = true;
+                getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_MESSAGE, e.getMessage () );
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute ( Void param ) {
+            super.onPostExecute ( param );
+            unlockScreenOrientation ();
+            progressDialog.dismiss ();
+
+            if ( m_wakeLock.isHeld () ) {
+                m_wakeLock.release ();
+            }
+            getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                    getString ( R.string.dialog_title_backup_results ) );
+            if ( !errorFlag ) {
+                getIntent ().putExtra (
+                        JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
+                        getString ( R.string.dialog_message_backup_success, JTApp.getDataStore ()
+                                .getExternalStorageDirectory ().getPath () ) );
+            }
+            showDialog ( DIALOG_GENERIC );
+        }
+    }
+
+/*    private class RestoreTask extends AsyncTask<String, Void, Void> {
 
         private boolean errorFlag = false;
         PowerManager pm = ( PowerManager ) getSystemService ( Context.POWER_SERVICE );
@@ -866,7 +1021,7 @@ public class ManageActivity extends Activity implements OnClickListener {
             showDialog ( DIALOG_GENERIC );
         }
     }
-
+*/
     private class SaveDataStoreTask extends AsyncTask<Boolean, Void, Void> {
 
         private boolean errorFlag = false;

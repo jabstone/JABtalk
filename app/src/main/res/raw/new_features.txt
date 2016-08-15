@@ -1,1 +1,1 @@
-<b><u>Bug Fixes</u></b> - Minor bug fixes.
+<b><u>Additional languages</u></b> - Translated into Danish.

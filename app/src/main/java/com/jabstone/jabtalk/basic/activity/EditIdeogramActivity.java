@@ -889,8 +889,11 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             return false;
         }
         
-        if(gram.getPhrase() == null || gram.getPhrase().trim().length() < 1 || gram.getAudioExtention() == null) {
-        	Toast.makeText(this, "Audio not available. Display phrase or audio source is empty.", Toast.LENGTH_LONG).show();
+        if(gram.getPhrase() == null || gram.getPhrase().trim().length() < 1) {
+        	//Toast.makeText(this, "Audio not available. Display phrase or audio source is empty.", Toast.LENGTH_LONG).show();
+            getIntent ().putExtra ( JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
+                    getString ( R.string.dialog_message_invalid_phrase ) );
+            return false;
         }  
 
         return results;

@@ -182,6 +182,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
 
     @Override
     protected void onPause() {
+        super.onPause();
         m_dialog.dismiss();
         unlockScreenOrientation();
         webView.stopLoading();

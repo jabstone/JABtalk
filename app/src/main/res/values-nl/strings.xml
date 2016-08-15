@@ -63,7 +63,8 @@
     <string name="dialog_item_audiosource_synthesizer">Spraaksynthesizer</string>
     <string name="dialog_title_picture_gallery">Selecteer Afbeelding</string>
     <string name="dialog_title_save_results">Resultaten opslaan</string>
-    <string name="dialog_message_invalid_label">Vul een woord of categorielabel in</string>
+    <string name="dialog_message_invalid_label">Vul een woord of categorie label in</string>
+    <string name="dialog_message_invalid_phrase">Geef een woord of zin categorie</string>
     <string name="dialog_message_invalid_picture">Selecteer een afbeelding</string>    
 	<string name="dialog_title_invalid_field">Ongeldige input</string>
 	<string name="dialog_message_invald_image_format">Het geselecteerde beeldformaat is niet compatibel met JABtalk. Selecteer een ander bestand.</string>

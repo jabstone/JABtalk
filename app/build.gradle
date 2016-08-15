@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 15
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         applicationId "com.jabstone.jabtalk.basic"
         minSdkVersion 15
-        targetSdkVersion 19
+        targetSdkVersion 15
     }
 
     buildTypes {
@@ -16,4 +16,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
 }

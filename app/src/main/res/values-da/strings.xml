@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Browser</string>
+    <string name="preference_activity">Indstillinger</string>    
+    <string name="button_finish">Afslut</string>
+    <string name="button_cancel">Annuller</string>
+    <string name="button_delete">Slet</string>
+    <string name="button_yes">Ja</string>
+    <string name="button_no">Nej</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Luk</string>
+    <string name="button_speak">Tal</string>
+    <string name="button_clear">Ryd</string>            
+	<string name="dialog_title_new_features">Nye JABtalk-features</string>
+    <string name="dialog_title_delete_confirmation">Bekræft sletning</string>
+    <string name="dialog_message_delete_category">Er du sikker på, at du vil slette denne kategori og alle associerede underkategorier og ord?</string>
+    <string name="dialog_message_delete_word">Er du sikker på, at du vil slette dette ord?</string>
+    <string name="dialog_message_restoring">Genskaber data&#8230;</string>
+    <string name="dialog_message_backup">Tager backup af data&#8230;</string>
+    <string name="dialog_message_saving">Gemmer ændringer&#8230;</string>
+    <string name="dialog_title_error">Fejl</string>
+    <string name="empty_category"><b>Velkommen til JABtalk!</b>\n\n<b><u>Tryk her</u></b> for at komme i gang med at tilføje ord og kategorier.</string>
+    <string name="empty_word">Der er ikke tilføjet ord til denne kategori.\n<b><u>Tryk her</u></b> for at tilgå Redigering og tilføje nye ord.</string>
+    <string name="websiteNeedHelp">Se vores vejledninger på www.jabstone.com/videos</string>
+    <string name="copy_error_source_not_found">Det element, du prøver at kopiere, kunne ikke findes.</string>
+    <string name="cut_error_invalid_target">Beklager, du kan ikke flytte et element til sig selv.</string>
+    <string name="cut_error_invalid_target_for_source">Beklager, du kan ikke flytte et ord til listen med kategorier.</string>
+    <string name="sentence_board_tip">Træk ned for at fjerne ord</string>    
+	<string name="dialog_title_item_move">Flyt&#8230;</string>
+    <string name="dialog_item_move_up">Flyt op</string>
+    <string name="dialog_item_move_down">Flyt ned</string>
+    <string name="dialog_item_move_beginning">Placér først</string>
+    <string name="dialog_item_move_end">Placér sidst</string>    
+<!--  END: COMMON STRINGS -->    
+    
+    
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Start optagelse</string>
+    <string name="button_stop_recording">Stop optagelse</string>	    
+    <string name="manage_activity_title">Redigering</string>
+    <string name="manage_activity_hidden_item">Skjult</string>
+    <string name="manage_activity_category_actions">Kategori-muligheder</string>    
+    <string name="ideogram_activity_title_insert_category">Tilføj ny kategori</string>
+    <string name="ideogram_activity_title_update_category">Rediger kategori</string>
+    <string name="ideogram_activity_title_insert_word">Tilføj nyt ord</string>
+    <string name="ideogram_activity_title_update_word">Rediger ord</string>
+    <string name="ideogram_activity_category_label_hint">Navngiv kategori</string>    
+    <string name="ideogram_activity_word_label_hint">Navngiv ord</string>
+    <string name="ideogram_activity_phrase_hint">Tekst ved visning</string>
+    <string name="ideogram_activity_check_hidden">Skjul dette element</string>       
+    <string name="ideogram_activity_word_label">Navn på ord</string>
+    <string name="ideogram_activity_button_preview">Klik for forhåndsvisning</string>       
+    <string name="dialog_title_image_source">Vælg billedkilde</string>
+    <string name="dialog_item_imagesource_camera">Kamera</string>
+    <string name="dialog_item_import">Importer fra enhed</string>
+    <string name="dialog_item_import_web">Hent fra internettet</string>
+    <string name="dialog_item_imagesource_text">Tekstknap</string>
+    <string name="dialog_title_audio_source">Vælg lydkilde</string>
+    <string name="dialog_item_audiosource_recorder">Lydoptager</string>
+    <string name="dialog_item_audiosource_synthesizer">Talesyntese</string>
+    <string name="dialog_title_picture_gallery">Vælg billede</string>
+    <string name="dialog_title_save_results">Gem resultater</string>
+    <string name="dialog_message_invalid_label">Indtast venligst navnet på et ord eller en kategori</string>
+    <string name="dialog_message_invalid_phrase">Indtast et ord eller kategori sætning</string>
+    <string name="dialog_message_invalid_picture">Vælg venligst et billede</string>    
+	<string name="dialog_title_invalid_field">Ugyldigt felt</string>
+	<string name="dialog_message_invald_image_format">Det valgte billedformat er ikke understøttet af JABtalk. Prøv at vælge en anden fil.</string>
+	<string name="dialog_message_invald_audio_format">Det valgte lydformat er ikke understøttet af JABtalk. Prøv at vælge en anden fil.</string>
+	<string name="dialog_title_missing_speech_data">Sprogfiler mangler</string>	
+	<string name="dialog_message_missing_speech_data">Det ser ud som om din enhed ikke har de nødvendige tekst-til-tale-sprogfiler installeret.  Vil du installere dem nu?</string>			
+    <string name="dialog_item_add_category">Tilføj ny kategori</string>        
+    <string name="dialog_item_add_word">Tilføj ord</string>
+    <string name="dialog_title_restore_dataset">Genskab data</string>
+    <string name="dialog_message_restore_confirmation">Hvis du genskaber data vil dine eksisterende billed- og lydfiler blive erstattet. Er du sikker på, at du vil fortsætte?</string>
+    <string name="dialog_title_backup_results">Backup-resultater</string>
+    <string name="dialog_title_restore_results">Genskabelsesresultater</string>
+    <string name="dialog_message_backup_success">Dine data er blevet gemt i:\r\n%1s</string>
+    <string name="dialog_title_manage_challenge">Tilgå Redigering</string>       
+    <string name="dialog_message_manage_unlock_question">Indtast venligst %1$s for at tilgå Redigering</string>
+    <string name="dialog_message_manage_challenge_incorrect">Forkert kode. Prøv venligst igen.</string>     
+    <string name="dialog_message_restore_file_not_exist">JABtalk kunne ikke finde en backup-fil at genskabe. Undersøg venligst at din backup-fil findes i\r\n%1$s/jabtalk.bak.</string>
+    <string name="dialog_message_leave_screen">Er du sikker på, at du vil forlade Redigering?</string>
+    <string name="dialog_title_exit_warning">Forlad Redigering</string>
+    <string name="dialog_message_browser_unsupported_image_type">Det valgte billede kunne ikke hentes. Prøv igen om et øjeblik eller prøv at hente forhåndsvisningsbilledet fra listen med billedresultater i stedet.</string>
+    <string name="dialog_item_no_audio">Ingen lyd</string>
+
+    <string name="dialog_title_backup_save_as">Backup-data</string>
+    <string name="dialog_message_backup_save_as">Navngiv backup-filen. Eksisterende filer med det samme navn vil blive overskrevet.</string>
+<!-- END: MANAGEMENT SCREENS -->    
+    
+        
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	<string name="progress_loading">Henter&#8230;</string>
+	<string name="progress_downloading_image">Henter billede&#8230;</string>	
+	<string name="download_hint">Tryk og hold på billedet for at få mulighed for at hente det</string> 
+	<string name="google_image_search_url">http://www.google.com/search?hl=en&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string>
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	
+	
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Historie</string>    
+    <string name="menu_log">Log</string>
+    <string name="menu_clear_history">Ryd Historie</string>
+    <string name="menu_clear_log">Ryd Log</string>
+    <string name="menu_manage">Redigering</string>
+    <string name="menu_backup">Backup</string>
+    <string name="menu_restore">Genskab</string>
+    <string name="menu_delete">Slet</string>
+    <string name="menu_hide">Skjul</string>
+    <string name="menu_unhide">Vis</string>
+    <string name="menu_edit">Rediger</string>
+    <string name="menu_copy">Kopier</string>
+    <string name="menu_cut">Klip</string>
+    <string name="menu_paste">Sæt ind</string>
+    <string name="menu_convert">Konverter til underkategori</string>
+    <string name="menu_help">Support</string>
+    <string name="menu_preferences">Indstillinger</string>	
+    <string name="menu_download_image">Hent billede</string>
+    <string name="menu_add_ideogram">Tilføj element</string>
+    <string name="menu_edit_ideogram">Rediger element</string>        
+<!--  END: MENU STRINGS -->
+    
+    
+<!--  BEGIN: PREFERENCES -->    
+	<string name="preference_category_picture_size">Billedindstillinger</string>
+	<string name="preference_category_sentence_building">Indstillinger for sætningskonstruktion</string>
+	<string name="preference_category_audio">Lydindstillinger</string>
+	<string name="preference_category_other">Andre indstillinger</string>
+    <string name="preference_landscape_columns_title">Billedstørrelse - Landskabsvisning</string>
+    <string name="preference_portrait_columns_title">Billedstørrelse - Portrætvisning</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">portrait_colunms</string>
+    <string name="preference_landscape_columns_summary">Antal billeder der skal vises i en række, når enheden er i "landskabsvisning" (roteret horisontalt).  Mindre værdier betyder større billeder.  Større værdier betyder mindre billeder.</string>
+    <string name="preference_portrait_columns_summary">Antal billeder der skal vises i en række, når enheden er i "portrætvisning" (roteret vertikalt). Mindre værdier betyder større billeder.  Større værdier betyder mindre billeder.</string>   
+   	<string name="preference_speech_resource_key">speech_resource</string>
+   	<string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Slå sætningskonstruktion til</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Tillader sætningskonstruktion på appens hovedskærm.</string>
+	<string name="preference_scroll_speed_title">Scroll-hastighed</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">Styrer hastigheden af billed-scrolling, når der stryges henover skærmen.</string>
+    <string name="preference_scroll_speed_default">.1</string>
+	<string name="preference_sentence_bar_size_title">Størrelse af sætningsbjælke</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Rediger billedstørrelsen på sætningsbjælken. Værdierne er relative til billedstørrelsen i ordgitret.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Ordbegrænsning for sætninger</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">Styrer antallet af ord, som kan vises i sætningsbjælken på samme tid.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Lyd ved valg af kategori</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">Afspil lyd ved valg af kategori</string>
+    <string name="preference_word_audio_title">Lyd ved valg af ord</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">Afspil lyd ved valg af ord</string>     
+    <string name="preference_access_code_title">Kræv adgangskode</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_summary">Slås denne indstilling til skal der skrives et 4-cifret tal for at tilgå Redigering.</string>
+    <string name="preference_backbutton_disable_title">Slå knappen "Tilbage" fra</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_backbutton_disable_summary">Slås denne indstilling til forhindres JABtalk i at lukke, når der trykkes på tilbageknappen i appens hovedskærm.</string>
+    <string name="preference_fontsize_title">Billedbeskrivelsers tekststørrelse</string>
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_fontsize_summary">Redigerer tekststørrelsen for billedbeskrivelser over ord og kategorier.</string>
+	<string name="preference_screen_keep_on_key">screen_on</string>    
+    <string name="preference_screen_keep_on_title">Hold skærmen tændt</string>
+    <string name="preference_screen_keep_on_summary">Sørger for at skærmen ikke slukkes. Det kan have negativ indvirkning på enhedens batteritid at slå denne indstilling til.</string>    
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Slå "tekst ved visning" til</string>
+    <string name="preference_word_progress_summary">Viser teksten valgt i "tekst ved visning", når et ord vælges i appens hovedskærm. Kræver at ordet er tildelt en lyd og at "Lyd ved valg af ord" er slået til.</string>                
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Lille</item>
+        <item>Medium</item>
+        <item>Stor</item>
+    </string-array>
+    
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>     
+    
+    <string-array name="title_font_size_labels">
+        <item>mindst</item>
+        <item>mindre</item>
+        <item>lille</item>
+        <item>normal</item>
+        <item>stor</item>
+        <item>større</item>
+        <item>størst</item>
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>18f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>  
+    
+    <string-array name="scroll_speed_labels">
+        <item>langsommest</item>
+        <item>langsommere</item>
+        <item>normal</item>
+        <item>hurtigere</item>
+        <item>hurtigst</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>     
+    
+<!--  BEGIN: ARRAY VALUES -->
+    
+</resources>

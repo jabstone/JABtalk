@@ -64,6 +64,7 @@
     <string name="dialog_title_picture_gallery">Sélection des Images</string>
     <string name="dialog_title_save_results">Sauvegarder les Résultats</string>
     <string name="dialog_message_invalid_label">Le Nom du Pictogramme ou de la Catégorie n\'est pas défini!</string>
+    <string name="dialog_message_invalid_phrase">S\'il vous plaît entrer un mot ou d\'une catégorie phrase</string>
     <string name="dialog_message_invalid_picture">L\'image du Pictogramme n\'est pas définie!</string>
     <string name="dialog_title_invalid_field">Champ non renseigné!</string>
     <string name="dialog_message_invald_image_format">Le format de l\'image n\'est pas compatible avec JABtalk. Merci choisir un autre fichier!</string>

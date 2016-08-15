@@ -64,6 +64,7 @@
     <string name="dialog_title_picture_gallery">Izberi sliko</string>
     <string name="dialog_title_save_results">Shrani rezultate</string>
     <string name="dialog_message_invalid_label">Vnesite besedo ali oznako skupine</string>
+    <string name="dialog_message_invalid_phrase">Vnesite besedo ali frazo kategorije</string>
     <string name="dialog_message_invalid_picture">Izberite sliko</string>    
 	<string name="dialog_title_invalid_field">Neveljavno polje</string>
 	<string name="dialog_message_invald_image_format">Izbran format slike ni združljiv z JABTalk-om. Prosimo, izberite drugo datoteko.</string>
