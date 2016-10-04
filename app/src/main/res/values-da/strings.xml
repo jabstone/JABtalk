@@ -64,7 +64,7 @@
     <string name="dialog_title_picture_gallery">Vælg billede</string>
     <string name="dialog_title_save_results">Gem resultater</string>
     <string name="dialog_message_invalid_label">Indtast venligst navnet på et ord eller en kategori</string>
-    <string name="dialog_message_invalid_phrase">Indtast et ord eller kategori sætning</string>
+    <string name="dialog_message_invalid_phrase">Udfyld feltet ”Tekst ved visning”</string>
     <string name="dialog_message_invalid_picture">Vælg venligst et billede</string>    
 	<string name="dialog_title_invalid_field">Ugyldigt felt</string>
 	<string name="dialog_message_invald_image_format">Det valgte billedformat er ikke understøttet af JABtalk. Prøv at vælge en anden fil.</string>

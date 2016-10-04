@@ -176,17 +176,19 @@ public class MainActivity extends Activity implements ICategorySelectionListener
     protected void onSaveInstanceState ( Bundle outState ) {
 
         outState.putString ( CATEGORY_ID, getSelectedIdeogram().getId() );
-        List<String> boardWords = new ArrayList<String>();
-        for ( int i = 0; i < m_sentenceBoard.getChildCount (); i++ ) {
-            View picture = ( View ) m_sentenceBoard.getChildAt ( i );
-            Ideogram w = ( Ideogram ) picture.getTag ();
-            if ( w != null ) {
-            	boardWords.add(w.getId());
+        if(m_sentenceBoard != null) {
+            List<String> boardWords = new ArrayList<String>();
+            for (int i = 0; i < m_sentenceBoard.getChildCount(); i++) {
+                View picture = (View) m_sentenceBoard.getChildAt(i);
+                Ideogram w = (Ideogram) picture.getTag();
+                if (w != null) {
+                    boardWords.add(w.getId());
+                }
             }
-        }
-        if(boardWords.size() > 0) {
-        	m_boardWords = boardWords.toArray(new String[boardWords.size()]);
-        	outState.putStringArray(BOARD_WORDS, m_boardWords);
+            if (boardWords.size() > 0) {
+                m_boardWords = boardWords.toArray(new String[boardWords.size()]);
+                outState.putStringArray(BOARD_WORDS, m_boardWords);
+            }
         }
         super.onSaveInstanceState ( outState );
     }
@@ -199,7 +201,9 @@ public class MainActivity extends Activity implements ICategorySelectionListener
         // Restore activity state
         if ( savedInstanceState != null ) {
             m_selectedCategoryId = savedInstanceState.getString ( CATEGORY_ID );
-            m_boardWords = savedInstanceState.getStringArray(BOARD_WORDS);            
+            if(m_sentenceBoard != null) {
+                m_boardWords = savedInstanceState.getStringArray(BOARD_WORDS);
+            }
             JTApp.fireCategorySelected ( getSelectedIdeogram(), false );
         }     		
 	}

@@ -18,9 +18,9 @@
 	  <ImageView
 		android:id="@+id/ideogram_thumb"
 		android:layout_centerInParent="true"
-  		android:scaleType="fitXY"
+  		android:scaleType="centerInside"
   		android:layout_width="@dimen/image_thumb_portrait_width"
-  		android:layout_height="@dimen/image_thumb_portrait_height" />  	
+  		android:layout_height="@dimen/image_thumb_portrait_height" />
   		
 	<com.jabstone.jabtalk.basic.widgets.AutoResizeTextView
 	    android:id="@+id/ideogram_text_label"

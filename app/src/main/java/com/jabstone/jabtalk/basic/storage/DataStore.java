@@ -173,7 +173,6 @@ public class DataStore {
     	
         return f;
     }
-    
 
     public File getExternalStorageDirectory () {
         File dir = Environment.getExternalStorageDirectory ();
@@ -494,7 +493,7 @@ public class DataStore {
         }
     }
 
-    /*
+
     public void backupDataStore (String fileName) throws JabException {
         ZipOutputStream zos = null;
         try {
@@ -582,7 +581,7 @@ public class DataStore {
             }
         }
     }
-*/
+
     private void deleteAllFiles () throws Exception {
         try {
             clearCache ();

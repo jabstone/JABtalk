@@ -61,6 +61,7 @@ public class JTApp extends Application implements OnCompletionListener,
 
     public final static float MAX_TEXT_SIZE = 150f;
     public final static float TEXT_BUTTON_PADDING = .72f;
+    public final static float TEXT_BUTTON_THUMB_PADDING = .50f;
 
     public final static String EXTENSION_SYNTHESIZER = "syn";
     public final static String EXTENSION_TEXT_IMAGE = "txt";

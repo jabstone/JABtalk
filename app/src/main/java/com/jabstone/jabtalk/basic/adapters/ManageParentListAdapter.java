@@ -156,8 +156,8 @@ public class ManageParentListAdapter extends BaseAdapter implements
 				textLabel.setTextSize(50);
 				textLabel.setText(ideogram.getLabel());
 				textLabel.resizeText(
-						(int) (thumbWidth * JTApp.TEXT_BUTTON_PADDING),
-						(int) (thumbHeight * JTApp.TEXT_BUTTON_PADDING));
+						(int) (thumbWidth * JTApp.TEXT_BUTTON_THUMB_PADDING),
+						(int) (thumbHeight * JTApp.TEXT_BUTTON_THUMB_PADDING));
 				textLabel.setVisibility(View.VISIBLE);
 			} else {
 				textLabel.setVisibility(View.GONE);

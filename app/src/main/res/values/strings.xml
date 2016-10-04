@@ -63,8 +63,8 @@
     <string name="dialog_item_audiosource_synthesizer">Speech Synthesizer</string>
     <string name="dialog_title_picture_gallery">Select Picture</string>
     <string name="dialog_title_save_results">Save Results</string>
-    <string name="dialog_message_invalid_label">Please enter a word or category label</string>
-    <string name="dialog_message_invalid_phrase">Please enter a word or category phrase</string>
+    <string name="dialog_message_invalid_label">Please enter a label</string>
+    <string name="dialog_message_invalid_phrase">Please enter a display phrase</string>
     <string name="dialog_message_invalid_picture">Please select an image</string>    
 	<string name="dialog_title_invalid_field">Invalid Field</string>
 	<string name="dialog_message_invald_image_format">The selected image format is not compatible with JABtalk. Please select a different file.</string>
@@ -89,6 +89,7 @@
 
     <string name="dialog_title_backup_save_as">Backup Data</string>
     <string name="dialog_message_backup_save_as">Enter a name for the backup file. Existing files with the same name will be overwritten.</string>
+    <string name="dialog_message_restore_from_list">Select an existing backup file to restore.</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

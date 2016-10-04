@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="navigationButtonSize">65px</dimen>
-    <dimen name="picture_frame_width_default">230px</dimen>
-    <dimen name="picture_frame_thumb_width">90px</dimen>
-    <dimen name="picture_frame_thumb_height">75px</dimen>
-    <dimen name="image_thumb_landscape_width">75px</dimen>
-    <dimen name="image_thumb_landscape_height">56px</dimen>
-    <dimen name="image_thumb_portrait_width">42px</dimen>
-    <dimen name="image_thumb_portrait_height">56px</dimen>
+    <dimen name="picture_frame_width_default">205px</dimen>
+    <dimen name="picture_frame_thumb_width">205px</dimen>
+    <dimen name="picture_frame_thumb_height">148px</dimen>
+    <dimen name="image_thumb_landscape_width">205px</dimen>
+    <dimen name="image_thumb_landscape_height">148px</dimen>
+    <dimen name="image_thumb_portrait_width">205px</dimen>
+    <dimen name="image_thumb_portrait_height">148px</dimen>
     <dimen name="sentence_frame_width">145px</dimen>
     <dimen name="sentence_board_right_padding">15px</dimen>
     <dimen name="sentence_container_height">145px</dimen>        
