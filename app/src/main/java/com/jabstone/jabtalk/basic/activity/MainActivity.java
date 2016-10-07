@@ -1,19 +1,17 @@
 package com.jabstone.jabtalk.basic.activity;
 
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PowerManager;
 import android.text.Html;
 import android.text.util.Linkify;
 import android.util.DisplayMetrics;
@@ -28,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -42,8 +41,6 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.os.PowerManager; 
-import android.content.Context;
 
 import com.jabstone.jabtalk.basic.JTApp;
 import com.jabstone.jabtalk.basic.PictureSize;
@@ -61,17 +58,20 @@ import com.jabstone.jabtalk.basic.widgets.IFrameResizeListener;
 import com.jabstone.jabtalk.basic.widgets.JTLinearLayout;
 import com.jabstone.jabtalk.basic.widgets.PictureFrameDimensions;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 
 public class MainActivity extends Activity implements ICategorySelectionListener,
         IWordSelectionListener, ISpeechCompleteListener, IDataStoreListener, IFrameResizeListener {
 
-    private String TAG = MainActivity.class.getSimpleName ();
     private final int ACTIVITY_RESULT_MANAGE = 4000;
-
-    private int INCORRECT_THRESHOLD = 3;
     private final int DIALOG_CHALLENGE = 2001;
     private final int DIALOG_NEW_FEATURES = 2002;
-
+    String[] m_boardWords = null;
+    private String TAG = MainActivity.class.getSimpleName();
+    private int INCORRECT_THRESHOLD = 3;
     private String CATEGORY_ID = "cat_id";
     private String BOARD_WORDS = "board_words";
     private String m_selectedCategoryId = null;
@@ -79,8 +79,6 @@ public class MainActivity extends Activity implements ICategorySelectionListener
     private boolean m_challenge_incorrect = false;
     private int m_incorrect_count = 0;
     private Ideogram m_currentlySpeaking = null;
-
-    private JTLinearLayout m_ideogramLayout;
     private GridView m_ideogramGrid;
     private LinearLayout m_emptyLayout;
     private RelativeLayout m_sentenceContainer;
@@ -90,14 +88,9 @@ public class MainActivity extends Activity implements ICategorySelectionListener
     private LinearLayout m_sentenceBoard = null;
     private HorizontalScrollView m_sentenceScroll = null;
     private Handler m_handler = null;
-    private RelativeLayout m_navHome = null;
-    private RelativeLayout m_navBack = null;
     private TextView m_emptyText = null;
-    private TextView m_websiteText = null;
-
     private boolean m_isGridSized = false;
     private int m_gridWidth = 0;
-    String[] m_boardWords = null;
     private float m_beginMove = 0;
     private PowerManager.WakeLock m_wakeLock;
 
@@ -120,17 +113,17 @@ public class MainActivity extends Activity implements ICategorySelectionListener
 
         m_ideogramGrid = ( GridView ) findViewById ( R.id.ideogramGrid );
         m_emptyLayout = (LinearLayout)findViewById(R.id.emptyWord);
-        m_ideogramLayout = ( JTLinearLayout ) findViewById ( R.id.ideogramLayout );
+        JTLinearLayout ideogramLayout = (JTLinearLayout) findViewById(R.id.ideogramLayout);
         m_sentenceContainer = ( RelativeLayout ) findViewById ( R.id.sentenceContainer );
         m_sentenceBoardTip = ( AutoResizeTextView ) findViewById ( R.id.sentenceBoardTip );
         m_gridAdapter = new GridAdapter( getApplicationContext () );
         m_sentenceScroll = ( HorizontalScrollView ) findViewById ( R.id.sentence_scroll );
         m_ideogramGrid.setAdapter ( m_gridAdapter );
-        m_navHome = (RelativeLayout)findViewById(R.id.navigationHome);
-        m_navBack = (RelativeLayout)findViewById(R.id.navigationBack);
+        RelativeLayout navHome = (RelativeLayout) findViewById(R.id.navigationHome);
+        RelativeLayout navBack = (RelativeLayout) findViewById(R.id.navigationBack);
         m_emptyText = (TextView)findViewById(R.id.emptyWordText);
-        m_websiteText = (TextView)findViewById(R.id.websiteText);
-        Linkify.addLinks(m_websiteText, Linkify.WEB_URLS);
+        TextView websiteText = (TextView) findViewById(R.id.websiteText);
+        Linkify.addLinks(websiteText, Linkify.WEB_URLS);
 
         // Setup listeners
         JTApp.addCategorySelectionListener ( this );
@@ -141,17 +134,17 @@ public class MainActivity extends Activity implements ICategorySelectionListener
         JTApp.addCategorySelectionListener(m_gridAdapter);
 
         // frame resize listener for resizing pictures correctly
-        m_ideogramLayout.setOnFrameResizeListener ( this );
+        ideogramLayout.setOnFrameResizeListener(this);
         
         //Navigation listeners
-        m_navBack.setOnClickListener(new OnClickListener() {			
-			@Override
+        navBack.setOnClickListener(new OnClickListener() {
+            @Override
 			public void onClick(View v) {				
 				navigateBackPressed();
 			}
 		});
-        m_navHome.setOnClickListener(new OnClickListener() {			
-			@Override
+        navHome.setOnClickListener(new OnClickListener() {
+            @Override
 			public void onClick(View v) {				
 				navigateHomePressed();
 			}
@@ -177,9 +170,9 @@ public class MainActivity extends Activity implements ICategorySelectionListener
 
         outState.putString ( CATEGORY_ID, getSelectedIdeogram().getId() );
         if(m_sentenceBoard != null) {
-            List<String> boardWords = new ArrayList<String>();
+            List<String> boardWords = new ArrayList<>();
             for (int i = 0; i < m_sentenceBoard.getChildCount(); i++) {
-                View picture = (View) m_sentenceBoard.getChildAt(i);
+                View picture = m_sentenceBoard.getChildAt(i);
                 Ideogram w = (Ideogram) picture.getTag();
                 if (w != null) {
                     boardWords.add(w.getId());
@@ -294,7 +287,6 @@ public class MainActivity extends Activity implements ICategorySelectionListener
 
                 break;
             case DIALOG_NEW_FEATURES:
-                final Activity activity = this;
                 dialog = new Dialog ( this );
                 dialog.setContentView ( R.layout.new_features_dialog );
                 dialog.setTitle ( getString ( R.string.dialog_title_new_features ));
@@ -330,6 +322,10 @@ public class MainActivity extends Activity implements ICategorySelectionListener
                     wrong.setVisibility ( View.VISIBLE );
                 } else {
                     wrong.setVisibility ( View.GONE );
+                }
+                try {
+                    dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                } catch (NullPointerException ignored) {
                 }
                 break;
         }
@@ -564,10 +560,7 @@ public class MainActivity extends Activity implements ICategorySelectionListener
 
     private boolean unlockManageActivity ( String answer ) {
         m_incorrect_count++;
-        if ( answer.equals ( m_challenge ) ) {
-            return true;
-        }
-        return false;
+        return answer.equals(m_challenge);
     }
 
     private void resetChallengeState () {
@@ -654,8 +647,8 @@ public class MainActivity extends Activity implements ICategorySelectionListener
         ivParams.setMargins ( 0, 0, 0, 0 );
         RelativeLayout.LayoutParams ivLayout = new RelativeLayout.LayoutParams ( ivParams );
         ImageView iv = new ImageView ( this );
-        iv.setImageDrawable( getResources().getDrawable(iconId) );        
-        iv.setId ( JTApp.IMAGEVIEW_ID );
+        iv.setImageDrawable( getResources().getDrawable(iconId) );
+        iv.setId(R.id.IMAGEVIEW_ID);
         iv.setScaleType ( ScaleType.FIT_CENTER );        
         ivLayout.addRule ( RelativeLayout.CENTER_IN_PARENT );
         pictureView.addView ( iv, ivLayout );
@@ -679,9 +672,9 @@ public class MainActivity extends Activity implements ICategorySelectionListener
         RelativeLayout pictureView = JTApp.getPictureLayout ( this, Type.Word,
                 PictureSize.SentencePicture, word.isTextButton () );
         Bitmap jpg = word.getImage ();
-        ImageView picture = ( ImageView ) pictureView.findViewById ( JTApp.IMAGEVIEW_ID );
+        ImageView picture = (ImageView) pictureView.findViewById(R.id.IMAGEVIEW_ID);
         AutoResizeTextView title = ( AutoResizeTextView ) pictureView
-                .findViewById ( JTApp.TEXTVIEW_ID );
+                .findViewById(R.id.TEXTVIEW_ID);
         picture.setImageBitmap ( jpg );
         title.setText ( word.getLabel () );
       
@@ -761,12 +754,12 @@ public class MainActivity extends Activity implements ICategorySelectionListener
     }
 
     private void readSentenceBoard () {
-        StringBuffer buff = new StringBuffer ();
+        StringBuilder buff = new StringBuilder();
         if ( m_sentenceBoard.getChildCount () > 0 ) {
-            List<Ideogram> wordList = new LinkedList<Ideogram> ();
+            List<Ideogram> wordList = new LinkedList<>();
 
             for ( int i = 0; i < m_sentenceBoard.getChildCount (); i++ ) {
-                View picture = ( View ) m_sentenceBoard.getChildAt ( i );
+                View picture = m_sentenceBoard.getChildAt(i);
                 Ideogram w = ( Ideogram ) picture.getTag ();
                 if ( w != null ) {
                     buff.append ( i > 0 ? w.getPhrase ().toLowerCase () + " " : w.getPhrase ()

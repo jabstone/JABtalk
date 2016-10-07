@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.AsyncTask.Status;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.ContextMenu;
@@ -22,9 +23,9 @@ import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jabstone.jabtalk.basic.JTApp;
@@ -45,22 +46,16 @@ import java.util.regex.Pattern;
 @SuppressLint("SetJavaScriptEnabled")
 public class BrowserActivity extends Activity implements DialogInterface.OnCancelListener {
 
-    private String TAG = BrowserActivity.class.getSimpleName();
-    private WebView webView;
-    private WebClient myWebView;
-    private TextView downloadTip;
-    private Intent curIntent = null;
-    private ProgressDialog m_dialog = null;
-    private DownloadTask downloadTask = null;
-    private String googleImageSrc = null;
-    //    private Pattern m_imagePattern = Pattern.compile(
-//            "http.*?(\\.gif|\\.png|\\.jpeg|\\.jpg|th\\?id=|q=tbn:.*)", Pattern.CASE_INSENSITIVE);
-    private Pattern m_googleThumbnailPattern = Pattern.compile("data:image/(.*?);base64",
-            Pattern.CASE_INSENSITIVE);
-
     private final int DIALOG_GENERIC = 1;
     private final String INTENT_EXTRA_URL = "IMG_URL";
     private final String INTENT_EXTRA_IMAGE = "IMG_BASE64";
+    private String TAG = BrowserActivity.class.getSimpleName();
+    private WebView webView;
+    private Intent curIntent = null;
+    private ProgressDialog m_dialog = null;
+    private DownloadTask downloadTask = null;
+    private Pattern m_googleThumbnailPattern = Pattern.compile("data:image/(.*?);base64",
+            Pattern.CASE_INSENSITIVE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +69,14 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
         // setup the view of the web page and the associated web client
         setContentView(R.layout.browser);
         webView = (WebView) findViewById(R.id.webview);
-        downloadTip = (TextView) findViewById(R.id.downloadHelp);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        }
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
-        myWebView = new WebClient();
+        WebClient myWebView = new WebClient();
         webView.setWebViewClient(myWebView);
         registerForContextMenu(webView);
         webView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -156,7 +154,7 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
 
     @Override
     protected Dialog onCreateDialog(int id) {
-        AlertDialog.Builder builder = null;
+        AlertDialog.Builder builder;
         switch (id) {
             case DIALOG_GENERIC:
             default:
@@ -241,8 +239,11 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
             fos.flush();
             fos.close();
         } finally {
-            if (fos != null) {
-                fos.close();
+            try {
+                if (fos != null) {
+                    fos.close();
+                }
+            } catch (Exception ignored) {
             }
         }
     }
@@ -315,7 +316,6 @@ public class BrowserActivity extends Activity implements DialogInterface.OnCance
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            googleImageSrc = null;
             // show the loading dialog as the page starts to load
             m_dialog.setMessage(getString(R.string.progress_loading));
             m_dialog.show();

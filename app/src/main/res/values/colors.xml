@@ -3,6 +3,7 @@
 	<color name="jabtalkWhite">#FFFFFF</color>
 	<color name="jabtalkBlack">#000000</color>
 	<color name="jabtalkGray">#666666</color>
+	<color name="jabtalkLightGray">#bababa</color>
 	<color name="jabtalkRed">#ff0000</color>
 	<color name="jabtalkButtonGray">#cfcfcf</color>	
 	

@@ -33,7 +33,9 @@
     <string name="dialog_item_move_up">nach oben verschieben</string>
     <string name="dialog_item_move_down">nach unten verschieben</string>
     <string name="dialog_item_move_beginning">Zum Anfang verschieben</string>
-    <string name="dialog_item_move_end">Zum Ende verschieben</string>    
+    <string name="dialog_item_move_end">Zum Ende verschieben</string>
+
+    <string name="button_view_log">Fehlerprotokoll anzeigen</string>
 <!--  END: COMMON STRINGS -->    
     
     
@@ -61,7 +63,6 @@
     <string name="dialog_title_audio_source">Audioquelle wählen</string>
     <string name="dialog_item_audiosource_recorder">Audio-Aufnahme</string>
     <string name="dialog_item_audiosource_synthesizer">Sprach Synthesizer TTS</string>
-    <string name="dialog_title_picture_gallery">Bild wählen</string>
     <string name="dialog_title_save_results">Speicherergebnis</string>
     <string name="dialog_message_invalid_label">Geben Sie bitte ein Wort oder eine Kategorie ein</string>
     <string name="dialog_message_invalid_phrase">Bitte geben Sie ein Wort oder eine Phrase Kategorie</string>
@@ -74,20 +75,26 @@
     <string name="dialog_item_add_category">Neue Kategorie hinzufügen</string>        
     <string name="dialog_item_add_word">Wort hinzufügen</string>
     <string name="dialog_title_restore_dataset">Datenrücksicherung</string>
-    <string name="dialog_message_restore_confirmation">Die Datenrücksicherung ersetzt alle Daten, Bilder und Audio-Dateien. Möchten Sie wirklich fortfahren? </string>
-    <string name="dialog_title_backup_dataset">Datensicherung</string>
-    <string name="dialog_message_backup_confirmation">Die Datensicherung überschreibt die bestehende Sicherungsdatei.Möchten Sie wirklich fortfahren?</string>
     <string name="dialog_title_backup_results">Datensicherungsergebnis</string>
     <string name="dialog_title_restore_results">Datenrücksicherungsergebnis</string>
     <string name="dialog_message_backup_success">Die Sicherung wurde in abgelegt:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Zugang Verwaltungsansicht</string>       
     <string name="dialog_message_manage_unlock_question">Bitte geben Sie diese Nummer %1$s als Zugangskontrolle ein.</string>
-    <string name="dialog_message_manage_challenge_incorrect">Falsche Eingabe. Bitte probieren Sie es nochmal.</string>     
-    <string name="dialog_message_restore_file_not_exist">JABtalk konnte keine Datensicherungsdatei auf Ihrer SDCard finden. Bitte stellen Sie sicher das sich die Datei (jabtalk.bak) im Stammverzeichnis der Speicherkarte befindet (%1$s)</string>
+    <string name="dialog_message_manage_challenge_incorrect">Falsche Eingabe. Bitte probieren Sie es nochmal.</string>
     <string name="dialog_message_leave_screen">Sind Sie sicher, das Sie die Verwaltungsansicht verlassen möchten?</string>
     <string name="dialog_title_exit_warning">Bestätigung</string>
     <string name="dialog_message_browser_unsupported_image_type">Das gewählte Bild-Format wird nicht von JABtalk unterstützt. Bitte wählen Sie ein anderes Bild.</string>
-    <string name="dialog_item_no_audio">Nein Audio</string> 
+    <string name="dialog_item_no_audio">Nein Audio</string>
+
+    <string name="dialog_title_backup_save_as">Backup-Daten</string>
+    <string name="dialog_message_backup_save_as">Geben Sie einen Namen für die Sicherungsdatei ein. Vorhandene Dateien mit demselben Namen werden überschrieben.</string>
+    <string name="dialog_message_restore_file_not_found">JABtalk konnte keine Datensicherungsdatei auf Ihrer SDCard finden. Bitte stellen Sie sicher das sich die Datei im Stammverzeichnis der Speicherkarte befindet (%1$s)</string>
+    <string name="dialog_restore_error">Beim Wiederherstellen der Sicherungsdatei ist ein Fehler aufgetreten. Zeigen Sie das Ende der Protokolldatei für Fehlerdetails an.</string>
+    <string name="dialog_permission_explanation_title">JABtalk-Anfrage</string>
+    <string name="dialog_permission_explanation_write_message">JABtalk benötigt die Berechtigung zum Erstellen von Sicherungsdateien in Ihrem externen Speicherverzeichnis.</string>
+    <string name="dialog_permission_explanation_read_message">JABtalk benötigt die Berechtigung zum Wiederherstellen von Sicherungsdateien in Ihrem externen Speicherverzeichnis.</string>
+    <string name="dialog_permission_explanation_audio_message">JABtalk benötigt das Mikrofon für die Aufnahme von Audio.</string>
+    <string name="dialog_permission_explanation_camera_message">Für die Aufnahme von Bildern benötigt JABtalk die entsprechende Berechtigung.</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -96,7 +103,6 @@
 	<string name="progress_downloading_image">Bild download. Bitte warten&#8230;</string>	
 	<string name="download_hint">Berühren und halten Sie Bild Download Image Option anzuzeigen</string>
 	<string name="google_image_search_url">http://www.google.com/search?hl=de&amp;site=imghp&amp;tbm=isch&amp;source=hp&amp;q=</string>
-	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; de-de; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string> 
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 	
 	

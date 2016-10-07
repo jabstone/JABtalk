@@ -1,1 +1,7 @@
-<b><u>Additional languages</u></b> - Translated into Danish.
+<b><u> Backup Enhancements </u></b> - Added the ability to have multiple backup files. When performing a backup, you now get to specify the file name. You can have as many backup files as your device allows.
+<br>
+<b><u> Restore Enhancements </u></b> - Ability to select a specific file when restoring from a backup. All backup files on your device are now displayed in a select list when performing a restore.
+<br>
+<b><u> Android Permission Updates </u></b> - Updated to support new Android 6.0 permission framework.
+<br>
+<b><u> Language Translation </u></b> - We used Google Translate for some of the messages in this release. If you notice any incorrect text translations, please email us at support@jabstone.com

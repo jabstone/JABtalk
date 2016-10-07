@@ -1,18 +1,6 @@
 package com.jabstone.jabtalk.basic;
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -26,10 +14,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.UtteranceProgressListener;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import android.speech.tts.UtteranceProgressListener;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.AbsListView;
 import android.widget.ImageView;
@@ -46,6 +35,18 @@ import com.jabstone.jabtalk.basic.storage.Ideogram.Type;
 import com.jabstone.jabtalk.basic.widgets.AutoResizeTextView;
 import com.jabstone.jabtalk.basic.widgets.PictureFrameDimensions;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+
 
 public class JTApp extends Application implements OnCompletionListener,
         AudioManager.OnAudioFocusChangeListener, OnInitListener {
@@ -54,10 +55,6 @@ public class JTApp extends Application implements OnCompletionListener,
     public final static int LOG_SEVERITY_ERROR = 0;
     public final static int LOG_SEVERITY_WARNING = 1;
     public final static int LOG_SEVERITY_INFO = 2;
-
-    public final static int IMAGEVIEW_ID = 9410276;
-    public final static int TEXTVIEW_ID = 9415590;
-    public final static int RELATIVELAYOUT_ID = 2433746;
 
     public final static float MAX_TEXT_SIZE = 150f;
     public final static float TEXT_BUTTON_PADDING = .72f;
@@ -78,15 +75,19 @@ public class JTApp extends Application implements OnCompletionListener,
     public final static String INTENT_EXTRA_CLEAR_MANAGE_STACK = "ClearStack";
 
     public final static String DATASTORE_VERSION = "2";
-
-    private String TAG = JTApp.class.getSimpleName ();
     private static final Object lock = new Object ();
+    public static String URL_SUPPORT = "http://www.jabstone.com/support";
     private static JTApp me = null;
-    private static List<ICategorySelectionListener> categoryListeners = new ArrayList<ICategorySelectionListener> ();
-    private static List<IDataStoreListener> datastoreListeners = new ArrayList<IDataStoreListener> ();
-    private static List<IWordSelectionListener> wordListeners = new ArrayList<IWordSelectionListener> ();
-    private static List<ISpeechCompleteListener> speechListeners = new ArrayList<ISpeechCompleteListener> ();
-
+    private static List<ICategorySelectionListener> categoryListeners = new ArrayList<>();
+    private static List<IDataStoreListener> datastoreListeners = new ArrayList<>();
+    private static List<IWordSelectionListener> wordListeners = new ArrayList<>();
+    private static List<ISpeechCompleteListener> speechListeners = new ArrayList<>();
+    private static DataStore m_dataStore = null;
+    private static ClipBoard m_clipboard = null;
+    private static List<Ideogram> m_currentWordQueue = new ArrayList<>();
+    private static volatile int m_pictureVersion = 0;
+    private static volatile PictureFrameDimensions m_pictureDimensions = null;
+    private String TAG = JTApp.class.getSimpleName();
     private MediaPlayer m_player = new MediaPlayer ();
     private AudioManager m_audioManager = null;
     private TextToSpeech m_speechManager = null;
@@ -94,46 +95,7 @@ public class JTApp extends Application implements OnCompletionListener,
     private StringBuffer m_log = new StringBuffer ();
     private SimpleDateFormat m_formatter = new SimpleDateFormat ( "yyyy-MM-dd hh:mm a",
             Locale.ENGLISH );
-    private static DataStore m_dataStore = null;
-    private static ClipBoard m_clipboard = null;
     private boolean m_speechEngineReady = false;
-
-    public static String URL_SUPPORT = "http://www.jabstone.com/support";
-
-    private static List<Ideogram> m_currentWordQueue = new ArrayList<Ideogram> ();
-    private static volatile int m_pictureVersion = 0;
-    private static volatile PictureFrameDimensions m_pictureDimensions = null;
-
-    @Override
-    public void onCreate () {
-        super.onCreate ();
-        synchronized ( lock ) {
-            if ( me == null ) {
-                me = this;
-                me.m_player.setOnCompletionListener ( this );
-                m_dataStore = new DataStore ();
-                m_clipboard = new ClipBoard ();
-                m_audioManager = ( AudioManager ) getApplicationContext ().getSystemService (
-                        Context.AUDIO_SERVICE );
-                m_speechManager = new TextToSpeech ( this, this );
-                m_pictureDimensions = new PictureFrameDimensions ( me.getResources ()
-                        .getDimensionPixelSize ( R.dimen.picture_frame_width_default ), me
-                        .getResources ().getDimensionPixelSize (
-                                R.dimen.picture_frame_width_default ) );
-            }
-        }
-    }
-
-    @Override
-    public void onTerminate () {
-        super.onTerminate ();
-        if ( m_player != null ) {
-            m_player.release ();
-        }
-        if ( m_speechManager != null ) {
-            m_speechManager.shutdown ();
-        }
-    }
 
     public static JTApp getInstance () {
         return me;
@@ -196,20 +158,12 @@ public class JTApp extends Application implements OnCompletionListener,
 
     public static boolean isCameraAvailable () {
         PackageManager pm = JTApp.getInstance ().getPackageManager ();
-        if ( pm.hasSystemFeature ( PackageManager.FEATURE_CAMERA ) ) {
-            return true;
-        } else {
-            return false;
-        }
+        return pm.hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 
     public static boolean isMicrophoneAvailable () {
         PackageManager pm = JTApp.getInstance ().getPackageManager ();
-        if ( pm.hasSystemFeature ( PackageManager.FEATURE_MICROPHONE ) ) {
-            return true;
-        } else {
-            return false;
-        }
+        return pm.hasSystemFeature(PackageManager.FEATURE_MICROPHONE);
     }
 
     public static String getSearchProvider () {
@@ -225,7 +179,7 @@ public class JTApp extends Application implements OnCompletionListener,
 
     public static PictureFrameDimensions getPictureDimensions ( PictureSize size,
             boolean isTextButton ) {
-        PictureFrameDimensions pfd = null;
+        PictureFrameDimensions pfd;
         switch ( size ) {
             case GridPicture:
                 pfd = new PictureFrameDimensions ( m_pictureDimensions.getWidth (),
@@ -284,15 +238,6 @@ public class JTApp extends Application implements OnCompletionListener,
         return value;
     }
 
-    public static void setSpeechResourceFound ( boolean value ) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences ( me
-                .getApplicationContext () );
-        SharedPreferences.Editor editor = settings.edit ();
-        editor.putBoolean (
-                me.getResources ().getString ( R.string.preference_speech_resource_key ), value );
-        editor.commit ();
-    }
-
     public static boolean isCategoryAudioEnabled () {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences ( me
                 .getApplicationContext () );
@@ -317,9 +262,18 @@ public class JTApp extends Application implements OnCompletionListener,
         return value;
     }
 
+    public static void setSpeechResourceFound(boolean value) {
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(me
+                .getApplicationContext());
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean(
+                me.getResources().getString(R.string.preference_speech_resource_key), value);
+        editor.apply();
+    }
+
     public static void setAcknowledgeNewFeatures () {
 
-        int code = 0;
+        int code;
         try {
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences ( me
                     .getApplicationContext () );
@@ -328,8 +282,8 @@ public class JTApp extends Application implements OnCompletionListener,
             SharedPreferences.Editor editor = settings.edit ();
             editor.putInt ( me.getResources ().getString ( R.string.preference_new_features_key ),
                     code );
-            editor.commit ();
-        } catch ( Exception e ) {
+            editor.apply();
+        } catch (Exception ignored) {
 
         }
     }
@@ -394,7 +348,7 @@ public class JTApp extends Application implements OnCompletionListener,
                     me.getResources ().getString ( R.string.preference_portrait_columns_key ),
                     String.valueOf ( columns ) );
         }
-        editor.commit ();
+        editor.apply();
     }
 
     public static float getSentencePictureSizePreference () {
@@ -451,16 +405,13 @@ public class JTApp extends Application implements OnCompletionListener,
         }
 
         if ( !isTextPicture ) {
-            MarginLayoutParams tvParams = new MarginLayoutParams (
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT );
-            tvParams.setMargins ( 0, 2, 0, 0 );
+            ViewGroup.LayoutParams tvParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             RelativeLayout.LayoutParams tvLayout = new RelativeLayout.LayoutParams ( tvParams );
             tvLayout.addRule ( RelativeLayout.ALIGN_PARENT_TOP );
             tvLayout.addRule ( RelativeLayout.CENTER_HORIZONTAL );
 
             AutoResizeTextView tv = new AutoResizeTextView ( context );
-            tv.setId ( TEXTVIEW_ID );
+            tv.setId(R.id.TEXTVIEW_ID);
             tv.setTextSize ( TypedValue.COMPLEX_UNIT_SP, textSize );
             tv.setTypeface ( Typeface.DEFAULT, Typeface.BOLD );
             tv.setTextColor ( context.getResources ().getColor (
@@ -473,8 +424,8 @@ public class JTApp extends Application implements OnCompletionListener,
             ivParams.setMargins ( 4, 4, 4, 4 );
             RelativeLayout.LayoutParams ivLayout = new RelativeLayout.LayoutParams ( ivParams );
             ImageView iv = new ImageView ( context );
-            iv.setId ( IMAGEVIEW_ID );
-            ivLayout.addRule ( RelativeLayout.BELOW, TEXTVIEW_ID );
+            iv.setId(R.id.IMAGEVIEW_ID);
+            ivLayout.addRule(RelativeLayout.BELOW, R.id.TEXTVIEW_ID);
             ivLayout.addRule ( RelativeLayout.CENTER_HORIZONTAL );
             pictureView.addView ( iv, ivLayout );
             pictureView.setTag ( m_pictureVersion );
@@ -484,21 +435,18 @@ public class JTApp extends Application implements OnCompletionListener,
             ivParams.setMargins ( 4, 4, 4, 4 );
             RelativeLayout.LayoutParams ivLayout = new RelativeLayout.LayoutParams ( ivParams );
             ImageView iv = new ImageView ( context );
-            iv.setId ( IMAGEVIEW_ID );
+            iv.setId(R.id.IMAGEVIEW_ID);
 
             ivLayout.addRule ( RelativeLayout.CENTER_IN_PARENT );
             pictureView.addView ( iv, ivLayout );
             pictureView.setTag ( m_pictureVersion );
 
-            MarginLayoutParams tvParams = new MarginLayoutParams (
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT );
-            tvParams.setMargins ( 8, 8, 8, 8 );
+            ViewGroup.LayoutParams tvParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             RelativeLayout.LayoutParams tvLayout = new RelativeLayout.LayoutParams ( tvParams );
             tvLayout.addRule ( RelativeLayout.CENTER_IN_PARENT );
 
             AutoResizeTextView tv = new AutoResizeTextView ( context );
-            tv.setId ( TEXTVIEW_ID );
+            tv.setId(R.id.TEXTVIEW_ID);
             tv.setTextSize ( MAX_TEXT_SIZE );
             tv.setTypeface ( Typeface.DEFAULT, Typeface.BOLD );
             tv.setTextColor ( context.getResources ().getColor (
@@ -550,8 +498,11 @@ public class JTApp extends Application implements OnCompletionListener,
     }
 
     public static void fireCategorySelected ( Ideogram category, boolean touchEvent ) {
-        me.m_buff.append ( me.m_formatter.format ( new Date () ) + " - Category selected: "
-                + category.getLabel () + "\r\n" );
+        me.m_buff.append(me.m_formatter.format(new Date()))
+                .append(" - Category selected: ")
+                .append(category.getLabel())
+                .append("\r\n");
+
         for ( ICategorySelectionListener listener : JTApp.categoryListeners ) {
             listener.CategorySelected ( category, touchEvent );
         }
@@ -564,8 +515,11 @@ public class JTApp extends Application implements OnCompletionListener,
     }
 
     public static void fireWordSelected ( Ideogram gram, boolean isSentenceWord ) {
-        me.m_buff.append ( me.m_formatter.format ( new Date () ) + " - Word selected: "
-                + gram.getLabel () + "\r\n" );
+        me.m_buff.append(me.m_formatter.format(new Date()))
+                .append(" - Word selected: ")
+                .append(gram.getLabel())
+                .append("\r\n");
+
         for ( IWordSelectionListener listener : JTApp.wordListeners ) {
             listener.WordSelected ( gram, isSentenceWord );
         }
@@ -575,7 +529,7 @@ public class JTApp extends Application implements OnCompletionListener,
         FileInputStream fis = null;
         if ( gram.isSynthesizeButton () ) {
             if ( me.m_speechEngineReady && me.m_speechManager != null && isSpeechResourceFound () ) {
-                HashMap<String, String> optionMap = new HashMap<String, String> ();
+                HashMap<String, String> optionMap = new HashMap<>();
                 optionMap.put ( TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, gram.getId () );
                 me.m_speechManager.speak ( gram.getPhrase (), TextToSpeech.QUEUE_FLUSH, optionMap );
             } else {
@@ -597,7 +551,7 @@ public class JTApp extends Application implements OnCompletionListener,
                     me.m_player.setDataSource ( fis.getFD () );
                     me.m_player.prepare ();
                     me.m_player.start ();
-                    
+
                 } catch ( Exception e ) {
                     JTApp.logMessage ( me.TAG, JTApp.LOG_SEVERITY_ERROR, e.getMessage () );
                     me.fireSpeechComplete ();
@@ -630,7 +584,10 @@ public class JTApp extends Application implements OnCompletionListener,
     }
 
     public static void logMessage ( String tag, int severity, String message ) {
-        me.m_log.append ( me.m_formatter.format ( new Date () ) + " - " + message + "\r\n" );
+        me.m_log.append(me.m_formatter.format(new Date()))
+                .append(" - ")
+                .append(message)
+                .append("\r\n");
     }
 
     public static String getLog () {
@@ -647,6 +604,81 @@ public class JTApp extends Application implements OnCompletionListener,
 
     public static void clearHistory () {
         me.m_buff = new StringBuffer ();
+    }
+
+    // Stop audio playback
+    public static void stopPlayback() {
+        if (me.m_player != null) {
+            me.m_player.stop();
+        }
+        if (me.m_audioManager != null) {
+            me.m_speechManager.stop();
+        }
+        me.fireSpeechComplete();
+    }
+
+    public static boolean isAudioPlaying() {
+        return me.m_audioManager.isMusicActive() || me.m_speechManager.isSpeaking();
+    }
+
+    public synchronized static String getNewFeaturesString() {
+
+        BufferedReader reader = null;
+        StringBuilder builder = new StringBuilder(4096);
+        try {
+            reader = new BufferedReader(new InputStreamReader(me.getResources()
+                    .openRawResource(com.jabstone.jabtalk.basic.R.raw.new_features)), 32768);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line).append(System.getProperty("line.separator"));
+            }
+
+        } catch (IOException io) {
+            // suppressed as this condition would only result from a bad
+            // build
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (Exception ignore) {
+                // suppressed as we don't really care at this point if
+                // the stream doesn't close properly
+            }
+        }
+
+        return builder.toString();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        synchronized (lock) {
+            if (me == null) {
+                me = this;
+                me.m_player.setOnCompletionListener(this);
+                m_dataStore = new DataStore();
+                m_clipboard = new ClipBoard();
+                m_audioManager = (AudioManager) getApplicationContext().getSystemService(
+                        Context.AUDIO_SERVICE);
+                m_speechManager = new TextToSpeech(this, this);
+                m_pictureDimensions = new PictureFrameDimensions(me.getResources()
+                        .getDimensionPixelSize(R.dimen.picture_frame_width_default), me
+                        .getResources().getDimensionPixelSize(
+                                R.dimen.picture_frame_width_default));
+            }
+        }
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        if (m_player != null) {
+            m_player.release();
+        }
+        if (m_speechManager != null) {
+            m_speechManager.shutdown();
+        }
     }
 
     public void onCompletion ( MediaPlayer arg0 ) {
@@ -675,21 +707,6 @@ public class JTApp extends Application implements OnCompletionListener,
         }
     }
 
-    // Stop audio playback
-    public static void stopPlayback () {
-        if ( me.m_player != null ) {
-            me.m_player.stop ();
-        }
-        if ( me.m_audioManager != null ) {
-            me.m_speechManager.stop ();
-        }
-        me.fireSpeechComplete ();
-    }
-
-    public static boolean isAudioPlaying () {
-        return me.m_audioManager.isMusicActive () || me.m_speechManager.isSpeaking ();
-    }
-
     public void onUtteranceCompleted ( String utteranceId ) {
         if ( m_currentWordQueue != null && m_currentWordQueue.size () > 0 ) {
             Ideogram w = JTApp.m_currentWordQueue.get ( 0 );
@@ -704,14 +721,14 @@ public class JTApp extends Application implements OnCompletionListener,
         if ( status == TextToSpeech.SUCCESS ) {
             m_speechEngineReady = true;
             m_speechManager.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-				
-				@Override
+
+                @Override
 				public void onStart(String utteranceId) {}
-				
-				@Override
+
+                @Override
 				public void onError(String utteranceId) {}
-				
-				@Override
+
+                @Override
 				public void onDone(String utteranceId) {
 			        if ( m_currentWordQueue != null && m_currentWordQueue.size () > 0 ) {
 			            Ideogram w = JTApp.m_currentWordQueue.get ( 0 );
@@ -719,8 +736,8 @@ public class JTApp extends Application implements OnCompletionListener,
 			            m_currentWordQueue.remove ( 0 );
 			        } else {
 			            fireSpeechComplete ();
-			        }					
-				}
+                    }
+                }
 			});
             if ( m_speechManager.isLanguageAvailable ( Locale.getDefault () ) != TextToSpeech.LANG_MISSING_DATA ) {
                 setSpeechResourceFound ( true );
@@ -730,35 +747,6 @@ public class JTApp extends Application implements OnCompletionListener,
             logMessage ( me.TAG, JTApp.LOG_SEVERITY_WARNING,
                     "Text-to-Speech engine failed to initialized properly." );
         }
-    }
-
-    public synchronized static String getNewFeaturesString () {
-
-        BufferedReader reader = null;
-        StringBuilder builder = new StringBuilder ( 4096 );
-        try {
-            reader = new BufferedReader ( new InputStreamReader ( me.getResources ()
-                    .openRawResource ( com.jabstone.jabtalk.basic.R.raw.new_features ) ), 32768 );
-            String line = null;
-            while ( ( line = reader.readLine () ) != null ) {
-                builder.append ( line + System.getProperty ( "line.separator" ) );
-            }
-
-        } catch ( IOException io ) {
-            // suppressed as this condition would only result from a bad
-            // build
-        } finally {
-            try {
-                if ( reader != null ) {
-                    reader.close ();
-                }
-            } catch ( Exception ignore ) {
-                // suppressed as we don't really care at this point if
-                // the stream doesn't close properly
-            }
-        }
-
-        return builder.toString ();
     }
 
 }

@@ -14,10 +14,6 @@ public class ClipBoard implements IDataStoreListener {
         JTApp.addDataStoreListener ( this );
     }
 
-    public enum Operation {
-        COPY, CUT;
-    }
-
     public String getId () {
         return sourceId;
     }
@@ -58,11 +54,7 @@ public class ClipBoard implements IDataStoreListener {
     }
 
     public boolean isEmpty () {
-        if ( sourceId != null ) {
-            return false;
-        } else {
-            return true;
-        }
+        return sourceId == null;
     }
 
     public void clear () {
@@ -75,6 +67,10 @@ public class ClipBoard implements IDataStoreListener {
             clear ();
         }
 
+    }
+
+    public enum Operation {
+        COPY, CUT
     }
 
 }

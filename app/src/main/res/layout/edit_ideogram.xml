@@ -20,6 +20,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginRight="50sp"
             android:hint="@string/ideogram_activity_word_label_hint"
+            android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/jabtalkBlack" />
 
@@ -28,8 +29,8 @@
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/edit_label"
-            android:layout_alignTop="@id/edit_label"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/edit_label"
             android:background="@color/jabtalkButtonGray"
             android:src="@drawable/ic_action_camera" />
 
@@ -38,10 +39,11 @@
             android:layout_width="fill_parent"            
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_label"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="50sp"
+            android:layout_marginTop="10dp"
             android:hint="@string/ideogram_activity_phrase_hint"
             android:maxLength="512"
+            android:maxLines="1"
             android:singleLine="true"
             android:textColor="@color/jabtalkBlack" />
         
@@ -50,8 +52,8 @@
             android:layout_width="40sp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/edit_phrase"
-            android:layout_alignTop="@id/edit_phrase"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/edit_phrase"
             android:background="@color/jabtalkButtonGray"
             android:src="@drawable/ic_action_mic" />
 

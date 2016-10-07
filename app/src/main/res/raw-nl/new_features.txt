@@ -1,1 +1,7 @@
-<b><u>Bug Fixes</u></b> - Kleine bug fixes.
+<b> <u> Backup Enhancements </u> </b> - De mogelijkheid toegevoegd om meerdere back-up bestanden. Bij het uitvoeren van een back-up, nu krijg je de naam van het bestand op te geven. U kunt zoveel back-up bestanden als uw apparaat kunt.
+<br>
+<b> <u> Herstel Enhancements </u> </b> - De mogelijkheid om een specifiek bestand te selecteren bij het herstellen van een back-up. Alle back-up bestanden op uw apparaat worden nu weergegeven in een selecte lijst wanneer het uitvoeren van een herstel.
+<br>
+<b> <u> Android Permission Updates </u> </b> - bijgewerkt met nieuwe Android 6.0 toestemming kader.
+<br>
+<b> <u> Vertaling </u> </b> - We gebruikten Google Translate voor een aantal van de berichten in deze release. Als u onjuiste tekst vertalingen opmerkt, kunt u mailen naar support@jabstone.com

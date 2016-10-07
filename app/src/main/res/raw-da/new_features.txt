@@ -1,1 +1,7 @@
-<b><u>Prevodi</u></b> - Prevedeno v danski.
+<B> <u> Backup Forbedringer </u> </b> - Tilføjet muligheden for at have flere backup-filer. Når der udføres en sikkerhedskopiering, du nu få at angive filnavnet. Du kan have så mange backup-filer som din enhed tillader.
+<br>
+<B> <u> Gendan Forbedringer </u> </b> - Mulighed for at vælge en bestemt fil, når gendannelse fra en sikkerhedskopi. Alle backup-filer på din enhed vises nu i en udvalgt liste, når du udfører en gendannelse.
+<br>
+<B> <u> Android Tilladelse Opdateringer </u> </b> - Opdateret til at understøtte nye Android 6.0 tilladelse rammer.
+<br>
+<B> <u> Sprog Oversættelse </u> </b> - Vi brugte Google Translate til nogle af beskederne i denne udgivelse. Hvis du bemærker nogen forkerte tekst oversættelser, kan du kontakte os på support@jabstone.com

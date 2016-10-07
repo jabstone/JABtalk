@@ -6,15 +6,15 @@ import android.graphics.Bitmap;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jabstone.jabtalk.basic.R;
 import com.jabstone.jabtalk.basic.JTApp;
+import com.jabstone.jabtalk.basic.R;
 import com.jabstone.jabtalk.basic.listeners.IDataStoreListener;
 import com.jabstone.jabtalk.basic.storage.Ideogram;
 import com.jabstone.jabtalk.basic.storage.Ideogram.Type;
@@ -70,7 +70,7 @@ public class ManageParentListAdapter extends BaseAdapter implements
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		RelativeLayout ideogramLayout = null;
+		RelativeLayout ideogramLayout;
 		Ideogram ideogram = m_ideogram.getChildren(true).get(position);
 		Bitmap jpg = ideogram.getImage();
 		if (convertView == null) {

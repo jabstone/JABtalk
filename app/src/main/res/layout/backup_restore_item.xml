@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/restore_listitem_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/restore_filename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/jabtalkWhite"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/restore_filedate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/restore_filename"
+        android:layout_below="@id/restore_filename"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/jabtalkLightGray"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/restore_filesize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/restore_filedate"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/restore_filedate"
+        android:textColor="@color/jabtalkLightGray"
+        android:textSize="13sp" />
+
+</RelativeLayout>

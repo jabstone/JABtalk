@@ -14,7 +14,7 @@
 	 	android:layout_gravity="center_horizontal"
 	 	android:layout_marginLeft="10dp"
 	 	android:layout_marginRight="10dp"
-	 	android:singleLine="false"
+		 android:maxLines="1"
 	 	android:textSize="18sp" />
 		 	
   	
@@ -24,21 +24,21 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
 		android:gravity="center"
-		android:textSize="17sp"
 		android:inputType="number"
-		android:maxLength="4" />	
+		android:maxLength="4"
+		android:textSize="17sp" />
 		
 	<TextView
 	 	android:id="@+id/lock_incorrect"
 	 	android:layout_width="wrap_content"
 	 	android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
 	 	android:layout_marginLeft="10dp"
 	 	android:layout_marginRight="10dp"
-	 	android:layout_gravity="center_horizontal"
-	 	android:textSize="17sp"
-	 	android:textColor="@color/jabtalkRed" 
+		android:text="@string/dialog_message_manage_challenge_incorrect"
+	 	android:textColor="@color/jabtalkRed"
+		android:textSize="17sp"
 	 	android:textStyle="bold"
-	 	android:text="@string/dialog_message_manage_challenge_incorrect"
 	 	android:visibility="gone"/>
 	 	
 	<LinearLayout
@@ -49,17 +49,17 @@
 		android:orientation="horizontal">							
 
 		<Button android:id="@+id/btn_cancel" 
-			android:text="@string/button_cancel"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="5dp"
-			android:minWidth="110dp"/>
+			android:minWidth="110dp"
+			android:text="@string/button_cancel" />
 			    			
 		<Button android:id="@+id/btn_unlock" 
-			android:text="@string/button_ok"
 			android:layout_width="wrap_content"
-			android:minWidth="110dp"					
-			android:layout_height="wrap_content" />
+			android:layout_height="wrap_content"
+			android:minWidth="110dp"
+			android:text="@string/button_ok" />
 			
 						
 	</LinearLayout>			 	

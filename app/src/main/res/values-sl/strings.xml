@@ -33,7 +33,9 @@
     <string name="dialog_item_move_up">Premakni gor</string>
     <string name="dialog_item_move_down">Premakni dol</string>
     <string name="dialog_item_move_beginning">Premakni na začetek</string>
-    <string name="dialog_item_move_end">Premakni na konec</string>    
+    <string name="dialog_item_move_end">Premakni na konec</string>
+
+    <string name="button_view_log">View Error Log</string>
 <!--  END: COMMON STRINGS -->    
     
     
@@ -61,7 +63,6 @@
     <string name="dialog_title_audio_source">Izberi vir zvoka</string>
     <string name="dialog_item_audiosource_recorder">Zvočni snemalnik</string>
     <string name="dialog_item_audiosource_synthesizer">Sintetizator govora</string>
-    <string name="dialog_title_picture_gallery">Izberi sliko</string>
     <string name="dialog_title_save_results">Shrani rezultate</string>
     <string name="dialog_message_invalid_label">Vnesite besedo ali oznako skupine</string>
     <string name="dialog_message_invalid_phrase">Vnesite besedo ali frazo kategorije</string>
@@ -74,20 +75,26 @@
     <string name="dialog_item_add_category">Dodaj skupino</string>        
     <string name="dialog_item_add_word">Dodaj besedo</string>
     <string name="dialog_title_restore_dataset">Obnovi podatke</string>
-    <string name="dialog_message_restore_confirmation">Pri obnovi podatkov se obstoječi podatki prepišejo. Želite nadaljevati?</string>
-    <string name="dialog_title_backup_dataset">Varnostno kopiranje</string>
-    <string name="dialog_message_backup_confirmation">Varnostna kopija podatkov bo nadomestila obstoječo varnostno kopijo. Ali želite nadaljevati?</string>
     <string name="dialog_title_backup_results">Varnostno kopiraj rezultate</string>
     <string name="dialog_title_restore_results">Obnovi rezultate</string>
     <string name="dialog_message_backup_success">Vaš nabor podatkov je bila uspešno shranjena na:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Access Manage Screen</string>       
     <string name="dialog_message_manage_unlock_question">Please enter %1$s to access the manage screen</string>
-    <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>     
-    <string name="dialog_message_restore_file_not_exist">JABtalk could not find a backup file to restore. Please make sure your backup file is located at\r\n%1$s/jabtalk.bak.</string>
+    <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>
     <string name="dialog_message_leave_screen">Are you sure you want to exit the manage screen?</string>
     <string name="dialog_title_exit_warning">Potrditev izhoda</string>        
     <string name="dialog_message_browser_unsupported_image_type">Izbran format slike ni združljiv z JABTalk-om. Prosimo, izberite drugo datoteko.</string>
-    <string name="dialog_item_no_audio">Brez zvoka.</string>        
+    <string name="dialog_item_no_audio">Brez zvoka.</string>
+
+    <string name="dialog_title_backup_save_as">Varnostno kopiranje</string>
+    <string name="dialog_message_backup_save_as">Vnesite ime za varnostne kopije. Obstoječe datoteke z enakim imenom bodo prepisane.</string>
+    <string name="dialog_message_restore_file_not_found">JABtalk ni našel varnostno kopijo za obnovitev. Prepričajte se, da vaš backup datoteka se nahaja v mapi \r\n%1$s/</string>
+    <string name="dialog_restore_error">medtem ko obnovitvi varnostne kopije je prišlo do napake. Poglej konec log datoteko za podrobnosti o napaki.</string>
+    <string name="dialog_permission_explanation_title">JABtalk Zahteva</string>
+    <string name="dialog_permission_explanation_write_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za ustvarjanje varnostnih kopij.</string>
+    <string name="dialog_permission_explanation_read_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za obnovo varnostnih kopij.</string>
+    <string name="dialog_permission_explanation_audio_message">JABtalk potrebuje dovoljenje za svoj mikrofon za snemanje zvoka.</string>
+    <string name="dialog_permission_explanation_camera_message">JABtalk potrebuje dovoljenje za fotoaparat za zajem slike.</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -96,7 +103,6 @@
 	<string name="progress_downloading_image">Prenos slike&#8230;</string>	
 	<string name="download_hint">Dotaknite in zadržite za odpiranje možnosti prenosa slike.</string> 
 	<string name="google_image_search_url">http://www.google.com/search?hl=si&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
-	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; sl-si; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string>
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 	
 	

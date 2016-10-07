@@ -1,21 +1,20 @@
 package com.jabstone.jabtalk.basic.audio;
 
+import android.media.AudioFormat;
+import android.media.AudioRecord;
+import android.media.MediaRecorder.AudioSource;
+
+import com.jabstone.jabtalk.basic.JTApp;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.jabstone.jabtalk.basic.JTApp;
-
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.MediaRecorder.AudioSource;
-
 public class JTAudioRecorder {
-    private String TAG = JTAudioRecorder.class.getSimpleName ();	
 	private static int[] sampleRates = new int[] { 44100, 22050, 11025, 8000 };
-
+	private String TAG = JTAudioRecorder.class.getSimpleName();
 	private AudioRecord recorder = null;
 	private int bufferSize = 4096;
 	private Thread recordingThread = null;
@@ -62,8 +61,8 @@ public class JTAudioRecorder {
 	                        	return recorder;
 	                        }	                            
 	                    }
-	                } catch (Exception e) {
-	                }
+					} catch (Exception ignored) {
+					}
 	            }
 	        }
 	    }	
@@ -105,7 +104,7 @@ public class JTAudioRecorder {
 			JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR, "Could open file for audio recording");
 		}
 
-		int read = 0;
+		int read;
 
 		if (null != os) {
 			while (isRecording) {
@@ -150,8 +149,8 @@ public class JTAudioRecorder {
 	}
 
 	private void copyWaveFile(String inFilename, String outFilename) {
-		FileInputStream in = null;
-		FileOutputStream out = null;
+		FileInputStream in;
+		FileOutputStream out;
 
 		byte[] data = new byte[bufferSize];
 
@@ -169,8 +168,6 @@ public class JTAudioRecorder {
 
 			in.close();
 			out.close();
-		} catch (FileNotFoundException e) {
-			JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR, e.getMessage());
 		} catch (IOException e) {
 			JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR, e.getMessage());
 		}

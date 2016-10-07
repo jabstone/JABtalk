@@ -26,45 +26,28 @@ import android.widget.TextView;
  * @since Apr 4, 2011
  */
 public class AutoResizeTextView extends TextView {
-	private IAutoResizeTextListener m_listener = null;
-	
     // Minimum text size for this text view
     public static final float MIN_TEXT_SIZE = 10;
-
-    // Interface for resize notifications
-    public interface OnTextResizeListener {
-
-        public void onTextResize ( TextView textView, float oldSize, float newSize );
-    }
-
     // Off screen canvas for text size rendering
     private static final Canvas sTextResizeCanvas = new Canvas ();
-
     // Our ellipse string
     private static final String mEllipsis = "...";
-
+    private IAutoResizeTextListener m_listener = null;
     // Registered resize listener
     private OnTextResizeListener mTextResizeListener;
-
     // Flag for text and/or size changes to force a resize
     private boolean mNeedsResize = false;
-
     // Text size that is set from code. This acts as a starting point for
     // resizing
     private float mTextSize;
-
     // Temporary upper bounds on the starting text size
     private float mMaxTextSize = 100;
-
     // Lower bounds for text size
     private float mMinTextSize = MIN_TEXT_SIZE;
-
     // Text view line spacing multiplier
     private float mSpacingMult = 1.0f;
-
     // Text view additional line spacing
     private float mSpacingAdd = 0.0f;
-
     // Add ellipsis to text that overflows at the smallest text size
     private boolean mAddEllipsis = true;
 
@@ -108,7 +91,7 @@ public class AutoResizeTextView extends TextView {
 
     /**
      * Register listener to receive resize notifications
-     * 
+     *
      * @param listener
      */
     public void setOnResizeListener ( OnTextResizeListener listener ) {
@@ -144,6 +127,15 @@ public class AutoResizeTextView extends TextView {
     }
 
     /**
+     * Return upper text size limit
+     *
+     * @return
+     */
+    public float getMaxTextSize() {
+        return mMaxTextSize;
+    }
+
+    /**
      * Set the upper text size limit and invalidate the view
      * 
      * @param maxTextSize
@@ -154,23 +146,23 @@ public class AutoResizeTextView extends TextView {
         invalidate ();
     }
 
-    /**
-     * Return upper text size limit
-     * 
-     * @return
-     */
-    public float getMaxTextSize () {
-        return mMaxTextSize;
-    }
-    
 	public void setOnAutoResizeTextListener(IAutoResizeTextListener listener) {
 		m_listener = listener;
-	}    
-
+    }
+    
 	public void removeOnAutoResizeTextListener(IAutoResizeTextListener listener) {
 		m_listener = null;
-	}    
-	
+    }
+
+    /**
+     * Return lower text size limit
+     *
+     * @return
+     */
+    public float getMinTextSize() {
+        return mMinTextSize;
+    }
+
     /**
      * Set the lower text size limit and invalidate the view
      * 
@@ -183,12 +175,13 @@ public class AutoResizeTextView extends TextView {
     }
 
     /**
-     * Return lower text size limit
-     * 
+     * Return flag to add ellipsis to text that overflows at the smallest text
+     * size
+     *
      * @return
      */
-    public float getMinTextSize () {
-        return mMinTextSize;
+    public boolean getAddEllipsis() {
+        return mAddEllipsis;
     }
 
     /**
@@ -198,16 +191,6 @@ public class AutoResizeTextView extends TextView {
      */
     public void setAddEllipsis ( boolean addEllipsis ) {
         mAddEllipsis = addEllipsis;
-    }
-
-    /**
-     * Return flag to add ellipsis to text that overflows at the smallest text
-     * size
-     * 
-     * @return
-     */
-    public boolean getAddEllipsis () {
-        return mAddEllipsis;
     }
 
     /**
@@ -247,7 +230,7 @@ public class AutoResizeTextView extends TextView {
 
     /**
      * Resize the text size with specified width and height
-     * 
+     *
      * @param width
      * @param height
      */
@@ -354,6 +337,12 @@ public class AutoResizeTextView extends TextView {
         paint.setTextSize ( fontSize );// have this the same as your text size
         paint.getTextBounds ( longestWord, 0, wordSize, bounds );
         return bounds.width ();
+    }
+
+    // Interface for resize notifications
+    public interface OnTextResizeListener {
+
+        void onTextResize(TextView textView, float oldSize, float newSize);
     }
 
 }

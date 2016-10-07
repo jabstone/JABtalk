@@ -1,1 +1,7 @@
-<b><u>Correction de bugs</u></b> - Correction de bogues mineurs.
+<b> <u> Améliorations de sauvegarde </u> </b> - Ajout de la possibilité d'avoir plusieurs fichiers de sauvegarde. Lors d'une sauvegarde, vous obtenez maintenant pour spécifier le nom de fichier. Vous pouvez avoir autant de fichiers de sauvegarde que votre appareil le permet.
+<br>
+<b> <u> Restaurer Améliorations </u> </b> - Possibilité de sélectionner un fichier spécifique lors de la restauration à partir d'une sauvegarde. Tous les fichiers de sauvegarde sur votre appareil sont maintenant affichés dans une liste de sélection lors d'une restauration.
+<br>
+<b> <u> Mises à jour d'autorisation Android </u> </b> - Mise à jour pour soutenir nouveau cadre 6.0 de permission Android.
+<br>
+<b> <u> traduction </u> </b> - Nous avons utilisé Google Translate pour certains des messages dans cette version. Si vous remarquez des traductions de texte incorrectes, s'il vous plaît écrivez-nous à support@jabstone.com

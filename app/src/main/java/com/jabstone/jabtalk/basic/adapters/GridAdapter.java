@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.jabstone.jabtalk.basic.JTApp;
 import com.jabstone.jabtalk.basic.PictureSize;
+import com.jabstone.jabtalk.basic.R;
 import com.jabstone.jabtalk.basic.listeners.ICategorySelectionListener;
 import com.jabstone.jabtalk.basic.listeners.IDataStoreListener;
 import com.jabstone.jabtalk.basic.storage.Ideogram;
@@ -80,9 +81,9 @@ public class GridAdapter extends BaseAdapter implements ICategorySelectionListen
         try {
 
             Bitmap jpg = gram.getImage ();
-            ImageView picture = ( ImageView ) pictureView.findViewById ( JTApp.IMAGEVIEW_ID );
+            ImageView picture = (ImageView) pictureView.findViewById(R.id.IMAGEVIEW_ID);
             AutoResizeTextView title = ( AutoResizeTextView ) pictureView
-                    .findViewById ( JTApp.TEXTVIEW_ID );
+                    .findViewById(R.id.TEXTVIEW_ID);
             picture.setImageBitmap ( jpg );
             pictureView.setTag ( gram );
             title.setText ( gram.getLabel () );            

@@ -33,7 +33,9 @@
     <string name="dialog_item_move_up">Flyt op</string>
     <string name="dialog_item_move_down">Flyt ned</string>
     <string name="dialog_item_move_beginning">Placér først</string>
-    <string name="dialog_item_move_end">Placér sidst</string>    
+    <string name="dialog_item_move_end">Placér sidst</string>
+
+    <string name="button_view_log">Vis fejllog</string>
 <!--  END: COMMON STRINGS -->    
     
     
@@ -61,7 +63,6 @@
     <string name="dialog_title_audio_source">Vælg lydkilde</string>
     <string name="dialog_item_audiosource_recorder">Lydoptager</string>
     <string name="dialog_item_audiosource_synthesizer">Talesyntese</string>
-    <string name="dialog_title_picture_gallery">Vælg billede</string>
     <string name="dialog_title_save_results">Gem resultater</string>
     <string name="dialog_message_invalid_label">Indtast venligst navnet på et ord eller en kategori</string>
     <string name="dialog_message_invalid_phrase">Udfyld feltet ”Tekst ved visning”</string>
@@ -74,14 +75,12 @@
     <string name="dialog_item_add_category">Tilføj ny kategori</string>        
     <string name="dialog_item_add_word">Tilføj ord</string>
     <string name="dialog_title_restore_dataset">Genskab data</string>
-    <string name="dialog_message_restore_confirmation">Hvis du genskaber data vil dine eksisterende billed- og lydfiler blive erstattet. Er du sikker på, at du vil fortsætte?</string>
     <string name="dialog_title_backup_results">Backup-resultater</string>
     <string name="dialog_title_restore_results">Genskabelsesresultater</string>
     <string name="dialog_message_backup_success">Dine data er blevet gemt i:\r\n%1s</string>
     <string name="dialog_title_manage_challenge">Tilgå Redigering</string>       
     <string name="dialog_message_manage_unlock_question">Indtast venligst %1$s for at tilgå Redigering</string>
-    <string name="dialog_message_manage_challenge_incorrect">Forkert kode. Prøv venligst igen.</string>     
-    <string name="dialog_message_restore_file_not_exist">JABtalk kunne ikke finde en backup-fil at genskabe. Undersøg venligst at din backup-fil findes i\r\n%1$s/jabtalk.bak.</string>
+    <string name="dialog_message_manage_challenge_incorrect">Forkert kode. Prøv venligst igen.</string>
     <string name="dialog_message_leave_screen">Er du sikker på, at du vil forlade Redigering?</string>
     <string name="dialog_title_exit_warning">Forlad Redigering</string>
     <string name="dialog_message_browser_unsupported_image_type">Det valgte billede kunne ikke hentes. Prøv igen om et øjeblik eller prøv at hente forhåndsvisningsbilledet fra listen med billedresultater i stedet.</string>
@@ -89,6 +88,13 @@
 
     <string name="dialog_title_backup_save_as">Backup-data</string>
     <string name="dialog_message_backup_save_as">Navngiv backup-filen. Eksisterende filer med det samme navn vil blive overskrevet.</string>
+    <string name="dialog_message_restore_file_not_found">JABtalk kunne ikke finde en backup-fil at genskabe. Undersøg venligst at din backup-fil findes i\r\n%1$s</string>
+    <string name="dialog_restore_error">Der opstod en fejl under gendannelse din backup-fil. Se slutningen af logfilen for fejl detaljer.</string>
+    <string name="dialog_permission_explanation_title">JABtalk Anmodning</string>
+    <string name="dialog_permission_explanation_write_message">JABtalk brug tilladelse til din eksterne storage mappe for at skabe backup-filer.</string>
+    <string name="dialog_permission_explanation_read_message">JABtalk brug tilladelse til din eksterne storage mappe til gendannelse af backup-filer.</string>
+    <string name="dialog_permission_explanation_audio_message">JABtalk brug tilladelse til din mikrofon til lydoptagelse.</string>
+    <string name="dialog_permission_explanation_camera_message">JABtalk skal have tilladelse til dit kamera til at tage billeder.</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -97,7 +103,6 @@
 	<string name="progress_downloading_image">Henter billede&#8230;</string>	
 	<string name="download_hint">Tryk og hold på billedet for at få mulighed for at hente det</string> 
 	<string name="google_image_search_url">http://www.google.com/search?hl=en&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
-	<string name="browser_agent">Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30</string>
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 	
 	

@@ -1,1 +1,7 @@
-<b><u>Popravljene napake</u></b> - Manjše popravke napak.
+<b> <u> Backup Dodatna </u> </b> - Dodana možnost, da imajo več varnostnih kopij. Pri izvajanju varnostne kopije, ki jih zdaj dobili, da določite ime datoteke. Lahko imaš toliko varnostne kopije, kot je vaša naprava omogoča.
+<br>
+<b> <u> Obnovi Izboljšave </u> </b> - Sposobnost, da izberete posebno datoteko pri obnavljanju iz varnostne kopije. Vse backup datoteke v napravi so zdaj prikazani v izbirnem seznamu pri opravljanju obnoviti.
+<br>
+<b> <u> Posodobitve Android Dovoljenje </u> </b> - posodobljena za podporo novi Android okvir 6.0 dovoljenje.
+<br>
+<b> <u> Language Translation </u> </b> - smo uporabili Google Translate za nekatere sporočil v tem sporočilu za javnost. Če opazite kakršne koli napačni besedilnih prevodov, nam pišite na support@jabstone.com
