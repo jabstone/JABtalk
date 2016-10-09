@@ -85,7 +85,6 @@
     <string name="dialog_title_exit_warning">Potrditev izhoda</string>        
     <string name="dialog_message_browser_unsupported_image_type">Izbran format slike ni združljiv z JABTalk-om. Prosimo, izberite drugo datoteko.</string>
     <string name="dialog_item_no_audio">Brez zvoka.</string>
-
     <string name="dialog_title_backup_save_as">Varnostno kopiranje</string>
     <string name="dialog_message_backup_save_as">Vnesite ime za varnostne kopije. Obstoječe datoteke z enakim imenom bodo prepisane.</string>
     <string name="dialog_message_restore_file_not_found">JABtalk ni našel varnostno kopijo za obnovitev. Prepričajte se, da vaš backup datoteka se nahaja v mapi \r\n%1$s/</string>
@@ -95,6 +94,10 @@
     <string name="dialog_permission_explanation_read_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za obnovo varnostnih kopij.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk potrebuje dovoljenje za svoj mikrofon za snemanje zvoka.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk potrebuje dovoljenje za fotoaparat za zajem slike.</string>
+
+    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">backup Kategorija</string>
+    <string name="dialog_label_restore_overwrite">Izbrisati obstoječi nabor podatkov?</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -126,7 +129,10 @@
     <string name="menu_preferences">Možnosti</string>	
     <string name="menu_download_image">Prenesi sliko</string>
     <string name="menu_add_ideogram">Dodaj predmet</string>
-    <string name="menu_edit_ideogram">Uredi predmet</string>        
+    <string name="menu_edit_ideogram">Uredi predmet</string>
+
+    <string name="menu_backup_category">Backup to kategorijo&#8230;</string>
+    <string name="menu_restore_category">Obnovitev varnostne kopije tukaj&#8230;</string>
 <!--  END: MENU STRINGS -->
     
     

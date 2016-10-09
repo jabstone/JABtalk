@@ -91,14 +91,18 @@ public class Ideogram implements Serializable {
 	public void setType(Type type) {
 		this.type = type;
 	}
-	
+
 	public String getAudioPath() {
+		return getAudioPath(JTApp.getDataStore().getDataDirectory());
+	}
+
+	public String getAudioPath(File baseDirectory) {
 		if(tempAudioPath != null) {
 			return tempAudioPath;
 		}
 
 		if(audioExtention != null && audioExtention.trim().length() > 0) {
-			return JTApp.getDataStore().getAudioDirectory().getAbsolutePath() + File.separator + getId() + "." + getAudioExtention();
+			return new File(baseDirectory, "audio").getAbsolutePath() + File.separator + getId() + "." + getAudioExtention();
 		} else {
 			return null;
 		}
@@ -107,14 +111,18 @@ public class Ideogram implements Serializable {
 	public void setTempAudioPath(String tempPath) {
 		this.tempAudioPath = tempPath;
 	}
-	
+
 	public String getImagePath() {
+		return getImagePath(JTApp.getDataStore().getDataDirectory());
+	}
+
+	public String getImagePath(File baseDirectory) {
 		if(tempImagePath != null) {
 			return tempImagePath;
 		}
 
 		if(imageExtention != null && imageExtention.trim().length() > 0) {
-			return JTApp.getDataStore().getImageDirectory().getAbsolutePath() + File.separator + getId() + "." + getImageExtention();
+			return new File(baseDirectory, "images").getAbsolutePath() + File.separator + getId() + "." + getImageExtention();
 		} else {
 			return null;
 		}

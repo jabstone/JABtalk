@@ -36,11 +36,11 @@
             android:textSize="17sp" />
 
         <TextView
+            android:id="@+id/backup_filename_ext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/backup_filename"
             android:layout_toRightOf="@id/backup_filename"
-            android:text=".bak"
             android:textSize="17sp" />
 
     </LinearLayout>

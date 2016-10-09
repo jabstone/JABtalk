@@ -34,7 +34,6 @@
     <string name="dialog_item_move_down">Move Down</string>
     <string name="dialog_item_move_beginning">Move to Beginning</string>
     <string name="dialog_item_move_end">Move to End</string>
-
     <string name="button_view_log">View Error Log</string>
 <!--  END: COMMON STRINGS -->    
     
@@ -85,8 +84,7 @@
     <string name="dialog_title_exit_warning">Exit Confirmation</string>
     <string name="dialog_message_browser_unsupported_image_type">The selected image could not be loaded. Please try again in a few seconds or try downloading the thumbnail image from the search results page instead.</string>
     <string name="dialog_item_no_audio">No Audio</string>
-
-    <string name="dialog_title_backup_save_as">Backup Data</string>
+    <string name="dialog_title_backup_save_as">Backup All Data</string>
     <string name="dialog_message_backup_save_as">Enter a name for the backup file. Existing files with the same name will be overwritten.</string>
     <string name="dialog_message_restore_file_not_found">JABtalk could not find a backup file to restore. Please make sure your backup file is located in the folder \r\n%1$s/</string>
     <string name="dialog_restore_error">An error occurred while restoring your backup file. View the error log for details.</string>
@@ -95,6 +93,10 @@
     <string name="dialog_permission_explanation_read_message">JABtalk needs permission to your external storage directory for restoring backup files.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk needs permission to your microphone for recording audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk needs permission to your camera for capturing images.</string>
+
+    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">Backup Category</string>
+    <string name="dialog_label_restore_overwrite">Delete existing data set?</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -126,7 +128,10 @@
     <string name="menu_preferences">Preferences</string>	
     <string name="menu_download_image">Download Image</string>
     <string name="menu_add_ideogram">Add Item</string>
-    <string name="menu_edit_ideogram">Edit Item</string>        
+    <string name="menu_edit_ideogram">Edit Item</string>
+
+    <string name="menu_backup_category">Backup this category&#8230;</string>
+    <string name="menu_restore_category">Restore backup here&#8230;</string>
 <!--  END: MENU STRINGS -->
     
     

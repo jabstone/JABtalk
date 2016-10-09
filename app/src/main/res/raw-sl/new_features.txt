@@ -1,7 +1,3 @@
-<b> <u> Backup Dodatna </u> </b> - Dodana možnost, da imajo več varnostnih kopij. Pri izvajanju varnostne kopije, ki jih zdaj dobili, da določite ime datoteke. Lahko imaš toliko varnostne kopije, kot je vaša naprava omogoča.
+<b> <u> Več Backup Dodatna </u> </b> - Dodana podpora za delne varnostne kopije. Sedaj lahko backup posebna kategorija, ki ga dolgo klikom na kategorijo, in izberete "Backup to kategorijo".
 <br>
-<b> <u> Obnovi Izboljšave </u> </b> - Sposobnost, da izberete posebno datoteko pri obnavljanju iz varnostne kopije. Vse backup datoteke v napravi so zdaj prikazani v izbirnem seznamu pri opravljanju obnoviti.
-<br>
-<b> <u> Posodobitve Android Dovoljenje </u> </b> - posodobljena za podporo novi Android okvir 6.0 dovoljenje.
-<br>
-<b> <u> Language Translation </u> </b> - smo uporabili Google Translate za nekatere sporočil v tem sporočilu za javnost. Če opazite kakršne koli napačni besedilnih prevodov, nam pišite na support@jabstone.com
+<b> <u> Več Obnovitev Izboljšave </u> </b> - Dodano sposobnost za obnovitev varnostne kopije ne prepiše obstoječe podatke. Sedaj lahko obnovite varnostno kopijo v obstoječo kategorijo, ki jo dolgo klikom na kategorijo, in izberete »Obnovitev varnostne kopije tukaj".

@@ -85,7 +85,6 @@
     <string name="dialog_title_exit_warning">Bestätigung</string>
     <string name="dialog_message_browser_unsupported_image_type">Das gewählte Bild-Format wird nicht von JABtalk unterstützt. Bitte wählen Sie ein anderes Bild.</string>
     <string name="dialog_item_no_audio">Nein Audio</string>
-
     <string name="dialog_title_backup_save_as">Backup-Daten</string>
     <string name="dialog_message_backup_save_as">Geben Sie einen Namen für die Sicherungsdatei ein. Vorhandene Dateien mit demselben Namen werden überschrieben.</string>
     <string name="dialog_message_restore_file_not_found">JABtalk konnte keine Datensicherungsdatei auf Ihrer SDCard finden. Bitte stellen Sie sicher das sich die Datei im Stammverzeichnis der Speicherkarte befindet (%1$s)</string>
@@ -95,6 +94,10 @@
     <string name="dialog_permission_explanation_read_message">JABtalk benötigt die Berechtigung zum Wiederherstellen von Sicherungsdateien in Ihrem externen Speicherverzeichnis.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk benötigt das Mikrofon für die Aufnahme von Audio.</string>
     <string name="dialog_permission_explanation_camera_message">Für die Aufnahme von Bildern benötigt JABtalk die entsprechende Berechtigung.</string>
+
+    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">Sicherungskategorie</string>
+    <string name="dialog_label_restore_overwrite">Vorhandenen Datensatz löschen?</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -126,7 +129,10 @@
     <string name="menu_preferences">Einstellungen</string>	
     <string name="menu_download_image">Bild Download</string>  
     <string name="menu_add_ideogram">Hinzufügen</string>
-    <string name="menu_edit_ideogram">Bearbeiten</string>          
+    <string name="menu_edit_ideogram">Bearbeiten</string>
+
+    <string name="menu_backup_category">Diese Kategorie sichern&#8230;</string>
+    <string name="menu_restore_category">Backup hier wiederherstellen&#8230;</string>
 <!--  END: MENU STRINGS -->
     
     

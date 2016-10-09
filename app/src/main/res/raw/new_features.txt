@@ -1,7 +1,3 @@
-<b><u> Backup Enhancements </u></b> - Added the ability to have multiple backup files. When performing a backup, you now get to specify the file name. You can have as many backup files as your device allows.
+<b><u> More Backup Enhancements </u></b> - Added support for partial backups. You can now backup a specific category by long-clicking the category and selecting "Backup this category".
 <br>
-<b><u> Restore Enhancements </u></b> - Ability to select a specific file when restoring from a backup. All backup files on your device are now displayed in a select list when performing a restore.
-<br>
-<b><u> Android Permission Updates </u></b> - Updated to support new Android 6.0 permission framework.
-<br>
-<b><u> Language Translation </u></b> - We used Google Translate for some of the messages in this release. If you notice any incorrect text translations, please email us at support@jabstone.com
+<b><u> More Restore Enhancements </u></b> - Added ability to restore backups without overwriting existing data. You can now restore a backup into an existing category by long-clicking the category and selecting "Restore backup here".

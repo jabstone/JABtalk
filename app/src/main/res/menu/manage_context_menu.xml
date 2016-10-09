@@ -25,5 +25,11 @@
     <item android:id="@+id/context_menu_item_cut"
           android:title="@string/menu_cut" />
     <item android:id="@+id/context_menu_item_paste"
-          android:title="@string/menu_paste" /> 
+        android:title="@string/menu_paste" />
+    <item
+        android:id="@+id/context_menu_backup_category"
+        android:title="@string/menu_backup_category" />
+    <item
+        android:id="@+id/context_menu_restore_category"
+        android:title="@string/menu_restore_category" />
 </menu>

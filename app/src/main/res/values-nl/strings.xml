@@ -85,7 +85,6 @@
     <string name="dialog_title_exit_warning">Exit Bevestiging</string>
     <string name="dialog_message_browser_unsupported_image_type">Het geselecteerde beeldformaat is niet compatibel met JABtalk. Selecteer een ander beeld.</string>
     <string name="dialog_item_no_audio">Geen Audio</string>
-
     <string name="dialog_title_backup_save_as">Back-up gegevens</string>
     <string name="dialog_message_backup_save_as">Enter a name for the backup file. Existing files with the same name will be overwritten.</string>
     <string name="dialog_message_restore_file_not_found">JABtalk vond geen back-upbestand om uw gegevens te herstellen. Zorg ervoor dat uw back-up bestand opgeslagen is in\r\n%1$s.</string>
@@ -95,6 +94,10 @@
     <string name="dialog_permission_explanation_read_message">JABtalk heeft toestemming om uw externe opslag directory voor het herstellen van back-upbestanden.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk heeft toestemming nodig om uw microfoon voor het opnemen van audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk heeft toestemming nodig om uw camera voor het vastleggen van beelden.</string>
+
+    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">backup Categorie</string>
+    <string name="dialog_label_restore_overwrite">Verwijder bestaande dataset?</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
@@ -126,7 +129,10 @@
     <string name="menu_preferences">Voorkeuren</string>	
     <string name="menu_download_image">Afbeelding Downloaden</string>    
     <string name="menu_add_ideogram">Toevoegen</string>
-    <string name="menu_edit_ideogram">Uitgeven</string>      
+    <string name="menu_edit_ideogram">Uitgeven</string>
+
+    <string name="menu_backup_category">Backup deze categorie&#8230;</string>
+    <string name="menu_restore_category">back-up herstellen hier&#8230;</string>
 <!--  END: MENU STRINGS -->
     
     

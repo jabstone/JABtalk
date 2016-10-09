@@ -85,7 +85,6 @@
     <string name="dialog_title_exit_warning">Quitter?</string>
     <string name="dialog_message_browser_unsupported_image_type">Le format de l\'image n\'est pas compatible avec JABtalk. S\'il vous plaît sélectionner une image différente.</string>
     <string name="dialog_item_no_audio">Aucun Acoustique</string>
-
     <string name="dialog_title_backup_save_as">Sauvegarde des Données</string>
     <string name="dialog_message_backup_save_as">Entrez un nom pour le fichier de sauvegarde. Les fichiers existants du même nom seront écrasés.</string>
     <string name="dialog_message_restore_file_not_found">JABtalk ne trouve pas le fichier de sauvegarde sur la carte SD!\nMerci vérifier que le fichier est bien présent à la racine de la carte SD (%1$s).</string>
@@ -95,6 +94,10 @@
     <string name="dialog_permission_explanation_read_message">JABtalk besoin de l\'autorisation à votre répertoire de stockage externe pour restaurer les fichiers de sauvegarde.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk a besoin la permission de votre micro pour l\'enregistrement audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk a besoin la permission de votre appareil photo pour capturer des images.</string>
+
+    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">sauvegarde Catégorie</string>
+    <string name="dialog_label_restore_overwrite">Supprimer ensemble de données existantes?</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
     
@@ -126,7 +129,10 @@
     <string name="menu_preferences">Paramètres</string>
     <string name="menu_download_image">Télécharger Image</string>
     <string name="menu_add_ideogram">Ajouter</string>
-    <string name="menu_edit_ideogram">Modifier</string>      
+    <string name="menu_edit_ideogram">Modifier</string>
+
+    <string name="menu_backup_category">Sauvegarde cette catégorie ...</string>
+    <string name="menu_restore_category">Restaurer la sauvegarde ici ...</string>
 <!--  END: MENU STRINGS -->
 
 

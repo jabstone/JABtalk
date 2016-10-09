@@ -131,8 +131,8 @@ public class GridAdapter extends BaseAdapter implements ICategorySelectionListen
     
     @Override
 	public void DataStoreUpdated() {
-		m_selectedCategory = JTApp.getDataStore ().getRootCategory();		
-	}    
+        m_selectedCategory = JTApp.getDataStore().getRootCategory();
+    }
 
     private void selectItem ( View v, Ideogram gram ) {
         if ( !JTApp.isAudioPlaying () || (gram.getType().equals(Type.Category) && 

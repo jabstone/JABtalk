@@ -26,11 +26,10 @@ public class RestoreBackupListAdapter extends BaseAdapter {
 
     public RestoreBackupListAdapter(Context context) {
         m_context = context;
-        refresh();
     }
 
-    public void refresh() {
-        m_backupFileList = JTApp.getDataStore().getBackupFiles();
+    public void refresh(String extention) {
+        m_backupFileList = JTApp.getDataStore().getBackupFiles(extention);
     }
 
     public int getCount() {

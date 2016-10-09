@@ -38,9 +38,11 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.jabstone.jabtalk.basic.ClipBoard;
 import com.jabstone.jabtalk.basic.ClipBoard.Operation;
@@ -61,15 +63,22 @@ public class ManageActivity extends Activity {
     private static String TAG = ManageActivity.class.getSimpleName();
     private final int DIALOG_DELETE_IDEOGRAM_CONFIRMATION = 4001;
     private final int DIALOG_ERROR = 4002;
-    private final int DIALOG_EXPLAIN_WRITE_PERMISSIONS = 4003;
+    private final int DIALOG_EXPLAIN_WRITE_PERMISSIONS_BACKUP_FULL = 4003;
     private final int DIALOG_GENERIC = 4004;
     private final int DIALOG_EXIT_MANAGE_SCREEN = 4005;
     private final int DIALOG_ACTION_ADD = 4006;
-    private final int DIALOG_BACKUP = 4007;
-    private final int DIALOG_RESTORE = 4008;
-    private final int DIALOG_EXPLAIN_READ_PERMISSIONS = 4009;
+    private final int DIALOG_BACKUP_DATASTORE_FULL = 4007;
+    private final int DIALOG_RESTORE_DATASTORE_FULL = 4008;
+    private final int DIALOG_EXPLAIN_READ_PERMISSIONS_RESTORE_FULL = 4009;
+    private final int DIALOG_BACKUP_DATASTORE_PARTIAL = 4010;
+    private final int DIALOG_RESTORE_DATASTORE_PARTIAL = 4011;
+    private final int DIALOG_EXPLAIN_WRITE_PERMISSIONS_BACKUP_PARTIAL = 4012;
+    private final int DIALOG_EXPLAIN_READ_PERMISSIONS_RESTORE_PARTIAL = 4013;
+
     private final int BACKUP_PERMISSIONS = 6000;
-    private final int RESTORE_PERMISSIONS = 6001;
+    private final int RESTORE_PERMISSIONS_FULL = 6001;
+    private final int RESTORE_PERMISSIONS_PARTIAL = 6002;
+
     private final String STATE_IDEOGRAM = "ideogram";
     private final int ADD_CATEGORY = 0;
     private final int ADD_WORD = 1;
@@ -221,6 +230,13 @@ public class ManageActivity extends Activity {
             }
         }
 
+        // Should we show backup category menu item
+        MenuItem backupCategory = menu.findItem(R.id.context_menu_backup_category);
+        MenuItem restoreCategory = menu.findItem(R.id.context_menu_restore_category);
+        boolean isCategory = m_selectedGram.getType() == Type.Category;
+        backupCategory.setEnabled(isCategory);
+        restoreCategory.setEnabled(isCategory);
+
         // Determine state of move menu items
         if (position < 1 || m_ideogram.getChildren(true).size() < 2) {
             moveUp.setEnabled(false);
@@ -323,6 +339,12 @@ public class ManageActivity extends Activity {
                 m_selectedGram = sub;
                 persistChanges(false);
                 break;
+            case R.id.context_menu_backup_category:
+                requestWritePermissions(DIALOG_BACKUP_DATASTORE_PARTIAL, false);
+                break;
+            case R.id.context_menu_restore_category:
+                requestReadPermissions(DIALOG_RESTORE_DATASTORE_PARTIAL, false);
+                break;
         }
         return true;
     }
@@ -388,7 +410,7 @@ public class ManageActivity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.menu_item_backup:
-                requestWritePermissions(false);
+                requestWritePermissions(DIALOG_BACKUP_DATASTORE_FULL, false);
                 break;
             case R.id.menu_item_paste:
                 try {
@@ -403,7 +425,7 @@ public class ManageActivity extends Activity {
                 }
                 break;
             case R.id.menu_item_restore:
-                requestReadPermissions(false);
+                requestReadPermissions(DIALOG_RESTORE_DATASTORE_FULL, false);
                 break;
             case R.id.menu_item_help:
                 Intent i = new Intent(Intent.ACTION_VIEW);
@@ -456,7 +478,7 @@ public class ManageActivity extends Activity {
     }
 
     @Override
-    protected Dialog onCreateDialog(int id) {
+    protected Dialog onCreateDialog(final int id) {
         AlertDialog alert = null;
         AlertDialog.Builder builder;
         switch (id) {
@@ -503,18 +525,20 @@ public class ManageActivity extends Activity {
                         });
                 alert = builder.create();
                 break;
-            case DIALOG_RESTORE:
+            case DIALOG_RESTORE_DATASTORE_FULL:
+            case DIALOG_RESTORE_DATASTORE_PARTIAL:
                 builder = new AlertDialog.Builder(this);
                 LayoutInflater restoreInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 final View restoreLayout = restoreInflater.inflate(R.layout.backup_restore_dialog,
                         (ViewGroup) findViewById(R.id.restore_linear_layout));
                 final ListView listView = (ListView) restoreLayout.findViewById(R.id.restore_list);
+                final CheckBox restoreOver = (CheckBox) restoreLayout.findViewById(R.id.chkRestoreOverData);
 
                 final Button btnCancelRestore = (Button) restoreLayout.findViewById(R.id.btn_cancelRestore);
                 btnCancelRestore.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dismissDialog(DIALOG_RESTORE);
+                        dismissDialog(id);
 
                         //Ugly hack to get around selection not clearing on cancel
                         if (m_selectedItemToRestore >= 0) {
@@ -535,8 +559,8 @@ public class ManageActivity extends Activity {
                                 File f = (File) obj;
                                 if (restoreTask == null
                                         || restoreTask.getStatus() == Status.FINISHED) {
-                                    dismissDialog(DIALOG_RESTORE);
-                                    restoreTask = new RestoreTask();
+                                    dismissDialog(id);
+                                    restoreTask = new RestoreTask(restoreOver.isChecked());
                                     restoreTask.execute(f.getPath());
                                 } else {
                                     JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
@@ -563,7 +587,8 @@ public class ManageActivity extends Activity {
 
                 alert = builder.create();
                 break;
-            case DIALOG_BACKUP:
+            case DIALOG_BACKUP_DATASTORE_FULL:
+            case DIALOG_BACKUP_DATASTORE_PARTIAL:
                 builder = new AlertDialog.Builder(this);
                 LayoutInflater backupInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 final View layout = backupInflater.inflate(R.layout.backup_save,
@@ -571,11 +596,10 @@ public class ManageActivity extends Activity {
                 Button btnCancelBackup = (Button) layout.findViewById(R.id.btn_cancelBackup);
                 final Button btnBackup = (Button) layout.findViewById(R.id.btn_Backup);
 
-                builder.setTitle(R.string.dialog_title_backup_save_as);
+                builder.setTitle(id == DIALOG_BACKUP_DATASTORE_FULL ? R.string.dialog_title_backup_save_as : R.string.dialog_title_backup_partial_save_as);
                 builder.setIcon(R.drawable.ic_action_save);
                 builder.setView(layout);
                 builder.setCancelable(true);
-
 
                 final EditText fileName = (EditText) layout.findViewById(R.id.backup_filename);
                 InputFilter fileNameFilter = new InputFilter() {
@@ -612,15 +636,16 @@ public class ManageActivity extends Activity {
                 btnCancelBackup.setOnClickListener(new View.OnClickListener() {
 
                     public void onClick(View v) {
-                        dismissDialog(DIALOG_BACKUP);
+                        dismissDialog(id);
                     }
                 });
 
                 btnBackup.setOnClickListener(new View.OnClickListener() {
 
                     public void onClick(View v) {
-                        dismissDialog(DIALOG_BACKUP);
-                        backupData(fileName.getText().toString().trim() + ".bak");
+                        dismissDialog(id);
+                        String ext = getString(R.string.dialog_label_backup_extention_bak);
+                        backupData(fileName.getText().toString().trim() + ext);
                     }
                 });
                 alert = builder.create();
@@ -684,28 +709,30 @@ public class ManageActivity extends Activity {
                         });
                 alert = builder.create();
                 break;
-            case DIALOG_EXPLAIN_WRITE_PERMISSIONS:
+            case DIALOG_EXPLAIN_WRITE_PERMISSIONS_BACKUP_FULL:
+            case DIALOG_EXPLAIN_WRITE_PERMISSIONS_BACKUP_PARTIAL:
                 builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.dialog_permission_explanation_title));
                 builder.setMessage(getString(R.string.dialog_permission_explanation_write_message));
                 builder.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dismissDialog(DIALOG_EXPLAIN_WRITE_PERMISSIONS);
-                        requestWritePermissions(true);
+                        dismissDialog(DIALOG_EXPLAIN_WRITE_PERMISSIONS_BACKUP_FULL);
+                        requestWritePermissions(id, true);
                     }
                 });
                 alert = builder.create();
                 break;
-            case DIALOG_EXPLAIN_READ_PERMISSIONS:
+            case DIALOG_EXPLAIN_READ_PERMISSIONS_RESTORE_FULL:
+            case DIALOG_EXPLAIN_READ_PERMISSIONS_RESTORE_PARTIAL:
                 builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.dialog_permission_explanation_title));
                 builder.setMessage(getString(R.string.dialog_permission_explanation_read_message));
                 builder.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dismissDialog(DIALOG_EXPLAIN_READ_PERMISSIONS);
-                        requestReadPermissions(true);
+                        dismissDialog(id);
+                        requestReadPermissions(id, true);
                     }
                 });
                 alert = builder.create();
@@ -734,9 +761,12 @@ public class ManageActivity extends Activity {
                 ((AlertDialog) dialog).setMessage(getIntent().getStringExtra(
                         JTApp.INTENT_EXTRA_DIALOG_MESSAGE));
                 break;
-            case DIALOG_BACKUP:
+            case DIALOG_BACKUP_DATASTORE_FULL:
+            case DIALOG_BACKUP_DATASTORE_PARTIAL:
                 EditText fileName = (EditText) dialog.findViewById(R.id.backup_filename);
-                fileName.setText("jabtalk");
+                TextView fileExt = (TextView) dialog.findViewById(R.id.backup_filename_ext);
+                fileExt.setText(getString(R.string.dialog_label_backup_extention_bak));
+                fileName.setText(id == DIALOG_BACKUP_DATASTORE_FULL ? "jabtalk" : m_selectedGram.getLabel());
                 Button btnBackup = (Button) dialog.findViewById(R.id.btn_Backup);
                 btnBackup.setEnabled(true);
                 int tl = fileName.getText().length();
@@ -746,9 +776,18 @@ public class ManageActivity extends Activity {
                 } catch (NullPointerException ignored) {
                 }
                 break;
-            case DIALOG_RESTORE:
+            case DIALOG_RESTORE_DATASTORE_FULL:
                 m_selectedItemToRestore = -1;
-                m_restoreAdapter.refresh();
+                CheckBox chkRestore = (CheckBox) dialog.findViewById(R.id.chkRestoreOverData);
+                chkRestore.setChecked(false);
+                m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extention_bak));
+                break;
+            case DIALOG_RESTORE_DATASTORE_PARTIAL:
+                m_selectedItemToRestore = -1;
+                CheckBox chkRestoreOver = (CheckBox) dialog.findViewById(R.id.chkRestoreOverData);
+                chkRestoreOver.setVisibility(View.GONE);
+                chkRestoreOver.setChecked(false);
+                m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extention_bak));
                 break;
         }
     }
@@ -795,28 +834,28 @@ public class ManageActivity extends Activity {
         startActivityForResult(intent, ACTIVITY_EXPAND_CATEGORY);
     }
 
-    private void requestWritePermissions(boolean suppressRationalDialog) {
+    private void requestWritePermissions(int dialog, boolean suppressRationalDialog) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (!suppressRationalDialog && ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                showDialog(DIALOG_EXPLAIN_WRITE_PERMISSIONS);
+                showDialog(DIALOG_EXPLAIN_WRITE_PERMISSIONS_BACKUP_FULL);
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, BACKUP_PERMISSIONS);
             }
         } else {
-            showDialog(DIALOG_BACKUP);
+            showDialog(dialog);
         }
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void requestReadPermissions(boolean suppressRationalDialog) {
+    private void requestReadPermissions(int dialog, boolean suppressRationalDialog) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (!suppressRationalDialog && ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                showDialog(DIALOG_EXPLAIN_READ_PERMISSIONS);
+                showDialog(dialog);
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, RESTORE_PERMISSIONS);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, dialog == DIALOG_RESTORE_DATASTORE_FULL ? RESTORE_PERMISSIONS_FULL : RESTORE_PERMISSIONS_PARTIAL);
             }
         } else {
-            restoreData();
+            restoreData(dialog);
         }
     }
 
@@ -825,12 +864,17 @@ public class ManageActivity extends Activity {
         switch (requestCode) {
             case BACKUP_PERMISSIONS:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    showDialog(DIALOG_BACKUP);
+                    showDialog(DIALOG_BACKUP_DATASTORE_FULL);
                 }
                 break;
-            case RESTORE_PERMISSIONS:
+            case RESTORE_PERMISSIONS_FULL:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    restoreData();
+                    restoreData(DIALOG_RESTORE_DATASTORE_FULL);
+                }
+                break;
+            case RESTORE_PERMISSIONS_PARTIAL:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    restoreData(DIALOG_RESTORE_DATASTORE_PARTIAL);
                 }
                 break;
             default:
@@ -847,8 +891,8 @@ public class ManageActivity extends Activity {
         }
     }
 
-    private void restoreData() {
-        m_restoreAdapter.refresh();
+    private void restoreData(int dialog) {
+        m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extention_bak));
         if (m_restoreAdapter.getCount() == 0) {
             getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
                     getString(R.string.dialog_title_error));
@@ -858,7 +902,7 @@ public class ManageActivity extends Activity {
                             .getDataStore().getExternalStorageDirectory().getPath()));
             showDialog(DIALOG_GENERIC);
         } else {
-            showDialog(DIALOG_RESTORE);
+            showDialog(dialog);
         }
     }
 
@@ -929,6 +973,11 @@ public class ManageActivity extends Activity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         PowerManager.WakeLock m_wakeLock;
         private boolean errorFlag = false;
+        private boolean restoreOverFlag = false;
+
+        public RestoreTask(boolean removeExistingDataset) {
+            restoreOverFlag = removeExistingDataset;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -943,7 +992,11 @@ public class ManageActivity extends Activity {
         protected Void doInBackground(String... params) {
             String fileName = params[0];
             try {
-                JTApp.getDataStore().restoreDataStore(fileName);
+                if (restoreOverFlag) {
+                    JTApp.getDataStore().restoreFullDataStore(fileName);
+                } else {
+                    JTApp.getDataStore().restorePartialDataStore(fileName, m_selectedGram);
+                }
             } catch (Exception e) {
                 errorFlag = true;
                 getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
@@ -1002,7 +1055,9 @@ public class ManageActivity extends Activity {
                 if (madeChanges) {
                     JTApp.getDataStore().saveDataStore();
                 }
-                JTApp.getDataStore().backupDataStore(fileName);
+
+                JTApp.getDataStore().backupDataStore(fileName, m_selectedGram);
+
             } catch (Exception e) {
                 errorFlag = true;
                 getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE, e.getMessage());

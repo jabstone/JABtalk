@@ -1357,7 +1357,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_FINISH_ON_DISMISS, true);
                 showDialog(DIALOG_GENERIC);
             } else {
-                JTApp.getDataStore().clearCache();
+                JTApp.getDataStore().clearTempDirectory();
                 JTApp.fireDataStoreUpdated();
             }
             progressDialog.dismiss();

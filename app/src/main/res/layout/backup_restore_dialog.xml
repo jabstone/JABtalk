@@ -17,6 +17,16 @@
         android:listSelector="@color/jabtalkItemSelected"
         android:saveEnabled="false" />
 
+    <CheckBox
+        android:id="@+id/chkRestoreOverData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/dialog_label_restore_overwrite"
+        android:textSize="17sp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

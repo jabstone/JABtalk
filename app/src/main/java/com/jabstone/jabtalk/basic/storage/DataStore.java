@@ -19,7 +19,6 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -32,9 +31,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
@@ -56,14 +57,16 @@ public class DataStore {
     public static final String JSON_TYPE_WORD = "w";
     public static final String JSON_TYPE_ACTION = "a";
     public static final String JSON_HIDDEN = "h";
+    public static final String FILE_JSON_DATASET = "jabtalk.json";
+    public static final String FILE_JSON_DATASET_PARTIAL = "jabtalk.temp";
+
     // Legacy Tags
     public static final String JSON_CATEGORY_LIST = "cl";
     public static final String JSON_IDEOGRAM_LIST = "il";
     private static String TAG = DataStore.class.getSimpleName();
-    private final String FILE_JSON = "jabtalk.json";
+
     private final String VERSION = "versionId";
     private final String JSON_IDEOGRAMS = "rig";
-    private File m_store = null;
     private Map<String, Ideogram> m_ideogramMap = new HashMap<>();
     private Ideogram m_rootCategory = null;
 
@@ -72,15 +75,19 @@ public class DataStore {
         if (getDataDirectory().equals(JTApp.getInstance().getFilesDir())) {
             JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_INFO, "Using internal storage");
         } else {
-            JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_INFO, "Using external storage");
+            JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_INFO, "Using legacy external storage");
         }
     }
 
     public void refreshStore() {
-        getRootCategory();
-        m_store = new File(getDataDirectory(), FILE_JSON);
+        m_ideogramMap.clear();
+        m_rootCategory = createRootCategory();
+        File f = new File(getDataDirectory(), FILE_JSON_DATASET);
         try {
-            loadData();
+            if (f.exists()) {
+                m_rootCategory = loadJsonFromFile(f, true);
+            }
+            m_ideogramMap.put(m_rootCategory.getId(), m_rootCategory);
         } catch (Exception e) {
             JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
                     "Failed to load DataStore. Error Details: " + getStackTrace(e));
@@ -88,13 +95,13 @@ public class DataStore {
     }
 
     public Ideogram getRootCategory() {
-        if (m_rootCategory == null) {
-            m_rootCategory = new Ideogram(Type.Category);
-            m_rootCategory.setId(UUID.randomUUID().toString());
-            m_ideogramMap.clear();
-            m_ideogramMap.put(m_rootCategory.getId(), m_rootCategory);
-        }
         return m_rootCategory;
+    }
+
+    private Ideogram createRootCategory() {
+        Ideogram root = new Ideogram(Type.Category);
+        root.setId(UUID.randomUUID().toString());
+        return root;
     }
 
     public Map<String, Ideogram> getIdeogramMap() {
@@ -124,7 +131,7 @@ public class DataStore {
         }
     }
 
-    public void clearCache() {
+    public void clearTempDirectory() {
         try {
             File path = getTempDirectory();
             if (path != null && path.exists()) {
@@ -144,9 +151,18 @@ public class DataStore {
         if (!f.exists()) {
             f.mkdirs();
         }
+        File tempAudio = new File(f, "audio");
+        if (!tempAudio.exists()) {
+            tempAudio.mkdirs();
+        }
+        File tempImages = new File(f, "images");
+        if (!tempImages.exists()) {
+            tempImages.mkdirs();
+        }
 
         return f;
     }
+
 
     public File getImageDirectory() {
         File imageDir = new File(getDataDirectory(), "images");
@@ -167,7 +183,7 @@ public class DataStore {
 
     public File getDataDirectory() {
         File f = JTApp.getInstance().getExternalFilesDir(null);
-        File existingInstall = new File(f, FILE_JSON);
+        File existingInstall = new File(f, FILE_JSON_DATASET);
         if (!existingInstall.exists()) {
             f = JTApp.getInstance().getFilesDir();
         }
@@ -192,7 +208,7 @@ public class DataStore {
         if (targetId != null) {
             target = m_ideogramMap.get(targetId);
         }
-        cloneIdeogram(sourceId, target);
+        cloneIdeogram(source, getDataDirectory(), target);
     }
 
     public void cutIdeogram(String sourceId, String targetId) throws JabException {
@@ -262,24 +278,23 @@ public class DataStore {
         return dir.delete();
     }
 
-    private void cloneIdeogram(String sourceId, Ideogram target) throws JabException {
-        Ideogram source = m_ideogramMap.get(sourceId);
+    private void cloneIdeogram(Ideogram source, File baseDirectory, Ideogram target) throws JabException {
         String newId = UUID.randomUUID().toString();
         Ideogram clone = new Ideogram(source);
 
         clone.setId(newId);
         clone.setParentId(target.getId());
 
-        if (source.getImagePath() != null) {
-            File imgSource = new File(source.getImagePath());
+        if (source.getImagePath(baseDirectory) != null) {
+            File imgSource = new File(source.getImagePath(baseDirectory));
             if (imgSource.exists()) {
                 File imgDestination = new File(getImageDirectory(), clone.getId() + "."
                         + source.getImageExtention());
                 copyFile(imgSource, imgDestination);
             }
         }
-        if (source.getAudioPath() != null) {
-            File audSource = new File(source.getAudioPath());
+        if (source.getAudioPath(baseDirectory) != null) {
+            File audSource = new File(source.getAudioPath(baseDirectory));
             if (audSource.exists()) {
                 File audDestination = new File(getAudioDirectory(), clone.getId() + "."
                         + source.getAudioExtention());
@@ -290,7 +305,7 @@ public class DataStore {
         target.getChildren(true).add(clone);
 
         for (Ideogram child : source.getChildren(true)) {
-            cloneIdeogram(child.getId(), clone);
+            cloneIdeogram(child, baseDirectory, clone);
         }
 
         m_ideogramMap.put(clone.getId(), clone);
@@ -355,16 +370,20 @@ public class DataStore {
     }
 
     public void saveDataStore() throws JabException {
+        saveDataStore(new File(getDataDirectory(), FILE_JSON_DATASET), m_rootCategory);
+    }
+
+    public void saveDataStore(File output, Ideogram parent) throws JabException {
         removeOrphans();
-        clearCache();
+        clearTempDirectory();
 
         JSONObject jsonObject = new JSONObject();
         OutputStreamWriter writer = null;
         try {
             jsonObject.put(VERSION, JTApp.DATASTORE_VERSION);
-            JSONObject graph = new JSONObject(m_rootCategory.toString());
+            JSONObject graph = new JSONObject(parent.toString());
             jsonObject.put(JSON_IDEOGRAMS, graph);
-            writer = new OutputStreamWriter(new FileOutputStream(m_store), "UTF-8");
+            writer = new OutputStreamWriter(new FileOutputStream(output), "UTF-8");
             writer.write(jsonObject.toString());
             writer.flush();
             writer.close();
@@ -390,14 +409,15 @@ public class DataStore {
         }
     }
 
-    public List<File> getBackupFiles() {
+
+    public List<File> getBackupFiles(final String extension) {
         List<File> backupFiles = new ArrayList<>();
         try {
             File backupDir = getExternalStorageDirectory();
             FileFilter backupFilter = new FileFilter() {
                 @Override
                 public boolean accept(File file) {
-                    return file.isFile() && file.getName().endsWith(".bak") && file.length() > 0;
+                    return file.isFile() && file.getName().endsWith(extension) && file.length() > 0;
                 }
             };
             backupFiles.addAll(Arrays.asList(backupDir.listFiles(backupFilter)));
@@ -415,22 +435,38 @@ public class DataStore {
         return backupFiles;
     }
 
-
-    public void backupDataStore(String fileName) throws JabException {
+    public void backupDataStore(String fileName, Ideogram category) throws JabException {
         ZipOutputStream zos = null;
+        Set<String> ideogramIds = null;
+        File categoryStore = null;
+
         try {
             if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
-                        "Failed to backup JABtalk data. The storage directory is not mounted");
+                        "Failed to backup JABtalk category. The storage directory is not mounted");
                 throw new JabException("Unable to mount external storage directory.");
             }
+            //Write category as json object so it's included in backup
+            if (!category.isRoot()) {
+                categoryStore = new File(getDataDirectory(), FILE_JSON_DATASET_PARTIAL);
+                Ideogram root = createRootCategory();
+                category.setParentId(root.getId());
+                root.getChildren(true).add(category);
+                saveDataStore(categoryStore, root);
+                ideogramIds = getAllIdsForCategory(root);
+            }
+
             File zipFileName = new File(getExternalStorageDirectory(), fileName);
             File dataDir = getDataDirectory();
             zos = new ZipOutputStream(new FileOutputStream(zipFileName, false));
             zos.setLevel(Deflater.DEFAULT_COMPRESSION);
-            zipDirectory(dataDir, zos);
+            zipDirectory(dataDir, zos, ideogramIds);
             zos.flush();
             zos.close();
+
+            if (categoryStore != null && categoryStore.exists()) {
+                categoryStore.delete();
+            }
 
             if (!isBackupValid(zipFileName)) {
                 throw new JabException("The backup file: " + fileName + " failed the post-backup validation check.");
@@ -467,13 +503,35 @@ public class DataStore {
         }
     }
 
-    public void restoreDataStore(String fileName) throws JabException {
+    public void restoreFullDataStore(String fileName) throws JabException {
+        restoreDataStore(fileName, getDataDirectory(), true);
+        refreshStore();
+    }
+
+    public void restorePartialDataStore(String fileName, Ideogram parent) throws JabException {
+        try {
+            clearTempDirectory();
+            restoreDataStore(fileName, getTempDirectory(), false);
+            Ideogram tempGram = loadJsonFromFile(new File(getTempDirectory(), FILE_JSON_DATASET), false);
+            if (tempGram != null) {
+                for (Ideogram child : tempGram.getChildren(true)) {
+                    cloneIdeogram(child, getTempDirectory(), parent);
+                }
+            } else {
+                throw new JabException("Unable to restore backup from file: " + fileName + ". Unable to load json file.");
+            }
+        } catch (Exception e) {
+            throw new JabException(getStackTrace(e));
+        }
+    }
+
+    private void restoreDataStore(String sourceFileName, File destinationDirectory, boolean clearDataStoreDirectory) throws JabException {
 
         byte[] buffer = new byte[1024];
         InputStream in = null;
         FileOutputStream out = null;
 
-        File zipFileName = new File(fileName);
+        File zipFileName = new File(sourceFileName);
         try {
             String state = Environment.getExternalStorageState();
             if (Environment.MEDIA_MOUNTED.equals(state) ||
@@ -481,19 +539,22 @@ public class DataStore {
 
 
                 if (!isBackupValid(zipFileName)) {
-                    throw new JabException("The backup file: " + fileName + " appears to be corrupt. Restore operation terminated.");
+                    throw new JabException("The backup file: " + sourceFileName + " appears to be corrupt. Restore operation terminated.");
                 }
 
                 if (!zipFileName.exists()) {
                     throw new JabException(
-                            "Could not find the backup file \"" + fileName + "\" on the SDCard");
+                            "Could not find the backup file \"" + sourceFileName + "\" on the SDCard");
                 }
 
-                deleteAllFiles();
+                if (clearDataStoreDirectory) {
+                    deleteAllFiles();
+                }
+
                 ZipFile zipFile = new ZipFile(zipFileName);
 
                 Enumeration<? extends ZipEntry> entries;
-                File dataDir = getDataDirectory();
+                File dataDir = destinationDirectory;
                 entries = zipFile.entries();
 
                 while (entries.hasMoreElements()) {
@@ -520,7 +581,6 @@ public class DataStore {
                 }
 
                 zipFile.close();
-                loadData();
             } else {
                 throw new JabException("Unable to read from backup files from external storage directory.");
             }
@@ -542,9 +602,10 @@ public class DataStore {
         }
     }
 
+
     private void deleteAllFiles() throws Exception {
         try {
-            clearCache();
+            clearTempDirectory();
             File[] files = getDataDirectory().listFiles();
             for (File f : files) {
                 if (!f.isDirectory()) {
@@ -571,13 +632,10 @@ public class DataStore {
         }
     }
 
-    private void zipDirectory(File directory, ZipOutputStream zos) throws Exception {
-        String[] dirList = directory.list(new FilenameFilter() {
-            @Override
-            public boolean accept(File file, String s) {
-                return s.equals(FILE_JSON) || s.contains("images") || s.contains("audio") || file.equals(getImageDirectory()) || file.equals(getAudioDirectory());
-            }
-        });
+
+    private void zipDirectory(File directory, ZipOutputStream zos, Set<String> ids) throws Exception {
+
+        String[] dirList = directory.list(ids == null ? new DataStoreFileFilter() : new PartialDataStoreFileFilter(ids));
 
         byte[] readBuffer = new byte[1024];
         int bytesIn;
@@ -585,7 +643,7 @@ public class DataStore {
         for (String item : dirList) {
             File f = new File(directory, item);
             if (f.isDirectory()) {
-                zipDirectory(f, zos);
+                zipDirectory(f, zos, ids);
                 continue;
             }
 
@@ -596,7 +654,7 @@ public class DataStore {
                 anEntry = new ZipEntry(f.getParentFile().getName() + File.separator
                         + f.getName());
             } else {
-                anEntry = new ZipEntry(f.getName());
+                anEntry = new ZipEntry(f.getName().equals(FILE_JSON_DATASET_PARTIAL) ? FILE_JSON_DATASET : f.getName());
             }
             zos.putNextEntry(anEntry);
             while ((bytesIn = fis.read(readBuffer)) != -1) {
@@ -606,17 +664,17 @@ public class DataStore {
         }
     }
 
-    private void loadData() throws Exception {
+    private Ideogram loadJsonFromFile(File source, boolean addItemsToMap) throws Exception {
         InputStreamReader reader = null;
+        Ideogram parent = null;
 
         try {
-            if (m_store != null && m_store.exists() && m_store.isFile() && m_store.length() > 0) {
-                m_ideogramMap.clear();
+            if (source != null && source.exists() && source.isFile() && source.length() > 0) {
 
                 // Read file into character array
-                char[] data = new char[(int) m_store.length()];
+                char[] data = new char[(int) source.length()];
 
-                reader = new InputStreamReader(new FileInputStream(m_store), "UTF-8");
+                reader = new InputStreamReader(new FileInputStream(source), "UTF-8");
                 reader.read(data, 0, data.length);
 
                 // Turn JSON String into object graph
@@ -625,13 +683,12 @@ public class DataStore {
 
                 if (!versionId.equals(JTApp.DATASTORE_VERSION)) {
                     // Convert store to new format
-                    m_rootCategory = null;
-                    getRootCategory();
+                    parent = createRootCategory();
                     LinkedList<Ideogram> categoryList = loadLegacyData(jsonObject);
-                    m_rootCategory.getChildren(true).addAll(categoryList);
+                    parent.getChildren(true).addAll(categoryList);
                 } else {
                     JSONObject jsonRoot = jsonObject.getJSONObject(JSON_IDEOGRAMS);
-                    m_rootCategory = inflateJSONCategory(jsonRoot);
+                    parent = inflateJSONCategory(jsonRoot, addItemsToMap);
                 }
             }
         } finally {
@@ -642,6 +699,7 @@ public class DataStore {
             } catch (Exception ignore) {
             }
         }
+        return parent;
     }
 
     private LinkedList<Ideogram> loadLegacyData(JSONObject jsonObject) throws JSONException {
@@ -651,13 +709,13 @@ public class DataStore {
         for (int i = 0; i < jsonChildren.length(); i++) {
             JSONObject jsonChild = jsonChildren.getJSONObject(i);
             Ideogram category = inflateLegacyJSONCategory(jsonChild);
-            category.setParentId(getRootCategory().getId());
+            category.setParentId(createRootCategory().getId());
             categoryList.add(category);
         }
         return categoryList;
     }
 
-    private Ideogram inflateJSONCategory(JSONObject jsonCategory) throws JSONException {
+    private Ideogram inflateJSONCategory(JSONObject jsonCategory, boolean addItemsToMap) throws JSONException {
         Ideogram category = new Ideogram(Type.Category);
         category.setId(getJSONString(jsonCategory, DataStore.JSON_ID));
         category.setAudioExtention(getJSONString(jsonCategory, DataStore.JSON_AUDIO_EXT));
@@ -672,7 +730,7 @@ public class DataStore {
                 JSONObject jsonChild = jsonChildren.getJSONObject(i);
                 String type = getJSONString(jsonChild, DataStore.JSON_TYPE);
                 if (Type.getType(type) == Type.Category) {
-                    Ideogram subCategory = inflateJSONCategory(jsonChild);
+                    Ideogram subCategory = inflateJSONCategory(jsonChild, addItemsToMap);
                     category.getChildren(true).add(subCategory);
                 } else {
                     Ideogram word = new Ideogram(Type.Word);
@@ -684,13 +742,16 @@ public class DataStore {
                     word.setParentId(getJSONString(jsonChild, DataStore.JSON_PARENT_ID));
                     word.setHidden(getJSONBoolean(jsonChild, DataStore.JSON_HIDDEN));
                     category.getChildren(true).add(word);
-                    m_ideogramMap.put(word.getId(), word);
+                    if (addItemsToMap) {
+                        m_ideogramMap.put(word.getId(), word);
+                    }
                 }
 
             }
         }
-
-        m_ideogramMap.put(category.getId(), category);
+        if (addItemsToMap) {
+            m_ideogramMap.put(category.getId(), category);
+        }
         return category;
     }
 
@@ -757,6 +818,19 @@ public class DataStore {
             }
         }
         return value;
+    }
+
+    private Set<String> getAllIdsForCategory(Ideogram category) {
+        Set<String> set = new HashSet<>();
+        set.add(category.getId());
+        for (Ideogram child : category.getChildren(true)) {
+            if (child.getType() == Type.Category) {
+                set.addAll(getAllIdsForCategory(child));
+            } else {
+                set.add(child.getId());
+            }
+        }
+        return set;
     }
 
     private List<Ideogram> getAllIdeogramsForCategory(Ideogram category) {

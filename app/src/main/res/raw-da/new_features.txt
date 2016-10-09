@@ -1,7 +1,3 @@
-<B> <u> Backup Forbedringer </u> </b> - Tilføjet muligheden for at have flere backup-filer. Når der udføres en sikkerhedskopiering, du nu få at angive filnavnet. Du kan have så mange backup-filer som din enhed tillader.
+<b> <u> Flere Backup Forbedringer </u> </b> - Tilføjet support for delvise sikkerhedskopier. Du kan nu backup en bestemt kategori ved lange klikke på kategori og vælge "Backup denne kategori".
 <br>
-<B> <u> Gendan Forbedringer </u> </b> - Mulighed for at vælge en bestemt fil, når gendannelse fra en sikkerhedskopi. Alle backup-filer på din enhed vises nu i en udvalgt liste, når du udfører en gendannelse.
-<br>
-<B> <u> Android Tilladelse Opdateringer </u> </b> - Opdateret til at understøtte nye Android 6.0 tilladelse rammer.
-<br>
-<B> <u> Sprog Oversættelse </u> </b> - Vi brugte Google Translate til nogle af beskederne i denne udgivelse. Hvis du bemærker nogen forkerte tekst oversættelser, kan du kontakte os på support@jabstone.com
+<b> <u> Mere Gendan Forbedringer </u> </b> - Tilføjet evne til at gendanne data uden at overskrive eksisterende data. Du kan nu gendanne en sikkerhedskopi i en eksisterende kategori ved lange klikke på kategori og vælge "Gendan indhold her".

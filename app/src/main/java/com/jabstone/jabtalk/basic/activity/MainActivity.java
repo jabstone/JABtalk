@@ -581,7 +581,7 @@ public class MainActivity extends Activity implements ICategorySelectionListener
     }
     
     private void showManageActivity(String id) {
-        JTApp.getDataStore ().clearCache ();
+        JTApp.getDataStore().clearTempDirectory();
         Intent intent = new Intent ( this, ManageActivity.class );
         intent.putExtra(JTApp.INTENT_EXTRA_IDEOGRAM_ID, id);
         intent.putExtra(JTApp.INTENT_EXTRA_CALLED_FROM_MAIN, true);

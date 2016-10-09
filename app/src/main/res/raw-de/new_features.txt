@@ -1,7 +1,3 @@
-﻿<b> <u> Backup-Erweiterungen </u> </b> - Die Möglichkeit, mehrere Backup-Dateien zu haben, wurden hinzugefügt. Wenn Sie eine Sicherung durchführen, können Sie nun den Dateinamen angeben. Sie können so viele Backup-Dateien wie Ihr Gerät ermöglicht.
+﻿<b> <u> Weitere Sicherungserweiterungen </u> </b> - Zusätzliche Unterstützung für Teilsicherungen. Sie können nun eine bestimmte Kategorie sichern, indem Sie auf die Kategorie klicken und "Kategorie sichern" auswählen.
 <br>
-<b> <u> Wiederherstellung von Verbesserungen </u> </b> - Möglichkeit, bei der Wiederherstellung aus einer Sicherung eine bestimmte Datei auszuwählen. Alle Sicherungsdateien auf Ihrem Gerät werden nun in einer Auswahlliste angezeigt, wenn Sie eine Wiederherstellung durchführen.
-<br>
-<b> <u> Android-Permission-Updates </u> </b> - Aktualisiert, um das neue Android 6.0-Berechtigungs-Framework zu unterstützen.
-<br>
-<b> <u> Sprachübersetzung </u> </b> - Wir haben Google Translate für einige der Nachrichten in dieser Version verwendet. Wenn Sie fehlerhafte Textübersetzungen feststellen, mailen Sie uns bitte an support@jabstone.com
+<b> <u> Weitere Wiederherstellungserweiterungen </u> </b> - Möglichkeit zur Wiederherstellung von Backups ohne überschreiben vorhandener Daten. Sie können nun ein Backup in eine bestehende Kategorie wiederherstellen, indem Sie auf die Kategorie klicken und "Backup wiederherstellen" auswählen.
