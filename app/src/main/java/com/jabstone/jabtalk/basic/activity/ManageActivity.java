@@ -96,6 +96,7 @@ public class ManageActivity extends Activity {
     private boolean madeChanges = false;
     private ListView m_listView = null;
     private int m_selectedItemToRestore = -1;
+    private boolean isRestoreClicked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,7 +170,7 @@ public class ManageActivity extends Activity {
         invalidateOptionsMenu();
 
         // Display add item dialog if category is blank
-        if (m_ideogram != null && m_ideogram.getChildren(true).size() < 1) {
+        if (m_ideogram != null && m_ideogram.getChildren(true).size() < 1 && !isRestoreClicked) {
             showDialog(DIALOG_ACTION_ADD);
         }
     }
@@ -410,6 +411,7 @@ public class ManageActivity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.menu_item_backup:
+                m_selectedGram = JTApp.getDataStore().getRootCategory();
                 requestWritePermissions(DIALOG_BACKUP_DATASTORE_FULL, false);
                 break;
             case R.id.menu_item_paste:
@@ -425,6 +427,8 @@ public class ManageActivity extends Activity {
                 }
                 break;
             case R.id.menu_item_restore:
+                isRestoreClicked = true;
+                m_selectedGram = m_ideogram;
                 requestReadPermissions(DIALOG_RESTORE_DATASTORE_FULL, false);
                 break;
             case R.id.menu_item_help:
@@ -514,6 +518,7 @@ public class ManageActivity extends Activity {
                                 JTApp.getDataStore().deleteIdeogram(m_selectedGram.getId());
                                 persistChanges(false);
                                 invalidateOptionsMenu();
+                                m_selectedGram = m_ideogram;
                             }
                         });
                 builder.setNegativeButton(R.string.button_no,
@@ -857,6 +862,7 @@ public class ManageActivity extends Activity {
         } else {
             restoreData(dialog);
         }
+        isRestoreClicked = false;
     }
 
     @Override

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 
 import com.jabstone.jabtalk.basic.JTApp;
-import com.jabstone.jabtalk.basic.R;
 import com.jabstone.jabtalk.basic.exceptions.JabException;
 import com.jabstone.jabtalk.basic.storage.Ideogram.Type;
 
@@ -585,10 +584,8 @@ public class DataStore {
                 throw new JabException("Unable to read from backup files from external storage directory.");
             }
         } catch (Exception ioe) {
-            JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
-                    "Failed to restore backup.  Error Details: " + getStackTrace(ioe));
             throw new JabException(
-                    JTApp.getInstance().getResources().getString(R.string.dialog_restore_error));
+                    "Failed to restore backup.  Error Details: " + getStackTrace(ioe));
         } finally {
             try {
                 if (in != null) {
