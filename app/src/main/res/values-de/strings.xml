@@ -94,10 +94,17 @@
     <string name="dialog_permission_explanation_read_message">JABtalk benötigt die Berechtigung zum Wiederherstellen von Sicherungsdateien in Ihrem externen Speicherverzeichnis.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk benötigt das Mikrofon für die Aufnahme von Audio.</string>
     <string name="dialog_permission_explanation_camera_message">Für die Aufnahme von Bildern benötigt JABtalk die entsprechende Berechtigung.</string>
-
-    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
     <string name="dialog_title_backup_partial_save_as">Sicherungskategorie</string>
     <string name="dialog_label_restore_overwrite">Vorhandenen Datensatz löschen?</string>
+
+    <string name="dialog_title_no_image_app">Bild App nicht gefunden</string>
+    <string name="dialog_message_no_image_app">Bitte laden Sie eine Bildbetrachtungs-App herunter, um Bilder von Ihrem Gerät zu importieren. Zum Beispiel, QuickPic Gallery aus dem Google Play Store.</string>
+    <string name="dialog_title_no_camera_app">Kamera-App nicht gefunden</string>
+    <string name="dialog_message_no_camera_app">Bitte laden Sie eine Kamera App herunter, bevor Sie die Kamera nutzen.</string>
+    <string name="dialog_title_no_audio_app">Audio App nicht gefunden</string>
+    <string name="dialog_message_no_audio_app">Bitte laden Sie eine Audio-Datei-Auswahl App, bevor Sie die Audio-Import-Funktion.</string>
+    <string name="dialog_message_downloading_audio">Herunterladen von Audio&#8230;</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

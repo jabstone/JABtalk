@@ -649,7 +649,7 @@ public class ManageActivity extends Activity {
 
                     public void onClick(View v) {
                         dismissDialog(id);
-                        String ext = getString(R.string.dialog_label_backup_extention_bak);
+                        String ext = getString(R.string.dialog_label_backup_extension_bak);
                         backupData(fileName.getText().toString().trim() + ext);
                     }
                 });
@@ -770,7 +770,7 @@ public class ManageActivity extends Activity {
             case DIALOG_BACKUP_DATASTORE_PARTIAL:
                 EditText fileName = (EditText) dialog.findViewById(R.id.backup_filename);
                 TextView fileExt = (TextView) dialog.findViewById(R.id.backup_filename_ext);
-                fileExt.setText(getString(R.string.dialog_label_backup_extention_bak));
+                fileExt.setText(getString(R.string.dialog_label_backup_extension_bak));
                 fileName.setText(id == DIALOG_BACKUP_DATASTORE_FULL ? "jabtalk" : m_selectedGram.getLabel());
                 Button btnBackup = (Button) dialog.findViewById(R.id.btn_Backup);
                 btnBackup.setEnabled(true);
@@ -785,14 +785,14 @@ public class ManageActivity extends Activity {
                 m_selectedItemToRestore = -1;
                 CheckBox chkRestore = (CheckBox) dialog.findViewById(R.id.chkRestoreOverData);
                 chkRestore.setChecked(false);
-                m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extention_bak));
+                m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extension_bak));
                 break;
             case DIALOG_RESTORE_DATASTORE_PARTIAL:
                 m_selectedItemToRestore = -1;
                 CheckBox chkRestoreOver = (CheckBox) dialog.findViewById(R.id.chkRestoreOverData);
                 chkRestoreOver.setVisibility(View.GONE);
                 chkRestoreOver.setChecked(false);
-                m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extention_bak));
+                m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extension_bak));
                 break;
         }
     }
@@ -898,7 +898,7 @@ public class ManageActivity extends Activity {
     }
 
     private void restoreData(int dialog) {
-        m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extention_bak));
+        m_restoreAdapter.refresh(getString(R.string.dialog_label_backup_extension_bak));
         if (m_restoreAdapter.getCount() == 0) {
             getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
                     getString(R.string.dialog_title_error));

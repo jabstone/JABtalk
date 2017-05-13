@@ -1,3 +1,6 @@
-<b> <u> Flere Backup Forbedringer </u> </b> - Tilføjet support for delvise sikkerhedskopier. Du kan nu backup en bestemt kategori ved lange klikke på kategori og vælge "Backup denne kategori".
+<b> <u> Android 7-support </u> </b> - Fejlrettelser til Android 7 og nyere.
 <br>
-<b> <u> Mere Gendan Forbedringer </u> </b> - Tilføjet evne til at gendanne data uden at overskrive eksisterende data. Du kan nu gendanne en sikkerhedskopi i en eksisterende kategori ved lange klikke på kategori og vælge "Gendan indhold her".
+<b> <u> Hjælp til Google Drev </u> </b> - Tilføjet mulighed for at downloade billeder og lydfiler fra Google Drev-appen.
+<br>
+<br>
+Send venligst sprogoversættelsesfejl til support@jabstone.com

@@ -1,3 +1,6 @@
-<b> <u> Meer Backup Enhancements </u> </b> - Ondersteuning toegevoegd voor een gedeeltelijke back-ups. U kunt nu back-up een specifieke categorie van de lange op de categorie en te kiezen voor "Back-up deze categorie".
+<b> <u> Android 7-ondersteuning </u> </b> - Bugfixes voor Android 7 en hoger.
 <br>
-<b> <u> Meer herstellen Enhancements </u> </b> - Toegevoegde mogelijkheid om back-ups te herstellen, zonder het overschrijven van bestaande gegevens. U kunt nu herstellen van een back-up in een bestaande categorie van de lange op de categorie en 'back-up hier Restore "te selecteren.
+<b> <u> Google Drive Support </u> </b> - Toegevoegde mogelijkheid om afbeeldingen en geluidsbestanden te downloaden van de Google Drive-app.
+<br>
+<br>
+Stuur alstublieft taalvertaalfouten naar support@jabstone.com

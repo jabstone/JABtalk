@@ -54,7 +54,16 @@
         <activity android:name=".activity.PreferenceActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/preference_activity">
-        </activity>                                   
+        </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.jabstone.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
    
 

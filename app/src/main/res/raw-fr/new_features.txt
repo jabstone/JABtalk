@@ -1,3 +1,6 @@
-<b> <u> Améliorations Plus de sauvegarde </u> </b> - Ajout du support pour les sauvegardes partielles. Vous pouvez maintenant sauvegarder une catégorie spécifique par une longue-cliquant sur la catégorie et en sélectionnant "Sauvegarde cette catégorie".
+<b> <u> Assistance Android 7 </u> </b> - Corrections de bogues pour Android 7 et versions ultérieures.
 <br>
-<b> <u> Plus Restaurer Améliorations </u> </b> - Ajout de la possibilité de restaurer des sauvegardes sans écraser les données existantes. Vous pouvez maintenant restaurer une sauvegarde dans une catégorie existante par une longue-cliquant sur la catégorie et en sélectionnant "Restaurer la sauvegarde ici."
+<b> <u> Support Google Drive </u> </b> - Possibilité de télécharger des images et des fichiers audio depuis l'application Google Drive.
+<br>
+<br>
+Envoyez des erreurs de traduction linguistique à support@jabstone.com

@@ -94,10 +94,17 @@
     <string name="dialog_permission_explanation_read_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za obnovo varnostnih kopij.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk potrebuje dovoljenje za svoj mikrofon za snemanje zvoka.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk potrebuje dovoljenje za fotoaparat za zajem slike.</string>
-
-    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
     <string name="dialog_title_backup_partial_save_as">backup Kategorija</string>
     <string name="dialog_label_restore_overwrite">Izbrisati obstoječi nabor podatkov?</string>
+
+    <string name="dialog_title_no_image_app">Slika aplikacije ni bilo mogoče najti</string>
+    <string name="dialog_message_no_image_app">Prosimo, da prenesete sliko gledanja aplikacijo tudi za uvoz slik iz naprave. Na primer, QuickPic Galerija od trgovini Google Play.</string>
+    <string name="dialog_title_no_camera_app">Kamera aplikacije ni bilo mogoče najti</string>
+    <string name="dialog_message_no_camera_app">Prosimo, da prenesete aplikacijo kamere pred uporabo funkcije fotoaparata.</string>
+    <string name="dialog_title_no_audio_app">Audio aplikacije ni bilo mogoče najti</string>
+    <string name="dialog_message_no_audio_app">Prenesite avdio datoteke izbirnik aplikacijo pred uporabo avdio uvoz funkcijo.</string>
+    <string name="dialog_message_downloading_audio">Prenos zvoka&#8230;</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

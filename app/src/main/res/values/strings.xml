@@ -93,10 +93,17 @@
     <string name="dialog_permission_explanation_read_message">JABtalk needs permission to your external storage directory for restoring backup files.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk needs permission to your microphone for recording audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk needs permission to your camera for capturing images.</string>
-
-    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
     <string name="dialog_title_backup_partial_save_as">Backup Category</string>
     <string name="dialog_label_restore_overwrite">Delete existing data set?</string>
+
+    <string name="dialog_title_no_image_app">Image App Not Found</string>
+    <string name="dialog_message_no_image_app">Please download an image viewing app to import images from your device. For example, QuickPic Gallery from the Google Play store.</string>
+    <string name="dialog_title_no_camera_app">Camera App Not Found</string>
+    <string name="dialog_message_no_camera_app">Please download a camera app before using the camera feature.</string>
+    <string name="dialog_title_no_audio_app">Audio App Not Found</string>
+    <string name="dialog_message_no_audio_app">Please download an audio file picker app before using the audio import feature.</string>
+    <string name="dialog_message_downloading_audio">Downloading audio&#8230;</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

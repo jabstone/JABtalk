@@ -94,10 +94,17 @@
     <string name="dialog_permission_explanation_read_message">JABtalk brug tilladelse til din eksterne storage mappe til gendannelse af backup-filer.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk brug tilladelse til din mikrofon til lydoptagelse.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk skal have tilladelse til dit kamera til at tage billeder.</string>
-
-    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
     <string name="dialog_title_backup_partial_save_as">Backup kategori</string>
     <string name="dialog_label_restore_overwrite">Slet eksisterende datasæt?</string>
+
+    <string name="dialog_title_no_image_app">Billedapp fundet ikke</string>
+    <string name="dialog_message_no_image_app">Download venligst en billedvisningsprogram for at importere billeder fra din enhed. For eksempel, QuickPic Gallery fra Google Play Butik.</string>
+    <string name="dialog_title_no_camera_app">Kameraapp blev ikke fundet</string>
+    <string name="dialog_message_no_camera_app">Vær venlig at downloade en kameraapp, før du bruger kameraets funktion.</string>
+    <string name="dialog_title_no_audio_app">Lydapp fundet ikke</string>
+    <string name="dialog_message_no_audio_app">Vær venlig at downloade en lydfil picker-app, før du bruger lydimportfunktionen.</string>
+    <string name="dialog_message_downloading_audio">Henter lyd&#8230;</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

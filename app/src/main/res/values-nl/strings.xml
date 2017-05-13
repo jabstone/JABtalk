@@ -94,10 +94,17 @@
     <string name="dialog_permission_explanation_read_message">JABtalk heeft toestemming om uw externe opslag directory voor het herstellen van back-upbestanden.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk heeft toestemming nodig om uw microfoon voor het opnemen van audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk heeft toestemming nodig om uw camera voor het vastleggen van beelden.</string>
-
-    <string name="dialog_label_backup_extention_bak">.bak</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
     <string name="dialog_title_backup_partial_save_as">backup Categorie</string>
     <string name="dialog_label_restore_overwrite">Verwijder bestaande dataset?</string>
+
+    <string name="dialog_title_no_image_app">Afbeelding App niet gevonden</string>
+    <string name="dialog_message_no_image_app">Gelieve een afbeelding te downloaden voor het importeren van afbeeldingen van uw apparaat. Bijvoorbeeld, QuickPic Gallery uit de Google Play Store.</string>
+    <string name="dialog_title_no_camera_app">Camera App niet gevonden</string>
+    <string name="dialog_message_no_camera_app">Gelieve een camera app downloaden voordat u de camerafunctie gebruikt.</string>
+    <string name="dialog_title_no_audio_app">Audioapp niet gevonden</string>
+    <string name="dialog_message_no_audio_app">PLease download een audio file picker app voordat u de audio import functie gebruikt.</string>
+    <string name="dialog_message_downloading_audio">Audio downloaden&#8230;</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         

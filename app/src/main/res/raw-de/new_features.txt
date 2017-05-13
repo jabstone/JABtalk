@@ -1,3 +1,6 @@
-﻿<b> <u> Weitere Sicherungserweiterungen </u> </b> - Zusätzliche Unterstützung für Teilsicherungen. Sie können nun eine bestimmte Kategorie sichern, indem Sie auf die Kategorie klicken und "Kategorie sichern" auswählen.
+﻿<b> <u> Android 7 Support </u> </b> - Fehlerkorrekturen für Android 7 und höher.
 <br>
-<b> <u> Weitere Wiederherstellungserweiterungen </u> </b> - Möglichkeit zur Wiederherstellung von Backups ohne überschreiben vorhandener Daten. Sie können nun ein Backup in eine bestehende Kategorie wiederherstellen, indem Sie auf die Kategorie klicken und "Backup wiederherstellen" auswählen.
+<b> <u> Google Drive Support </u> </b> - Zusätzliche Möglichkeit zum Herunterladen von Bildern und Audiodateien aus der Google Drive App.
+<br>
+<br>
+Bitte senden Sie Sprachübersetzungsfehler an support@jabstone.com

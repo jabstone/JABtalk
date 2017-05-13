@@ -27,10 +27,12 @@ import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
@@ -55,7 +57,10 @@ import com.jabstone.jabtalk.basic.storage.Ideogram.Type;
 import com.jabstone.jabtalk.basic.widgets.AutoResizeTextView;
 import com.jabstone.jabtalk.basic.widgets.PictureFrameDimensions;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -306,14 +311,18 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             }
         }
 
-        toggleImageButtons();
         restoreProgressDialog();
     }
 
     private void checkForSpeechData() {
         Intent checkIntent = new Intent();
         checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkIntent, ACTIVITY_RESULT_SPEECH_DATA);
+        if (checkIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(checkIntent, ACTIVITY_RESULT_SPEECH_DATA);
+        } else {
+            JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_WARNING,
+                    "Unable to determine if text to speech engine is installed.");
+        }
     }
 
     private void restoreProgressDialog() {
@@ -323,25 +332,6 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         }
     }
 
-    private void toggleImageButtons() {
-//        if ( ( m_ideogram.getImageExtention () != null && m_ideogram.getImageExtention ().length () > 0 )
-//                || tempImage != null ) {
-//            m_cameraButton.setCompoundDrawablesWithIntrinsicBounds ( null, getResources ()
-//                    .getDrawable ( R.drawable.camera_on ), null, null );
-//        } else {
-//            m_cameraButton.setCompoundDrawablesWithIntrinsicBounds ( null, getResources ()
-//                    .getDrawable ( R.drawable.camera_off ), null, null );
-//        }
-//
-//        if ( ( m_ideogram.getAudioExtention () != null && m_ideogram.getAudioExtention ().length () > 0 )
-//                || tempAudio != null ) {
-//            m_audioButton.setCompoundDrawablesWithIntrinsicBounds ( null, getResources ()
-//                    .getDrawable ( R.drawable.ic_microphone_on ), null, null );
-//        } else {
-//            m_audioButton.setCompoundDrawablesWithIntrinsicBounds ( null, getResources ()
-//                    .getDrawable ( R.drawable.ic_microphone_off ), null, null );
-//        }
-    }
 
     private void requestAudioPermissions(boolean suppressRationalDialog) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
@@ -531,7 +521,6 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
 
                             public void onClick(DialogInterface dialog, int which) {
                                 m_ideogram.setAudioExtention(null);
-                                toggleImageButtons();
                                 dismissDialog(DIALOG_SPEECH_DATA_NOT_FOUND);
                             }
                         });
@@ -683,36 +672,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                     break;
                 }
 
-                Uri audioUri = data.getData();
-                String audioPath;
-                String filePath = audioUri.getPath();
-
-                String[] audioProj = {MediaStore.Audio.Media.DATA};
-                Cursor audioCursor = managedQuery(audioUri, audioProj, null, null, null);
-                if (audioCursor != null) {
-                    int audio_col_index = audioCursor
-                            .getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
-                    audioCursor.moveToFirst();
-                    audioPath = audioCursor.getString(audio_col_index);
-                } else {
-                    audioPath = filePath;
-                }
-                try {
-                    if (audioPath != null && isAudioFileValid(audioPath)) {
-                        tempAudio = new File(audioPath);
-                        if (!tempAudio.exists() || tempAudio.length() < 1) {
-                            tempAudio = null;
-                        }
-                    } else {
-                        throw new JabException(
-                                getString(R.string.dialog_message_invald_audio_format));
-                    }
-                } catch (JabException je) {
-                    getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
-                            getString(R.string.dialog_title_error));
-                    getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE, je.getMessage());
-                    showDialog(DIALOG_GENERIC);
-                }
+                new DownloadAudioTask().execute(data);
                 break;
             case ACTIVITY_RESULT_SPEECH_DATA:
                 if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
@@ -790,11 +750,20 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
 
     private void getCameraImage() {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        tempImage = new File(JTApp.getDataStore().getTempDirectory(),
-                m_ideogram.getId() + ".jpg");
-        Uri outputUri = Uri.fromFile(tempImage);
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
-        startActivityForResult(cameraIntent, ACTIVITY_RESULT_CAMERA);
+        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+            tempImage = new File(JTApp.getDataStore().getTempDirectory(),
+                    m_ideogram.getId() + ".jpg");
+
+            Uri outputUri = FileProvider.getUriForFile(this, "com.jabstone.fileprovider", tempImage);
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+            startActivityForResult(cameraIntent, ACTIVITY_RESULT_CAMERA);
+        } else {
+            getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                    getString(R.string.dialog_title_no_camera_app));
+            getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
+                    getString(R.string.dialog_message_no_camera_app));
+            showDialog(DIALOG_GENERIC);
+        }
     }
 
     private void getImage(int item) {
@@ -804,7 +773,15 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 break;
             case SOURCE_GALLERY:
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, ACTIVITY_RESULT_GALLERY);
+                if (galleryIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(galleryIntent, ACTIVITY_RESULT_GALLERY);
+                } else {
+                    getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                            getString(R.string.dialog_title_no_image_app));
+                    getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
+                            getString(R.string.dialog_message_no_image_app));
+                    showDialog(DIALOG_GENERIC);
+                }
                 break;
             case SOURCE_WEB:
                 Intent webIntent = new Intent(this, BrowserActivity.class);
@@ -823,7 +800,6 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 ImageView imgView = (ImageView) m_previewContainer
                         .findViewById(R.id.IMAGEVIEW_ID);
                 imgView.setImageDrawable(getResources().getDrawable(R.drawable.chalkboard));
-                toggleImageButtons();
                 break;
         }
     }
@@ -838,8 +814,16 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 Intent galleryIntent = new Intent();
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("audio/*");
-                startActivityForResult(Intent.createChooser(galleryIntent,
-                        getString(R.string.dialog_title_audio_source)), ACTIVITY_RESULT_MUSIC);
+                if (galleryIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(Intent.createChooser(galleryIntent,
+                            getString(R.string.dialog_title_audio_source)), ACTIVITY_RESULT_MUSIC);
+                } else {
+                    getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                            getString(R.string.dialog_title_no_audio_app));
+                    getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
+                            getString(R.string.dialog_message_no_audio_app));
+                    showDialog(DIALOG_GENERIC);
+                }
                 break;
             case 2:
                 if ((m_audio_bitmask & SOURCE_RECORDER) == SOURCE_RECORDER) {
@@ -847,13 +831,11 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 } else {
                     m_ideogram.setAudioExtention(JTApp.EXTENSION_SYNTHESIZER);
                     tempAudio = null;
-                    toggleImageButtons();
                 }
                 break;
             case 3:
                 m_ideogram.setAudioExtention(JTApp.EXTENSION_SYNTHESIZER);
                 tempAudio = null;
-                toggleImageButtons();
                 break;
             default:
                 break;
@@ -868,6 +850,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 || ext.equalsIgnoreCase("ogg") || ext.equalsIgnoreCase("wav")
                 || ext.equalsIgnoreCase("amr") || ext.equalsIgnoreCase("3gpp"));
     }
+
 
     private boolean isImageFileValid(String path) {
         String ext = getFileExtention(path, false);
@@ -897,7 +880,6 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         ImageView mic = (ImageView) m_recordDialog.findViewById(R.id.recorder_image);
         mic.setBackgroundResource(R.drawable.microphone);
         dismissDialog(DIALOG_AUDIO_RECORD);
-        toggleImageButtons();
     }
 
     private void previewIdeogram() {
@@ -1308,7 +1290,6 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             m_ideogram = (Ideogram) savedInstanceState.getSerializable(STATE_IDEOGRAM);
         }
 
-        toggleImageButtons();
     }
 
     @Override
@@ -1322,6 +1303,37 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         }
         outState.putSerializable(STATE_IDEOGRAM, m_ideogram);
     }
+
+    private void downloadFile(File fileName, InputStream is) throws IOException {
+        BufferedInputStream bis = null;
+
+        FileOutputStream fos = null;
+
+        try {
+            fos = new FileOutputStream(fileName);
+            bis = new BufferedInputStream(is);
+
+            byte[] data = new byte[1024];
+            int size;
+            while ((size = bis.read(data, 0, 1024)) > -1) {
+                fos.write(data, 0, size);
+            }
+            bis.close();
+            fos.flush();
+            fos.close();
+        } finally {
+            try {
+                if (bis != null) {
+                    bis.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
+            } catch (Exception ignore) {
+            }
+        }
+    }
+
 
     private class SaveDataStoreTask extends AsyncTask<Void, Void, Void> {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -1366,6 +1378,64 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             }
 
             exitActivity();
+        }
+    }
+
+    private class DownloadAudioTask extends AsyncTask<Intent, Void, Void> {
+
+        private boolean errorFlag = false;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            lockScreenOrientation();
+            progressDialog.setMessage(getString(R.string.dialog_message_downloading_audio));
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Intent... params) {
+            try {
+                Uri audioUri = params[0].getData();
+                Cursor audioCursor =
+                        getContentResolver().query(audioUri, null, null, null, null);
+                if (audioCursor != null) {
+                    int nameIndex = audioCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    audioCursor.moveToFirst();
+                    String fileName = audioCursor.getString(nameIndex);
+
+                    if (isAudioFileValid(fileName)) {
+                        String ext = getFileExtention(fileName, true);
+                        File resultFile = new File(JTApp.getDataStore().getTempDirectory(), UUID.randomUUID()
+                                .toString() + ext);
+                        InputStream inStream = getContentResolver().openInputStream(audioUri);
+                        downloadFile(resultFile, inStream);
+                        tempAudio = resultFile;
+                    } else {
+                        throw new JabException(
+                                getString(R.string.dialog_message_invald_audio_format));
+                    }
+                }
+
+            }
+            catch(Exception ioe) {
+                errorFlag = true;
+                getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_TITLE,
+                        getString(R.string.dialog_title_save_results));
+                getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE, ioe.getMessage());
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void param) {
+            super.onPostExecute(param);
+            progressDialog.dismiss();
+
+            if (errorFlag) {
+                showDialog(DIALOG_GENERIC);
+            }
         }
     }
 

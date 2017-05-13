@@ -1,3 +1,6 @@
-<b> <u> Več Backup Dodatna </u> </b> - Dodana podpora za delne varnostne kopije. Sedaj lahko backup posebna kategorija, ki ga dolgo klikom na kategorijo, in izberete "Backup to kategorijo".
+<b> <u> Android 7 Podpora </u> </b> - Popravki napak za Android 7 in zgoraj.
 <br>
-<b> <u> Več Obnovitev Izboljšave </u> </b> - Dodano sposobnost za obnovitev varnostne kopije ne prepiše obstoječe podatke. Sedaj lahko obnovite varnostno kopijo v obstoječo kategorijo, ki jo dolgo klikom na kategorijo, in izberete »Obnovitev varnostne kopije tukaj".
+<b> <u> Google Drive podporo </u> </b> - Dodana možnost za prenos slike in avdio datotek iz aplikacijo Google Drive.
+<br>
+<br>
+Prosim, pošljite napake prevajanja jezikovnih support@jabstone.com

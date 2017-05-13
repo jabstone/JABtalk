@@ -1,3 +1,6 @@
-<b><u> More Backup Enhancements </u></b> - Added support for partial backups. You can now backup a specific category by long-clicking the category and selecting "Backup this category".
+<b><u> Android 7 Support </u></b> - Bug fixes for Android 7 and above.
 <br>
-<b><u> More Restore Enhancements </u></b> - Added ability to restore backups without overwriting existing data. You can now restore a backup into an existing category by long-clicking the category and selecting "Restore backup here".
+<b><u> Google Drive Support </u></b> - Added ability to download images and audio files from the Google drive app.
+<br>
+<br>
+Please send language translation errors to support@jabstone.com
