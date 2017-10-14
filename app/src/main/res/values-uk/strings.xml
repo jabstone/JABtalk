@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Браузер</string>
+    <string name="preference_activity">Налаштування</string>    
+    <string name="button_finish">Закінчити</string>
+    <string name="button_cancel">Скасувати</string>
+    <string name="button_delete">Усунути</string>
+    <string name="button_yes">Так</string>
+    <string name="button_no">Ні</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Закрити</string>
+    <string name="button_speak">Казати</string>
+    <string name="button_clear">Вичистити</string>            
+	<string name="dialog_title_new_features">Нові функції в JABtalk</string>
+    <string name="dialog_title_delete_confirmation">Підтвердження усунення</string>
+    <string name="dialog_message_delete_category">Ви справді хочете усунути всі категорії, підкатегорії та слова?</string>
+    <string name="dialog_message_delete_word">Ви справді хочете усунути це слово?</string>
+    <string name="dialog_message_restoring">Відновлення даних&#8230;</string>
+    <string name="dialog_message_backup">Зберігання даних&#8230;</string>
+    <string name="dialog_message_saving">Зберігання змін&#8230;</string>
+    <string name="dialog_title_error">Помилка</string>
+    <string name="empty_category"><b>Вітаємо в JABtalk!</b>\n\n<b><u>Торкніться тут</u></b> щоб розпочати додавання слів і категорій.</string>
+    <string name="empty_word">В цій категорії нема слів.\n<b><u>Торкніться тут</u></b> щоб увійти до панелі управління, де можна додати нові слова.</string>
+    <string name="websiteNeedHelp">Дивіться наші самоучки на сайті www.jabstone.com/videos</string>
+    <string name="copy_error_source_not_found">Не знайдено елементу, який ви хочете скопіювати.</string>
+    <string name="cut_error_invalid_target">Вибачте, але неможливо пересувати елемент на самого себе.</string>
+    <string name="cut_error_invalid_target_for_source">Вибачте, не можна пересувати слово в список категорій.</string>
+    <string name="sentence_board_tip">Протягніть слово вниз? щоб його усунути</string>    
+	<string name="dialog_title_item_move">Пересунути&#8230;</string>
+    <string name="dialog_item_move_up">Пересунути вгору</string>
+    <string name="dialog_item_move_down">Пересунути вниз</string>
+    <string name="dialog_item_move_beginning">Пересунути на початок</string>
+    <string name="dialog_item_move_end">Пересунути в кінець</string>
+    <string name="button_view_log">Переглянути журнал помилок</string>
+<!--  END: COMMON STRINGS -->    
+    
+    
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Почати запис</string>
+    <string name="button_stop_recording">Зупинити запис</string>	    
+    <string name="manage_activity_title">Управляти</string>
+    <string name="manage_activity_hidden_item">Приховано від перегляду</string>
+    <string name="manage_activity_category_actions">Дії для категорій</string>    
+    <string name="ideogram_activity_title_insert_category">Додати нову категорію</string>
+    <string name="ideogram_activity_title_update_category">Редагувати категорію</string>
+    <string name="ideogram_activity_title_insert_word">Додати нове слово</string>
+    <string name="ideogram_activity_title_update_word">Редагувати слово</string>
+    <string name="ideogram_activity_category_label_hint">Введіть етикетку для категорії</string>    
+    <string name="ideogram_activity_word_label_hint">Введіть етикетку для слова</string>
+    <string name="ideogram_activity_phrase_hint">Введіть фразу для показу</string>
+    <string name="ideogram_activity_check_hidden">Приховайте цей елемент від перегляду</string>       
+    <string name="ideogram_activity_word_label">Етикетка для слова</string>
+    <string name="ideogram_activity_button_preview">Клацніть на зображення для попереднього перегляду</string>       
+    <string name="dialog_title_image_source">Виберіть джерело зображення</string>
+    <string name="dialog_item_imagesource_camera">Фотоапарат</string>
+    <string name="dialog_item_import">Імпортувати з пристрою</string>
+    <string name="dialog_item_import_web">Завантажити з інтернету</string>
+    <string name="dialog_item_imagesource_text">Текстова кнопка</string>
+    <string name="dialog_title_audio_source">Виберіть джерело для аудіо</string>
+    <string name="dialog_item_audiosource_recorder">Магнітофон</string>
+    <string name="dialog_item_audiosource_synthesizer">Синтезатор мови</string>
+    <string name="dialog_title_save_results">Зберегти результат</string>
+    <string name="dialog_message_invalid_label">Будь ласка, введіть етикетку</string>
+    <string name="dialog_message_invalid_phrase">Будь ласка, введіть фразу для показу</string>
+    <string name="dialog_message_invalid_picture">Будь ласка, виберіть зображення</string>    
+	<string name="dialog_title_invalid_field">Неправильне поле</string>
+	<string name="dialog_message_invald_image_format">Вибраний формат зображення несумісний з JABtalk. Будь ласка, виберіть інший файл.</string>
+	<string name="dialog_message_invald_audio_format">Вибраний формат аудіо несумісний з JABtalk. Будь ласка, виберіть інший файл.</string>
+	<string name="dialog_title_missing_speech_data">Незнайдено мовні файли</string>	
+	<string name="dialog_message_missing_speech_data">Виглядає, що на вашому пристрої не заінстальовано необхідних файлів текстового мовлення. Чи хотіли би ви їх зараз заінсталювати?</string>			
+    <string name="dialog_item_add_category">Додати нову категорію</string>        
+    <string name="dialog_item_add_word">Додати слово</string>
+    <string name="dialog_title_restore_dataset">Відновити резервну копію</string>
+    <string name="dialog_title_backup_results">Зберегти результати</string>
+    <string name="dialog_title_restore_results">Відновити результати</string>
+    <string name="dialog_message_backup_success">Набір ваших даних успішно збережено в:\r\n%1s</string>
+    <string name="dialog_title_manage_challenge">Увійти до панелі управління</string>       
+    <string name="dialog_message_manage_unlock_question">Будь ласка введіть %1$s щоб увійти до панелі управління</string>
+    <string name="dialog_message_manage_challenge_incorrect">Неправильно. Будь ласка, спробуйте ще раз.</string>
+    <string name="dialog_message_leave_screen">Чи ви справді хочете вийти з панелі управління?</string>
+    <string name="dialog_title_exit_warning">Підтвердження виходу</string>
+    <string name="dialog_message_browser_unsupported_image_type">Вибране зображення не вдалося завантажити. Будь ласка, спробуйте ще раз за кілька секунд або спробуйте зтягнути мініатюру зображення зі сторінки результатів пошуку.</string>
+    <string name="dialog_item_no_audio">Без аудіо</string>
+    <string name="dialog_title_backup_save_as">Зберегти всі дані</string>
+    <string name="dialog_message_backup_save_as">Введіть ім\'я файлу для збереження. Файл з тою сомаю назвою буде перезаписано.</string>
+    <string name="dialog_message_restore_file_not_found">JABtalk не знайшов збережений файл для відновлення. Будь ласка, упевніться, що файл знаходиться в папці \r\n%1$s/</string>
+    <string name="dialog_restore_error">Сталася помилка відновлення файлу. Перегляньте журнал помилок для подробиць.</string>
+    <string name="dialog_permission_explanation_title">Запрос від JABtalk</string>
+    <string name="dialog_permission_explanation_write_message">JABtalk потребує вашого дозволу для доступу до зовнішньої пам\'яті.</string>
+    <string name="dialog_permission_explanation_read_message">JABtalk потребує вашого дозволу для відновлення резервних копій файлів з папок зовнішньої пам\'яті.</string>
+    <string name="dialog_permission_explanation_audio_message">JABtalk потребує вашого дозволу для запису аудіо з мікрофону.</string>
+    <string name="dialog_permission_explanation_camera_message">JABtalk потребує вашого дозволу для відтворення зображень.</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">Категорія резервних копій</string>
+    <string name="dialog_label_restore_overwrite">Усунути існуючий набир даних?</string>
+
+    <string name="dialog_title_no_image_app">Додаток для перегляду зображень не знайдено</string>
+    <string name="dialog_message_no_image_app">Будь ласко, зкачайте додаток для перегляду зображень для імпортування з вашого пристрою, наприклад, QuickPic Gallery з магазину Google Play.</string>
+    <string name="dialog_title_no_camera_app">Додаток Фотоапарат не знайдено</string>
+    <string name="dialog_message_no_camera_app">Будь ласка, зкачайте необхідний додаток перед тим, як користуватися функціями фотоапарату.</string>
+    <string name="dialog_title_no_audio_app">Додаток для прослуховування аудіо не знайдено</string>
+    <string name="dialog_message_no_audio_app">Будь ласка, зкачайте необхідний додаток перед тим, як користуватися функцією імпортування аудіо.</string>
+    <string name="dialog_message_downloading_audio">Аудіо зкачується&#8230;</string>
+<!-- END: MANAGEMENT SCREENS -->    
+    
+        
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	<string name="progress_loading">Завантаження&#8230;</string>
+	<string name="progress_downloading_image">Зкачування зображення&#8230;</string>	
+	<string name="download_hint">Торкніться і утримуйте зображення щоб показати функцію Зкачани Зображення</string> 
+	<string name="google_image_search_url">http://www.google.com/search?hl=en&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+
+
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Історія</string>    
+    <string name="menu_log">Журнал</string>
+    <string name="menu_clear_history">Вичистити історію</string>
+    <string name="menu_clear_log">Вичистити журнал</string>
+    <string name="menu_manage">Управляти</string>
+    <string name="menu_backup">Зберігати</string>
+    <string name="menu_restore">Відновити</string>
+    <string name="menu_delete">Усунути</string>
+    <string name="menu_hide">Сховати</string>
+    <string name="menu_unhide">Відкрити</string>
+    <string name="menu_edit">Редагувати</string>
+    <string name="menu_copy">Копіювати</string>
+    <string name="menu_cut">Вирізати</string>
+    <string name="menu_paste">Вклеїти</string>
+    <string name="menu_convert">Перетворити у підкатегорію</string>
+    <string name="menu_help">Підтримка</string>
+    <string name="menu_preferences">Налаштування</string>	
+    <string name="menu_download_image">Зкачати зображення</string>
+    <string name="menu_add_ideogram">Додати елемент</string>
+    <string name="menu_edit_ideogram">Редагувати елемент</string>
+
+    <string name="menu_backup_category">Зберегти цю категорію&#8230;</string>
+    <string name="menu_restore_category">Відновити резервну копію тут&#8230;</string>
+<!--  END: MENU STRINGS -->
+    
+    
+<!--  BEGIN: PREFERENCES -->    
+	<string name="preference_category_picture_size">Налаштування зображень</string>
+	<string name="preference_category_sentence_building">Налаштування для побудови речень</string>
+	<string name="preference_category_audio">Налаштування для аудіо</string>
+	<string name="preference_category_other">Інші налаштування</string>
+    <string name="preference_landscape_columns_title">Розміри зображень - Ландшафтний режим</string>
+    <string name="preference_portrait_columns_title">Розміри зображень - портретний режим</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">portrait_colunms</string>
+    <string name="preference_landscape_columns_summary">Кількість показаних зображень в одному рядку, коли пристрій є у ландшафтному режимі (повернутий горизонтально).  Чим менша кількість, тим більші зображення.  Чим більша кількість, тим менші зображення.</string>
+    <string name="preference_portrait_columns_summary">Кількість показаних зображень в одному рядку, коли пристрій є у портретному режимі (повернутий вертикально).  Чим менша кількість, тим більші зображення.  Чим більша кількість, тим менші зображення.</string>   
+   	<string name="preference_speech_resource_key">speech_resource</string>
+   	<string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Дозволяти будування речень</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Дозволяти функцію будування речень на домашньому екрані.</string>
+	<string name="preference_scroll_speed_title">Швидкість прокрутки</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">Контролює швидкість прокрутки зображень підчас перегляду екрану.</string>
+    <string name="preference_scroll_speed_default">.1</string>
+	<string name="preference_sentence_bar_size_title">Розмір панелі речень</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Налаштовування розміру зображень в панелі речень.  Значення відносні до розміру картинок у сітці слів.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Максимальна кількість слів в реченні</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">Контролює кількість слів, яку можна одночасно показати в панелі речень.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Звук для вибору категорії</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">відтворювати аудіо при виборі категорій</string>
+    <string name="preference_word_audio_title">Звук для вибору слова</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">Відтворювати аудіо при виборі слів</string>     
+    <string name="preference_access_code_title">Вимагати код для доступу</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_summary">Включаючи цю опцію, вам буде необхідно ввести код з чотирьох цифр для доступу до екрану управління.</string>
+    <string name="preference_backbutton_disable_title">Відключити кнопку Назад</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_backbutton_disable_summary">Вибираючи цю опцію, ви унеможливите користання кнопкою Назад, коли її вибрано на домашньому украні.</string>
+    <string name="preference_fontsize_title">Розмір шрифту для етикеток зображень</string>
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_fontsize_summary">Налаштовує розмір шрифту для етикеток слів і категорій.</string>
+	<string name="preference_screen_keep_on_key">screen_on</string>    
+    <string name="preference_screen_keep_on_title">Залишити екран включеним</string>
+    <string name="preference_screen_keep_on_summary">Не дозволяє виключення головного екрана. Увимкнення цієї опції може негативно вплинути на час роботи акамулятора.</string>    
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Включити фразу для показу</string>
+    <string name="preference_word_progress_summary">Показує діалогове вікно висвітлення слів, коли аудіо відтворюється.</string>                
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Маленький</item>
+        <item>Середній</item>
+        <item>Великий</item>
+    </string-array>
+    
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>     
+    
+    <string-array name="title_font_size_labels">
+        <item>найменший</item>
+        <item>менший</item>
+        <item>маленький</item>
+        <item>нормальний</item>
+        <item>великий</item>
+        <item>більший</item>
+        <item>найбільший</item>
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>18f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>  
+    
+    <string-array name="scroll_speed_labels">
+        <item>найповільніша</item>
+        <item>повільніша</item>
+        <item>нормальна</item>
+        <item>швидша</item>
+        <item>найшвидша</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>     
+    
+<!--  BEGIN: ARRAY VALUES -->
+    
+</resources>
