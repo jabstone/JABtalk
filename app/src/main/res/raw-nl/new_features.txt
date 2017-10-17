@@ -1,6 +1,4 @@
-<b> <u> Android 7-ondersteuning </u> </b> - Bugfixes voor Android 7 en hoger.
-<br>
-<b> <u> Google Drive Support </u> </b> - Toegevoegde mogelijkheid om afbeeldingen en geluidsbestanden te downloaden van de Google Drive-app.
+<b><u>Taalupdates</u></b> - Bijkomende ondersteuning voor de Oekraïense taal toegevoegd.
 <br>
 <br>
 Stuur alstublieft taalvertaalfouten naar support@jabstone.com

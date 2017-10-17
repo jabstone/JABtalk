@@ -1,6 +1,4 @@
-<b> <u> Android 7-support </u> </b> - Fejlrettelser til Android 7 og nyere.
-<br>
-<b> <u> Hjælp til Google Drev </u> </b> - Tilføjet mulighed for at downloade billeder og lydfiler fra Google Drev-appen.
+<b><u>Sprogopdateringer</u></b> - Tilføjet indbygget support til ukrainsk.
 <br>
 <br>
 Send venligst sprogoversættelsesfejl til support@jabstone.com

@@ -1,6 +1,4 @@
-<b> <u> Assistance Android 7 </u> </b> - Corrections de bogues pour Android 7 et versions ultérieures.
-<br>
-<b> <u> Support Google Drive </u> </b> - Possibilité de télécharger des images et des fichiers audio depuis l'application Google Drive.
+<b><u>Mises à jour linguistiques</u></b> - Ajout du support natif pour l'ukrainien.
 <br>
 <br>
-Envoyez des erreurs de traduction linguistique à support@jabstone.com
+Veuillez envoyer les erreurs de traduction à support@jabstone.com

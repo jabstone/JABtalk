@@ -1,6 +1,4 @@
-﻿<b> <u> Android 7 Support </u> </b> - Fehlerkorrekturen für Android 7 und höher.
-<br>
-<b> <u> Google Drive Support </u> </b> - Zusätzliche Möglichkeit zum Herunterladen von Bildern und Audiodateien aus der Google Drive App.
+﻿<b><u>Sprachupdates</u></b> - Native Unterstützung für Ukrainisch hinzugefügt.
 <br>
 <br>
 Bitte senden Sie Sprachübersetzungsfehler an support@jabstone.com

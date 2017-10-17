@@ -1,6 +1,4 @@
-<b> <u> Android 7 Podpora </u> </b> - Popravki napak za Android 7 in zgoraj.
-<br>
-<b> <u> Google Drive podporo </u> </b> - Dodana možnost za prenos slike in avdio datotek iz aplikacijo Google Drive.
+<b><u>Posodobitve jezika</u></b> - Dodana domača podpora za ukrajinski.
 <br>
 <br>
-Prosim, pošljite napake prevajanja jezikovnih support@jabstone.com
+Prosimo, pošljite napake v prevodu na support@jabstone.com
