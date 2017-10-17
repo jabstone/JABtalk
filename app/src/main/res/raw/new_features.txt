@@ -1,6 +1,4 @@
-<b><u> Android 7 Support </u></b> - Bug fixes for Android 7 and above.
-<br>
-<b><u> Google Drive Support </u></b> - Added ability to download images and audio files from the Google drive app.
+<b><u>Language Updates </u></b> - Added support for Ukranian
 <br>
 <br>
 Please send language translation errors to support@jabstone.com
