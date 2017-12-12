@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Böngésző</string>
+    <string name="preference_activity">Beállítások</string>
+    <string name="button_finish">Befejezés</string>
+    <string name="button_cancel">Mégse</string>
+    <string name="button_delete">Törlés</string>
+    <string name="button_yes">Igen</string>
+    <string name="button_no">Nem</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Bezár</string>
+    <string name="button_speak">Speak</string>
+    <string name="button_clear">Töröl</string>
+    <string name="dialog_title_new_features">Új JABtalk tulajdonságok</string>
+    <string name="dialog_title_delete_confirmation">Törlés megerősítése</string>
+    <string name="dialog_message_delete_category">Biztos benne, hogy törölni szeretné ezt a kategóriát és az összes kapcsolódó alkategóriát és szót?</string>
+    <string name="dialog_message_delete_word">Biztosan törli ezt a szót?</string>
+    <string name="dialog_message_restoring">Adatok visszaállítása&#8230;</string>
+    <string name="dialog_message_backup">Adatok biztonsági mentése&#8230;</string>
+    <string name="dialog_message_saving">Módosítások mentése&#8230;</string>
+    <string name="dialog_title_error">Hiba</string>
+    <string name="empty_category"><b>Üdvözli a JABtalk</b>\n\n<b><u>Érintse meg itt</u></b> a szavak és kategóriák hozzáadásához.</string>
+    <string name="empty_word">Nincsenek szavak ehhez a kategóriához konfigurálva.\n<b><u>Érintse meg itt</u></b> a kezelési képernyő eléréséhez és új szavak hozzáadásához.</string>
+    <string name="websiteNeedHelp">Tekintse meg oktató videóinkat a www.jabstone.com/videos címen</string>
+    <string name="copy_error_source_not_found">A másolni kívánt elem nem található.</string>
+    <string name="cut_error_invalid_target">Sajnáljuk, nem helyezhet el egy elemet önmagára.</string>
+    <string name="cut_error_invalid_target_for_source">Sajnáljuk, nem helyezhet szót a kategóriák listájára.</string>
+    <string name="sentence_board_tip">Eltávolításhoz húzza a szót lefelé</string>
+    <string name="dialog_title_item_move">Mozgt&#8230;</string>
+    <string name="dialog_item_move_up">Ugrás fel</string>
+    <string name="dialog_item_move_down">Ugrás le</string>
+    <string name="dialog_item_move_beginning">Ugrás az elejére</string>
+    <string name="dialog_item_move_end">Ugrás a végére</string>
+    <string name="button_view_log">Hibanapló megtekintése</string>
+    <!--  END: COMMON STRINGS -->
+
+
+    <!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Felvétel indítása</string>
+    <string name="button_stop_recording">Felvétel leállítása</string>
+    <string name="manage_activity_title">Kezelés</string>
+    <string name="manage_activity_hidden_item">Elrejt a nézetből</string>
+    <string name="manage_activity_category_actions">Kategória műveletek</string>
+    <string name="ideogram_activity_title_insert_category">Új kategória hozzáadása</string>
+    <string name="ideogram_activity_title_update_category">Kategória szerkesztése</string>
+    <string name="ideogram_activity_title_insert_word">Új szó hozzáadása</string>
+    <string name="ideogram_activity_title_update_word">Szó szerkesztése</string>
+    <string name="ideogram_activity_category_label_hint">Adja meg a kategóriacímkét</string>
+    <string name="ideogram_activity_word_label_hint">Adja meg a címkecímkét</string>
+    <string name="ideogram_activity_phrase_hint">Adja meg a megjelenítési kifejezést</string>
+    <string name="ideogram_activity_check_hidden">Az elem elrejtése a nézetből</string>
+    <string name="ideogram_activity_word_label">Szó címke</string>
+    <string name="ideogram_activity_button_preview">Kattintson az előnézeti képre</string>
+    <string name="dialog_title_image_source">Képforrás kiválasztása</string>
+    <string name="dialog_item_imagesource_camera">Kamera</string>
+    <string name="dialog_item_import">Importálás az eszközről</string>
+    <string name="dialog_item_import_web">Letöltés az internetről</string>
+    <string name="dialog_item_imagesource_text">Szöveges gomb</string>
+    <string name="dialog_title_audio_source">Válassza ki a hangforrást</string>
+    <string name="dialog_item_audiosource_recorder">Hangfelvevő</string>
+    <string name="dialog_item_audiosource_synthesizer">Beszéd szintetizátor</string>
+    <string name="dialog_title_save_results">Eredmények mentése</string>
+    <string name="dialog_message_invalid_label">Kérjük, adjon meg egy címkét</string>
+    <string name="dialog_message_invalid_phrase">Kérjük, adjon meg egy kifejezést</string>
+    <string name="dialog_message_invalid_picture">Kérjük, válasszon ki egy képet</string>
+    <string name="dialog_title_invalid_field">Érvénytelen mező</string>
+    <string name="dialog_message_invald_image_format">A kijelölt képformátum nem kompatibilis a JABtalk programmal.  Válasszon egy másik fájlt.</string>
+    <string name="dialog_message_invald_audio_format">A kiválasztott hangformátum nem kompatibilis a JABtalk programmal.  Válasszon egy másik fájlt.</string>
+    <string name="dialog_title_missing_speech_data">Hiányzó nyelvfájlok</string>
+    <string name="dialog_message_missing_speech_data">Úgy tűnik, hogy a készülék nem rendelkezik a szükséges szöveges-beszéd nyelvi fájlokkal.  Szeretne most telepíteni őket?</string>
+    <string name="dialog_item_add_category">Új kategória hozzáadása</string>
+    <string name="dialog_item_add_word">Új szó hozzáadása</string>
+    <string name="dialog_title_restore_dataset">Mentés visszaállítása</string>
+    <string name="dialog_title_backup_results">Mentés eredménye</string>
+    <string name="dialog_title_restore_results">Eredmények visszaállítása</string>
+    <string name="dialog_message_backup_success">Az adatkészleted sikeresen elmentésre került ide:\r\n%1s</string>
+    <string name="dialog_title_manage_challenge">Hozzáféréskezelő képernyő</string>
+    <string name="dialog_message_manage_unlock_question">Kérjük, írja be %1$s a kezelő képernyő eléréséhez</string>
+    <string name="dialog_message_manage_challenge_incorrect">Hibás.  Próbáld újra.</string>
+    <string name="dialog_message_leave_screen">Biztosan kilép a kezelő képernyőből?</string>
+    <string name="dialog_title_exit_warning">Kilépés megerősítés</string>
+    <string name="dialog_message_browser_unsupported_image_type">A kijelölt kép nem tölthető be.  Kérjük, próbálkozzon újra néhány másodpercen belül, vagy próbálja meg letölteni az előnézeti képet a keresési eredményoldalon.</string>
+    <string name="dialog_item_no_audio">Nincs audió</string>
+    <string name="dialog_title_backup_save_as">Minden adat biztonsági mentése</string>
+    <string name="dialog_message_backup_save_as">Adjon meg egy nevet a biztonsági mentéshez.  Az azonos nevű fájlok felülíródnak.</string>
+    <string name="dialog_message_restore_file_not_found"> ​A JABtalk nem tudta visszaállítani a biztonsági másolatot.  Győződjön meg arról, hogy a biztonsági mentés elérési útvonala itt található: \r\n%1$s/</string>
+    <string name="dialog_restore_error">A biztonsági mentés fájljának visszaállításakor hiba történt.  A részletekért tekintse meg a hibanaplót.</string>
+    <string name="dialog_permission_explanation_title">JABtalk jogosultság kérés</string>
+    <string name="dialog_permission_explanation_write_message">A JABtalk engedélyt kér a külső tárolási könyvtárhoz biztonsági másolatok készítéséhez.</string>
+    <string name="dialog_permission_explanation_read_message">A JABtalk engedélyt kér a külső tárolási könyvtárhoz a biztonsági másolatok visszaállításához.</string>
+    <string name="dialog_permission_explanation_audio_message">A JABtalk engedélyt kér a mikrofonhoz audió felvételhez.</string>
+    <string name="dialog_permission_explanation_camera_message">A JABtalk engedélyt kér a fényképezőgéphez a képek rögzítéséhez.</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">Kategória mentése</string>
+    <string name="dialog_label_restore_overwrite">A meglévő adatkészlet törlése</string>
+
+    <string name="dialog_title_no_image_app">Képalkalmazás nem található</string>
+    <string name="dialog_message_no_image_app">Kérjük, töltsön le egy képmegjelenítő alkalmazást a képek importálásáról a készülékről.  Például a Google Play áruház QuickPic Galériát.</string>
+    <string name="dialog_title_no_camera_app">A kameraalkalmazás nem található</string>
+    <string name="dialog_message_no_camera_app">Kérjük, töltsön le egy kamera alkalmazást a kamera funkció használatához.</string>
+    <string name="dialog_title_no_audio_app">Audioalkalmazás nem található</string>
+    <string name="dialog_message_no_audio_app">Kérjük, töltsön le egy hangfájl-választó alkalmazást a hangbejegyzés funkció használata előtt.</string>
+    <string name="dialog_message_downloading_audio">Audió letöltése&#8230;</string>
+    <!-- END: MANAGEMENT SCREENS -->
+
+
+    <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+    <string name="progress_loading">Betöltés&#8230;</string>
+    <string name="progress_downloading_image">Kép letöltése&#8230;</string>
+    <string name="download_hint">Tartsa lenyomva a képet a Kép letöltéséhez</string>
+    <string name="google_image_search_url">http://www.google.hu/search?hl=hu&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+    <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+
+
+    <!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Előzmények</string>
+    <string name="menu_log">Naplózás</string>
+    <string name="menu_clear_history">Történet törlése</string>
+    <string name="menu_clear_log">Napló törlése</string>
+    <string name="menu_manage">Kezelés</string>
+    <string name="menu_backup">Biztonsági mentés</string>
+    <string name="menu_restore">Visszaállítás</string>
+    <string name="menu_delete">Törlés</string>
+    <string name="menu_hide">Elrejt</string>
+    <string name="menu_unhide">Felfed</string>
+    <string name="menu_edit">Szerkesztés</string>
+    <string name="menu_copy">Másolás</string>
+    <string name="menu_cut">Vágás</string>
+    <string name="menu_paste">Beillesztés</string>
+    <string name="menu_convert">Alkategóriába való átalakítás</string>
+    <string name="menu_help">Támogatás</string>
+    <string name="menu_preferences">Beállítások</string>
+    <string name="menu_download_image">Kép letöltése</string>
+    <string name="menu_add_ideogram">Elem hozzáadása</string>
+    <string name="menu_edit_ideogram">Tétel szerkesztése</string>
+    <string name="menu_backup_category">A kategória biztonsági mentése&#8230;</string>
+    <string name="menu_restore_category">A biztonsági mentés visszaállítása itt&#8230;</string>
+    <!--  END: MENU STRINGS -->
+
+
+    <!--  BEGIN: PREFERENCES -->
+    <string name="preference_category_picture_size">Képbeállítások</string>
+    <string name="preference_category_sentence_building">Mondatalkotási beállítások</string>
+    <string name="preference_category_audio">Audio beállítások</string>
+    <string name="preference_category_other">Egyéb beállítások</string>
+    <string name="preference_landscape_columns_title">Képméret - Tájkép mód</string>
+    <string name="preference_portrait_columns_title">Képméret - Portré mód</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">portrait_colunms</string>
+    <string name="preference_landscape_columns_summary">Sorban megjelenített képek száma, amikor a készülék vízszintes helyzetben van.  A kisebb értékek nagyobb képeket eredményeznek.  A nagyobb értékek kisebb képeket eredményeznek.</string>
+    <string name="preference_portrait_columns_summary">A sorban megjelenített képek száma, amikor az eszköz álló módban van (függőlegesen forgatva).  A kisebb értékek nagyobb képeket eredményeznek.  A nagyobb értékek kisebb képeket eredményeznek.</string>
+    <string name="preference_speech_resource_key">speech_resource</string>
+    <string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Mondatalkotás engedélyezése</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Engedélyezze a mondatalkotási funkciót a fő képernyőn.</string>
+    <string name="preference_scroll_speed_title">Görgetés sebessége</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">A kép görgetési sebességének vezérlése, amikor a képernyőt elfordítja.</string>
+    <string name="preference_scroll_speed_default">.1</string>
+    <string name="preference_sentence_bar_size_title">Modatsáv mérete</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Állítsa be a képméreteket a mondatsávon.  Az értékek a rácsminták képméretéhez viszonyítva vannak.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Mondatot alkotó szavak maximuma.</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">A mondatsávon egyszerre megjelenő szavak számát szabályozza.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Kategória kiválasztás hangja</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">Hang lejátszása a kategória kiválasztásakor</string>
+    <string name="preference_word_audio_title">Szó kiválasztás hangja</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">Hang lejátszása, ha a szó van kiválasztva</string>
+    <string name="preference_access_code_title">Hozzáférési kód</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_summary">Ezzel az opcióval 4 számjegyű hozzáférési kódot kell beírni a kezelő képernyőbe való belépéskor.</string>
+    <string name="preference_backbutton_disable_title">Vissza gomb kikapcsolása</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_backbutton_disable_summary">Az opció kiválasztása megakadályozza, hogy a JABtalk kilépjen, ha a főképernyőn a Vissza gomb van kiválasztva.</string>
+    <string name="preference_fontsize_title">Képcímke betűmérete</string>
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_fontsize_summary">A szavak és kategóriák címke betűméretének beállítása.</string>
+    <string name="preference_screen_keep_on_key">screen_on</string>
+    <string name="preference_screen_keep_on_title">A képernyő bekapcsolva marad</string>
+    <string name="preference_screen_keep_on_summary">Megakadályozza, hogy a képernyő kikapcsoljon.  A beállítás engedélyezése negatívan befolyásolhatja az akkumulátor élettartamát.</string>
+    <string name="preference_word_progress_key"> work_progress</string>
+    <string name="preference_word_progress_title">A frázis megmutatásának engedélyezése</string>
+    <string name="preference_word_progress_summary">Megjeleníti a szöveges szó előrehaladásának párbeszédablakát audio lejátszásakor.</string>
+    <!--  END: PREFERENCES -->
+
+
+    <!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="sentence_board_size_labels">
+        <item>Kis</item>
+        <item>Közepes</item>
+        <item>Nagy</item>
+    </string-array>
+
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>
+
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="title_font_size_labels">
+        <item>legkisebb</item>
+        <item>kisebb</item>
+        <item>kicsi</item>
+        <item>normál</item>
+        <item>nagy</item>
+        <item>nagyobb</item>
+        <item>legnagyobb</item>
+    </string-array>
+
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>18f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>
+
+    <string-array name="scroll_speed_labels">
+        <item>leglassabb</item>
+        <item>lassabb</item>
+        <item>normál</item>
+        <item>gyorsabb</item>
+        <item>leggyorsabb</item>
+    </string-array>
+
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>
+
+    <!--  BEGIN: ARRAY VALUES -->
+
+</resources>
