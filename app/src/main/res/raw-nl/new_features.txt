@@ -1,4 +1,4 @@
-<b><u>Taalupdates</u></b> - Bijkomende ondersteuning voor de Oekraïense taal toegevoegd.
+<b><u>Taalupdates</u></b> - Ondersteuning voor Hongaars toegevoegd.
 <br>
 <br>
 Stuur alstublieft taalvertaalfouten naar support@jabstone.com

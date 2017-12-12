@@ -1,4 +1,4 @@
-<b><u>Language Updates </u></b> - Added support for Ukranian
+<b><u>Language Updates </u></b> - Added support for Hungarian
 <br>
 <br>
 Please send language translation errors to support@jabstone.com
