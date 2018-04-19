@@ -108,6 +108,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
     private RelativeLayout m_previewContainer = null;
     private ImageButton m_cameraButton = null;
     private ImageButton m_audioButton = null;
+    private ImageView m_rotateButton = null;
 
     private boolean isRecording = false;
 
@@ -167,6 +168,8 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         m_phrase = (EditText) findViewById(R.id.edit_phrase);
         m_previewContainer = (RelativeLayout) findViewById(R.id.edit_preview_container);
         m_hidden = (CheckBox) findViewById(R.id.check_hidden);
+        m_rotateButton = (ImageView) findViewById(R.id.rotate_image);
+        m_rotateButton.setEnabled(false);
         Button cancelButton = (Button) findViewById(R.id.edit_ideogram_cancel);
         Button saveButton = (Button) findViewById(R.id.edit_ideogram_save);
         Button deleteButton = (Button) findViewById(R.id.edit_ideogram_delete);
@@ -237,6 +240,18 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
 
             public void onClick(View v) {
                 showDialog(DIALOG_DELETE_CONFIRMATION);
+            }
+        });
+
+        m_rotateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    rotatePreviewImage();
+                } catch (JabException e) {
+                    JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
+                            "Unable to rotate image. Error is: " + e.getMessage());
+                }
             }
         });
 
@@ -520,7 +535,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                         new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int which) {
-                                m_ideogram.setAudioExtention(null);
+                                m_ideogram.setAudioExtension(null);
                                 dismissDialog(DIALOG_SPEECH_DATA_NOT_FOUND);
                             }
                         });
@@ -701,7 +716,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                         tempAudio = new File(fp);
                         File ta = new File(JTApp.getDataStore().getTempDirectory(),
                                 m_ideogram.getId()
-                                        + getFileExtention(tempAudio.getName(), true));
+                                        + getFileExtension(tempAudio.getName(), true));
                         JTApp.getDataStore().copyFile(tempAudio, ta);
                         tempAudio.delete();
                         tempAudio = ta;
@@ -794,7 +809,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 startActivityForResult(webIntent, ACTIVITY_RESULT_WEB);
                 break;
             case SOURCE_TEXT:
-                m_ideogram.setImageExtention(JTApp.EXTENSION_TEXT_IMAGE);
+                m_ideogram.setImageExtension(JTApp.EXTENSION_TEXT_IMAGE);
                 tempImage = null;
                 createPreviewContainer(true);
                 ImageView imgView = (ImageView) m_previewContainer
@@ -808,7 +823,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         switch (item) {
             case 0:
                 resetTempAudio();
-                m_ideogram.setAudioExtention(null);
+                m_ideogram.setAudioExtension(null);
                 break;
             case 1:
                 Intent galleryIntent = new Intent();
@@ -829,12 +844,12 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 if ((m_audio_bitmask & SOURCE_RECORDER) == SOURCE_RECORDER) {
                     requestAudioPermissions(false);
                 } else {
-                    m_ideogram.setAudioExtention(JTApp.EXTENSION_SYNTHESIZER);
+                    m_ideogram.setAudioExtension(JTApp.EXTENSION_SYNTHESIZER);
                     tempAudio = null;
                 }
                 break;
             case 3:
-                m_ideogram.setAudioExtention(JTApp.EXTENSION_SYNTHESIZER);
+                m_ideogram.setAudioExtension(JTApp.EXTENSION_SYNTHESIZER);
                 tempAudio = null;
                 break;
             default:
@@ -843,7 +858,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
     }
 
     private boolean isAudioFileValid(String path) {
-        String ext = getFileExtention(path, false);
+        String ext = getFileExtension(path, false);
         return ext != null
                 && (ext.equalsIgnoreCase("3gp") || ext.equalsIgnoreCase("mp4")
                 || ext.equalsIgnoreCase("m4a") || ext.equalsIgnoreCase("mp3")
@@ -853,7 +868,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
 
 
     private boolean isImageFileValid(String path) {
-        String ext = getFileExtention(path, false);
+        String ext = getFileExtension(path, false);
         return ext != null
                 && (ext.equalsIgnoreCase("jpeg") || ext.equalsIgnoreCase("jpg")
                 || ext.equalsIgnoreCase("gif") || ext.equalsIgnoreCase("png") || ext
@@ -890,13 +905,13 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         if (tempAudio != null) {
             m_ideogram.setTempAudioPath(tempAudio.getAbsolutePath());
             m_ideogram
-                    .setAudioExtention(getFileExtention(tempAudio.getAbsolutePath(), false));
+                    .setAudioExtension(getFileExtension(tempAudio.getAbsolutePath(), false));
         }
 
         if (tempImage != null) {
             m_ideogram.setTempImagePath(tempImage.getAbsolutePath());
             m_ideogram
-                    .setImageExtention(getFileExtention(tempImage.getAbsolutePath(), false));
+                    .setImageExtension(getFileExtension(tempImage.getAbsolutePath(), false));
         }
 
         if (!validateForm(m_ideogram)) {
@@ -921,8 +936,8 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             return false;
         }
 
-        if ((gram.getImageExtention() == null || gram.getImageExtention().length() < 1)
-                || (!gram.getImageExtention().equals(JTApp.EXTENSION_TEXT_IMAGE) && ((tempImage == null && !new File(
+        if ((gram.getImageExtension() == null || gram.getImageExtension().length() < 1)
+                || (!gram.getImageExtension().equals(JTApp.EXTENSION_TEXT_IMAGE) && ((tempImage == null && !new File(
                 gram.getImagePath()).exists()) || (tempImage != null && !tempImage
                 .exists())))) {
             getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE,
@@ -944,10 +959,10 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         DataStore store = JTApp.getDataStore();
 
         if (tempImage != null) {
-            m_ideogram.setImageExtention(getFileExtention(tempImage.getName(), false));
+            m_ideogram.setImageExtension(getFileExtension(tempImage.getName(), false));
         }
         if (tempAudio != null) {
-            m_ideogram.setAudioExtention(getFileExtention(tempAudio.getName(), false));
+            m_ideogram.setAudioExtension(getFileExtension(tempAudio.getName(), false));
         }
 
         if (!validateForm(m_ideogram)) {
@@ -959,7 +974,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
 
         if (tempImage != null) {
             File destination = new File(store.getImageDirectory(), m_ideogram.getId()
-                    + getFileExtention(tempImage.getName(), true));
+                    + getFileExtension(tempImage.getName(), true));
             boolean result = JTApp.getDataStore().copyFile(tempImage, destination);
             if (!result) {
                 JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR, "Failed to save image file to "
@@ -972,7 +987,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
 
         if (tempAudio != null) {
             File destination = new File(JTApp.getDataStore().getAudioDirectory(),
-                    m_ideogram.getId() + getFileExtention(tempAudio.getName(), true));
+                    m_ideogram.getId() + getFileExtension(tempAudio.getName(), true));
             boolean result = JTApp.getDataStore().copyFile(tempAudio, destination);
             if (!result) {
                 JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR, "Failed to save audio file to "
@@ -992,8 +1007,8 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             if (gram != null) {
                 gram.setLabel(m_ideogram.getLabel());
                 gram.setPhrase(m_ideogram.getPhrase());
-                gram.setAudioExtention(m_ideogram.getAudioExtention());
-                gram.setImageExtention(m_ideogram.getImageExtention());
+                gram.setAudioExtension(m_ideogram.getAudioExtension());
+                gram.setImageExtension(m_ideogram.getImageExtension());
                 gram.setHidden(m_ideogram.isHidden());
             }
         }
@@ -1017,7 +1032,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         persistChanges();
     }
 
-    private String getFileExtention(String fileName, boolean includeDot) {
+    private String getFileExtension(String fileName, boolean includeDot) {
         int pos = fileName.lastIndexOf(".");
         if (pos >= 0) {
             if (includeDot) {
@@ -1042,7 +1057,10 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         PictureFrameDimensions pfd = JTApp.getPictureDimensions(PictureSize.GridPicture, false);
         MarginLayoutParams previewMargins = new MarginLayoutParams(pfd.getWidth(),
                 pfd.getHeight());
-        previewMargins.topMargin = 5;
+        previewMargins.topMargin = 15;
+        previewMargins.rightMargin = 70;
+        previewMargins.leftMargin = 70;
+        previewMargins.bottomMargin = 10;
         RelativeLayout.LayoutParams previewParams = new RelativeLayout.LayoutParams(
                 previewMargins);
         previewParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
@@ -1050,9 +1068,9 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         m_previewContainer.addView(preview, previewParams);
         m_previewContainer.invalidate();
 
-        ImageView previewImage = (ImageView) m_previewContainer
+        ImageView previewImage = m_previewContainer
                 .findViewById(R.id.IMAGEVIEW_ID);
-        AutoResizeTextView previewLabel = (AutoResizeTextView) m_previewContainer.findViewById(R.id.TEXTVIEW_ID);
+        AutoResizeTextView previewLabel = m_previewContainer.findViewById(R.id.TEXTVIEW_ID);
 
         // Set Label
         if (m_label.getText().toString().length() > 0) {
@@ -1061,7 +1079,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         }
 
         // Set Image
-        if (m_ideogram.getImageExtention() != null) {
+        if (m_ideogram.getImageExtension() != null) {
             previewImage.setImageBitmap(m_ideogram.getImage());
         } else {
             previewImage.setImageDrawable(getResources().getDrawable(R.drawable.no_picture));
@@ -1073,6 +1091,11 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
             PictureFrameDimensions tpfd = JTApp.getPictureDimensions(PictureSize.GridPicture,
                     true);
             previewLabel.resizeText(tpfd.getWidth(), tpfd.getHeight());
+        }
+
+        m_rotateButton.setEnabled(false);
+        if(!isTextButton) {
+            m_rotateButton.setEnabled(true);
         }
 
         // Setup listeners
@@ -1120,7 +1143,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
     }
 
     private void resizePhoto(String imagePath) throws JabException {
-        String ext = getFileExtention(imagePath, true);
+        String ext = getFileExtension(imagePath, true);
         File scaledFile = new File(JTApp.getDataStore().getTempDirectory(), m_ideogram.getId()
                 + ext);
         Bitmap optimizedBmp;
@@ -1207,13 +1230,49 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
         }
 
         // Save image to cache storage
-        JTApp.getDataStore().saveScaledImage(scaledFile, optimizedBmp);
-        tempImage = scaledFile;
-        if (!tempImage.exists() || tempImage.length() < 1) {
-            tempImage = null;
+        boolean saveResult = JTApp.getDataStore().saveScaledImage(scaledFile, optimizedBmp);
+        if(saveResult) {
+            tempImage = scaledFile;
+            if (!tempImage.exists() || tempImage.length() < 1) {
+                tempImage = null;
+            }
+            setImagePreview(optimizedBmp);
         }
-        setImagePreview(optimizedBmp);
     }
+
+    private void rotatePreviewImage() throws JabException {
+        int rotate = -90;
+
+        Bitmap imageBmp;
+        String ext = null;
+        if(tempImage != null) {
+            imageBmp = BitmapFactory.decodeFile(tempImage.getAbsolutePath());
+            getFileExtension(tempImage.getAbsolutePath(), false);
+        } else {
+            imageBmp = m_ideogram.getImage();
+            ext = m_ideogram.getImageExtension();
+        }
+
+        File rotatedTempImage = new File(JTApp.getDataStore().getTempDirectory(), m_ideogram.getId() + "." +ext);
+
+        if(imageBmp != null) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(rotate);
+            Bitmap rotatedBmp = Bitmap.createBitmap(imageBmp, 0, 0, imageBmp.getWidth(), imageBmp.getHeight(), matrix, true);
+
+
+            // Save image to cache storage
+            boolean saveResult = JTApp.getDataStore().saveScaledImage(rotatedTempImage, rotatedBmp);
+            if(saveResult) {
+                tempImage = rotatedTempImage;
+                if (!tempImage.exists() || tempImage.length() < 1) {
+                    tempImage = null;
+                }
+                setImagePreview(rotatedBmp);
+            }
+        }
+    }
+
 
     private int getCameraPhotoOrientation(String imagePath) {
         int rotate = 0;
@@ -1405,7 +1464,7 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                     String fileName = audioCursor.getString(nameIndex);
 
                     if (isAudioFileValid(fileName)) {
-                        String ext = getFileExtention(fileName, true);
+                        String ext = getFileExtension(fileName, true);
                         File resultFile = new File(JTApp.getDataStore().getTempDirectory(), UUID.randomUUID()
                                 .toString() + ext);
                         InputStream inStream = getContentResolver().openInputStream(audioUri);

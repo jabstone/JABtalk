@@ -162,7 +162,7 @@
     <string name="preference_scroll_speed_title">Vitesse de Défilement</string>
     <string name="preference_scroll_speed_key">scroll_speed</string>
     <string name="preference_scroll_speed_summary">définit la valeur de vitesse de défilement des images quand vous touchez l\'écran tactile. Grande valeur= grande vitesse</string>
-    <string name="preference_scroll_speed_default">.5</string>
+    <string name="preference_scroll_speed_default">.1f</string>
     <string name="preference_sentence_bar_size_title">Taille des Pictogrammes</string>
     <string name="preference_sentence_bar_size_key">sentence_bar</string>
     <string name="preference_sentence_bar_size_summary">Définit la taille des Pictogrammes.</string>

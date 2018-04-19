@@ -161,7 +161,7 @@
 	<string name="preference_scroll_speed_title">Scroll Speed</string>
     <string name="preference_scroll_speed_key">scroll_speed</string>
     <string name="preference_scroll_speed_summary">Controls picture scrolling speed when flicking the screen.</string>
-    <string name="preference_scroll_speed_default">.1</string>
+    <string name="preference_scroll_speed_default">.1f</string>
 	<string name="preference_sentence_bar_size_title">Sentence Bar Size</string>
     <string name="preference_sentence_bar_size_key">sentence_bar</string>
     <string name="preference_sentence_bar_size_summary">Adjust the picture sizes on the sentence bar. Values are relative to picture sizes on the word grid.</string>

@@ -162,7 +162,7 @@
 	<string name="preference_scroll_speed_title">Hitrost premikanja slike</string>
     <string name="preference_scroll_speed_key">scroll_speed</string>
     <string name="preference_scroll_speed_summary">Nadzoruje hitrost premikanja slike pri potegu s prstom.</string>
-    <string name="preference_scroll_speed_default">.1</string>
+    <string name="preference_scroll_speed_default">.1f</string>
 	<string name="preference_sentence_bar_size_title">Velikost vrstice za stavek</string>
     <string name="preference_sentence_bar_size_key">sentence_bar</string>
     <string name="preference_sentence_bar_size_summary">Nastavi velikost slik v vrstici za stavek. Vrednosti so relativne glede na velikosti slik v mreži besed.</string>

@@ -162,7 +162,7 @@
 	<string name="preference_scroll_speed_title">Scroll Snelhheid</string>
     <string name="preference_scroll_speed_key">scroll_snelheid</string>
     <string name="preference_scroll_speed_summary">Regelt de foto scrollsnelheid wanneer men het scherm aanraakt. Hoe groter de waarde, des te sneller de scrollsnelheid.</string>
-    <string name="preference_scroll_speed_default">.5</string>
+    <string name="preference_scroll_speed_default">.1f</string>
 	<string name="preference_sentence_bar_size_title">Grootte van de zin balk</string>
     <string name="preference_sentence_bar_size_key">zin_balk</string>
     <string name="preference_sentence_bar_size_summary">Pas de grootte van de afbeeldingen aan in de zin balk. De waarden zijn relatief ten aanzien van de beeldafmetingen op het woord rooster.</string>

@@ -23,8 +23,8 @@ public class Ideogram implements Serializable {
     private String id;
 	private String label;
 	private String phrase;
-	private String audioExtention;
-	private String imageExtention;
+	private String audioExtension;
+	private String imageExtension;
 	private String tempAudioPath;
 	private String tempImagePath;
 	private boolean hidden;
@@ -40,8 +40,8 @@ public class Ideogram implements Serializable {
 		this.setLabel(gram.getLabel());
 		this.setParentId(gram.getParentId());
 		this.setPhrase(gram.getPhrase());
-		this.setAudioExtention(gram.getAudioExtention());
-		this.setImageExtention(gram.getImageExtention());
+		this.setAudioExtension(gram.getAudioExtension());
+		this.setImageExtension(gram.getImageExtension());
 		this.setHidden(gram.isHidden());	
 		this.setType(gram.getType());
 	}
@@ -101,8 +101,8 @@ public class Ideogram implements Serializable {
 			return tempAudioPath;
 		}
 
-		if(audioExtention != null && audioExtention.trim().length() > 0) {
-			return new File(baseDirectory, "audio").getAbsolutePath() + File.separator + getId() + "." + getAudioExtention();
+		if(audioExtension != null && audioExtension.trim().length() > 0) {
+			return new File(baseDirectory, "audio").getAbsolutePath() + File.separator + getId() + "." + getAudioExtension();
 		} else {
 			return null;
 		}
@@ -121,8 +121,8 @@ public class Ideogram implements Serializable {
 			return tempImagePath;
 		}
 
-		if(imageExtention != null && imageExtention.trim().length() > 0) {
-			return new File(baseDirectory, "images").getAbsolutePath() + File.separator + getId() + "." + getImageExtention();
+		if(imageExtension != null && imageExtension.trim().length() > 0) {
+			return new File(baseDirectory, "images").getAbsolutePath() + File.separator + getId() + "." + getImageExtension();
 		} else {
 			return null;
 		}
@@ -167,46 +167,46 @@ public class Ideogram implements Serializable {
 		return getParentId() == null;
 	}
 	
-	public String getAudioExtention() {
-		return audioExtention;
+	public String getAudioExtension() {
+		return audioExtension;
 	}
 
-	public void setAudioExtention(String audioExtention) {
-		if(audioExtention != null) {
-			int pos = audioExtention.lastIndexOf(".");
+	public void setAudioExtension(String audioExtension) {
+		if(audioExtension != null) {
+			int pos = audioExtension.lastIndexOf(".");
 			if(pos > -1) {
-				this.audioExtention = audioExtention.substring(pos + 1);
+				this.audioExtension = audioExtension.substring(pos + 1);
 			} else {
-				this.audioExtention = audioExtention;
+				this.audioExtension = audioExtension;
 			}
 		} else {
-			this.audioExtention = null;
+			this.audioExtension = null;
 		}
 	}
 
-	public String getImageExtention() {
-		return imageExtention;
+	public String getImageExtension() {
+		return imageExtension;
 	}
 
-	public void setImageExtention(String imageExtention) {
-		if(imageExtention != null) {
-			int pos = imageExtention.lastIndexOf(".");
+	public void setImageExtension(String imageExtension) {
+		if(imageExtension != null) {
+			int pos = imageExtension.lastIndexOf(".");
 			if(pos > -1) {
-				this.imageExtention = imageExtention.substring(pos + 1);
+				this.imageExtension = imageExtension.substring(pos + 1);
 			} else {
-				this.imageExtention = imageExtention;
+				this.imageExtension = imageExtension;
 			}
 		} else {
-			this.imageExtention = null;
+			this.imageExtension = null;
 		}
 	}
 
 	public boolean isTextButton() {
-		return imageExtention != null && imageExtention.equalsIgnoreCase(JTApp.EXTENSION_TEXT_IMAGE);
+		return imageExtension != null && imageExtension.equalsIgnoreCase(JTApp.EXTENSION_TEXT_IMAGE);
 	}
 	
 	public boolean isSynthesizeButton() {
-		return audioExtention != null && audioExtention.equalsIgnoreCase(JTApp.EXTENSION_SYNTHESIZER);
+		return audioExtension != null && audioExtension.equalsIgnoreCase(JTApp.EXTENSION_SYNTHESIZER);
 	}
 
 	public boolean isHidden() {
@@ -222,8 +222,8 @@ public class Ideogram implements Serializable {
 		JSONObject jsonObject = new JSONObject();
 		try {
 			jsonObject.put(DataStore.JSON_ID, getId());
-			jsonObject.put(DataStore.JSON_AUDIO_EXT, getAudioExtention());
-			jsonObject.put(DataStore.JSON_IMAGE_EXT, getImageExtention());
+			jsonObject.put(DataStore.JSON_AUDIO_EXT, getAudioExtension());
+			jsonObject.put(DataStore.JSON_IMAGE_EXT, getImageExtension());
 			jsonObject.put(DataStore.JSON_LABEL, getLabel());
 			jsonObject.put(DataStore.JSON_PHRASE, getPhrase());
 			jsonObject.put(DataStore.JSON_PARENT_ID, getParentId() == null ? "" : getParentId());

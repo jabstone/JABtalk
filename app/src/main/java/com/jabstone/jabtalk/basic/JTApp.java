@@ -213,10 +213,10 @@ public class JTApp extends Application implements OnCompletionListener,
     public static float getScrollSpeed () {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences ( me
                 .getApplicationContext () );
-        float value = .015f;
+        float value = .1f;
         try {
             value = Float.parseFloat ( settings.getString (
-                    me.getResources ().getString ( R.string.preference_scroll_speed_key ), ".01" ) );
+                    me.getResources ().getString ( R.string.preference_scroll_speed_key ), ".1f" ) );
         } catch ( Exception e ) {
             logMessage ( me.TAG, JTApp.LOG_SEVERITY_ERROR,
                     "Error retrieving scroll speed from preferences" );
@@ -299,25 +299,6 @@ public class JTApp extends Application implements OnCompletionListener,
         return name;
     }
 
-    public static boolean isAcknowledgeNewFeatures () {
-        boolean result = false;
-        try {
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences ( me
-                    .getApplicationContext () );
-            int value = settings.getInt (
-                    me.getResources ().getString ( R.string.preference_new_features_key ), 0 );
-            PackageInfo pinfo = me.getPackageManager ().getPackageInfo ( me.getPackageName (), 0 );
-            int code = pinfo.versionCode;
-            if ( value >= code ) {
-                result = true;
-            }
-        } catch ( Exception e ) {
-            logMessage ( me.TAG, LOG_SEVERITY_WARNING,
-                    "Failed to retrieve version code...surpressing new features screen" );
-            result = true; // Let's not bug the user if a problem is encountered
-        }
-        return result;
-    }
 
     public static int getPicturesPerRow ( boolean isLandscape ) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences ( me
@@ -621,34 +602,6 @@ public class JTApp extends Application implements OnCompletionListener,
         return me.m_audioManager.isMusicActive() || me.m_speechManager.isSpeaking();
     }
 
-    public synchronized static String getNewFeaturesString() {
-
-        BufferedReader reader = null;
-        StringBuilder builder = new StringBuilder(4096);
-        try {
-            reader = new BufferedReader(new InputStreamReader(me.getResources()
-                    .openRawResource(com.jabstone.jabtalk.basic.R.raw.new_features)), 32768);
-            String line;
-            while ((line = reader.readLine()) != null) {
-                builder.append(line).append(System.getProperty("line.separator"));
-            }
-
-        } catch (IOException io) {
-            // suppressed as this condition would only result from a bad
-            // build
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (Exception ignore) {
-                // suppressed as we don't really care at this point if
-                // the stream doesn't close properly
-            }
-        }
-
-        return builder.toString();
-    }
 
     @Override
     public void onCreate() {

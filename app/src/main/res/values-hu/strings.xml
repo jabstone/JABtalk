@@ -160,7 +160,7 @@
     <string name="preference_scroll_speed_title">Görgetés sebessége</string>
     <string name="preference_scroll_speed_key">scroll_speed</string>
     <string name="preference_scroll_speed_summary">A kép görgetési sebességének vezérlése, amikor a képernyőt elfordítja.</string>
-    <string name="preference_scroll_speed_default">.1</string>
+    <string name="preference_scroll_speed_default">.1f</string>
     <string name="preference_sentence_bar_size_title">Modatsáv mérete</string>
     <string name="preference_sentence_bar_size_key">sentence_bar</string>
     <string name="preference_sentence_bar_size_summary">Állítsa be a képméreteket a mondatsávon.  Az értékek a rácsminták képméretéhez viszonyítva vannak.</string>

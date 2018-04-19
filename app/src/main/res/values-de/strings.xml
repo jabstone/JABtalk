@@ -162,7 +162,7 @@
 	<string name="preference_scroll_speed_title">Scroll Geschwindigkeit</string>
     <string name="preference_scroll_speed_key">scroll_speed</string>
     <string name="preference_scroll_speed_summary">Scroll-Geschwindigkeit der Bilder, wenn man über den Bildschirm wischt. Je größer der Wert, desto schneller die Geschwindigkeit</string>
-    <string name="preference_scroll_speed_default">.5</string>
+    <string name="preference_scroll_speed_default">.1f</string>
 	<string name="preference_sentence_bar_size_title">Größe der Satz-Bildung Anzeige</string>
     <string name="preference_sentence_bar_size_key">sentence_bar</string>
     <string name="preference_sentence_bar_size_summary">Bildgröße ber der Satz-Bildungsanzeige. Die Werte stehen in Relation zu den \'normalen\' Bildern.</string>

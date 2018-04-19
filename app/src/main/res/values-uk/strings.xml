@@ -161,7 +161,7 @@
 	<string name="preference_scroll_speed_title">Швидкість прокрутки</string>
     <string name="preference_scroll_speed_key">scroll_speed</string>
     <string name="preference_scroll_speed_summary">Контролює швидкість прокрутки зображень підчас перегляду екрану.</string>
-    <string name="preference_scroll_speed_default">.1</string>
+    <string name="preference_scroll_speed_default">.1f</string>
 	<string name="preference_sentence_bar_size_title">Розмір панелі речень</string>
     <string name="preference_sentence_bar_size_key">sentence_bar</string>
     <string name="preference_sentence_bar_size_summary">Налаштовування розміру зображень в панелі речень.  Значення відносні до розміру картинок у сітці слів.</string>

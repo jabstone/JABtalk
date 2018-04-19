@@ -288,7 +288,7 @@ public class DataStore {
             File imgSource = new File(source.getImagePath(baseDirectory));
             if (imgSource.exists()) {
                 File imgDestination = new File(getImageDirectory(), clone.getId() + "."
-                        + source.getImageExtention());
+                        + source.getImageExtension());
                 copyFile(imgSource, imgDestination);
             }
         }
@@ -296,7 +296,7 @@ public class DataStore {
             File audSource = new File(source.getAudioPath(baseDirectory));
             if (audSource.exists()) {
                 File audDestination = new File(getAudioDirectory(), clone.getId() + "."
-                        + source.getAudioExtention());
+                        + source.getAudioExtension());
                 copyFile(audSource, audDestination);
             }
         }
@@ -715,8 +715,8 @@ public class DataStore {
     private Ideogram inflateJSONCategory(JSONObject jsonCategory, boolean addItemsToMap) throws JSONException {
         Ideogram category = new Ideogram(Type.Category);
         category.setId(getJSONString(jsonCategory, DataStore.JSON_ID));
-        category.setAudioExtention(getJSONString(jsonCategory, DataStore.JSON_AUDIO_EXT));
-        category.setImageExtention(getJSONString(jsonCategory, DataStore.JSON_IMAGE_EXT));
+        category.setAudioExtension(getJSONString(jsonCategory, DataStore.JSON_AUDIO_EXT));
+        category.setImageExtension(getJSONString(jsonCategory, DataStore.JSON_IMAGE_EXT));
         category.setLabel(getJSONString(jsonCategory, DataStore.JSON_LABEL));
         category.setPhrase(getJSONString(jsonCategory, DataStore.JSON_PHRASE));
         category.setParentId(getJSONString(jsonCategory, DataStore.JSON_PARENT_ID));
@@ -732,8 +732,8 @@ public class DataStore {
                 } else {
                     Ideogram word = new Ideogram(Type.Word);
                     word.setId(getJSONString(jsonChild, DataStore.JSON_ID));
-                    word.setAudioExtention(getJSONString(jsonChild, DataStore.JSON_AUDIO_EXT));
-                    word.setImageExtention(getJSONString(jsonChild, DataStore.JSON_IMAGE_EXT));
+                    word.setAudioExtension(getJSONString(jsonChild, DataStore.JSON_AUDIO_EXT));
+                    word.setImageExtension(getJSONString(jsonChild, DataStore.JSON_IMAGE_EXT));
                     word.setLabel(getJSONString(jsonChild, DataStore.JSON_LABEL));
                     word.setPhrase(getJSONString(jsonChild, DataStore.JSON_PHRASE));
                     word.setParentId(getJSONString(jsonChild, DataStore.JSON_PARENT_ID));
@@ -755,8 +755,8 @@ public class DataStore {
     private Ideogram inflateLegacyJSONCategory(JSONObject jsonCategory) throws JSONException {
         Ideogram category = new Ideogram(Type.Category);
         category.setId(getJSONString(jsonCategory, DataStore.JSON_ID));
-        category.setAudioExtention(getJSONString(jsonCategory, DataStore.JSON_AUDIO_EXT));
-        category.setImageExtention(getJSONString(jsonCategory, DataStore.JSON_IMAGE_EXT));
+        category.setAudioExtension(getJSONString(jsonCategory, DataStore.JSON_AUDIO_EXT));
+        category.setImageExtension(getJSONString(jsonCategory, DataStore.JSON_IMAGE_EXT));
         category.setLabel(getJSONString(jsonCategory, DataStore.JSON_LABEL));
         category.setPhrase(getJSONString(jsonCategory, DataStore.JSON_PHRASE));
         category.setParentId(getJSONString(jsonCategory, DataStore.JSON_PARENT_ID));
@@ -776,8 +776,8 @@ public class DataStore {
                 JSONObject jsonIdeogram = jsonIdeogramList.getJSONObject(i);
                 Ideogram word = new Ideogram(Type.Word);
                 word.setId(getJSONString(jsonIdeogram, DataStore.JSON_ID));
-                word.setAudioExtention(getJSONString(jsonIdeogram, DataStore.JSON_AUDIO_EXT));
-                word.setImageExtention(getJSONString(jsonIdeogram, DataStore.JSON_IMAGE_EXT));
+                word.setAudioExtension(getJSONString(jsonIdeogram, DataStore.JSON_AUDIO_EXT));
+                word.setImageExtension(getJSONString(jsonIdeogram, DataStore.JSON_IMAGE_EXT));
                 word.setLabel(getJSONString(jsonIdeogram, DataStore.JSON_LABEL));
                 word.setPhrase(getJSONString(jsonIdeogram, DataStore.JSON_PHRASE));
                 word.setParentId(getJSONString(jsonIdeogram, DataStore.JSON_PARENT_ID));

@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements ICategorySelectionListener
 
     private final int ACTIVITY_RESULT_MANAGE = 4000;
     private final int DIALOG_CHALLENGE = 2001;
-    private final int DIALOG_NEW_FEATURES = 2002;
+
     String[] m_boardWords = null;
     private String TAG = MainActivity.class.getSimpleName();
     private int INCORRECT_THRESHOLD = 3;
@@ -286,21 +286,6 @@ public class MainActivity extends Activity implements ICategorySelectionListener
                 dialog = builder.create ();
 
                 break;
-            case DIALOG_NEW_FEATURES:
-                dialog = new Dialog ( this );
-                dialog.setContentView ( R.layout.new_features_dialog );
-                dialog.setTitle ( getString ( R.string.dialog_title_new_features ));
-                TextView tv = ( TextView ) dialog.findViewById ( R.id.newFeatures );
-                tv.setText ( Html.fromHtml ( JTApp.getNewFeaturesString () ) );
-                Button ackButton = ( Button ) dialog.findViewById ( R.id.closeButton );
-                ackButton.setOnClickListener ( new View.OnClickListener () {
-
-                    public void onClick ( View v ) {
-                        JTApp.setAcknowledgeNewFeatures ();
-                        removeDialog ( DIALOG_NEW_FEATURES );
-                    }
-                } );
-                break;
         }
         return dialog;
     }
@@ -338,9 +323,6 @@ public class MainActivity extends Activity implements ICategorySelectionListener
         }
     	super.onResume ();
 
-        if ( !JTApp.isAcknowledgeNewFeatures () ) {
-            showDialog ( DIALOG_NEW_FEATURES );
-        }
         if ( JTApp.isSentenceBuilderEnabled () ) {
             m_sentenceContainer.setVisibility ( View.VISIBLE );            
         } else {
