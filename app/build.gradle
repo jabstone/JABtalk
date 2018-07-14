@@ -6,9 +6,9 @@ android {
     defaultConfig {
         applicationId "com.jabstone.jabtalk.basic"
         minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 516
-        versionName "5.1.6"
+        targetSdkVersion 26
+        versionCode 517
+        versionName "5.1.7"
     }
 
     buildTypes {
