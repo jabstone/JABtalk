@@ -3,194 +3,194 @@
 
 <!--  BEGIN: COMMON STRINGS -->
     <string name="app_name">JABtalk </string>
-    <string name="browser_activity">Browser</string>
-    <string name="preference_activity">Preferences</string>    
-    <string name="button_finish">Finish</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_delete">Delete</string>
-    <string name="button_yes">Yes</string>
-    <string name="button_no">No</string>
+    <string name="browser_activity">Navegador</string>
+    <string name="preference_activity">Preferências</string>    
+    <string name="button_finish">Finalizar</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_delete">Deletar</string>
+    <string name="button_yes">Sim</string>
+    <string name="button_no">Não</string>
     <string name="button_ok">OK</string>
-    <string name="button_close">Close</string>
-    <string name="button_speak">Speak</string>
-    <string name="button_clear">Clear</string>            
-	<string name="dialog_title_new_features">New JABtalk Features</string>
-    <string name="dialog_title_delete_confirmation">Delete Confirmation</string>
-    <string name="dialog_message_delete_category">Are you sure you want to delete this category and all associated subcategories and words?</string>
-    <string name="dialog_message_delete_word">Are you sure you want to delete this word?</string>
-    <string name="dialog_message_restoring">Restoring data&#8230;</string>
-    <string name="dialog_message_backup">Backing up data&#8230;</string>
-    <string name="dialog_message_saving">Saving changes&#8230;</string>
-    <string name="dialog_title_error">Error</string>
-    <string name="empty_category"><b>Welcome to JABtalk!</b>\n\n<b><u>Tap here</u></b> to get started adding words and categories.</string>
-    <string name="empty_word">There are no words configured for this category.\n<b><u>Tap here</u></b> to access the manage screen and add new words.</string>
-    <string name="websiteNeedHelp">View our tutorials at www.jabstone.com/videos</string>
-    <string name="copy_error_source_not_found">The item you are trying to copy could not be found.</string>
-    <string name="cut_error_invalid_target">Sorry, you cannot move an item to itself.</string>
-    <string name="cut_error_invalid_target_for_source">Sorry, you cannot move a word to the category list.</string>
-    <string name="sentence_board_tip">Drag word downward to remove</string>    
-	<string name="dialog_title_item_move">Move&#8230;</string>
-    <string name="dialog_item_move_up">Move Up</string>
-    <string name="dialog_item_move_down">Move Down</string>
-    <string name="dialog_item_move_beginning">Move to Beginning</string>
-    <string name="dialog_item_move_end">Move to End</string>
-    <string name="button_view_log">View Error Log</string>
+    <string name="button_close">Fechar</string>
+    <string name="button_speak">Falar</string>
+    <string name="button_clear">Apagar</string>            
+	<string name="dialog_title_new_features">Novas Funcionalidades do JABtalk</string>
+    <string name="dialog_title_delete_confirmation">Confirmação para Deletar</string>
+    <string name="dialog_message_delete_category">Você tem certeza que deseja deletar esta categoria e todas as subcategorias e palavras associadas?</string>
+    <string name="dialog_message_delete_word">Você tem certeza que deseja deletar esta palavra?</string>
+    <string name="dialog_message_restoring">Restaurando dados&#8230;</string>
+    <string name="dialog_message_backup">Back up de dados&#8230;</string>
+    <string name="dialog_message_saving">Salvando alterações&#8230;</string>
+    <string name="dialog_title_error">Erro</string>
+    <string name="empty_category"><b>Bem-vindo ao JABtalk!</b>\n\n<b><u>Toqu aqui</u></b> para começar a adicionar palavras e categorias.</string>
+    <string name="empty_word">Não existem palavras configuradas para esta categoria.\n<b><u>Toque aqui</u></b> para acessar a tela de controle e adicionar novas palavras.</string>
+    <string name="websiteNeedHelp">Veja nossos tutoriais em www.jabstone.com/videos</string>
+    <string name="copy_error_source_not_found">O item que você está tentando copiar não foi encontrado.</string>
+    <string name="cut_error_invalid_target">Desculpe, você não pode mover um item para ele mesmo.</string>
+    <string name="cut_error_invalid_target_for_source">Desculpe, você não pode mover uma palavra para a lista de categorias.</string>
+    <string name="sentence_board_tip">Arraste a palavra para baixo para removê-la.</string>    
+	<string name="dialog_title_item_move">Mover&#8230;</string>
+    <string name="dialog_item_move_up">Mover para Cima</string>
+    <string name="dialog_item_move_down">Mover para Baixo</string>
+    <string name="dialog_item_move_beginning">Mover para o Início</string>
+    <string name="dialog_item_move_end">Mover para o Fim</string>
+    <string name="button_view_log">Ver Registro de Erros</string>
 <!--  END: COMMON STRINGS -->    
     
     
 <!-- BEGIN: MANAGEMENT SCREENS -->
-    <string name="button_start_recording">Start Recording</string>
-    <string name="button_stop_recording">Stop Recording</string>	    
-    <string name="manage_activity_title">Manage</string>
-    <string name="manage_activity_hidden_item">Hidden from view</string>
-    <string name="manage_activity_category_actions">Category Actions</string>    
-    <string name="ideogram_activity_title_insert_category">Add New Category</string>
-    <string name="ideogram_activity_title_update_category">Edit Category</string>
-    <string name="ideogram_activity_title_insert_word">Add New Word</string>
-    <string name="ideogram_activity_title_update_word">Edit Word</string>
-    <string name="ideogram_activity_category_label_hint">Enter category label</string>    
-    <string name="ideogram_activity_word_label_hint">Enter word label</string>
-    <string name="ideogram_activity_phrase_hint">Enter display phrase</string>
-    <string name="ideogram_activity_check_hidden">Hide this item from view</string>       
-    <string name="ideogram_activity_word_label">Word label</string>
-    <string name="ideogram_activity_button_preview">Click image for preview</string>       
-    <string name="dialog_title_image_source">Select image source</string>
-    <string name="dialog_item_imagesource_camera">Camera</string>
-    <string name="dialog_item_import">Import from device</string>
-    <string name="dialog_item_import_web">Download from Internet</string>
-    <string name="dialog_item_imagesource_text">Text button</string>
-    <string name="dialog_title_audio_source">Select audio source</string>
-    <string name="dialog_item_audiosource_recorder">Audio Recorder</string>
-    <string name="dialog_item_audiosource_synthesizer">Speech Synthesizer</string>
-    <string name="dialog_title_save_results">Save Results</string>
-    <string name="dialog_message_invalid_label">Please enter a label</string>
-    <string name="dialog_message_invalid_phrase">Please enter a display phrase</string>
-    <string name="dialog_message_invalid_picture">Please select an image</string>    
-	<string name="dialog_title_invalid_field">Invalid Field</string>
-	<string name="dialog_message_invald_image_format">The selected image format is not compatible with JABtalk. Please select a different file.</string>
-	<string name="dialog_message_invald_audio_format">The selected audio format is not compatible with JABtalk. Please select a different file.</string>
-	<string name="dialog_title_missing_speech_data">Missing Language Files</string>	
-	<string name="dialog_message_missing_speech_data">It appears your device does not have the required Text-to-Speech language files installed.  Would you like to install them now?</string>			
-    <string name="dialog_item_add_category">Add New Category</string>        
-    <string name="dialog_item_add_word">Add Word</string>
-    <string name="dialog_title_restore_dataset">Restore Backup</string>
-    <string name="dialog_title_backup_results">Backup Results</string>
-    <string name="dialog_title_restore_results">Restore Results</string>
-    <string name="dialog_message_backup_success">Your dataset has been successfully saved to:\r\n%1s</string>
-    <string name="dialog_title_manage_challenge">Access Manage Screen</string>       
-    <string name="dialog_message_manage_unlock_question">Please enter %1$s to access the manage screen</string>
-    <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>
-    <string name="dialog_message_leave_screen">Are you sure you want to exit the manage screen?</string>
-    <string name="dialog_title_exit_warning">Exit Confirmation</string>
-    <string name="dialog_message_browser_unsupported_image_type">The selected image could not be loaded. Please try again in a few seconds or try downloading the thumbnail image from the search results page instead.</string>
-    <string name="dialog_item_no_audio">No Audio</string>
-    <string name="dialog_title_backup_save_as">Backup All Data</string>
-    <string name="dialog_message_backup_save_as">Enter a name for the backup file. Existing files with the same name will be overwritten.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk could not find a backup file to restore. Please make sure your backup file is located in the folder \r\n%1$s/</string>
-    <string name="dialog_restore_error">An error occurred while restoring your backup file. View the error log for details.</string>
+    <string name="button_start_recording">Começar a Gravação</string>
+    <string name="button_stop_recording">Parar a Gravação</string>	    
+    <string name="manage_activity_title">Controle</string>
+    <string name="manage_activity_hidden_item">Escondido na exibição</string>
+    <string name="manage_activity_category_actions">Ações de Categoria</string>    
+    <string name="ideogram_activity_title_insert_category">Adicionar Nova Categoria</string>
+    <string name="ideogram_activity_title_update_category">Editar Categoria</string>
+    <string name="ideogram_activity_title_insert_word">Adicionar Nova Palavra</string>
+    <string name="ideogram_activity_title_update_word">Editar Palavra</string>
+    <string name="ideogram_activity_category_label_hint">Introduzir rótulo de categoria</string>    
+    <string name="ideogram_activity_word_label_hint">Introduzir rótulo de palavra</string>
+    <string name="ideogram_activity_phrase_hint">Introduzir frase exibida</string>
+    <string name="ideogram_activity_check_hidden">Esconder este item na exibição</string>       
+    <string name="ideogram_activity_word_label">Rótulo de palavra</string>
+    <string name="ideogram_activity_button_preview">Clique na imagem para vizualização</string>       
+    <string name="dialog_title_image_source">Selecione a fonte da imagem</string>
+    <string name="dialog_item_imagesource_camera">Câmera</string>
+    <string name="dialog_item_import">Importar do dispositivo</string>
+    <string name="dialog_item_import_web">Baixar da Internet</string>
+    <string name="dialog_item_imagesource_text">Botão de texto</string>
+    <string name="dialog_title_audio_source">Selecione a fonte do áudio</string>
+    <string name="dialog_item_audiosource_recorder">Gravador de Áudio</string>
+    <string name="dialog_item_audiosource_synthesizer">Sintetizador de Voz</string>
+    <string name="dialog_title_save_results">Salvar Resultados</string>
+    <string name="dialog_message_invalid_label">Por favor introduza um rótulo</string>
+    <string name="dialog_message_invalid_phrase">Por favor introduza uma frase de exibição</string>
+    <string name="dialog_message_invalid_picture">Por favor selicione uma imagem</string>    
+	<string name="dialog_title_invalid_field">Campo Inválido</string>
+	<string name="dialog_message_invald_image_format">O formato da imagem selecionada não é compatível com o JABtalk. Por favor selecione um arquivo diferente.</string>
+	<string name="dialog_message_invald_audio_format">O formato do áudio selecionado não é compatível com o JABtalk. Por favor selecione um arquivo diferente</string>
+	<string name="dialog_title_missing_speech_data">Arquivos de Linguagem Faltantes</string>	
+	<string name="dialog_message_missing_speech_data">Parece que seu dispositivo não apresenta os arquivos necessários de linguagem Texto-Para-Fala instalados.  Você gostaria de instalá-los agora?</string>			
+    <string name="dialog_item_add_category">Adicionar Nova Categoria</string>        
+    <string name="dialog_item_add_word">Adicionar Palavra</string>
+    <string name="dialog_title_restore_dataset">Restaurar Backup</string>
+    <string name="dialog_title_backup_results">Resultados de Backup</string>
+    <string name="dialog_title_restore_results">Restaurar Resultados</string>
+    <string name="dialog_message_backup_success">Seu conjunto de dados foi salvo com sucesso em:\r\n%1s</string>
+    <string name="dialog_title_manage_challenge">Acessar Painel de Controle</string>       
+    <string name="dialog_message_manage_unlock_question">Por favor introduza %1$s para acessar o painel de controle</string>
+    <string name="dialog_message_manage_challenge_incorrect">Incorrect. Por favor tente novamente.</string>
+    <string name="dialog_message_leave_screen">Você tem certeza que deseja sair do painel de controle?</string>
+    <string name="dialog_title_exit_warning">Confirmação de Saída</string>
+    <string name="dialog_message_browser_unsupported_image_type">A imagem selecionada não pode ser carregada. Por favor tente novamente dentro de alguns segundos ou então tente baixar a imagem miniatura da página de resultados.</string>
+    <string name="dialog_item_no_audio">Sem Áudio</string>
+    <string name="dialog_title_backup_save_as">Backup Todos os Dados</string>
+    <string name="dialog_message_backup_save_as">Introduza um nome para o arquivo de backup. Arquivos existentes com o mesmo nome serão sobrescritos.</string>
+    <string name="dialog_message_restore_file_not_found">JABtalk não pode encontrar um arquivo de backup para restaurar. Por favor certifique-se de que seu arquivo de backup esteja localizado na pasta \r\n%1$s/</string>
+    <string name="dialog_restore_error">Ocorreu um erro ao restaurar seu arquivo de backup. Veja os registros de erros para mais detalhes.</string>
     <string name="dialog_permission_explanation_title">JABtalk Request</string>
     <string name="dialog_permission_explanation_write_message">JABtalk needs permission to your external storage directory for creating backup files.</string>
     <string name="dialog_permission_explanation_read_message">JABtalk needs permission to your external storage directory for restoring backup files.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk needs permission to your microphone for recording audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk needs permission to your camera for capturing images.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
-    <string name="dialog_title_backup_partial_save_as">Backup Category</string>
-    <string name="dialog_label_restore_overwrite">Delete existing data set?</string>
+    <string name="dialog_title_backup_partial_save_as">Backup de Categoria</string>
+    <string name="dialog_label_restore_overwrite">Deletar conjunto de dados existente?</string>
 
-    <string name="dialog_title_no_image_app">Image App Not Found</string>
-    <string name="dialog_message_no_image_app">Please download an image viewing app to import images from your device. For example, QuickPic Gallery from the Google Play store.</string>
-    <string name="dialog_title_no_camera_app">Camera App Not Found</string>
-    <string name="dialog_message_no_camera_app">Please download a camera app before using the camera feature.</string>
-    <string name="dialog_title_no_audio_app">Audio App Not Found</string>
-    <string name="dialog_message_no_audio_app">Please download an audio file picker app before using the audio import feature.</string>
-    <string name="dialog_message_downloading_audio">Downloading audio&#8230;</string>
+    <string name="dialog_title_no_image_app">Aplicativo de Imagem Não Encontrado</string>
+    <string name="dialog_message_no_image_app">Por favor baixe um aplicativo vizualizador de imagens para importar as imagens de seu dispositivo. Por exemplo, QuickPic Gallery do Google Play store.</string>
+    <string name="dialog_title_no_camera_app">Aplicativo de Câmera Não Encontrado</string>
+    <string name="dialog_message_no_camera_app">Por favor baixe um aplicativo de câmera antes de utilizar a função de câmera.</string>
+    <string name="dialog_title_no_audio_app">Aplicativo de Áudio Não Encontrado</string>
+    <string name="dialog_message_no_audio_app">Por favor baixe um arquivo de escolha de áudio antes de utilizar a função de importar áudio.</string>
+    <string name="dialog_message_downloading_audio">Baixando áudio&#8230;</string>
 <!-- END: MANAGEMENT SCREENS -->    
     
         
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
-	<string name="progress_loading">Loading&#8230;</string>
-	<string name="progress_downloading_image">Downloading image&#8230;</string>	
-	<string name="download_hint">Touch and hold image to display Download Image option</string> 
+	<string name="progress_loading">Carregando&#8230;</string>
+	<string name="progress_downloading_image">Baixando imagem&#8230;</string>	
+	<string name="download_hint">Toque e segure a imagem para exibir a opção Baixar Imagem</string> 
 	<string name="google_image_search_url">http://www.google.com/search?hl=en&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 	
 	
 <!--  BEGIN: MENU STRINGS -->
-    <string name="menu_history">History</string>    
-    <string name="menu_log">Log</string>
-    <string name="menu_clear_history">Clear History</string>
-    <string name="menu_clear_log">Clear Log</string>
-    <string name="menu_manage">Manage</string>
+    <string name="menu_history">História</string>    
+    <string name="menu_log">Registro</string>
+    <string name="menu_clear_history">Apagar História</string>
+    <string name="menu_clear_log">Apagar Registro</string>
+    <string name="menu_manage">Controle</string>
     <string name="menu_backup">Backup</string>
-    <string name="menu_restore">Restore</string>
-    <string name="menu_delete">Delete</string>
-    <string name="menu_hide">Hide</string>
-    <string name="menu_unhide">Unhide</string>
-    <string name="menu_edit">Edit</string>
-    <string name="menu_copy">Copy</string>
-    <string name="menu_cut">Cut</string>
-    <string name="menu_paste">Paste</string>
-    <string name="menu_convert">Convert to subcategory</string>
-    <string name="menu_help">Support</string>
-    <string name="menu_preferences">Preferences</string>	
-    <string name="menu_download_image">Download Image</string>
-    <string name="menu_add_ideogram">Add Item</string>
-    <string name="menu_edit_ideogram">Edit Item</string>
+    <string name="menu_restore">Restaurar</string>
+    <string name="menu_delete">Deletar</string>
+    <string name="menu_hide">Esconder</string>
+    <string name="menu_unhide">Mostrar</string>
+    <string name="menu_edit">Editar</string>
+    <string name="menu_copy">Copiar</string>
+    <string name="menu_cut">Cortar</string>
+    <string name="menu_paste">Colar</string>
+    <string name="menu_convert">Converter em subcategoria</string>
+    <string name="menu_help">Ajuda</string>
+    <string name="menu_preferences">Preferências</string>	
+    <string name="menu_download_image">Baixar Imagem</string>
+    <string name="menu_add_ideogram">Adicionar Item</string>
+    <string name="menu_edit_ideogram">Editar Item</string>
 
-    <string name="menu_backup_category">Backup this category&#8230;</string>
-    <string name="menu_restore_category">Restore backup here&#8230;</string>
+    <string name="menu_backup_category">Backup desta categoria&#8230;</string>
+    <string name="menu_restore_category">Restaurar backup aqui&#8230;</string>
 <!--  END: MENU STRINGS -->
     
     
 <!--  BEGIN: PREFERENCES -->    
-	<string name="preference_category_picture_size">Picture Preferences</string>
-	<string name="preference_category_sentence_building">Sentence Building Preferences</string>
-	<string name="preference_category_audio">Audio Preferences</string>
-	<string name="preference_category_other">Other Preferences</string>
-    <string name="preference_landscape_columns_title">Picture Size - Landscape mode</string>
-    <string name="preference_portrait_columns_title">Picture Size - Portrait mode</string>
-    <string name="preference_landscape_columns_key">landscape_columns</string>
-    <string name="preference_portrait_columns_key">portrait_colunms</string>
-    <string name="preference_landscape_columns_summary">Number of pictures to display in a row when the device is in landscape mode (rotated horizontally).  Smaller values produce bigger pictures.  Bigger values produce smaller pictures.</string>
-    <string name="preference_portrait_columns_summary">Number of pictures to display in a row when device is in portrait mode (rotated vertically). Smaller values produce bigger pictures.  Bigger values produce smaller pictures.</string>   
-   	<string name="preference_speech_resource_key">speech_resource</string>
-   	<string name="preference_new_features_key">new_features</string>
-    <string name="preference_sentence_building_title">Enable Sentence Building</string>
-    <string name="preference_sentence_building_key">sentence_building</string>
-    <string name="preference_sentence_building_summary">Enable sentence building feature on main screen.</string>
-	<string name="preference_scroll_speed_title">Scroll Speed</string>
-    <string name="preference_scroll_speed_key">scroll_speed</string>
-    <string name="preference_scroll_speed_summary">Controls picture scrolling speed when flicking the screen.</string>
+	<string name="preference_category_picture_size">Preferências de Imagem</string>
+	<string name="preference_category_sentence_building">Preferências de Construção de Frase</string>
+	<string name="preference_category_audio">Preferências de Áudio</string>
+	<string name="preference_category_other">Outras Preferências</string>
+    <string name="preference_landscape_columns_title">Tamanho de Imagem - modo Paisagem</string>
+    <string name="preference_portrait_columns_title">Tamanho de Imagem - modo Retrato</string>
+    <string name="preference_landscape_columns_key">colunas_paisagem</string>
+    <string name="preference_portrait_columns_key">colunas_retrato</string>
+    <string name="preference_landscape_columns_summary">Número de figuras para exibir em uma fileira quando o dispositivo estiver no modo paisagem (girado horizontalmente). Valores menores geram imagens maiores. Valores maiores geram imagens menores.</string>
+    <string name="preference_portrait_columns_summary">Número de figuras para exibir em uma fileira quando o dispositivo estiver no modo retrato (girado verticalmente). Valores menores geram imagens maiores. Valores maiores geram imagens menores.</string>   
+   	<string name="preference_speech_resource_key">srecurso_fala</string>
+   	<string name="preference_new_features_key">novas_funcionalidades</string>
+    <string name="preference_sentence_building_title">Ativar Construção de Frases</string>
+    <string name="preference_sentence_building_key">construção_frases</string>
+    <string name="preference_sentence_building_summary">Ativar a funcionalidade de construção de frases na tela principal.</string>
+	<string name="preference_scroll_speed_title">Velocidade de Rolgem</string>
+    <string name="preference_scroll_speed_key">velocidade_rolagem</string>
+    <string name="preference_scroll_speed_summary">Controla a velocidade de rolagem das imagens ao tocar a tela.</string>
     <string name="preference_scroll_speed_default">.1f</string>
-	<string name="preference_sentence_bar_size_title">Sentence Bar Size</string>
-    <string name="preference_sentence_bar_size_key">sentence_bar</string>
-    <string name="preference_sentence_bar_size_summary">Adjust the picture sizes on the sentence bar. Values are relative to picture sizes on the word grid.</string>
+	<string name="preference_sentence_bar_size_title">Tamanho de Barra de Frases</string>
+    <string name="preference_sentence_bar_size_key">barra_frases</string>
+    <string name="preference_sentence_bar_size_summary">Ajuste o tamanho das figuras na barra de frases. Os valores são relativos ao tamanho das imagens na grade de palavras.</string>
     <string name="preference_sentence_bar_size_default">.50f</string>
-    <string name="preference_sentence_bar_word_limit_title">Sentence Word Limit</string>
-    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
-    <string name="preference_sentence_bar_word_limit_summary">Controls the number of words that can appear on the sentence bar at once.</string>
+    <string name="preference_sentence_bar_word_limit_title">Limite de Palavras na Frase</string>
+    <string name="preference_sentence_bar_word_limit_key">frase_limite_palavras</string>
+    <string name="preference_sentence_bar_word_limit_summary">Controla o numero de palavras que pode aparecer de cada vez na barra de frase.</string>
     <string name="preference_sentence_bar_word_limit_default">15</string>
-    <string name="preference_category_audio_title">Category Selection Sound</string>
-    <string name="preference_category_audio_key">category_audio</string>
-    <string name="preference_category_audio_summary">Play audio when category is selected</string>
-    <string name="preference_word_audio_title">Word Selection Sound</string>
-    <string name="preference_word_audio_key">word_audio</string>
-    <string name="preference_word_audio_summary">Play audio when word is selected</string>     
-    <string name="preference_access_code_title">Require Access Code</string>
-    <string name="preference_access_code_key">access_code</string>
-    <string name="preference_access_code_summary">Enabling this option forces you to enter a 4 digit number when entering the manage screen.</string>
-    <string name="preference_backbutton_disable_title">Disable Back Button</string>
-    <string name="preference_backbutton_disable_key">back_button</string>
-    <string name="preference_backbutton_disable_summary">Selecting this option prevents JABtalk from exiting when the back button is selected on the main screen.</string>
-    <string name="preference_fontsize_title">Picture Label Font Size</string>
-    <string name="preference_fontsize_key">title_font_size</string>
-    <string name="preference_fontsize_summary">Adjusts the label font size for words and categories.</string>
-	<string name="preference_screen_keep_on_key">screen_on</string>    
-    <string name="preference_screen_keep_on_title">Keep Screen On</string>
-    <string name="preference_screen_keep_on_summary">Prevents main screen from turning off. Enabling this option may negatively impact battery life.</string>    
-    <string name="preference_word_progress_key">work_progress</string>    
-    <string name="preference_word_progress_title">Enable Display Phrase</string>
-    <string name="preference_word_progress_summary">Displays word phrase progress dialog window when audio is played.</string>                
+    <string name="preference_category_audio_title">Som de Seleção de Categoria</string>
+    <string name="preference_category_audio_key">áudio_categoria</string>
+    <string name="preference_category_audio_summary">Tocar áudio quando a categoria for selecionada</string>
+    <string name="preference_word_audio_title">Som de Seleção da Palavra</string>
+    <string name="preference_word_audio_key">áudio_palavra</string>
+    <string name="preference_word_audio_summary">Tocar áudio quando a palavra for selecionada</string>     
+    <string name="preference_access_code_title">Solicitar Código de Acesso</string>
+    <string name="preference_access_code_key">código_acesso</string>
+    <string name="preference_access_code_summary">Habilitar esta opção obriga a introdução de um número de 4 dígitos ao entrar no painel de controle.</string>
+    <string name="preference_backbutton_disable_title">Desabilitar o Botão de Voltar</string>
+    <string name="preference_backbutton_disable_key">botão_voltar</string>
+    <string name="preference_backbutton_disable_summary">Selecionar esta opção evita que o JABtalk saia ao selecionar o botão voltar na tela principal.</string>
+    <string name="preference_fontsize_title">Tamanho da Fonte no Rótulo da Imagem</string>
+    <string name="preference_fontsize_key">título_tamanho_fonte</string>
+    <string name="preference_fontsize_summary">Ajusta o tamanho da fonte do rótulo para palavras e categorias.</string>
+	<string name="preference_screen_keep_on_key">tela_ligada</string>    
+    <string name="preference_screen_keep_on_title">Manter a Tela Ligada</string>
+    <string name="preference_screen_keep_on_summary">Evita que a tela principal desligue. Habilitando esta opção poderá impactar negativamente o tempo de vida da bateria.</string>    
+    <string name="preference_word_progress_key">progresso_palavra</string>    
+    <string name="preference_word_progress_title">Habilitar Exibição de Frase</string>
+    <string name="preference_word_progress_summary">Exibe a janela de diálogo do progresso da frase com palavras enquanto o áudio estive tocando.</string>                
 <!--  END: PREFERENCES -->
 
 
@@ -222,9 +222,9 @@
     </string-array>  
     
     <string-array name="sentence_board_size_labels">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
     </string-array>
     
     <string-array name="sentence_board_size_values">
@@ -254,13 +254,13 @@
     </string-array>     
     
     <string-array name="title_font_size_labels">
-        <item>smallest</item>
-        <item>smaller</item>
-        <item>small</item>
+        <item>mínimo</item>
+        <item>menor</item>
+        <item>pequeno</item>
         <item>normal</item>
-        <item>large</item>
-        <item>larger</item>
-        <item>largest</item>
+        <item>grande</item>
+        <item>maior</item>
+        <item>máximo</item>
     </string-array>
     
     <string-array name="title_font_size_values">
@@ -274,11 +274,11 @@
     </string-array>  
     
     <string-array name="scroll_speed_labels">
-        <item>slowest</item>
-        <item>slower</item>
+        <item>maislento</item>
+        <item>lento</item>
         <item>normal</item>
-        <item>faster</item>
-        <item>fastest</item>
+        <item>rápido</item>
+        <item>maisrápido</item>
     </string-array>
     
     <string-array name="scroll_speed_values">
