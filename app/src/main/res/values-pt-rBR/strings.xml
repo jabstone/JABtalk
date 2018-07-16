@@ -22,7 +22,7 @@
     <string name="dialog_message_backup">Back up de dados&#8230;</string>
     <string name="dialog_message_saving">Salvando alterações&#8230;</string>
     <string name="dialog_title_error">Erro</string>
-    <string name="empty_category"><b>Bem-vindo ao JABtalk!</b>\n\n<b><u>Toqu aqui</u></b> para começar a adicionar palavras e categorias.</string>
+    <string name="empty_category"><b>Bem-vindo ao JABtalk!</b>\n\n<b><u>Toque aqui</u></b> para começar a adicionar palavras e categorias.</string>
     <string name="empty_word">Não existem palavras configuradas para esta categoria.\n<b><u>Toque aqui</u></b> para acessar a tela de controle e adicionar novas palavras.</string>
     <string name="websiteNeedHelp">Veja nossos tutoriais em www.jabstone.com/videos</string>
     <string name="copy_error_source_not_found">O item que você está tentando copiar não foi encontrado.</string>
