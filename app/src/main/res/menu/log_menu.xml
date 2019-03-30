@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_item_clear_log"
           android:icon="@drawable/ic_menu_clear_playlist"
           android:title="@string/menu_clear_log"
-        app:showAsAction="ifRoom" />
+        android:showAsAction="ifRoom" />
 </menu>

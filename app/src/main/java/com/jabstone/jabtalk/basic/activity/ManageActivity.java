@@ -19,9 +19,9 @@ import android.os.AsyncTask.Status;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -991,7 +991,7 @@ public class ManageActivity extends Activity {
             lockScreenOrientation();
             progressDialog.setMessage(getString(R.string.dialog_message_restoring));
             progressDialog.show();
-            m_wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Restore");
+            m_wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Restore:jabtalkPWL");
         }
 
         @Override
@@ -1051,7 +1051,7 @@ public class ManageActivity extends Activity {
                 progressDialog.setMessage(getString(R.string.dialog_message_backup));
             }
             progressDialog.show();
-            m_wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Backup");
+            m_wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Backup:jabtalkPWL");
         }
 
         @Override
@@ -1107,7 +1107,7 @@ public class ManageActivity extends Activity {
             lockScreenOrientation();
             progressDialog.setMessage(getString(R.string.dialog_message_saving));
             progressDialog.show();
-            m_wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Save");
+            m_wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Save:jabtalkPWL");
         }
 
         @Override

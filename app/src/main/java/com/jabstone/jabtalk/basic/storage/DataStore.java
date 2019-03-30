@@ -121,7 +121,9 @@ public class DataStore {
             List<Ideogram> deleteList = new LinkedList<>();
             Ideogram parent = m_ideogramMap.get(gram.getParentId());
             deleteList.addAll(getAllIdeogramsForCategory(gram));
-            parent.getChildren(true).remove(gram);
+            if(parent != null && parent.getChildren(true) != null) {
+                parent.getChildren(true).remove(gram);
+            }
 
             // Delete all files for ideogram and ideogram's children
             for (Ideogram g : deleteList) {
@@ -516,6 +518,7 @@ public class DataStore {
                 for (Ideogram child : tempGram.getChildren(true)) {
                     cloneIdeogram(child, getTempDirectory(), parent);
                 }
+                saveDataStore();
             } else {
                 throw new JabException("Unable to restore backup from file: " + fileName + ". Unable to load json file.");
             }

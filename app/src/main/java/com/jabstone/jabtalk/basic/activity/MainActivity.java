@@ -161,7 +161,7 @@ public class MainActivity extends Activity implements ICategorySelectionListener
         
         //Get handle to power management wake lock...toggled in onResume and onPause methods.
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE); 
-        m_wakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "JABTalk");        
+        m_wakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "JABTalk:1234");
 
     }
 
