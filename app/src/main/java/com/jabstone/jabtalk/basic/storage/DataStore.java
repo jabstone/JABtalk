@@ -573,13 +573,17 @@ public class DataStore {
                     int len;
                     in = zipFile.getInputStream(entry);
                     File target = new File(dataDir, entry.getName());
-                    out = new FileOutputStream(target);
-                    while ((len = in.read(buffer)) >= 0)
-                        out.write(buffer, 0, len);
-
-                    in.close();
-                    out.flush();
-                    out.close();
+                    if(!target.getCanonicalPath().startsWith(dataDir.getCanonicalPath())) {
+                        throw new SecurityException("File being unzipped contains illegal path traversal characters.");
+                    } else {
+                        out = new FileOutputStream(target);
+                        while ((len = in.read(buffer)) >= 0) {
+                            out.write(buffer, 0, len);
+                        }
+                        in.close();
+                        out.flush();
+                        out.close();
+                    }
                 }
 
                 zipFile.close();

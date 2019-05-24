@@ -7,8 +7,8 @@ android {
         applicationId "com.jabstone.jabtalk.basic"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 519
-        versionName "5.1.9"
+        versionCode 521
+        versionName "5.2.1"
     }
 
     buildTypes {
@@ -26,6 +26,6 @@ android {
     }
 
     dependencies {
-        implementation 'androidx.appcompat:appcompat:1.0.0'
+        implementation 'androidx.appcompat:appcompat:1.0.2'
     }
 }
