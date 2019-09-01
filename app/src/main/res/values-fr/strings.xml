@@ -112,7 +112,7 @@
     <string name="progress_loading">Chargement&#8230;</string>
     <string name="progress_downloading_image">Chargement image&#8230;</string>    
     <string name="download_hint">Pour lancer le téléchargement, appuyez 2 secondes sur l\'image, puis sur le bouton \'Télécharger\'</string>
-    <string name="google_image_search_url">http://www.google.com/search?hl=fr&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+    <string name="google_image_search_url">https://www.google.com/search?hl=fr&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
 <!-- END: DOWNLOAD IMAGE SCREEN -->
 
 

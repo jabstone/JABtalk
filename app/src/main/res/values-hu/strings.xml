@@ -111,7 +111,7 @@
     <string name="progress_loading">Betöltés&#8230;</string>
     <string name="progress_downloading_image">Kép letöltése&#8230;</string>
     <string name="download_hint">Tartsa lenyomva a képet a Kép letöltéséhez</string>
-    <string name="google_image_search_url">http://www.google.hu/search?hl=hu&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+    <string name="google_image_search_url">https://www.google.hu/search?hl=hu&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
     <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 
 

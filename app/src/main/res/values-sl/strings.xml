@@ -112,7 +112,7 @@
 	<string name="progress_loading">Nalaganje&#8230;</string>
 	<string name="progress_downloading_image">Prenos slike&#8230;</string>	
 	<string name="download_hint">Dotaknite in zadržite za odpiranje možnosti prenosa slike.</string> 
-	<string name="google_image_search_url">http://www.google.com/search?hl=si&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+	<string name="google_image_search_url">https://www.google.com/search?hl=si&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 	
 	

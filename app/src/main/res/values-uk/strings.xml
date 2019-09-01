@@ -111,7 +111,7 @@
 	<string name="progress_loading">Завантаження&#8230;</string>
 	<string name="progress_downloading_image">Зкачування зображення&#8230;</string>	
 	<string name="download_hint">Торкніться і утримуйте зображення щоб показати функцію Зкачани Зображення</string> 
-	<string name="google_image_search_url">http://www.google.com/search?hl=UK&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+	<string name="google_image_search_url">https://www.google.com/search?hl=UK&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 
 

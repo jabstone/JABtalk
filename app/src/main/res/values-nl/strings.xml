@@ -112,7 +112,7 @@
 	<string name="progress_loading">Aan het laden&#8230;</string>
 	<string name="progress_downloading_image">Afbeelding aan het downloaden&#8230;</string>	
 	<string name="download_hint">Houd uw vinger op de afbeelding om de optie Afbeelding Downloaden te tonen</string> 
-	<string name="google_image_search_url">http://www.google.com/search?hl=nl&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+	<string name="google_image_search_url">https://www.google.com/search?hl=nl&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
 <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 	
 	

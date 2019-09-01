@@ -111,7 +111,7 @@
     <string name="progress_loading">Carregando&#8230;</string>
     <string name="progress_downloading_image">Baixando imagem&#8230;</string>
     <string name="download_hint">Toque e segure a imagem para exibir a opção Baixar Imagem</string>
-    <string name="google_image_search_url">http://www.google.com/search?hl=pt-BR&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+    <string name="google_image_search_url">https://www.google.com/search?hl=pt-BR&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
     <!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
 
 
