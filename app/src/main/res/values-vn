@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  BEGIN: COMMON STRINGS -->
+    <string name="app_name">JABtalk </string>
+    <string name="browser_activity">Trình duyệt web</string>
+    <string name="preference_activity">Những ưu tiên</string>    
+    <string name="button_finish">Kết thúc</string>
+    <string name="button_cancel">Bỏ</string>
+    <string name="button_delete">Xoá</string>
+    <string name="button_yes">Đồng ý</string>
+    <string name="button_no">Không</string>
+    <string name="button_ok">OK</string>
+    <string name="button_close">Đóng</string>
+    <string name="button_speak">Nói</string>
+    <string name="button_clear">Xoá sạch</string>            
+	<string name="dialog_title_new_features">New JABtalk Features</string>
+    <string name="dialog_title_delete_confirmation">Khẳng định đồng ý xoá</string>
+    <string name="dialog_message_delete_category">Bạn có chắc là bạn muốn xoá đề mục này và tất cả các đề mục con và nội dung của chúng không?</string>
+    <string name="dialog_message_delete_word">Bạn có chắc là bạn muốn xoá từ này không?</string>
+    <string name="dialog_message_restoring">Phục hồi dữ liệu&#8230;</string>
+    <string name="dialog_message_backup">Lưu dự phòng dữ liệu&#8230;</string>
+    <string name="dialog_message_saving">Lưu các thay đổi&#8230;</string>
+    <string name="dialog_title_error">Sai</string>
+    <string name="empty_category"><b>Chào mừng đến với JABtalk!</b>\n\n<b><u>Gõ vào đây để</u></b> thêm từ và đề mục.</string>
+    <string name="empty_word">Không có từ nào là cấu hình của đề mục này.\n<b><u>Gõ vào đây để</u></b> quản lý màn hình và thêm từ mới.</string>
+    <string name="websiteNeedHelp">Hãy xem các video hướng dẫn của chúng tôi ở website www.jabstone.com/videos</string>
+    <string name="copy_error_source_not_found">Khoản mục bạn muốn copy không thể tìm thấy được.</string>
+    <string name="cut_error_invalid_target">Xin lỗi, không thể chuyển một mục thành chính nó.</string>
+    <string name="cut_error_invalid_target_for_source">Xin lỗi, bạn không thể chuyển một từ đến danh sách các đề mục.</string>
+    <string name="sentence_board_tip">Kéo các từ xuống phía dưới để xoá các từ đó</string>    
+	<string name="dialog_title_item_move">Kéo đi&#8230;</string>
+    <string name="dialog_item_move_up">Kéo Lên</string>
+    <string name="dialog_item_move_down">Kéo Xuống</string>
+    <string name="dialog_item_move_beginning">Kéo về điểm bắt đầu</string>
+    <string name="dialog_item_move_end">Kéo về điểm cuối</string>
+    <string name="button_view_log">Xin xem nhật ký các khoản sai</string>
+<!--  END: COMMON STRINGS -->    
+    
+    
+<!-- BEGIN: MANAGEMENT SCREENS -->
+    <string name="button_start_recording">Bắt đầu ghi lại</string>
+    <string name="button_stop_recording">Ngừng ghi lại</string>	    
+    <string name="manage_activity_title">Quản lý</string>
+    <string name="manage_activity_hidden_item">Ẩn không nhìn thấy được</string>
+    <string name="manage_activity_category_actions">Các hành động cho đề mục</string>    
+    <string name="ideogram_activity_title_insert_category">Thêm loại đề mục mới</string>
+    <string name="ideogram_activity_title_update_category">Chỉnh sửa đề mục</string>
+    <string name="ideogram_activity_title_insert_word">Thêm từ mới</string>
+    <string name="ideogram_activity_title_update_word">Chỉnh sửa từ</string>
+    <string name="ideogram_activity_category_label_hint">Nhập tên đề mục</string>    
+    <string name="ideogram_activity_word_label_hint">Nhập tên cho từ</string>
+    <string name="ideogram_activity_phrase_hint">Nhập cụm từ để hiển thị</string>
+    <string name="ideogram_activity_check_hidden">Ẩn không thấy mục này</string>       
+    <string name="ideogram_activity_word_label">Tên của từ</string>
+    <string name="ideogram_activity_button_preview">Click lên hình để xem trước</string>       
+    <string name="dialog_title_image_source">Chọn nguồn gốc của hình</string>
+    <string name="dialog_item_imagesource_camera">Camera</string>
+    <string name="dialog_item_import">Tải từ thiết bị</string>
+    <string name="dialog_item_import_web">Tải về từ internet</string>
+    <string name="dialog_item_imagesource_text">Nút văn bản</string>
+    <string name="dialog_title_audio_source">Chọn nguồn gốc của âm thanh</string>
+    <string name="dialog_item_audiosource_recorder">Thiết bị ghi âm</string>
+    <string name="dialog_item_audiosource_synthesizer">Thiết bị tạo tiếng nói</string>
+    <string name="dialog_title_save_results">Lưu kết quả</string>
+    <string name="dialog_message_invalid_label">Xin nhập vào một tên</string>
+    <string name="dialog_message_invalid_phrase">Xin nhập vào một cụm từ hiển thị</string>
+    <string name="dialog_message_invalid_picture">Xin chọn một hình</string>    
+	<string name="dialog_title_invalid_field">Dữ liệu không hợp lệ</string>
+	<string name="dialog_message_invald_image_format">Hình ảnh bạn chọn không tương thích với JABtalk. Xin hãy chọn một file khác.</string>
+	<string name="dialog_message_invald_audio_format">File âm thanh bạn chọn không tương thích với JABtalk. Xin hãy chọn một file khác.</string>
+	<string name="dialog_title_missing_speech_data">Thiếu các file về ngôn ngữ</string>	
+	<string name="dialog_message_missing_speech_data">Dường như máy của bạn không có chương trình đọc chữ thành tiếng. Bạn có muốn cài chương trình này không?</string>			
+    <string name="dialog_item_add_category">Thêm đề mục mới</string>        
+    <string name="dialog_item_add_word">Thêm từ</string>
+    <string name="dialog_title_restore_dataset">Phục hồi bản lưu dự phòng</string>
+    <string name="dialog_title_backup_results">Kết quả lưu dự phòng</string>
+    <string name="dialog_title_restore_results">Phục hồi kết quả</string>
+    <string name="dialog_message_backup_success">Hệ thống dữ liệu của bạn đã được lưu thành công ở:\r\n%1s</string>
+    <string name="dialog_title_manage_challenge">Vào màn hình quản lý</string>       
+    <string name="dialog_message_manage_unlock_question">Xin nhập vào %1$s để truy cập màn hình quản lý</string>
+    <string name="dialog_message_manage_challenge_incorrect">Không chính xác. Xin làm lại một lần nữa.</string>
+    <string name="dialog_message_leave_screen">Bạn có chắc là bạn muốn thoát khỏi màn hình quản lý?</string>
+    <string name="dialog_title_exit_warning">Xác nhận đồng ý thoát</string>
+    <string name="dialog_message_browser_unsupported_image_type">Hình ảnh được chọn không thể tải được. Xin thử lại sau vài giây hoặc thử tải xuống hình thu nhỏ ở trang lưu kết quả tìm kiếm.</string>
+    <string name="dialog_item_no_audio">Không có âm thanh</string>
+    <string name="dialog_title_backup_save_as">Lưu dự phòng tất cả dữ liệu</string>
+    <string name="dialog_message_backup_save_as">Nhập vào tên của tập tin dự phòng. Các tập tin hiện có nếu bị trùng tên sẽ bị ghi đè.</string>
+    <string name="dialog_message_restore_file_not_found">JABtalk không thể tìm thấy tập tin dự phòng để phục hồi. Hãy kiểm tra lại chắc chắn là file dự phòng của bạn được chứa trong thư mục \r\n%1$s/</string>
+    <string name="dialog_restore_error">Có lỗi xảy ra khi phục hồi tập tin dự phòng của bạn. Xin hãy xem nhật ký các lỗi để biết thêm chi tiết.</string>
+    <string name="dialog_permission_explanation_title">JABtalk yêu cầu</string>
+    <string name="dialog_permission_explanation_write_message">JABtalk cần được sự cho phép truy cập đến vùng lưu trữ ngoài thư mục của bạn để tạo các tập tin dự phòng.</string>
+    <string name="dialog_permission_explanation_read_message">JABtalk cần được sự cho phép truy cập đến vùng lưu trữ ngoài thư mục của bạn để phục hồi các tập tin dự phòng.</string>
+    <string name="dialog_permission_explanation_audio_message">JABtalk cần sự cho phép truy cập microphone của bạn để có thể ghi âm.</string>
+    <string name="dialog_permission_explanation_camera_message">JABtalk cần sự cho phép truy cập camera của bạn để ghi lại hình ảnh.</string>
+    <string name="dialog_label_backup_extension_bak">.bak</string>
+    <string name="dialog_title_backup_partial_save_as">Danh mục dự phòng</string>
+    <string name="dialog_label_restore_overwrite">Xoá bộ dữ liệu đang có?</string>
+
+    <string name="dialog_title_no_image_app">Không tìm được chương trình xử lý hình ảnh</string>
+    <string name="dialog_message_no_image_app">Xin hãy tải một chương trình quản lý ảnh để chuyển ảnh từ thiết bị của bạn. Thí dụ</string>
+    <string name="dialog_title_no_camera_app">Không tìm được chương trình chụp ảnh</string>
+    <string name="dialog_message_no_camera_app">Xin hãy tải về một chương trình chụp ảnh trước khi sử dụng các chức năng của camera.</string>
+    <string name="dialog_title_no_audio_app">Không tìm được chương trình quản lý âm thanh</string>
+    <string name="dialog_message_no_audio_app">Xin hãy tải về một chương trình nghe tiếng trước khi sử dụng chức năng tải tiếng.</string>
+    <string name="dialog_message_downloading_audio">Đang tải tập tin âm thanh&#8230;</string>
+<!-- END: MANAGEMENT SCREENS -->    
+    
+        
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	<string name="progress_loading">Đang tải&#8230;</string>
+	<string name="progress_downloading_image">Đang tải hình xuống&#8230;</string>	
+	<string name="download_hint">Chạm vào hình và giữ yên để hiện lên các tuỳ chọn để tải hình xuống</string> 
+	<string name="google_image_search_url">http://www.google.com/search?hl=en&amp;site=imghp&amp;tbm=isch&amp;sa=1&amp;q=</string>
+<!-- BEGIN: DOWNLOAD IMAGE SCREEN -->
+	
+	
+<!--  BEGIN: MENU STRINGS -->
+    <string name="menu_history">Lịch Sử</string>    
+    <string name="menu_log">Nhật Ký</string>
+    <string name="menu_clear_history">Xoá lịch sử</string>
+    <string name="menu_clear_log">Xoá nhật ký</string>
+    <string name="menu_manage">Quản lý</string>
+    <string name="menu_backup">Lưu dự phòng</string>
+    <string name="menu_restore">Hồi phục</string>
+    <string name="menu_delete">Xoá</string>
+    <string name="menu_hide">Ẩn</string>
+    <string name="menu_unhide">Hiện ra</string>
+    <string name="menu_edit">Sửa chữa</string>
+    <string name="menu_copy">Sao chép</string>
+    <string name="menu_cut">Cắt</string>
+    <string name="menu_paste">Dán</string>
+    <string name="menu_convert">Chuyển sang các danh mục nhỏ</string>
+    <string name="menu_help">Hỗ trợ</string>
+    <string name="menu_preferences">Các sở thích riêng</string>	
+    <string name="menu_download_image">Tải hình ảnh</string>
+    <string name="menu_add_ideogram">Thêm mục</string>
+    <string name="menu_edit_ideogram">Sửa mục</string>
+
+    <string name="menu_backup_category">Lưu dự phòng đề mục này&#8230;</string>
+    <string name="menu_restore_category">Hồi phục đề mục ở vị trí này&#8230;</string>
+<!--  END: MENU STRINGS -->
+    
+    
+<!--  BEGIN: PREFERENCES -->    
+	<string name="preference_category_picture_size">Các cài đặt cho hình ảnh</string>
+	<string name="preference_category_sentence_building">Các cài đặt cho việc tạo câu</string>
+	<string name="preference_category_audio">Các cài đặt cho âm thanh</string>
+	<string name="preference_category_other">Các cài đặt khác</string>
+    <string name="preference_landscape_columns_title">Kích thước ảnh - Theo kiểu nằm ngang</string>
+    <string name="preference_portrait_columns_title">Kích thước ảnh - Theo kiểu nằm dọc</string>
+    <string name="preference_landscape_columns_key">landscape_columns</string>
+    <string name="preference_portrait_columns_key">portrait_colunms</string>
+    <string name="preference_landscape_columns_summary">Số lượng các hình ảnh được hiển thị theo hàng ngang khi thiết bị trong chế độ nằm ngang (được xoay ngang). Con số này càng nhỏ thì hình ảnh càng lớn và ngược lại, số này càng lớn thì hình ảnh càng nhỏ.</string>
+    <string name="preference_portrait_columns_summary">Số lượng các hình ảnh được hiển thị theo hàng ngang khi thiết bị trong chế độ nằm dọc (được xoay thẳng đứng). Con số này càng nhỏ thì hình ảnh càng lớn và ngược lại, số này càng lớn thì hình ảnh càng nhỏ.</string>   
+   	<string name="preference_speech_resource_key">speech_resource</string>
+   	<string name="preference_new_features_key">new_features</string>
+    <string name="preference_sentence_building_title">Cho phép tạo dòng chữ hoàn chỉnh hơn</string>
+    <string name="preference_sentence_building_key">sentence_building</string>
+    <string name="preference_sentence_building_summary">Cho phép chức năng tạo dòng chữ trên màn hình chính.</string>
+	<string name="preference_scroll_speed_title">Cuộn màn hình_tốc độ</string>
+    <string name="preference_scroll_speed_key">scroll_speed</string>
+    <string name="preference_scroll_speed_summary">Kiểm soát tốc độ cuộn màn hình khi vuốt màn hình.</string>
+    <string name="preference_scroll_speed_default">.1f</string>
+	<string name="preference_sentence_bar_size_title">Kích thước dòng chữ ngang</string>
+    <string name="preference_sentence_bar_size_key">sentence_bar</string>
+    <string name="preference_sentence_bar_size_summary">Điều chỉnh kích thước của hình ảnh trên thanh dòng chữ. Giá trị ứng tương đối với kích thước ảnh theo khoảng cách các từ.</string>
+    <string name="preference_sentence_bar_size_default">.50f</string>
+    <string name="preference_sentence_bar_word_limit_title">Số từ giới hạn cho dòng chữ</string>
+    <string name="preference_sentence_bar_word_limit_key">sentence_word_limit</string>
+    <string name="preference_sentence_bar_word_limit_summary">Kiểm soát số lượng từ có thể hiện diện trên thanh dòng chữ cùng lúc.</string>
+    <string name="preference_sentence_bar_word_limit_default">15</string>
+    <string name="preference_category_audio_title">Âm thanh cho sự lựa chọn đề mục</string>
+    <string name="preference_category_audio_key">category_audio</string>
+    <string name="preference_category_audio_summary">Phát âm thanh khi đề mục được chọn</string>
+    <string name="preference_word_audio_title">Âm thanh cho sự lựa chọn từ</string>
+    <string name="preference_word_audio_key">word_audio</string>
+    <string name="preference_word_audio_summary">Phát âm thanh khi từ được chọn</string>     
+    <string name="preference_access_code_title">Mật khẩu yêu cầu truy cập</string>
+    <string name="preference_access_code_key">access_code</string>
+    <string name="preference_access_code_summary">Cho phép lực chọn này bắt buộc bạn phải nhập vào 4 con số nếu bạn muốn đến màn hình quản lý.</string>
+    <string name="preference_backbutton_disable_title">Bất hoạt nút quay lại</string>
+    <string name="preference_backbutton_disable_key">back_button</string>
+    <string name="preference_backbutton_disable_summary">Lựa chọn chức năng này không cho phép JABtalk kết thúc khi ấn nút quay lại trên màn hình chính.</string>
+    <string name="preference_fontsize_title">Hình ảnh tên kích thước phông chữ</string>
+    <string name="preference_fontsize_key">title_font_size</string>
+    <string name="preference_fontsize_summary">Điều chỉnh tên kích thước phông chữ cho các từ và các đề mục.</string>
+	<string name="preference_screen_keep_on_key">screen_on</string>    
+    <string name="preference_screen_keep_on_title">Giữ màn hình sáng</string>
+    <string name="preference_screen_keep_on_summary">Ngăn không cho màn hình chính tắt. Khi bật chức năng này sẽ tác động làm tăng tiêu tốn pin.</string>    
+    <string name="preference_word_progress_key">work_progress</string>    
+    <string name="preference_word_progress_title">Cho phép các chữ được biểu hiện</string>
+    <string name="preference_word_progress_summary">Cửa sổ tiến triển hiện thị các từ khi âm thanh được phát ra.</string>                
+<!--  END: PREFERENCES -->
+
+
+<!--  BEGIN: ARRAY VALUES -->
+    <string-array name="columns_labels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+    
+    <string-array name="columns_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>  
+    
+    <string-array name="sentence_board_size_labels">
+        <item>Nhỏ</item>
+        <item>Vửa</item>
+        <item>Lớn</item>
+    </string-array>
+    
+    <string-array name="sentence_board_size_values">
+        <item>.40f</item>
+        <item>.50f</item>
+        <item>.65f</item>
+    </string-array>         
+    
+    <string-array name="sentence_board_word_limit_labels">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    
+    <string-array name="sentence_board_word_limit_values">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>     
+    
+    <string-array name="title_font_size_labels">
+        <item>nhỏ nhất</item>
+        <item>nhỏ hơn</item>
+        <item>nhỏ</item>
+        <item>bình thường</item>
+        <item>lớn</item>
+        <item>lớn hơn</item>
+        <item>lớn nhất</item>
+    </string-array>
+    
+    <string-array name="title_font_size_values">
+        <item>10f</item>
+        <item>13f</item>
+        <item>15f</item>
+        <item>18f</item>
+        <item>20f</item>
+        <item>25f</item>
+        <item>30f</item>
+    </string-array>  
+    
+    <string-array name="scroll_speed_labels">
+        <item>chậm nhất</item>
+        <item>chậm hơn</item>
+        <item>bình thường</item>
+        <item>nhanh hơn</item>
+        <item>nhanh nhất</item>
+    </string-array>
+    
+    <string-array name="scroll_speed_values">
+        <item>8.0f</item>
+        <item>1.0f</item>
+        <item>.1f</item>
+        <item>.05f</item>
+        <item>0.0f</item>
+    </string-array>     
+    
+<!--  BEGIN: ARRAY VALUES -->
+    
+</resources>
