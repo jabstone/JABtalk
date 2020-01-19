@@ -197,6 +197,16 @@ public class DataStore {
         return dir;
     }
 
+    public File getExternalDownloadDirectory() {
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        return dir;
+    }
+
+    public File getExternalDocumentsDirectory() {
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        return dir;
+    }
+
     public void copyIdeogram(String sourceId, String targetId) throws JabException {
 
         Ideogram source = m_ideogramMap.get(sourceId);
@@ -414,14 +424,18 @@ public class DataStore {
     public List<File> getBackupFiles(final String extension) {
         List<File> backupFiles = new ArrayList<>();
         try {
-            File backupDir = getExternalStorageDirectory();
+
             FileFilter backupFilter = new FileFilter() {
                 @Override
                 public boolean accept(File file) {
                     return file.isFile() && file.getName().endsWith(extension) && file.length() > 0;
                 }
             };
-            backupFiles.addAll(Arrays.asList(backupDir.listFiles(backupFilter)));
+            backupFiles.addAll(Arrays.asList(getExternalStorageDirectory().listFiles(backupFilter)));
+            backupFiles.addAll(Arrays.asList(getExternalDownloadDirectory().listFiles(backupFilter)));
+            backupFiles.addAll(Arrays.asList(getExternalDocumentsDirectory().listFiles(backupFilter)));
+
+
             Collections.sort(backupFiles, new Comparator<File>() {
                 @Override
                 public int compare(File first, File second) {
