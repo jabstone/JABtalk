@@ -110,3 +110,4 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 projectFilesBackup
+app/release

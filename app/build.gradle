@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.jabstone.jabtalk.basic"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 524
-        versionName "5.2.4"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 525
+        versionName "5.2.5"
     }
 
     buildTypes {
@@ -18,14 +18,13 @@ android {
         }
     }
 
-    lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
-    }
 
     dependencies {
-        implementation 'androidx.appcompat:appcompat:1.1.0'
+        implementation 'androidx.appcompat:appcompat:1.5.1'
+    }
+    namespace 'com.jabstone.jabtalk.basic'
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
     }
 }
