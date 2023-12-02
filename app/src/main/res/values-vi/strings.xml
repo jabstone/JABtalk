@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Phục hồi bản lưu dự phòng</string>
     <string name="dialog_title_backup_results">Kết quả lưu dự phòng</string>
     <string name="dialog_title_restore_results">Phục hồi kết quả</string>
-    <string name="dialog_message_backup_success">Hệ thống dữ liệu của bạn đã được lưu thành công ở:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Tập dữ liệu của bạn đã được lưu thành công</string>
     <string name="dialog_title_manage_challenge">Vào màn hình quản lý</string>       
     <string name="dialog_message_manage_unlock_question">Xin nhập vào %1$s để truy cập màn hình quản lý</string>
     <string name="dialog_message_manage_challenge_incorrect">Không chính xác. Xin làm lại một lần nữa.</string>
@@ -287,8 +287,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>     
-    
-<!--  BEGIN: ARRAY VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Các tệp sao lưu phải được đặt tên bằng phần mở rộng tệp .bak</string>
+
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Restaurar Backup</string>
     <string name="dialog_title_backup_results">Resultados de Backup</string>
     <string name="dialog_title_restore_results">Restaurar Resultados</string>
-    <string name="dialog_message_backup_success">Seu conjunto de dados foi salvo com sucesso em:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Seu conjunto de dados foi salvo com sucesso</string>
     <string name="dialog_title_manage_challenge">Acessar Painel de Controle</string>
     <string name="dialog_message_manage_unlock_question">Por favor introduza %1$s para acessar o painel de controle</string>
     <string name="dialog_message_manage_challenge_incorrect">Incorrect. Por favor tente novamente.</string>
@@ -288,6 +288,7 @@
         <item>.05f</item>
         <item>0.0f</item>
     </string-array>
+    <string name="dialog_message_backup_invalid_filename">Os arquivos de backup devem ser nomeados com uma extensão de arquivo .bak</string>
 
     <!--  BEGIN: ARRAY VALUES -->
 

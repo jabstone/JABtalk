@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Mentés visszaállítása</string>
     <string name="dialog_title_backup_results">Mentés eredménye</string>
     <string name="dialog_title_restore_results">Eredmények visszaállítása</string>
-    <string name="dialog_message_backup_success">Az adatkészleted sikeresen elmentésre került ide:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Adatkészletét sikeresen elmentette</string>
     <string name="dialog_title_manage_challenge">Hozzáféréskezelő képernyő</string>
     <string name="dialog_message_manage_unlock_question">Kérjük, írja be %1$s a kezelő képernyő eléréséhez</string>
     <string name="dialog_message_manage_challenge_incorrect">Hibás.  Próbáld újra.</string>
@@ -287,6 +287,7 @@
         <item>.05f</item>
         <item>0.0f</item>
     </string-array>
+    <string name="dialog_message_backup_invalid_filename">A biztonsági másolat fájljait .bak kiterjesztéssel kell elnevezni</string>
 
     <!--  BEGIN: ARRAY VALUES -->
 

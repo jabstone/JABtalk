@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Datenrücksicherung</string>
     <string name="dialog_title_backup_results">Datensicherungsergebnis</string>
     <string name="dialog_title_restore_results">Datenrücksicherungsergebnis</string>
-    <string name="dialog_message_backup_success">Die Sicherung wurde in abgelegt:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Ihr Datensatz wurde erfolgreich gespeichert</string>
     <string name="dialog_title_manage_challenge">Zugang Verwaltungsansicht</string>       
     <string name="dialog_message_manage_unlock_question">Bitte geben Sie diese Nummer %1$s als Zugangskontrolle ein.</string>
     <string name="dialog_message_manage_challenge_incorrect">Falsche Eingabe. Bitte probieren Sie es nochmal.</string>
@@ -288,8 +288,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>       
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Sicherungsdateien müssen mit der Dateierweiterung .bak benannt werden</string>
 
-<!--  BEGIN: ARRAY VALUES -->
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

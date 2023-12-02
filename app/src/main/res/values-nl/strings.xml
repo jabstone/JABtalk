@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Gegevens herstellen</string>
     <string name="dialog_title_backup_results">Back-up Resultaten</string>
     <string name="dialog_title_restore_results">Herstellen Resultaten</string>
-    <string name="dialog_message_backup_success">Uw dataset is opgeslagen naar het:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Uw dataset is succesvol opgeslagen</string>
     <string name="dialog_title_manage_challenge">Toegang Beheer scherm</string>       
     <string name="dialog_message_manage_unlock_question">Vul %1$s in om het Beheer scherm te openen</string>
     <string name="dialog_message_manage_challenge_incorrect">Onjuist. Probeer het opnieuw.</string>
@@ -288,8 +288,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>       
-    
-<!--  BEGIN: ARRAY VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Back-upbestanden moeten de naam .bak hebben</string>
+
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

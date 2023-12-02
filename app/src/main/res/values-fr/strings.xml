@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Restauration des Données</string>
     <string name="dialog_title_backup_results">Résultat de la Sauvegarde</string>
     <string name="dialog_title_restore_results">Résultat de la Restauration</string>
-    <string name="dialog_message_backup_success">Sauvegarde réussie!\nVos Données sont maintenant sauvegardées à:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Votre ensemble de données a été enregistré avec succès</string>
     <string name="dialog_title_manage_challenge">Accès au paramétrage</string>
     <string name="dialog_message_manage_unlock_question">Taper %1$s pour accéder à l\'écran de paramétrage</string>
     <string name="dialog_message_manage_challenge_incorrect">Saisie Incorrecte. Recommencer!</string>
@@ -288,8 +288,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>       
-    
-<!--  END: ARRAY STRING VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Les fichiers de sauvegarde doivent être nommés avec une extension de fichier .bak</string>
+
+    <!--  END: ARRAY STRING VALUES -->
     
 </resources>

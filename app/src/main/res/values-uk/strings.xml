@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Відновити резервну копію</string>
     <string name="dialog_title_backup_results">Зберегти результати</string>
     <string name="dialog_title_restore_results">Відновити результати</string>
-    <string name="dialog_message_backup_success">Набір ваших даних успішно збережено в:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Ваш набір даних успішно збережено</string>
     <string name="dialog_title_manage_challenge">Увійти до панелі управління</string>       
     <string name="dialog_message_manage_unlock_question">Будь ласка введіть %1$s щоб увійти до панелі управління</string>
     <string name="dialog_message_manage_challenge_incorrect">Неправильно. Будь ласка, спробуйте ще раз.</string>
@@ -287,8 +287,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>     
-    
-<!--  BEGIN: ARRAY VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Файли резервних копій повинні мати розширення .bak</string>
+
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

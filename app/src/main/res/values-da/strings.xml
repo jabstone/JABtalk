@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Genskab data</string>
     <string name="dialog_title_backup_results">Backup-resultater</string>
     <string name="dialog_title_restore_results">Genskabelsesresultater</string>
-    <string name="dialog_message_backup_success">Dine data er blevet gemt i:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Dit datasæt er blevet gemt</string>
     <string name="dialog_title_manage_challenge">Tilgå Redigering</string>       
     <string name="dialog_message_manage_unlock_question">Indtast venligst %1$s for at tilgå Redigering</string>
     <string name="dialog_message_manage_challenge_incorrect">Forkert kode. Prøv venligst igen.</string>
@@ -87,11 +87,9 @@
     <string name="dialog_item_no_audio">Ingen lyd</string>
     <string name="dialog_title_backup_save_as">Backup-data</string>
     <string name="dialog_message_backup_save_as">Navngiv backup-filen. Eksisterende filer med det samme navn vil blive overskrevet.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk kunne ikke finde en backup-fil at genskabe. Undersøg venligst at din backup-fil findes i\r\n%1$s</string>
+    <string name="dialog_message_backup_invalid_filename">Backup-filer skal navngives med filtypen .bak</string>
     <string name="dialog_restore_error">Der opstod en fejl under gendannelse din backup-fil. Se slutningen af logfilen for fejl detaljer.</string>
     <string name="dialog_permission_explanation_title">JABtalk Anmodning</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk brug tilladelse til din eksterne storage mappe for at skabe backup-filer.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk brug tilladelse til din eksterne storage mappe til gendannelse af backup-filer.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk brug tilladelse til din mikrofon til lydoptagelse.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk skal have tilladelse til dit kamera til at tage billeder.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
