@@ -87,11 +87,8 @@
     <string name="dialog_item_no_audio">Aucun Acoustique</string>
     <string name="dialog_title_backup_save_as">Sauvegarde des Données</string>
     <string name="dialog_message_backup_save_as">Entrez un nom pour le fichier de sauvegarde. Les fichiers existants du même nom seront écrasés.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk ne trouve pas le fichier de sauvegarde sur la carte SD!\nMerci vérifier que le fichier est bien présent à la racine de la carte SD (%1$s).</string>
     <string name="dialog_restore_error">Une erreur est survenue lors de la restauration de votre fichier de sauvegarde. Voir la fin du fichier journal pour plus de détails d\'erreur.</string>
     <string name="dialog_permission_explanation_title">JABtalk Demande</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk besoin de l\'autorisation à votre répertoire de stockage externe pour la création de fichiers de sauvegarde.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk besoin de l\'autorisation à votre répertoire de stockage externe pour restaurer les fichiers de sauvegarde.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk a besoin la permission de votre micro pour l\'enregistrement audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk a besoin la permission de votre appareil photo pour capturer des images.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>

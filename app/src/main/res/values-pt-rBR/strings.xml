@@ -86,11 +86,8 @@
     <string name="dialog_item_no_audio">Sem Áudio</string>
     <string name="dialog_title_backup_save_as">Backup Todos os Dados</string>
     <string name="dialog_message_backup_save_as">Introduza um nome para o arquivo de backup. Arquivos existentes com o mesmo nome serão sobrescritos.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk não pode encontrar um arquivo de backup para restaurar. Por favor certifique-se de que seu arquivo de backup esteja localizado na pasta \r\n%1$s/</string>
     <string name="dialog_restore_error">Ocorreu um erro ao restaurar seu arquivo de backup. Veja os registros de erros para mais detalhes.</string>
     <string name="dialog_permission_explanation_title">JABtalk Request</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk needs permission to your external storage directory for creating backup files.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk needs permission to your external storage directory for restoring backup files.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk needs permission to your microphone for recording audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk needs permission to your camera for capturing images.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>

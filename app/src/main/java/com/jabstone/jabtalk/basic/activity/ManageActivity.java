@@ -73,6 +73,8 @@ public class ManageActivity extends Activity {
     private ListView m_listView = null;
     private boolean isBackupRestoreClicked = false;
 
+    private boolean isPartialRestoreClicked = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -331,9 +333,9 @@ public class ManageActivity extends Activity {
                 break;
             case R.id.context_menu_restore_category:
                 isBackupRestoreClicked = true;
-                m_selectedGram = m_ideogram;
                 intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
+                this.isPartialRestoreClicked = true;
                 intent.setType("*/*");
                 startActivityForResult(intent, ACTIVITY_SELECT_RESTORE_FILE);
                 break;
@@ -362,10 +364,12 @@ public class ManageActivity extends Activity {
 
         MenuItem backup = menu.findItem(R.id.menu_item_backup);
         backup.setVisible(true);
-        if (m_ideogram.isRoot() && m_ideogram.getChildren(true).size() == 0) {
+        if(!m_ideogram.isRoot() || (m_ideogram.isRoot() && m_ideogram.getChildren(true).size() == 0)) {
             backup.setVisible(false);
         }
 
+        MenuItem restore = menu.findItem(R.id.menu_item_restore);
+        restore.setVisible(m_ideogram.isRoot());
         return true;
     }
 
@@ -432,6 +436,7 @@ public class ManageActivity extends Activity {
                 m_selectedGram = m_ideogram;
                 intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
+                this.isPartialRestoreClicked = false;
                 intent.setType("*/*");
                 startActivityForResult(intent, ACTIVITY_SELECT_RESTORE_FILE);
                 break;
@@ -506,7 +511,7 @@ public class ManageActivity extends Activity {
                         } else {
                             if (restoreTask == null
                                     || restoreTask.getStatus() == Status.FINISHED) {
-                                restoreTask = new RestoreTask(false);
+                                restoreTask = new RestoreTask(this.isPartialRestoreClicked);
                                 restoreTask.execute(restoreUri);
                             } else {
                                 JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
@@ -796,10 +801,10 @@ public class ManageActivity extends Activity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         PowerManager.WakeLock m_wakeLock;
         private boolean errorFlag = false;
-        private boolean restoreOverFlag = false;
+        private boolean isPartialRestore = false;
 
-        public RestoreTask(boolean removeExistingDataset) {
-            restoreOverFlag = removeExistingDataset;
+        public RestoreTask(boolean restorePartial) {
+            isPartialRestore = restorePartial;
         }
 
         @Override
@@ -815,7 +820,7 @@ public class ManageActivity extends Activity {
         protected Void doInBackground(Uri... params) {
             Uri fileName = params[0];
             try {
-                if (restoreOverFlag) {
+                if (!isPartialRestore) {
                     JTApp.getDataStore().restoreFullDataStore(fileName);
                 } else {
                     JTApp.getDataStore().restorePartialDataStore(fileName, m_selectedGram);

@@ -87,11 +87,8 @@
     <string name="dialog_item_no_audio">Brez zvoka.</string>
     <string name="dialog_title_backup_save_as">Varnostno kopiranje</string>
     <string name="dialog_message_backup_save_as">Vnesite ime za varnostne kopije. Obstoječe datoteke z enakim imenom bodo prepisane.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk ni našel varnostno kopijo za obnovitev. Prepričajte se, da vaš backup datoteka se nahaja v mapi \r\n%1$s/</string>
     <string name="dialog_restore_error">medtem ko obnovitvi varnostne kopije je prišlo do napake. Poglej konec log datoteko za podrobnosti o napaki.</string>
     <string name="dialog_permission_explanation_title">JABtalk Zahteva</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za ustvarjanje varnostnih kopij.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za obnovo varnostnih kopij.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk potrebuje dovoljenje za svoj mikrofon za snemanje zvoka.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk potrebuje dovoljenje za fotoaparat za zajem slike.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>

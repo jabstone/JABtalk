@@ -86,11 +86,8 @@
     <string name="dialog_item_no_audio">Không có âm thanh</string>
     <string name="dialog_title_backup_save_as">Lưu dự phòng tất cả dữ liệu</string>
     <string name="dialog_message_backup_save_as">Nhập vào tên của tập tin dự phòng. Các tập tin hiện có nếu bị trùng tên sẽ bị ghi đè.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk không thể tìm thấy tập tin dự phòng để phục hồi. Hãy kiểm tra lại chắc chắn là file dự phòng của bạn được chứa trong thư mục \r\n%1$s/</string>
     <string name="dialog_restore_error">Có lỗi xảy ra khi phục hồi tập tin dự phòng của bạn. Xin hãy xem nhật ký các lỗi để biết thêm chi tiết.</string>
     <string name="dialog_permission_explanation_title">JABtalk yêu cầu</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk cần được sự cho phép truy cập đến vùng lưu trữ ngoài thư mục của bạn để tạo các tập tin dự phòng.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk cần được sự cho phép truy cập đến vùng lưu trữ ngoài thư mục của bạn để phục hồi các tập tin dự phòng.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk cần sự cho phép truy cập microphone của bạn để có thể ghi âm.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk cần sự cho phép truy cập camera của bạn để ghi lại hình ảnh.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>

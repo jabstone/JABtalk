@@ -86,11 +86,8 @@
     <string name="dialog_item_no_audio">Без аудіо</string>
     <string name="dialog_title_backup_save_as">Зберегти всі дані</string>
     <string name="dialog_message_backup_save_as">Введіть ім\'я файлу для збереження. Файл з тою сомаю назвою буде перезаписано.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk не знайшов збережений файл для відновлення. Будь ласка, упевніться, що файл знаходиться в папці \r\n%1$s/</string>
     <string name="dialog_restore_error">Сталася помилка відновлення файлу. Перегляньте журнал помилок для подробиць.</string>
     <string name="dialog_permission_explanation_title">Запрос від JABtalk</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk потребує вашого дозволу для доступу до зовнішньої пам\'яті.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk потребує вашого дозволу для відновлення резервних копій файлів з папок зовнішньої пам\'яті.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk потребує вашого дозволу для запису аудіо з мікрофону.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk потребує вашого дозволу для відтворення зображень.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
