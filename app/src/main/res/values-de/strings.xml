@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Datenrücksicherung</string>
     <string name="dialog_title_backup_results">Datensicherungsergebnis</string>
     <string name="dialog_title_restore_results">Datenrücksicherungsergebnis</string>
-    <string name="dialog_message_backup_success">Die Sicherung wurde in abgelegt:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Ihr Datensatz wurde erfolgreich gespeichert</string>
     <string name="dialog_title_manage_challenge">Zugang Verwaltungsansicht</string>       
     <string name="dialog_message_manage_unlock_question">Bitte geben Sie diese Nummer %1$s als Zugangskontrolle ein.</string>
     <string name="dialog_message_manage_challenge_incorrect">Falsche Eingabe. Bitte probieren Sie es nochmal.</string>
@@ -87,11 +87,8 @@
     <string name="dialog_item_no_audio">Nein Audio</string>
     <string name="dialog_title_backup_save_as">Backup-Daten</string>
     <string name="dialog_message_backup_save_as">Geben Sie einen Namen für die Sicherungsdatei ein. Vorhandene Dateien mit demselben Namen werden überschrieben.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk konnte keine Datensicherungsdatei auf Ihrer SDCard finden. Bitte stellen Sie sicher das sich die Datei im Stammverzeichnis der Speicherkarte befindet (%1$s)</string>
     <string name="dialog_restore_error">Beim Wiederherstellen der Sicherungsdatei ist ein Fehler aufgetreten. Zeigen Sie das Ende der Protokolldatei für Fehlerdetails an.</string>
     <string name="dialog_permission_explanation_title">JABtalk-Anfrage</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk benötigt die Berechtigung zum Erstellen von Sicherungsdateien in Ihrem externen Speicherverzeichnis.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk benötigt die Berechtigung zum Wiederherstellen von Sicherungsdateien in Ihrem externen Speicherverzeichnis.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk benötigt das Mikrofon für die Aufnahme von Audio.</string>
     <string name="dialog_permission_explanation_camera_message">Für die Aufnahme von Bildern benötigt JABtalk die entsprechende Berechtigung.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
@@ -288,8 +285,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>       
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Sicherungsdateien müssen mit der Dateierweiterung .bak benannt werden</string>
 
-<!--  BEGIN: ARRAY VALUES -->
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

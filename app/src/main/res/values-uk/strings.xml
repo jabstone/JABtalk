@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Відновити резервну копію</string>
     <string name="dialog_title_backup_results">Зберегти результати</string>
     <string name="dialog_title_restore_results">Відновити результати</string>
-    <string name="dialog_message_backup_success">Набір ваших даних успішно збережено в:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Ваш набір даних успішно збережено</string>
     <string name="dialog_title_manage_challenge">Увійти до панелі управління</string>       
     <string name="dialog_message_manage_unlock_question">Будь ласка введіть %1$s щоб увійти до панелі управління</string>
     <string name="dialog_message_manage_challenge_incorrect">Неправильно. Будь ласка, спробуйте ще раз.</string>
@@ -86,11 +86,8 @@
     <string name="dialog_item_no_audio">Без аудіо</string>
     <string name="dialog_title_backup_save_as">Зберегти всі дані</string>
     <string name="dialog_message_backup_save_as">Введіть ім\'я файлу для збереження. Файл з тою сомаю назвою буде перезаписано.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk не знайшов збережений файл для відновлення. Будь ласка, упевніться, що файл знаходиться в папці \r\n%1$s/</string>
     <string name="dialog_restore_error">Сталася помилка відновлення файлу. Перегляньте журнал помилок для подробиць.</string>
     <string name="dialog_permission_explanation_title">Запрос від JABtalk</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk потребує вашого дозволу для доступу до зовнішньої пам\'яті.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk потребує вашого дозволу для відновлення резервних копій файлів з папок зовнішньої пам\'яті.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk потребує вашого дозволу для запису аудіо з мікрофону.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk потребує вашого дозволу для відтворення зображень.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
@@ -287,8 +284,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>     
-    
-<!--  BEGIN: ARRAY VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Файли резервних копій повинні мати розширення .bak</string>
+
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

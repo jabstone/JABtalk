@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Gegevens herstellen</string>
     <string name="dialog_title_backup_results">Back-up Resultaten</string>
     <string name="dialog_title_restore_results">Herstellen Resultaten</string>
-    <string name="dialog_message_backup_success">Uw dataset is opgeslagen naar het:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Uw dataset is succesvol opgeslagen</string>
     <string name="dialog_title_manage_challenge">Toegang Beheer scherm</string>       
     <string name="dialog_message_manage_unlock_question">Vul %1$s in om het Beheer scherm te openen</string>
     <string name="dialog_message_manage_challenge_incorrect">Onjuist. Probeer het opnieuw.</string>
@@ -87,11 +87,8 @@
     <string name="dialog_item_no_audio">Geen Audio</string>
     <string name="dialog_title_backup_save_as">Back-up gegevens</string>
     <string name="dialog_message_backup_save_as">Enter a name for the backup file. Existing files with the same name will be overwritten.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk vond geen back-upbestand om uw gegevens te herstellen. Zorg ervoor dat uw back-up bestand opgeslagen is in\r\n%1$s.</string>
     <string name="dialog_restore_error">An error occurred while restoring your backup file. View the end of the log file for error details.</string>
     <string name="dialog_permission_explanation_title">JABtalk Request</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk heeft toestemming om uw externe opslag directory voor het maken van back-upbestanden.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk heeft toestemming om uw externe opslag directory voor het herstellen van back-upbestanden.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk heeft toestemming nodig om uw microfoon voor het opnemen van audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk heeft toestemming nodig om uw camera voor het vastleggen van beelden.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
@@ -288,8 +285,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>       
-    
-<!--  BEGIN: ARRAY VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Back-upbestanden moeten de naam .bak hebben</string>
+
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>

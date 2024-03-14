@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Mentés visszaállítása</string>
     <string name="dialog_title_backup_results">Mentés eredménye</string>
     <string name="dialog_title_restore_results">Eredmények visszaállítása</string>
-    <string name="dialog_message_backup_success">Az adatkészleted sikeresen elmentésre került ide:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Adatkészletét sikeresen elmentette</string>
     <string name="dialog_title_manage_challenge">Hozzáféréskezelő képernyő</string>
     <string name="dialog_message_manage_unlock_question">Kérjük, írja be %1$s a kezelő képernyő eléréséhez</string>
     <string name="dialog_message_manage_challenge_incorrect">Hibás.  Próbáld újra.</string>
@@ -86,11 +86,8 @@
     <string name="dialog_item_no_audio">Nincs audió</string>
     <string name="dialog_title_backup_save_as">Minden adat biztonsági mentése</string>
     <string name="dialog_message_backup_save_as">Adjon meg egy nevet a biztonsági mentéshez.  Az azonos nevű fájlok felülíródnak.</string>
-    <string name="dialog_message_restore_file_not_found"> ​A JABtalk nem tudta visszaállítani a biztonsági másolatot.  Győződjön meg arról, hogy a biztonsági mentés elérési útvonala itt található: \r\n%1$s/</string>
     <string name="dialog_restore_error">A biztonsági mentés fájljának visszaállításakor hiba történt.  A részletekért tekintse meg a hibanaplót.</string>
     <string name="dialog_permission_explanation_title">JABtalk jogosultság kérés</string>
-    <string name="dialog_permission_explanation_write_message">A JABtalk engedélyt kér a külső tárolási könyvtárhoz biztonsági másolatok készítéséhez.</string>
-    <string name="dialog_permission_explanation_read_message">A JABtalk engedélyt kér a külső tárolási könyvtárhoz a biztonsági másolatok visszaállításához.</string>
     <string name="dialog_permission_explanation_audio_message">A JABtalk engedélyt kér a mikrofonhoz audió felvételhez.</string>
     <string name="dialog_permission_explanation_camera_message">A JABtalk engedélyt kér a fényképezőgéphez a képek rögzítéséhez.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
@@ -287,6 +284,7 @@
         <item>.05f</item>
         <item>0.0f</item>
     </string-array>
+    <string name="dialog_message_backup_invalid_filename">A biztonsági másolat fájljait .bak kiterjesztéssel kell elnevezni</string>
 
     <!--  BEGIN: ARRAY VALUES -->
 

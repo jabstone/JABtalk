@@ -1,7 +1,9 @@
 package com.jabstone.jabtalk.basic.storage;
 
 
+import android.content.ContentResolver;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Environment;
 
 import com.jabstone.jabtalk.basic.JTApp;
@@ -21,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -420,71 +423,45 @@ public class DataStore {
         }
     }
 
-
-    public List<File> getBackupFiles(final String extension) {
-        List<File> backupFiles = new ArrayList<>();
-        try {
-
-            FileFilter backupFilter = new FileFilter() {
-                @Override
-                public boolean accept(File file) {
-                    return file.isFile() && file.getName().endsWith(extension) && file.length() > 0;
-                }
-            };
-            backupFiles.addAll(Arrays.asList(getExternalStorageDirectory().listFiles(backupFilter)));
-            backupFiles.addAll(Arrays.asList(getExternalDownloadDirectory().listFiles(backupFilter)));
-            backupFiles.addAll(Arrays.asList(getExternalDocumentsDirectory().listFiles(backupFilter)));
-
-
-            Collections.sort(backupFiles, new Comparator<File>() {
-                @Override
-                public int compare(File first, File second) {
-                    return new Long(first.lastModified()).compareTo(second.lastModified()) * -1;
-                }
-            });
-            return backupFiles;
-
-        } catch (Exception e) {
-            JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR, "Could not list backups files in external storage location");
-        }
-        return backupFiles;
-    }
-
-    public void backupDataStore(String fileName, Ideogram category) throws JabException {
+    public void backupDataStore(Uri fileUri, Ideogram category) throws JabException {
         ZipOutputStream zos = null;
         Set<String> ideogramIds = null;
         File categoryStore = null;
 
         try {
-            if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
-                        "Failed to backup JABtalk category. The storage directory is not mounted");
-                throw new JabException("Unable to mount external storage directory.");
-            }
+
             //Write category as json object so it's included in backup
             if (!category.isRoot()) {
+                String originalParent = category.getParentId();
                 categoryStore = new File(getDataDirectory(), FILE_JSON_DATASET_PARTIAL);
                 Ideogram root = createRootCategory();
                 category.setParentId(root.getId());
                 root.getChildren(true).add(category);
                 saveDataStore(categoryStore, root);
                 ideogramIds = getAllIdsForCategory(root);
+                category.setParentId(originalParent);
             }
 
-            File zipFileName = new File(getExternalStorageDirectory(), fileName);
-            File dataDir = getDataDirectory();
-            zos = new ZipOutputStream(new FileOutputStream(zipFileName, false));
-            zos.setLevel(Deflater.DEFAULT_COMPRESSION);
-            zipDirectory(dataDir, zos, ideogramIds);
-            zos.flush();
-            zos.close();
+            OutputStream outputStream = JTApp.getInstance().getApplicationContext().getContentResolver().openOutputStream(fileUri);
+            if(outputStream != null) {
+                zos = new ZipOutputStream(outputStream);
+                zos.setLevel(Deflater.DEFAULT_COMPRESSION);
 
-            if (categoryStore != null && categoryStore.exists()) {
-                categoryStore.delete();
-            }
+                File dataDir = getDataDirectory();
+                zipDirectory(dataDir, zos, ideogramIds);
+                zos.flush();
+                zos.close();
 
-            if (!isBackupValid(zipFileName)) {
-                throw new JabException("The backup file: " + fileName + " failed the post-backup validation check.");
+                if (categoryStore != null && categoryStore.exists()) {
+                    categoryStore.delete();
+                }
+
+                if (!isBackupValid(fileUri)) {
+                    throw new JabException("The backup file failed the post-backup validation check.");
+                }
+            } else {
+                throw new JabException("Unable to get OutputStream for the provided URI: " + fileUri.toString());
+
             }
         } catch (Exception e) {
             JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
@@ -501,11 +478,25 @@ public class DataStore {
         }
     }
 
-    private boolean isBackupValid(final File file) {
+    private boolean isBackupValid(final Uri uri) {
         ZipFile zipfile = null;
+        InputStream inputStream = null;
+        File tempFile = null;
+
         try {
-            zipfile = new ZipFile(file);
-            return true;
+            ContentResolver contentResolver = JTApp.getInstance().getContentResolver();
+            inputStream = contentResolver.openInputStream(uri);
+
+            if (inputStream != null) {
+                // Create a temporary file to copy the content from the URI
+                tempFile = createTempFileFromUri(uri);
+
+                if (tempFile != null && tempFile.exists()) {
+                    zipfile = new ZipFile(tempFile);
+                    return true;
+                }
+            }
+            return false;
         } catch (IOException e) {
             return false;
         } finally {
@@ -513,20 +504,64 @@ public class DataStore {
                 if (zipfile != null) {
                     zipfile.close();
                 }
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (tempFile != null && tempFile.exists()) {
+                    tempFile.delete(); // Delete the temporary file once done
+                }
             } catch (IOException ignored) {
             }
         }
     }
 
-    public void restoreFullDataStore(String fileName) throws JabException {
-        restoreDataStore(fileName, getDataDirectory(), true);
+    // Method to create a temporary file from the Uri
+    private File createTempFileFromUri(Uri uri) {
+        File tempFile = null;
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+
+        try {
+            ContentResolver contentResolver = JTApp.getInstance().getContentResolver();
+            inputStream = contentResolver.openInputStream(uri);
+
+            if (inputStream != null) {
+                tempFile = File.createTempFile("temp", ".zip", JTApp.getInstance().getCacheDir());
+                outputStream = new FileOutputStream(tempFile);
+
+                byte[] buffer = new byte[8 * 1024];
+                int bytesRead;
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (IOException ignored) {
+            }
+        }
+        return tempFile;
+    }
+
+
+
+    public void restoreFullDataStore(Uri sourceFileUri) throws JabException {
+        restoreDataStore(sourceFileUri, getDataDirectory(), true);
         refreshStore();
     }
 
-    public void restorePartialDataStore(String fileName, Ideogram parent) throws JabException {
+    public void restorePartialDataStore(Uri sourceFileUri, Ideogram parent) throws JabException {
         try {
             clearTempDirectory();
-            restoreDataStore(fileName, getTempDirectory(), false);
+            restoreDataStore(sourceFileUri, getTempDirectory(), false);
             Ideogram tempGram = loadJsonFromFile(new File(getTempDirectory(), FILE_JSON_DATASET), false);
             if (tempGram != null) {
                 for (Ideogram child : tempGram.getChildren(true)) {
@@ -534,76 +569,66 @@ public class DataStore {
                 }
                 saveDataStore();
             } else {
-                throw new JabException("Unable to restore backup from file: " + fileName + ". Unable to load json file.");
+                throw new JabException("Unable to restore backup from file. Unable to load json file.");
             }
         } catch (Exception e) {
             throw new JabException(getStackTrace(e));
         }
     }
 
-    private void restoreDataStore(String sourceFileName, File destinationDirectory, boolean clearDataStoreDirectory) throws JabException {
+    private void restoreDataStore(Uri sourceFileUri, File destinationDirectory, boolean clearDataStoreDirectory) throws JabException {
 
         byte[] buffer = new byte[1024];
         InputStream in = null;
         FileOutputStream out = null;
 
-        File zipFileName = new File(sourceFileName);
         try {
-            String state = Environment.getExternalStorageState();
-            if (Environment.MEDIA_MOUNTED.equals(state) ||
-                    Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            String sourceFileName = sourceFileUri.getPath();
 
-
-                if (!isBackupValid(zipFileName)) {
-                    throw new JabException("The backup file: " + sourceFileName + " appears to be corrupt. Restore operation terminated.");
-                }
-
-                if (!zipFileName.exists()) {
-                    throw new JabException(
-                            "Could not find the backup file \"" + sourceFileName + "\" on the SDCard");
-                }
-
-                if (clearDataStoreDirectory) {
-                    deleteAllFiles();
-                }
-
-                ZipFile zipFile = new ZipFile(zipFileName);
-
-                Enumeration<? extends ZipEntry> entries;
-                File dataDir = destinationDirectory;
-                entries = zipFile.entries();
-
-                while (entries.hasMoreElements()) {
-                    ZipEntry entry = entries.nextElement();
-
-                    if (entry.isDirectory()) {
-                        File newDir = new File(dataDir, entry.getName());
-                        if (!newDir.exists()) {
-                            newDir.mkdirs();
-                        }
-                        continue;
-                    }
-
-                    int len;
-                    in = zipFile.getInputStream(entry);
-                    File target = new File(dataDir, entry.getName());
-                    if(!target.getCanonicalPath().startsWith(dataDir.getCanonicalPath())) {
-                        throw new SecurityException("File being unzipped contains illegal path traversal characters.");
-                    } else {
-                        out = new FileOutputStream(target);
-                        while ((len = in.read(buffer)) >= 0) {
-                            out.write(buffer, 0, len);
-                        }
-                        in.close();
-                        out.flush();
-                        out.close();
-                    }
-                }
-
-                zipFile.close();
-            } else {
-                throw new JabException("Unable to read from backup files from external storage directory.");
+            if (!isBackupValid(sourceFileUri)) {
+                throw new JabException("The backup file appears to be corrupt. Restore operation terminated.");
             }
+
+            if (clearDataStoreDirectory) {
+                deleteAllFiles();
+            }
+
+            File tempFile = createTempFileFromUri(sourceFileUri);
+            ZipFile zipFile = new ZipFile(tempFile);
+
+            Enumeration<? extends ZipEntry> entries;
+            File dataDir = destinationDirectory;
+            entries = zipFile.entries();
+
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement();
+
+                if (entry.isDirectory()) {
+                    File newDir = new File(dataDir, entry.getName());
+                    if (!newDir.exists()) {
+                        newDir.mkdirs();
+                    }
+                    continue;
+                }
+
+                int len;
+                in = zipFile.getInputStream(entry);
+                File target = new File(dataDir, entry.getName());
+                if(!target.getCanonicalPath().startsWith(dataDir.getCanonicalPath())) {
+                    throw new SecurityException("File being unzipped contains illegal path traversal characters.");
+                } else {
+                    out = new FileOutputStream(target);
+                    while ((len = in.read(buffer)) >= 0) {
+                        out.write(buffer, 0, len);
+                    }
+                    in.close();
+                    out.flush();
+                    out.close();
+                }
+            }
+
+            zipFile.close();
+
         } catch (Exception ioe) {
             throw new JabException(
                     "Failed to restore backup.  Error Details: " + getStackTrace(ioe));

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.jabstone.jabtalk.basic"
         minSdkVersion 26
-        targetSdkVersion 33
-        versionCode 525
-        versionName "5.2.5"
+        targetSdk 34
+        versionCode 530
+        versionName '5.3.0'
     }
 
     buildTypes {
@@ -20,7 +20,7 @@ android {
 
 
     dependencies {
-        implementation 'androidx.appcompat:appcompat:1.5.1'
+        implementation 'androidx.appcompat:appcompat:1.6.1'
     }
     namespace 'com.jabstone.jabtalk.basic'
     lint {

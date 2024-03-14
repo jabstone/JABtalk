@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Възстановяване на данни</string>
     <string name="dialog_title_backup_results">Резултат от архивиране</string>
     <string name="dialog_title_restore_results">Резултат от възстановяване</string>
-    <string name="dialog_message_backup_success">Вашите данни бяха успешно архивирани в:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Вашият набор от данни е запазен успешно</string>
     <string name="dialog_title_manage_challenge">Достъп до екарн за управление</string>
     <string name="dialog_message_manage_unlock_question">Моля, въведете %1$s за достъп до екрана за управление</string>
     <string name="dialog_message_manage_challenge_incorrect">Неправилно. Моля, опитайте отново.</string>
@@ -86,11 +86,9 @@
     <string name="dialog_item_no_audio">Без звук</string>
     <string name="dialog_title_backup_save_as">Архивиране на всички данни</string>
     <string name="dialog_message_backup_save_as">Въведете име на архивния файл. Ако има файл със същото име, той ще бъде презаписан.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk не може да намери архивен файл за възстановяване. Уверете се, че вашият архивен файл се намира в папка \r\n%1$s/</string>
+    <string name="dialog_message_backup_invalid_filename">Архивните файлове трябва да бъдат именувани с файлово разширение .bak</string>
     <string name="dialog_restore_error">Възникна грешка при възстановяване на архива. Вижте дневника на грешките за повече информация.</string>
     <string name="dialog_permission_explanation_title">JABtalk иска разрешение</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk иска достъп до вашите файлове за създаване на архив.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk иска достъп до вашите файлове за възстановяване на архив.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk иска достъп до микрофона за запис на звук.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk иска достъп до камерата за снимане на изображение.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>

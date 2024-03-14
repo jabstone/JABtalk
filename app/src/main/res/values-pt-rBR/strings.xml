@@ -76,7 +76,7 @@
     <string name="dialog_title_restore_dataset">Restaurar Backup</string>
     <string name="dialog_title_backup_results">Resultados de Backup</string>
     <string name="dialog_title_restore_results">Restaurar Resultados</string>
-    <string name="dialog_message_backup_success">Seu conjunto de dados foi salvo com sucesso em:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Seu conjunto de dados foi salvo com sucesso</string>
     <string name="dialog_title_manage_challenge">Acessar Painel de Controle</string>
     <string name="dialog_message_manage_unlock_question">Por favor introduza %1$s para acessar o painel de controle</string>
     <string name="dialog_message_manage_challenge_incorrect">Incorrect. Por favor tente novamente.</string>
@@ -86,11 +86,8 @@
     <string name="dialog_item_no_audio">Sem Áudio</string>
     <string name="dialog_title_backup_save_as">Backup Todos os Dados</string>
     <string name="dialog_message_backup_save_as">Introduza um nome para o arquivo de backup. Arquivos existentes com o mesmo nome serão sobrescritos.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk não pode encontrar um arquivo de backup para restaurar. Por favor certifique-se de que seu arquivo de backup esteja localizado na pasta \r\n%1$s/</string>
     <string name="dialog_restore_error">Ocorreu um erro ao restaurar seu arquivo de backup. Veja os registros de erros para mais detalhes.</string>
     <string name="dialog_permission_explanation_title">JABtalk Request</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk needs permission to your external storage directory for creating backup files.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk needs permission to your external storage directory for restoring backup files.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk needs permission to your microphone for recording audio.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk needs permission to your camera for capturing images.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
@@ -288,6 +285,7 @@
         <item>.05f</item>
         <item>0.0f</item>
     </string-array>
+    <string name="dialog_message_backup_invalid_filename">Os arquivos de backup devem ser nomeados com uma extensão de arquivo .bak</string>
 
     <!--  BEGIN: ARRAY VALUES -->
 

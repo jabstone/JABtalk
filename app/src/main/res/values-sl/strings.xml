@@ -77,7 +77,7 @@
     <string name="dialog_title_restore_dataset">Obnovi podatke</string>
     <string name="dialog_title_backup_results">Varnostno kopiraj rezultate</string>
     <string name="dialog_title_restore_results">Obnovi rezultate</string>
-    <string name="dialog_message_backup_success">Vaš nabor podatkov je bila uspešno shranjena na:\r\n%1s</string>
+    <string name="dialog_message_backup_success">Vaš nabor podatkov je bil uspešno shranjen</string>
     <string name="dialog_title_manage_challenge">Access Manage Screen</string>       
     <string name="dialog_message_manage_unlock_question">Please enter %1$s to access the manage screen</string>
     <string name="dialog_message_manage_challenge_incorrect">Incorrect. Please try again.</string>
@@ -87,11 +87,8 @@
     <string name="dialog_item_no_audio">Brez zvoka.</string>
     <string name="dialog_title_backup_save_as">Varnostno kopiranje</string>
     <string name="dialog_message_backup_save_as">Vnesite ime za varnostne kopije. Obstoječe datoteke z enakim imenom bodo prepisane.</string>
-    <string name="dialog_message_restore_file_not_found">JABtalk ni našel varnostno kopijo za obnovitev. Prepričajte se, da vaš backup datoteka se nahaja v mapi \r\n%1$s/</string>
     <string name="dialog_restore_error">medtem ko obnovitvi varnostne kopije je prišlo do napake. Poglej konec log datoteko za podrobnosti o napaki.</string>
     <string name="dialog_permission_explanation_title">JABtalk Zahteva</string>
-    <string name="dialog_permission_explanation_write_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za ustvarjanje varnostnih kopij.</string>
-    <string name="dialog_permission_explanation_read_message">JABtalk potrebuje dovoljenje za svoj zunanji imenik za shranjevanje za obnovo varnostnih kopij.</string>
     <string name="dialog_permission_explanation_audio_message">JABtalk potrebuje dovoljenje za svoj mikrofon za snemanje zvoka.</string>
     <string name="dialog_permission_explanation_camera_message">JABtalk potrebuje dovoljenje za fotoaparat za zajem slike.</string>
     <string name="dialog_label_backup_extension_bak">.bak</string>
@@ -288,8 +285,9 @@
         <item>.1f</item>
         <item>.05f</item>
         <item>0.0f</item>
-    </string-array>     
-    
-<!--  BEGIN: ARRAY VALUES -->
+    </string-array>
+    <string name="dialog_message_backup_invalid_filename">Datoteke varnostne kopije morajo biti poimenovane s pripono datoteke .bak</string>
+
+    <!--  BEGIN: ARRAY VALUES -->
     
 </resources>
