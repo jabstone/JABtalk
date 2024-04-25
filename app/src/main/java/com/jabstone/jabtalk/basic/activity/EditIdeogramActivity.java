@@ -787,7 +787,10 @@ public class EditIdeogramActivity extends Activity implements OnCancelListener,
                 requestCameraPermissions(false);
                 break;
             case SOURCE_GALLERY:
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent galleryIntent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+                galleryIntent.putExtra("EXTRA_PICK_IMAGES_MAX", "1");
+                galleryIntent.setType("image/*");
+
                 if (galleryIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(galleryIntent, ACTIVITY_RESULT_GALLERY);
                 } else {
