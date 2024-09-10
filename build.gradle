@@ -1,11 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext.kotlin_version = '1.8.22' // Define the Kotlin version globally
+
     repositories {
         mavenCentral()
         google()
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath 'com.android.tools.build:gradle:8.5.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Include the Kotlin plugin classpath
     }
 }
 
@@ -16,5 +20,13 @@ allprojects {
             url "https://maven.google.com"
         }
         google()
+    }
+}
+
+subprojects {
+    afterEvaluate {
+        project -> if (project.hasProperty("kotlin_version")) {
+            project.ext.kotlin_version = '1.8.22' // Ensure subprojects use the same Kotlin version
+        }
     }
 }

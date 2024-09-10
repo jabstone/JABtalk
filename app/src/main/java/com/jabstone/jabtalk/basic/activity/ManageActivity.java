@@ -1,6 +1,5 @@
 package com.jabstone.jabtalk.basic.activity;
 
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,26 +8,28 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-
-import android.content.res.Configuration;
-
 import android.database.Cursor;
+import android.provider.OpenableColumns;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import android.os.PowerManager;
-
-import android.provider.OpenableColumns;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
 
 import com.jabstone.jabtalk.basic.ClipBoard;
 import com.jabstone.jabtalk.basic.ClipBoard.Operation;
@@ -54,6 +55,11 @@ public class ManageActivity extends Activity {
     private final int DIALOG_GENERIC = 4004;
     private final int DIALOG_EXIT_MANAGE_SCREEN = 4005;
     private final int DIALOG_ACTION_ADD = 4006;
+    private final int DIALOG_BACKUP_DATASTORE_FULL = 4007;
+    private final int DIALOG_RESTORE_DATASTORE_FULL = 4008;
+    private final int DIALOG_BACKUP_DATASTORE_PARTIAL = 4010;
+    private final int DIALOG_RESTORE_DATASTORE_PARTIAL = 4011;
+
     private final String STATE_IDEOGRAM = "ideogram";
     private final int ADD_CATEGORY = 0;
     private final int ADD_WORD = 1;
@@ -72,8 +78,8 @@ public class ManageActivity extends Activity {
     private boolean madeChanges = false;
     private ListView m_listView = null;
     private boolean isBackupRestoreClicked = false;
-
     private boolean isPartialRestoreClicked = false;
+    private Uri restorePath = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,7 +147,6 @@ public class ManageActivity extends Activity {
             this.setTitle(getString(R.string.manage_activity_title));
         }
         restoreProgressDialog();
-        m_selectedGram = m_ideogram;
         invalidateOptionsMenu();
 
         // Display add item dialog if category is blank
@@ -433,7 +438,6 @@ public class ManageActivity extends Activity {
                 break;
             case R.id.menu_item_restore:
                 isBackupRestoreClicked = true;
-                m_selectedGram = m_ideogram;
                 intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 this.isPartialRestoreClicked = false;
@@ -509,14 +513,8 @@ public class ManageActivity extends Activity {
                             getIntent().putExtra(JTApp.INTENT_EXTRA_DIALOG_MESSAGE, getString(R.string.dialog_message_backup_invalid_filename));
                             showDialog(DIALOG_GENERIC);
                         } else {
-                            if (restoreTask == null
-                                    || restoreTask.getStatus() == Status.FINISHED) {
-                                restoreTask = new RestoreTask(this.isPartialRestoreClicked);
-                                restoreTask.execute(restoreUri);
-                            } else {
-                                JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
-                                        "RestoreTask in invalid state");
-                            }
+                            this.restorePath = restoreUri;
+                            showDialog(DIALOG_RESTORE_DATASTORE_PARTIAL);
                         }
                         
                     }
@@ -574,6 +572,49 @@ public class ManageActivity extends Activity {
                                 dismissDialog(DIALOG_DELETE_IDEOGRAM_CONFIRMATION);
                             }
                         });
+                alert = builder.create();
+                break;
+
+            case DIALOG_RESTORE_DATASTORE_FULL:
+            case DIALOG_RESTORE_DATASTORE_PARTIAL:
+                builder = new AlertDialog.Builder(this);
+                LayoutInflater restoreInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                final View restoreLayout = restoreInflater.inflate(R.layout.backup_restore_dialog,
+                        (ViewGroup) findViewById(R.id.restore_linear_layout));
+                final CheckBox restoreOver = (CheckBox) restoreLayout.findViewById(R.id.chkRestoreOverData);
+
+                final Button btnCancelRestore = (Button) restoreLayout.findViewById(R.id.btn_cancelRestore);
+                btnCancelRestore.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dismissDialog(id);
+                        finish();
+                    }
+                });
+
+                final Uri restoreUri = this.restorePath;
+                final Button btnRestore = (Button) restoreLayout.findViewById(R.id.btn_saveRestore);
+                final boolean isPartialRestore = this.isPartialRestoreClicked;
+                btnRestore.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dismissDialog(id);
+                        if (restoreTask == null
+                                || restoreTask.getStatus() == Status.FINISHED) {
+                            restoreTask = new RestoreTask(restoreOver.isChecked(), isPartialRestore);
+                            restoreTask.execute(restoreUri);
+                        } else {
+                            JTApp.logMessage(TAG, JTApp.LOG_SEVERITY_ERROR,
+                                    "RestoreTask in invalid state");
+                        }
+                    }
+                });
+
+                builder.setTitle(R.string.dialog_title_restore_dataset);
+                builder.setIcon(R.drawable.ic_action_restore);
+                builder.setView(restoreLayout);
+                builder.setCancelable(true);
+
                 alert = builder.create();
                 break;
 
@@ -801,10 +842,12 @@ public class ManageActivity extends Activity {
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         PowerManager.WakeLock m_wakeLock;
         private boolean errorFlag = false;
+        private boolean isOverWriteData = false;
         private boolean isPartialRestore = false;
 
-        public RestoreTask(boolean restorePartial) {
-            isPartialRestore = restorePartial;
+        public RestoreTask(boolean overWriteData, boolean isPartialRestore) {
+            this.isOverWriteData = overWriteData;
+            this.isPartialRestore = isPartialRestore;
         }
 
         @Override
@@ -820,10 +863,10 @@ public class ManageActivity extends Activity {
         protected Void doInBackground(Uri... params) {
             Uri fileName = params[0];
             try {
-                if (!isPartialRestore) {
-                    JTApp.getDataStore().restoreFullDataStore(fileName);
+                if (this.isPartialRestore | !isOverWriteData) {
+                    JTApp.getDataStore().restorePartialDataStore(fileName, m_selectedGram, isOverWriteData);
                 } else {
-                    JTApp.getDataStore().restorePartialDataStore(fileName, m_selectedGram);
+                    JTApp.getDataStore().restoreFullDataStore(fileName);
                 }
             } catch (Exception e) {
                 errorFlag = true;

@@ -135,6 +135,7 @@ public class DataStore {
         }
     }
 
+
     public void clearTempDirectory() {
         try {
             File path = getTempDirectory();
@@ -290,6 +291,28 @@ public class DataStore {
             }
         }
         return dir.delete();
+    }
+
+    private void deleteIdeogramChildren(String id) {
+
+        Ideogram gram = m_ideogramMap.get(id);
+        if (gram != null) {
+            List<Ideogram> deleteList = new LinkedList<>();
+            for (Ideogram child : gram.getChildren(true)) {
+                if (child.getType() == Type.Category) {
+                    deleteList.addAll(getAllIdeogramsForCategory(child));
+                } else {
+                    deleteList.add(child);
+                }
+            }
+
+            gram.getChildren(true).removeAll(deleteList);
+
+            // Delete all files for ideogram and ideogram's children
+            for (Ideogram g : deleteList) {
+                m_ideogramMap.remove(g.getId());
+            }
+        }
     }
 
     private void cloneIdeogram(Ideogram source, File baseDirectory, Ideogram target) throws JabException {
@@ -558,9 +581,13 @@ public class DataStore {
         refreshStore();
     }
 
-    public void restorePartialDataStore(Uri sourceFileUri, Ideogram parent) throws JabException {
+    public void restorePartialDataStore(Uri sourceFileUri, Ideogram parent, boolean deleteExistingData) throws JabException {
         try {
             clearTempDirectory();
+            if (deleteExistingData){
+                this.deleteIdeogramChildren(parent.getId());
+            }
+
             restoreDataStore(sourceFileUri, getTempDirectory(), false);
             Ideogram tempGram = loadJsonFromFile(new File(getTempDirectory(), FILE_JSON_DATASET), false);
             if (tempGram != null) {

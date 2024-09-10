@@ -5,10 +5,10 @@ android {
 
     defaultConfig {
         applicationId "com.jabstone.jabtalk.basic"
-        minSdkVersion 26
+        minSdkVersion 27
         targetSdk 34
-        versionCode 531
-        versionName '5.3.1'
+        versionCode 532
+        versionName '5.3.2'
     }
 
     buildTypes {
@@ -20,7 +20,9 @@ android {
 
 
     dependencies {
-        implementation 'androidx.appcompat:appcompat:1.6.1'
+        implementation 'androidx.appcompat:appcompat:1.7.0'
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     }
     namespace 'com.jabstone.jabtalk.basic'
     lint {
